@@ -1,0 +1,10 @@
+{
+  "code": "Mã ứng dụng",
+  "name": "Tên ứng dụng",
+  "names": {
+    "customer": "Khách hàng",
+    "ecm": "Tài liệu"
+  },
+  "objectName": "Ứng dụng",
+  "tableTitle": "Danh sách ứng dụng"
+}

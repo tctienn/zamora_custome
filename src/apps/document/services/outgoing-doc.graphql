@@ -1,0 +1,239 @@
+extend type Query {
+    findByDocOutById(userDeptRole: UserDeptRole!, id: String!): OutgoingDoc
+    docOutDrafts(search: DocOutSearch, userDeptRole: UserDeptRole!, pageable: Pageable): OutgoingDocConnection
+    docOutWaitingProcess(search: DocOutSearch, userDeptRole: UserDeptRole!, pageable: Pageable): OutgoingDocConnection
+    docOutProcessing(search: DocOutSearch, userDeptRole: UserDeptRole!, pageable: Pageable): OutgoingDocConnection
+    docOutWaitingIssued(search: DocOutSearch, userDeptRole: UserDeptRole!, pageable: Pageable): OutgoingDocConnection
+    docOutIssued(search: DocOutSearch, userDeptRole: UserDeptRole!, pageable: Pageable): OutgoingDocConnection
+    docOutIssuedInDept(search: DocOutSearch, userDeptRole: UserDeptRole!, pageable: Pageable): OutgoingDocConnection
+    docOutWaitingComments(search: DocOutSearch, userDeptRole: UserDeptRole!, pageable: Pageable): OutgoingDocConnection
+    docOutCommented(search: DocOutSearch, userDeptRole: UserDeptRole!, pageable: Pageable): OutgoingDocConnection
+    docOutRevoked(search: DocOutSearch, userDeptRole: UserDeptRole!, pageable: Pageable): OutgoingDocConnection
+
+    countDocOutDrafts(search: DocOutSearch, userDeptRole: UserDeptRole!): Int
+    countDocOutWaitingProcess(search: DocOutSearch, userDeptRole: UserDeptRole!): Int
+    countDocOutProcessing(search: DocOutSearch, userDeptRole: UserDeptRole!): Int
+    countDocOutWaitingIssued(search: DocOutSearch, userDeptRole: UserDeptRole!): Int
+    countDocOutIssued(search: DocOutSearch, userDeptRole: UserDeptRole!): Int
+    countDocOutIssuedInDept(search: DocOutSearch, userDeptRole: UserDeptRole!): Int
+    countDocOutWaitingComments(search: DocOutSearch, userDeptRole: UserDeptRole!): Int
+    countDocOutCommented(search: DocOutSearch, userDeptRole: UserDeptRole!): Int
+    countDocOutRevoked(search: DocOutSearch, userDeptRole: UserDeptRole!): Int
+    countDocOutOverdue(userDeptRole: UserDeptRole!): Int
+    countDocOutDeadline(daysBefore: Int, userDeptRole: UserDeptRole!): Int
+
+    docOutRelatedUsers(docId:String!, userDeptRole: UserDeptRole!): [DocUser]
+
+    canRevokeDocOut(docId:String, userDeptRole: UserDeptRole!):Boolean
+    getListCanRevokeDocOut(docId:String, userDeptRole: UserDeptRole!):[CanRevoke]
+    getFilesFromSystemDocOut(userDeptRole: UserDeptRole!): [FilesSystemModel]
+    findByIdIn(userDeptRole: UserDeptRole!, ids: [String]): [OutgoingDoc]
+    reportDocOut(userDeptRole: UserDeptRole!,reportDocOutModel: ReportDocOutModel):[ReportDocOutData]
+
+    getAllDocOutByUserId(page: Pageable): OutgoingDocConnection
+}
+extend type Mutation {
+    outFlowAction(currentProcessId: String!, outgoingProcesses: [OutgoingProcessInput]!, userDeptRole: UserDeptRole!, result: String!, moreInfo:AdditionalInfoFlowAction): Boolean
+    promulgate(docId: String, userDeptRole: UserDeptRole): Boolean
+    #    sendDocOutBack(processId: String!, userDeptRole: UserDeptRole!, moreInfo: AdditionalInfoFlowAction): Boolean
+    deleteDocOut(id: String!, userDeptRole: UserDeptRole!): Boolean
+    revokeDocOut(revokeModelInput:RevokeModelInput,userDeptRole:UserDeptRole!):RevokeModelDocOut
+
+}
+
+input DocOutSearch {
+    docDateFrom: Date
+    docDateTo: Date
+    searchTimeFrom: DateTime
+    searchTimeTo: DateTime
+    processType: OutGoingProcessType
+    quote:String
+    bookName:String
+    bookNumber:Int
+    docCode:String
+    subBookNumber:String
+    signerId:String
+    signerName:String
+    publisherId:String
+    publisherName:String
+    docTypeId:[String]
+    docTypeName:String
+    priorityCode:String
+    securityCode:String
+    areaId:[String]
+    areaName:String
+    deadlineNumber:Int
+    numberOfPage:Int
+    numberOfCopy:Int
+    isReply:Boolean
+    replyFor:String
+    note:String
+    copyFrom:String
+    editorId:String
+    editorName:String
+    editorDeptId:String
+    editorDeptName:String
+    editorRoleId:String
+    editorRoleName:String
+    identifyCode:String
+    qrCode:String
+    fileId:String
+    status:[StatusProcess]
+    docStatus:[OutgoingDocStatus]
+    isLawDocument:Boolean
+    signTime:DateTime
+    signType:SignType
+    publishType:PublisherType
+    sendBackType:DocSendBackType
+    isDeleted:String
+    issuingDeptId:[String]
+    issuingDeptName:String
+    issuingUserId:String
+    issuingUserName:String
+    advice:String
+    isFromOutsidePaper:Boolean
+    issuerId:String
+    issuerName:String
+    issuerDeptId:String
+    issuerDeptName:String
+    issuerRoleId:String
+    issuerRoleName:String
+    incomingDocId:String
+    readStatus: Boolean
+    receiveInIds:[String]
+    receiveOutIds:[String]
+    handler:String
+}
+
+type OutgoingDoc {
+    id: String
+    bookId: String
+    bookName: String
+    bookNumber: Float
+    docCode: String
+    subBookNumber: String
+    docDate: Date
+    signerId: String
+    signerName: String
+    publisherId: String
+    publisherName: String
+    docTypeId: String
+    docTypeName: String
+    priorityCode: String
+    securityCode: String
+    areaId: String
+    areaName: String
+    deadlineDate: Date
+    deadlineNumber: Float
+    numberOfPage: Int
+    numberOfCopy: Int
+    quote: String
+    isReply: Boolean
+    replyFor: String
+    note: String
+    copyFrom: String
+    editorId: String
+    editorName: String
+    editorDeptId: String
+    editorDeptName: String
+    editorRoleId: String
+    editorRoleName: String
+    identifyCode: String
+    qrCode: String
+    fileId: String
+    status: OutgoingDocStatus
+    isLawDocument: Boolean
+    signTime: DateTime
+    signType: SignType
+    publishType: PublisherType
+    isDeleted: Boolean
+    issuingDeptId: String
+    issuingDeptName: String
+    issuingUserId: String
+    issuingUserName: String
+    sendBackType: DocSendBackType
+    advice: String
+    createdBy: String
+    createdTime: DateTime
+    lastModifiedBy: String
+    lastModifiedTime: DateTime
+    isFromOutsidePaper: Boolean
+    flowId: String
+
+    processId: String
+    commentId: String
+    incomingDocId: String
+    receivers: [OutgoingDocReceiver]
+    outGoingAttachments: [Attachment]
+    outGoingFilesRelate: [Attachment]
+    docInBook: DocInBook
+    comment: Comment
+    process: OutgoingProcess
+    incomingDoc: IncomingDoc
+    isSigned: Boolean
+}
+
+enum OutgoingDocStatus {
+    DU_THAO,
+    DANG_TRINH,
+    CHO_BAN_HANH,
+    DA_BAN_HANH,
+}
+
+enum  SignType {
+    KY_GIAY, KY_DIEN_TU
+}
+
+type OutgoingDocConnection {
+    totalCount: Int
+    pageInfo: PageInfo
+    edges: [OutgoingDocEdge]
+}
+
+type OutgoingDocEdge {
+    cursor: String
+    node: OutgoingDoc
+}
+
+type FilesSystemModel {
+    docId: String
+    quote: String
+    docDate: Date
+    docCode: String
+    attachmentId: String
+    fullName: String
+    objectId: String
+    fileName: String
+    fileExtension: String
+    filePath: String
+    size: String
+}
+type RevokeModelDocOut{
+    outgoingProcessIds:[String]
+    commentIds:[String]
+    reason:String
+}
+
+type ReportDocOutData{
+    id: String
+    docDate: Date
+    bookName: String
+    docCode: String
+    quote: String
+    priorityCode: String
+    signerName: String
+    issuerDeptName: String
+    numberOfCopy: String
+    docTypeName: String
+}
+
+input ReportDocOutModel{
+    id: String,
+    publisherId: String,
+    issueDateFrom: Date,
+    issueDateTo: Date,
+    docDateFrom: Date,
+    docDateTo: Date,
+    structureType: String
+}
+

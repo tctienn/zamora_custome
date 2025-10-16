@@ -1,0 +1,11 @@
+{
+  "titleForm": "Phòng họp/Địa điểm họp",
+  "nameMeetingRoom": "Tên phòng họp",
+  "address": "Địa chỉ",
+  "status": "Trạng thái",
+  "norder": "Số thứ tự",
+  "imgMeetingRoom": "Hình ảnh phòng họp",
+  "error": {
+    "requiredName": "Tên phòng họp không được để trống."
+  }
+}

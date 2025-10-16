@@ -1,0 +1,47 @@
+extend type Query {
+    countAllByTaskId(taskId:String):CountCheckList
+}
+
+extend type Mutation {
+    deleteCheckList(checkListId:String):Boolean
+    addCheckList(checkListInput: CheckListInput): CheckList
+    completeCheckList(checkListId: String): CheckList
+    incompleteCheckList(checkListId: String): CheckList
+    updateCheckList(id:String,checkListInput: CheckListInput): CheckList
+}
+
+type CheckList {
+    id: String
+    name: String!
+    taskId: String
+    deadline: DateTime
+    isComplete: Boolean
+    completedTime: DateTime
+    orderNo: Int
+    implementerId: String
+    implementerName: String
+}
+
+type CheckListCount {
+    finished: Int
+    total: Int
+}
+
+input CheckListInput {
+    name: String!
+    taskId: String
+    id:String
+    deadline:DateTime
+    isComplete:Boolean
+    completedTime:DateTime
+    orderNo:Int
+    implementerId:String
+    implementerName:String
+    groupId:String
+}
+type CountCheckList{
+    all:Float
+    check:Float
+    uncheck:Float
+    overdue:Float
+}

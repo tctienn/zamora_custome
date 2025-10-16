@@ -1,0 +1,45 @@
+{
+  "createDate": "Creation time",
+  "creator": "Creator",
+  "error": {
+    "fileNameAlreadyExists": "The recovery file name already exists, please rename to continue recovery",
+    "folderNameAlreadyExists": "The recovery folder name already exists, please rename to continue recovery",
+    "invalidName": "Invalid name"
+  },
+  "format": "Format",
+  "message": {
+    "createFileSuccess": "File created successfully",
+    "createFolderSuccess": "Folder created successfully",
+    "deleteVersionSuccess": "Delete version successfully",
+    "renameSuccess": "Rename successful",
+    "statusComment": "You have just {status} the document discussion feature",
+    "turnOff": "turn off",
+    "turnOn": "turn on"
+  },
+  "name": "Name",
+  "path": "Path",
+  "size": "Size",
+  "tooltip": {
+    "turnOffComment": "Turn off document discussion",
+    "turnOnComment": "Turn on document discussion"
+  },
+  "type": "Type",
+  "updateDate": "Update time",
+  "updater": "Updater",
+  "version": "Version",
+  "versionActions": {
+    "create": "Add new",
+    "delete": "Delete",
+    "deleteVersion": "Delete version",
+    "revert": "Restore version",
+    "update": "Edit",
+    "viewVersion": "View version"
+  },
+  "versions": {
+    "action": "Action",
+    "actionAt": "Action moment",
+    "agent": "Agent",
+    "listVersion": "List of versions",
+    "revertConfirm": "Are you sure you want to restore this version?"
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "index": "STT",
+    "missionName": "Tên nhiệm vụ",
+    "description": "Mô tả thông tin nhiệm vụ",
+    "completionTime": "Thời gian hoàn thành",
+    "activityName": "Tên hoạt động",
+    "activityContent": "Nội dung hoạt động",
+    "hostUnit": "Đơn vị chủ trì",
+    "coordinatingUnit": "Đơn vị phối hợp",
+    "budget": "Kinh phí thực hiện",
+    "implementationWork": "Công việc thực hiện",
+    "otherInfo": "Các thông tin khác",
+    "jobName": "Tên công việc",
+    "executingUnit": "Đơn vị thực hiện",
+    "jobContent": "Nội dung công việc",
+    "startEndTime": "Thời gian bắt đầu/kết thúc",
+    "estimatedBudget": "Dự toán kinh phí",
+    "executor": "Nhân sự thực hiện"
+}

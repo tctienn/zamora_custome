@@ -1,0 +1,24 @@
+{
+  "actions": {
+    "saveToGroup": "Save to group document",
+    "saveToPersonnel": "Save to personal document"
+  },
+  "commentFile": "Comment document",
+  "groupConversation": "Group conversation",
+  "listConversation": "Conversation list",
+  "member": "Member",
+  "memberCount": "{count} members",
+  "name": "Conversation name",
+  "noAttachments": "There are no attachments.",
+  "personalConversation": "Personal conversation",
+  "sender": "Sender",
+  "sentAt": "Sent time",
+  "sortingOptions": {
+    "nameAsc": "Name from A-Z",
+    "nameDesc": "Name from Z-A",
+    "sentAtAsc": "Sent time: oldest",
+    "sentAtDesc": "Sent time: latest"
+  },
+  "totalAttachment": "Total number of attachments",
+  "type": "Type"
+}

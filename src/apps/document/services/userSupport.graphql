@@ -1,0 +1,41 @@
+extend type Query{
+    getUserSupportById(id: String): UserSupport
+    getUserSupportByUserIdAndDeptId(id: String, deptId: String): [UserSupport]
+    getUserSupportByUserIdAndUserSupportIdAndDeptId(userId: String, userSupportId: String, deptId: String): UserSupport
+    findByUserSupport(userDeptRole:UserDeptRole!):UserSupport
+}
+
+extend type Mutation{
+    saveUserSupport(userSupport: UserSupportModel): UserSupport
+    saveListUserSupport(userId: String,
+        userSupportList: String,
+        orgType: OrganizationType,
+        roleId: String,
+        deptId: String): Boolean
+    saveGeneralPermission(userId: String, supportsPermission: String, deptId: String): Boolean
+    deleteUserSupport(userId: String, userSupportId: String, deptId: String): UserSupport
+}
+
+input UserSupportModel {
+    id: String
+    userId: String
+    userSupportId: String
+    supportType: SupportType
+    supportPermission: [String]
+    supportsPermission: [String]
+    orgType: String
+    roleId: String
+    deptId: String
+}
+
+type UserSupport {
+    id: String
+    userId: String
+    userSupportId: String
+    supportType: SupportType
+    supportPermission: [String]
+    supportsPermission: [String]
+    orgType: String
+    roleId: String
+    deptId: String
+}

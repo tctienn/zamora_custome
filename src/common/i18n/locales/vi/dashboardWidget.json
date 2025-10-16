@@ -1,0 +1,30 @@
+{
+  "dashboardNote": {
+    "all": "Tất cả ({count})",
+    "group": "Nhóm ({count})",
+    "personal": "Cá nhân ({count})"
+  },
+  "editWidgets": "Chỉnh sửa tiện ích",
+  "hideChartDashboard": "Ẩn biểu đồ",
+  "listWidget": "Danh sách tiện ích",
+  "mainDashboard": "Màn hình chính",
+  "other": "Khác",
+  "showChartDashboard": "Hiển thị biểu đồ",
+  "sidebarDashboard": "Menu cạnh",
+  "widgets": {
+    "dashboardContact": "Hội thoại",
+    "dashboardEvent": "Lịch biểu",
+    "dashboardNote": "Ghi chú",
+    "ecmMyDocument": "Tài liệu của tôi",
+    "ecmMyGroup": "Nhóm của tôi",
+    "mediaAnnouncement": "Thông báo",
+    "mediaNews": "Tin tức",
+    "mediaHonor": "Vinh danh",
+    "mediaBirthday": "Sinh nhật",
+    "newsfeedPoll": "Thăm dò",
+    "newsfeedQuestionAnswer": "Hỏi đáp",
+    "newsfeedSurvey": "Khảo sát",
+    "workplaceMyWork": "Công việc của tôi",
+    "meetingWeekly": "Lịch họp tuần"
+  }
+}

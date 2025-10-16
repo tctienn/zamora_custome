@@ -1,0 +1,45 @@
+type OutgoingProcess{
+    id: String,
+    docId: String,
+    senderId: String,
+    senderName: String,
+    senderDeptId: String,
+    senderDeptName: String,
+    senderRoleId: String,
+    senderRoleName: String,
+    sendTime: DateTime,
+    receiverId: String,
+    receiverName: String,
+    receiverDeptId: String,
+    receiverDeptName: String,
+    receiverRoleId: String,
+    receiverRoleName: String,
+    processType: OutGoingProcessType,
+    sendType: OutgoingSendType,
+    status: StatusProcess,
+    flowInstanceId: String,
+    stepId: String,
+    actionType: String,
+    actionName: String,
+    parentId: String,
+    isRead: Boolean,
+    readTime: DateTime,
+    isComplete: Boolean,
+    completeTime: DateTime,
+    note: String,
+    orderProcess: Int,
+    delegateInfoId: String,
+    signType: SignType,
+    signTime: DateTime,
+    isDeleted: Boolean,
+
+    attachments:[Attachment]
+}
+
+enum OutgoingSendType {
+    CHUYEN_XL, TU_CHOI, XIN_Y_KIEN, TRA_LOI_Y_KIEN, CHO_BAN_HANH
+}
+
+enum StatusProcess {
+    CHO_XL, DANG_XL, DA_XL
+}

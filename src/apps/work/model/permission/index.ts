@@ -1,0 +1,46 @@
+export enum TaskAction {
+  UPDATE_INFO, CANCEL, STOP, COPY, CONFIGURE, DELETE,
+  UPDATE_IMPLEMENTER, UPDATE_COOPERATOR, UPDATE_SUPERVISOR, UPDATE_ASSESSOR,
+  UPDATE_ATTRIBUTES, COMMENT, VIEW_HISTORY,
+  CHANGE_DEADLINE, UPDATE_RESULT, UPDATE_EXPENSE, EVALUATE,
+}
+
+export type PermissionTask = {
+  isUpdateInfo: boolean,
+  isCancel: boolean,
+  isStop: boolean,
+  isCopy: boolean,
+  isConfigure: boolean,
+  isDelete: boolean,
+  isUpdateImplementer: boolean,
+  isUpdateCooperator: boolean,
+  isUpdateSupervisor: boolean,
+  isUpdateAssessor: boolean,
+  isUpdateAttributes: boolean,
+  isComment: boolean,
+  isViewHistory: boolean,
+  isChangeDeadline: boolean,
+  isUpdateResult: boolean,
+  isUpdateExpense: boolean,
+  isEvaluate: boolean,
+}
+
+export const allPermissionTask: PermissionTask = {
+  isUpdateInfo: true,
+  isCancel: true,
+  isStop: true,
+  isCopy: true,
+  isConfigure: true,
+  isDelete: true,
+  isUpdateImplementer: true,
+  isUpdateCooperator: true,
+  isUpdateSupervisor: true,
+  isUpdateAssessor: true,
+  isUpdateAttributes: true,
+  isComment: true,
+  isViewHistory: true,
+  isChangeDeadline: true,
+  isUpdateResult: true,
+  isUpdateExpense: true,
+  isEvaluate: true,
+};

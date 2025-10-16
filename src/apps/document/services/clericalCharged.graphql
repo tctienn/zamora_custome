@@ -1,0 +1,32 @@
+extend type Query{
+    getAllClericalChargedByOrgType(orgType: OrganizationType): [ClericalChargedGrouped]
+    getListClericalChargedByOrgType(orgType: OrganizationType): [ClericalCharged]
+}
+
+extend type Mutation{
+    saveListClericalCharged(data: ClericalChargeList): Boolean
+    deleteClericalChargedByUserId(userId: String): Boolean
+}
+
+input ClericalChargeList {
+    list: [Clerical]
+    orgType: OrganizationType
+}
+
+type ClericalCharged{
+    id: String
+    userId: String
+    deptId: String
+    orgType: OrganizationType
+    isDeleted: Boolean
+}
+
+input Clerical{
+    userId: String
+    deptIds: [String]
+}
+
+type ClericalChargedGrouped {
+    userId: String
+    deptIds: [String]
+}

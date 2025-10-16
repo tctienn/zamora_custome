@@ -1,0 +1,16 @@
+{
+  "chooseRolePermission": "Choose permission role",
+  "code": "Role code",
+  "description": "Description",
+  "message": {
+    "canNotDeleteRole": "You cannot delete this role because it is currently in use",
+    "codeIsEmpty": "Role code cannot be empty",
+    "deleteSuccess": "Delete role successfully",
+    "nameIsEmpty": "Role name cannot be empty"
+  },
+  "name": "Role name",
+  "objectName": "role",
+  "status": "Status",
+  "tableTitle": "List of roles",
+  "titleRolePermission": "Name of the permission role"
+}

@@ -1,0 +1,15 @@
+{
+  "objectName": "Task Evaluation",
+  "listTaskEvaluation": "List of Task Evaluations",
+  "result": "Result",
+  "pass": "Pass - Meets Requirements",
+  "notPass": "Not Pass - Close Task",
+  "point": "Evaluation Points",
+  "note": "Up to 10 points",
+  "description": "Comment",
+  "comment": "Enter a comment",
+  "message": {
+    "newDeadlineDayEmpty": "Date cannot be empty",
+    "newDeadlineTimeEmpty": "Time cannot be empty"
+  }
+}

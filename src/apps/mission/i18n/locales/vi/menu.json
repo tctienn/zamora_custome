@@ -1,0 +1,21 @@
+{
+  "missionDuty": "Nhiệm vụ",
+  "missionDutyManagement": "Quản lý nhiệm vụ",
+  "missionDutyActivity": "Hoạt động",
+  "missionDutyJob": "Công việc",
+  "missionDutyEvaluate": "Đánh giá",
+  "missionDutySetting": "Thiết lập",
+  "missionManagement": "Nhiệm vụ",
+  "missionDashboard": "Tổng hợp",
+  "activityManagement": "Hoạt động",
+  "jobManagement": "Công việc",
+  "noteRateManagement": "Đánh giá",
+  "missionDutyReport": "Báo cáo",
+  "missionFocusReport": "Nhiệm vụ trọng tâm (01A-PL)",
+  "missionActivityReport": "Hoạt động theo nhiệm vụ (01B-PL)",
+  "missionJobReport": "Công viêc theo hoạt động (01C)",
+  "missionAssignmentReport": "Phân công công việc theo hoạt động (01D)",
+  "missionFunctionConfig": "Thiết lập",
+  "missionParameterConfig": "Cài đặt tham số",
+  "folderManagement": "Hồ sơ"
+}

@@ -1,0 +1,24 @@
+{
+  "actions": {
+    "saveToGroup": "Lưu về tài liệu nhóm",
+    "saveToPersonnel": "Lưu về tài liệu cá nhân"
+  },
+  "commentFile": "Thảo luận tài liệu",
+  "groupConversation": "Hội thoại nhóm",
+  "listConversation": "Danh sách cuộc hội thoại",
+  "member": "Thành viên",
+  "memberCount": "{count} thành viên",
+  "name": "Tên hội thoại",
+  "noAttachments": "Không có tệp đính kèm.",
+  "personalConversation": "Hội thoại cá nhân",
+  "sender": "Người gửi",
+  "sentAt": "Thòi gian gửi",
+  "sortingOptions": {
+    "nameAsc": "Tên từ A-Z",
+    "nameDesc": "Tên từ Z-A",
+    "sentAtAsc": "Thời gian gửi: cũ nhất",
+    "sentAtDesc": "Thời gian gửi: mới nhất"
+  },
+  "totalAttachment": "Tổng số tệp đính kèm",
+  "type": "Loại"
+}

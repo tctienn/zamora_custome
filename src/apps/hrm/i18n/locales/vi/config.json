@@ -1,0 +1,41 @@
+{
+  "unit": {
+    "title": "1. Tự động tăng mã cấp trên quản lý nhân sự",
+    "description": "Là bộ mã quản lý do cấp trên quản lý, áp dụng đối với mô hình phân cấp (Công ty mẹ/Tổng công ty) áp dụng cho toàn hệ thống. Bộ mã này được sử dụng trong hồ sơ nhân sự.",
+    "example": "Ví dụ: Ký hiệu là RVT, độ dài là 4, khới tạo giá trị là 0 thì hệ thống tự động sinh ra mã quản lý cấp trên là: ",
+    "ex": "RVT0001"
+  },
+  "employee": {
+    "title": "2. Tự động tăng mã nhân sự của đơn vị",
+    "description": "Là bộ mã nhân sự tự động sinh ra của chính đơn vị mình, bộ mã này được sử dụng trong hồ sơ nhân sự và được coi là mã định danh nhân sự.",
+    "example": "Ví dụ: Ký hiệu là ZMR, độ dài là 4, khới tạo giá trị là 0 thì hệ thống tự động sinh ra mã nhân sự là: ",
+    "ex": "ZMR0001"
+  },
+  "contract": {
+    "title": "3. Tự động tăng số hợp đồng lao động",
+    "description": "Đây là bộ mã số hợp đồng tự động sinh ra của chính đơn vị mình, số hợp đồng này được sử dụng trong hợp đồng lao động.",
+    "example": "Ví dụ: Ký hiệu là ZMR, độ dài là 4, khới tạo giá trị là 0 thì hệ thống tự động sinh ra mã nhân sự là: ",
+    "ex": "ZMR0001"
+  },
+  "recruitment_candidate": {
+    "title": "6. Tự động tăng mã ứng viên của tuyển dụng",
+    "description": "Là bộ mã ứng viên tự động sinh ra, bộ mã này được sử dụng trong quản lý tuyển dụng và được coi là mã định danh ứng viên.",
+    "example": "Ví dụ: Ký hiệu là UV, độ dài là 4, khới tạo giá trị là 0 thì hệ thống tự động sinh ra mã ứng viên là: ",
+    "ex": "UV0001"
+  },
+  "recruitment_campaign": {
+    "title": "7. Tự động tăng mã chiến dịch của tuyển dụng",
+    "description": "Là bộ mã chiến dịch tự động sinh ra, bộ mã này được sử dụng trong quản lý tuyển dụng và được coi là mã định danh chiến dịch.",
+    "example": "Ví dụ: Ký hiệu là CD, độ dài là 4, khới tạo giá trị là 0 thì hệ thống tự động sinh ra mã chiến dịch là: ",
+    "ex": "CD0001"
+  },
+  "evaluation": {
+    "title": "8. Thời hạn gửi bảng đánh giá"
+  },
+  "timekeeping": {
+    "title": "9. Thời hạn gửi bảng chấm công"
+  },
+  "toDate": "Đến ngày",
+  "fromDate": "Từ ngày",
+  "everyMonth": "(hàng tháng)"
+}

@@ -1,0 +1,7 @@
+{
+  "status": {
+    "waitingAccept": "Chờ đồng ý",
+    "accepted": "Đã đồng ý",
+    "rejected": "Đã từ chối"
+  }
+}

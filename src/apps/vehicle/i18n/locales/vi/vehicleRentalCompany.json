@@ -1,0 +1,13 @@
+{
+  "code": "Mã công ty",
+  "name": "Tên công ty",
+  "address": "Địa chỉ",
+  "phone": "Điện thoại",
+  "email": "Email",
+  "website": "Website",
+  "taxCode": "Mã số thuế",
+  "contactPerson": "Người liên hệ",
+  "contactPhone": "Số điện thoại",
+  "requiredCode": "Mã công ty là bắt buộc",
+  "requiredName": "Tên công ty là bắt buộc"
+}

@@ -1,0 +1,50 @@
+{
+  "add": "Add employee",
+  "addUser": "Add user to group",
+  "addUserGroup": "Add user group",
+  "createBy": "Creator",
+  "createDate": "Creation date",
+  "decentralization": "Decentralization",
+  "deleteUser": "Delete user",
+  "description": "Description",
+  "descriptionEmpty": "Description cannot be empty",
+  "detail": "Details",
+  "email": "Email",
+  "error": {
+    "canNotRemoveMember": "The group must have at least 1 member with the role of administrator"
+  },
+  "group": "group",
+  "groupLeader": "Group leader",
+  "groupName": "Group name",
+  "groupType": "Group type",
+  "groupTypeEmpty": "Group type cannot be empty",
+  "level": "Level",
+  "listUser": "List of employees in the department",
+  "manageGroup": "Manage group",
+  "manageMember": "Manage members",
+  "managerName": "Manager",
+  "message": {
+    "validateLeveNotNull": "Level cannot be empty."
+  },
+  "nameEmpty": "Name cannot be empty",
+  "permission": {
+    "contribute": "Contribute",
+    "editor": "Edit",
+    "full_control": "Full control",
+    "read": "Read",
+    "title": "Permissions",
+    "view": "View"
+  },
+  "role": "Assign role",
+  "showListUser": "Show list of employees",
+  "totalUser": "Number of members",
+  "typeOfPrivacy": "Privacy type",
+  "typePrivacyEmpty": "Privacy type cannot be empty",
+  "types": {
+    "manage": "Manage",
+    "member": "Member"
+  },
+  "userGroup": "Manage user groups",
+  "userGroupName": "Group",
+  "userName": "User"
+}

@@ -1,0 +1,85 @@
+{
+  "summary": "Tóm tắt",
+  "content": "Nội dung",
+  "honor": "Vinh danh",
+  "views": "{count} người đã xem",
+  "otherEmotions": "{count} người đã tương tác",
+  "selfEmotions": "Bạn đã tương tác",
+  "emotions": "Bạn và {count} người khác đã tương tác",
+  "list": "Danh sách",
+  "buttons": {
+    "browser": "Trình duyệt",
+    "browsed": "Duyệt",
+    "back": "Trả lại"
+  },
+  "announcement": {
+    "name": "Thông báo",
+    "announcementInternal": "Thông báo nội bộ",
+    "nameLowerCase": " thông báo",
+    "titleColumn": "Tiêu đề/Tên thông báo",
+    "announcementName": "Tên thông báo",
+    "chooseSubAnnouncement": "Chọn thông báo liên quan",
+    "subAnnouncement": "Thông báo liên quan",
+    "isHighlight": "Là thông báo nổi bật",
+    "imgAnnouncement": "Ảnh thông báo"
+  },
+  "news": {
+    "name": "Tin tức",
+    "newInternal": "Tin tức nội bộ",
+    "nameLowerCase": " tin tức",
+    "titleColumn": "Tiêu đề/Tên tin tức",
+    "announcementName": "Tên tin tức",
+    "chooseSubAnnouncement": "Chọn tin tức liên quan",
+    "subAnnouncement": "Tin tức liên quan",
+    "isHighlight": "Là tin tức nổi bật",
+    "imgAnnouncement": "Ảnh tin tức"
+  },
+  "table": {
+    "title": "Tiêu đề",
+    "type": "Thuộc nhóm",
+    "allowEmoji": "Cho phép thả biểu cảm",
+    "allowComment": "Cho phép bình luận",
+    "chooseImg": "Click để chọn ảnh",
+    "nOrder": "Số thứ tự",
+    "createdTime": "Ngày tạo",
+    "createdBy": "Người tạo",
+    "viewCount": "Lượt xem",
+    "review": "Review xem trước",
+    "process": "Xem quy trình luân chuyển",
+    "evict": "Thu hồi",
+    "seen": "Đã xem",
+    "outstanding": "Nổi bật",
+    "status": "Trạng thái",
+    "setStatus": "Thiết lập trạng thái",
+    "chooseGroup": "Chọn nhóm",
+    "titleSetStatus": "Bảng thiết lập trạng thái",
+    "statuses": {
+      "draft": "Dự thảo",
+      "pending": "Chờ duyệt",
+      "give_back": "Trả lại",
+      "refuse": "Từ chối",
+      "approved": "Đã duyệt",
+      "evict": "Thu hồi",
+      "cancel": "Hủy"
+    }
+  },
+  "update": "Cập nhật",
+  "create": "Tạo mới",
+  "delete": "Xóa",
+  "error": {
+    "titleCantEmpty": "Tiêu đề không được để trống.",
+    "summaryCantEmpty": "Tóm tắt không được để trống.",
+    "contentCantEmpty": "Nội dung không được để trống."
+  },
+  "message": {
+    "updateSuccess": "Cập nhật thông tin thành công.",
+    "createSuccess": "Thêm mới thông tin thành công."
+  },
+  "position": "Chức vụ/Chức danh",
+  "dayLabels": {
+    "yesterday": "Hôm qua",
+    "today": "Hôm nay",
+    "tomorrow": "Ngày mai",
+    "dayAfterTomorrow": "Ngày kia"
+  }
+}

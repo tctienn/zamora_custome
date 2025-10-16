@@ -1,0 +1,7 @@
+{
+  "error": {
+    "deadlineAfterEndDeadline": "Hạn xử lý không được quá hạn xử lý chung của văn bản",
+    "deadlineBeforeNow": "Hạn xử lý không được sớm hơn hiện tại",
+    "deadlineNumber": "Số ngày xử lý không được nhỏ hơn không"
+  }
+}

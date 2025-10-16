@@ -1,0 +1,100 @@
+extend type Query {
+    findDocSubmitById(id: String): DocSubmit
+
+    docSubmitDrafts(search: DocSubmitSearch, userDeptRole: UserDeptRole!, pageable: Pageable): DocSubmitConnection
+    docSubmitWaitingProcess(search: DocSubmitSearch, userDeptRole: UserDeptRole!, pageable: Pageable): DocSubmitConnection
+    docSubmitProcessing(search: DocSubmitSearch, userDeptRole: UserDeptRole!, pageable: Pageable): DocSubmitConnection
+    docSubmitProcessed(search: DocSubmitSearch, userDeptRole: UserDeptRole!, pageable: Pageable): DocSubmitConnection
+    docSubmitWaitingComment(search: DocSubmitSearch, userDeptRole: UserDeptRole!, pageable: Pageable): DocSubmitConnection
+    docSubmitCommented(search: DocSubmitSearch, userDeptRole: UserDeptRole!, pageable: Pageable): DocSubmitConnection
+    docSubmitRevoked(search: DocSubmitSearch, userDeptRole: UserDeptRole!, pageable: Pageable): DocSubmitConnection
+
+    countDocSubmitDrafts(search: DocSubmitSearch, userDeptRole: UserDeptRole!): Int
+    countDocSubmitWaitingProcess(search: DocSubmitSearch, userDeptRole: UserDeptRole!): Int
+    countDocSubmitProcessing(search: DocSubmitSearch, userDeptRole: UserDeptRole!): Int
+    countDocSubmitProcessed(search: DocSubmitSearch, userDeptRole: UserDeptRole!): Int
+    countDocSubmitWaitingComment(search: DocSubmitSearch, userDeptRole: UserDeptRole!): Int
+    countDocSubmitCommented(search: DocSubmitSearch, userDeptRole: UserDeptRole!): Int
+    countDocSubmitRevoked(search: DocSubmitSearch, userDeptRole: UserDeptRole!): Int
+    canRevokeDocSubmit(docId:String,userDeptRole: UserDeptRole):Boolean
+    listRevokeDocSubmit(docId:String,userDeptRole: UserDeptRole): [CanRevoke]
+}
+
+extend type Mutation {
+    deleteDocSubmit(id: String): Boolean
+    revokeDocSubmit(revokeDocSubmitInput: RevokeDocSubmitModel, userDeptRole: UserDeptRole):Boolean
+}
+
+type DocSubmit{
+    id: String,
+    fileId: String,
+    docLocation: String,
+    docDate: DateTime,
+    docType: String,
+    about: String,
+    submitToIds: String,
+    submitToNames: String,
+    workSummary: String,
+    proposeOpinion: String,
+    fileInclude: String,
+    editorId: String,
+    editorName: String,
+    editorRoleId: String
+    editorRoleName: String
+    editorDeptId: String
+    editorDeptName: String
+    opinion1: String,
+    opinion2: String,
+    opinion3: String,
+    opinion4: String,
+    opinion5: String,
+    opinion6: String,
+    status: String,
+    sendBackType: String,
+    isDeleted: Boolean,
+    fromDeptPresentId: String,
+    fromDeptPresentName: String,
+    number: String,
+    symbol: String,
+    year: Int,
+    securityCode: String,
+    dateInput: Date,
+    numberSubmissions: String,
+    toDeptPresentId: String,
+    toDeptPresentName: String,
+    flowId: String,
+    leaderOpinion: String,
+    docOutIds: [String],
+
+    createdTime: DateTime,
+    createdBy: String,
+    processId: String,
+    commentId: String,
+    process: DocSubmitProcess
+    comment: Comment
+    filePresentation: [Attachment]
+    relatedDocuments: [Attachment]
+}
+
+input DocSubmitSearch {
+    keyword: String
+    searchTimeFrom: DateTime
+    searchTimeTo: DateTime
+}
+
+type DocSubmitConnection {
+    totalCount: Int
+    pageInfo: PageInfo
+    edges: [DocSubmitEdge]
+}
+
+type DocSubmitEdge {
+    cursor: String
+    node: DocSubmit
+}
+
+input RevokeDocSubmitModel{
+    docSubmitProcessIds:[String]
+    commentIds:[String]
+    reason:String
+}

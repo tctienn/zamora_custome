@@ -1,0 +1,22 @@
+{
+  "title": "Hồ sơ, giấy tờ",
+  "documentName": "Tên loại giấy tờ",
+  "file": "File",
+  "additionalDate": "Ngày bổ sung",
+  "documentAlreadyExists": "{item} đã tồn tại",
+  "required": {
+    "title": "Bắt buộc",
+    "true": "Có",
+    "false": "Không"
+  },
+  "status": {
+    "title": "Trạng thái",
+    "UNSUBMISSION": "Chưa có",
+    "SUBMISSION": "Đã có"
+  },
+  "errors": {
+    "duplicateCode": "Đã tồn tại/trùng dữ liệu Mã nhân viên",
+    "Duplicate CCCD": "Đã tồn tại/trùng dữ liệu CCCD",
+    "Employee already has a draft": "Đã tồn tại bản nháp"
+  }
+}

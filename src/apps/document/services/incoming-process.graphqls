@@ -1,0 +1,66 @@
+extend type Query {
+    findByDocIdAndReceiverIsDept(docId:String,deptId:String):[IncomingProcess]
+    findByProcessId(processId: String): IncomingProcess
+    getAllProcessByDocIdForDrawRealFlow(docId: String, userDeptRole: UserDeptRole!): [IncomingProcess]
+    findLastProcessByDocId(docId: String, userDeptRole: UserDeptRole!): IncomingProcess
+}
+
+extend type Mutation {
+    readProcess(processId: String!): Boolean
+}
+
+type IncomingProcess{
+    id: String
+    docId: String
+    senderId: String
+    senderName: String
+    senderDeptId: String
+    senderDeptName: String
+    senderRoleId: String
+    senderRoleName:String
+    sendTime: DateTime
+    receiverId: String
+    receiverName: String
+    receiverDeptId: String
+    receiverDeptName: String
+    receiverRoleId: String
+    receiverRoleName: String
+    processType: ProcessType
+    sendType: SendType
+    status: DocStatus
+    deadlineDate: Date
+    deadlineNumber: Float
+    flowInstanceId: String
+    stepId: String
+    actionType: String
+    actionName: String
+    parentId: String
+    isRead: Boolean
+    readTime: DateTime
+    isComplete: Boolean
+    completeTime: DateTime
+    note: String
+    orderProcess: Int
+    delegateInfoId: String
+    isDeleted: Boolean
+    attachments: [Attachment]
+
+}
+
+input IncomingProcessInput {
+    receiverId: String
+    receiverName: String
+    receiverDeptId: String
+    receiverDeptName: String
+    receiverRoleId: String
+    receiverRoleName: String
+    deadlineDate: Date
+    deadlineNumber: Float
+    processType:ProcessType
+}
+
+input AdditionalInfoFlowAction{
+    note:String
+    deadlineDate: Date
+    deadlineNumber:Float
+}

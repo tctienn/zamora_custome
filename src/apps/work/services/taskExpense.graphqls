@@ -1,0 +1,47 @@
+extend type Query {
+    findAllTaskExpenseByTaskId(taskId: String!): [TaskExpense]
+}
+
+extend type Mutation {
+    saveExpense(taskExpense: TaskExpenseInput, attachments: [Upload]): TaskExpense
+    deleteExpense(id: String!, taskId: String!): Boolean
+}
+
+type TaskExpense {
+    id: String,
+    taskId: String,
+    code: String,
+    type: String,
+    expenseCategory: String,
+    totalMoney: Float,
+    moneyType: MoneyType,
+    expenseTime: DateTime,
+    description: String,
+    payerId: String,
+    payerName: String,
+    receiverId: String,
+    receiverName: String,
+    lastModifiedBy: String
+    expenseAttachments: [Attachment]
+}
+
+input TaskExpenseInput {
+    id: String,
+    taskId: String,
+    code: String,
+    type: String,
+    expenseCategory: String,
+    totalMoney: Float,
+    moneyType: MoneyType,
+    expenseTime: DateTime,
+    description: String,
+    payerId: String,
+    payerName: String,
+    receiverId: String,
+    oldAttachmentIds: [String]
+    receiverName: String,
+}
+
+enum MoneyType {
+    CASH, TRANSFER, CREDIT, OTHER
+}

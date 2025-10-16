@@ -1,0 +1,16 @@
+{
+  "titleTab": "Danh sách chứng chỉ",
+  "titleForm": "chứng chỉ",
+  "fromMonth": "Từ tháng/năm",
+  "toMonth": "Đến tháng/năm",
+  "name": "Tên chứng chỉ",
+  "trainingField": "Lĩnh vực đào tạo",
+  "trainingForm": "Hình thức đào tạo",
+  "issuingPlace": "Nơi đào tạo",
+  "result": "Kết quả",
+  "certificateType": "Loại chứng nhận",
+  "fromDate": "Ngày hiệu lực",
+  "toDate": "Ngày hết hiệu lực",
+  "version": "Phiên bản",
+  "releaseDate": "Lần phát hành"
+}

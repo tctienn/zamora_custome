@@ -1,0 +1,17 @@
+extend type Query{
+    getAllOrgConfig(type: OrganizationType): [OrgConfig]
+    getOrgChildrenByOrgId(id: String): [OrgConfig]
+}
+
+extend type Mutation{
+    saveOrgConfig(orgParentIds: String, orgChildIds: String, type: OrganizationType): Boolean
+    deleteOrgChild(orgParentId: String, orgChildId: String): Boolean
+    deleteOrgParent(orgParentId: String): Boolean
+}
+
+type OrgConfig {
+    id: String
+    orgParentId: String
+    orgChildId: String
+    type: OrganizationType
+}

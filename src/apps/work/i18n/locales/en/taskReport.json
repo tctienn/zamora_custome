@@ -1,0 +1,9 @@
+{
+  "objectName": "Task Report",
+  "status": {
+    "evaluated": "Evaluated",
+    "waitingEvaluate": "Waiting for Evaluation",
+    "reReported": "Re-Reported",
+    "requestReReport": "Request Re-Report"
+  }
+}

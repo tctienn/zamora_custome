@@ -1,0 +1,242 @@
+<template>
+  <DataTable
+    v-model:expandedRowGroups='expandedRowGroups'
+    class='full-height-table h-full p-datatable-gridlines p-datatable-md'
+    edit-mode='cell'
+    expandable-row-groups
+    group-rows-by='employeeOrganizationId'
+    :pt='{
+      column: {
+        bodyCell: bodyCellFunc
+      }
+    }'
+    row-group-mode='subheader'
+    row-hover
+    scroll-height='calc(100vh - 18.2rem)'
+    scrollable
+    show-gridlines
+    :value='localEmployees'>
+    <template #groupheader='{data}'>
+      <span
+        class='font-bold ml-2'
+        style='margin-bottom: 20px;'>{{ data.employeeOrganizationName }}</span>
+    </template>
+    <ColumnGroup type='header'>
+      <Row
+        v-for='(row, rowIndex) in headerConfig'
+        :key='rowIndex'>
+        <Column
+          v-for='col in row'
+          :key='col.key'
+          class='text-center'
+          :colspan='col.colspan || 1'
+          :frozen ='col.frozen'
+          :header='col.header'
+          :rowspan='col.rowspan || 1'
+          :style='col.style || {}'/>
+      </Row>
+    </ColumnGroup>
+    <Column
+      class='px-2 text-center'
+      frozen
+      header='STT'
+      style='width: 2%; padding-block: 0.75rem;'>
+      <template #body='slotProps'>
+        <div
+          class='align-items-center flex items-center justify-content-center'>
+          {{ slotProps.index + 1 }}
+        </div>
+      </template>
+    </Column>
+    <Column field='employeeOrganizationId'></Column>
+    <Column
+      v-for='col in columnOfficersConfig'
+      :key='col.key'
+      :class="['text-center', col.class || '']"
+      :frozen ='col.frozen'>
+      <template #body='{ data }'>
+        {{ data.score[col.key] ?? data[col.key]}}
+      </template>
+
+      <template
+        v-if='col.editable'
+        #editor='{ data }'>
+        <component
+          :is='resolveEditor(col)'
+          v-model='data.score[col.key]'
+          autofocus
+          class='excel-input p-inputtext-sm w-full'
+          v-bind='getEditorProps(col)'/>
+      </template>
+    </Column>
+  </DataTable>
+</template>
+
+<script setup lang="ts">
+import { cloneDeep } from 'lodash';
+import moment from 'moment';
+import type { ColumnState } from 'primevue/column';
+import InputNumber from 'primevue/inputnumber';
+import InputText from 'primevue/inputtext';
+import type { Ref } from 'vue';
+import { computed, inject, onMounted, ref, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+import { saveEvaluateEmployeeSummaryReportScore } from '@/apps/hrm/api/graphql/evaluate';
+import { type ColumnConfig, columnOfficersConfig, generateHeaderOfficersConfig } from '@/apps/hrm/constants/generateHeaderConfig';
+import {
+  toastError,
+  toastSuccess
+} from '@/common/helpers/custom-toast-service';
+
+import type { EvaluateReportSummaryDetail } from '../../../model/evaluate';
+
+const props = defineProps({
+  employeesSummary: {
+    type: Array as any,
+    default: () => []
+  }
+});
+
+const selectedSummaryReport = inject(
+  'selectedSummaryReport'
+) as Ref<EvaluateReportSummaryDetail | null>;
+const handleViewDetailSummary = inject('handleViewDetailSummary') as (id: string) => void;
+const isRefresh = inject('isRefresh', ref(0));
+type SaveHandlerRegister = (fn: () => void) => void;
+const registerSaveHandler =
+  inject<SaveHandlerRegister>('registerSaveHandler');
+
+const { mutate, onDone, onError } =
+  saveEvaluateEmployeeSummaryReportScore();
+const localEmployees = ref(cloneDeep(props.employeesSummary).sort(
+  (a:any, b:any) => (a.employeeOrganizationId ?? '').localeCompare(b.employeeOrganizationId ?? '')
+));
+const expandedRowGroups = ref<string[]>([]);
+
+const { t } = useI18n();
+const bodyCellFunc = (e: { state: ColumnState }) => ({ class: { 'pt-0 pb-0': e.state['d_editing'] } });
+const currentMonth = computed(() => {
+  const date = selectedSummaryReport.value?.summaryReport.monthReport;
+  return date ? moment(date).format('MM/YYYY') : '';
+});
+
+const prevMonth = computed(() => {
+  const date = selectedSummaryReport.value?.summaryReport.monthReport;
+  return date ? moment(date).subtract(1, 'month').format('MM/YYYY') : '';
+});
+const headerConfig = generateHeaderOfficersConfig(t, prevMonth.value, currentMonth.value);
+function onSaveListReport() {
+  const payload = {
+    reportId: selectedSummaryReport.value?.summaryReport.id,
+    evaluation: [
+      { employees: localEmployees.value }
+    ]
+  };
+  mutate({ saveEvaluateEmployeeSummaryReportScoreInput: payload });
+}
+
+onDone(() => {
+  toastSuccess({ message: t('Lưu bảng đánh giá thành công') });
+  if (selectedSummaryReport.value?.summaryReport.id) {
+    handleViewDetailSummary(selectedSummaryReport.value?.summaryReport.id);
+  }
+  isRefresh.value++;
+});
+
+onError(() => {
+  toastError();
+});
+
+const resolveEditor = (col: { componentType: string }) => {
+  switch (col.componentType) {
+  case 'number': return InputNumber;
+  case 'input': return InputText;
+  }
+};
+
+const getEditorProps = (col: ColumnConfig) => {
+  if (col.componentType === 'number') {
+    return {
+      min: col.min ?? 0,
+      max: col.max ?? 10,
+      mode: 'decimal',
+      minFractionDigits: col.minFractionDigits ?? 0,
+      maxFractionDigits: col.maxFractionDigits ?? 3,
+    };
+  }
+  return {};
+};
+
+watch(
+  localEmployees,
+  () => {
+    computeExtraScores();
+  },
+  { deep: true }
+);
+
+function roundCustom(num: number): number {
+  const intPart = Math.floor(num);
+  const decimal = num - intPart;
+
+  if (decimal <= 0.25) {
+    return intPart;
+  } else if (decimal <= 0.5) {
+    return intPart + 0.5;
+  } else {
+    return intPart + 1;
+  }
+}
+
+function computeExtraScores() {
+  localEmployees.value.forEach((emp: any) => {
+    if (emp.score.averageScoreOfMonthByWeek != null && emp.score.scoreOfBanTCNS != null) {
+      const total = Number(emp.score.averageScoreOfMonthByWeek) + Number(emp.score.scoreOfBanTCNS);
+      emp.score.scoreOfMonthByTruongBanAndBanTCNS = Math.min(total, 10);
+      emp.score.roundedScoreOfMonth = roundCustom(Math.min(total, 10));
+    }
+  });
+}
+
+onMounted(() => {
+  computeExtraScores(); 
+  registerSaveHandler?.(onSaveListReport);
+  expandedRowGroups.value = [...new Set<string>(localEmployees.value.map((e: any) => e.employeeOrganizationId as string).filter(Boolean))
+  ];
+});
+
+</script>
+
+<style scoped>
+
+:deep(.excel-input) {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  border-radius: 0;
+  padding: 0 7px;
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+}
+
+:deep(.excel-input .p-inputtext) {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  border-radius: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+}
+
+:deep(.p-cell-editing) {
+  border: 2px solid #217346;
+  padding: 0;
+  background-color: var(--surface-overlay);
+}
+</style>

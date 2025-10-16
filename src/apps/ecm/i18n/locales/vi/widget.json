@@ -1,0 +1,15 @@
+{
+  "group": {
+    "all": "Tất cả ({count})",
+    "favorite": "Nhóm yêu thích ({count})",
+    "files": "file tài liệu",
+    "manager": "Quản lý",
+    "member": "Thành viên",
+    "topics": "chủ đề thảo luận"
+  },
+  "myDocument": {
+    "allDocument": "Tất cả ({count})",
+    "recentDocuments": "Tài liệu gần đây ({count})",
+    "sharedDocuments": "Tài liệu được chia sẻ ({count})"
+  }
+}

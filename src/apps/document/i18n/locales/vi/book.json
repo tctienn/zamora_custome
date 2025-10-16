@@ -1,0 +1,33 @@
+{
+  "ADMINISTRATIVE": "Cơ cấu hành chính",
+  "PARTY": "Tổ chức đảng",
+  "UNION": "Tổ chức đoàn",
+  "code": "Mã Sổ văn bản",
+  "currentNumber": "Số hiện thời",
+  "default": "Mặc định",
+  "dept": " Đơn vị sở hữu",
+  "docCome": "Văn bản đến",
+  "docOut": "Văn bản đi",
+  "docSubmit": "Tờ trình",
+  "bookYear": "Năm",
+  "errors": {
+    "codeEmpty": "Mã Sổ văn bản không được để trống",
+    "codeExits": "Mã Sổ văn bản đã tồn tại",
+    "deptIdEmpty": "Đơn vị sở hữu không được để trống",
+    "nameEmpty": "Tên Sổ văn bản không được để trống"
+  },
+  "id": "Id Sổ văn bản",
+  "isAuto": "Tự động tạo sổ mới khi hết 31/12",
+  "isDefault": "Là sổ mặc định",
+  "isGenerateByBook": "Tự động tạo theo sổ",
+  "isGenerateByDoctype": "Tự động tạo theo số ký hiệu văn bản",
+  "name": "Tên Sổ văn bản",
+  "objectName": "Sổ văn bản ",
+  "prefix": "Ký hiệu",
+  "tableTitle": "Danh sách Sổ văn bản",
+  "type": "Loại sổ",
+  "validateField": {
+    "notNull": "Không được để trống"
+  },
+  "year": "Năm"
+}

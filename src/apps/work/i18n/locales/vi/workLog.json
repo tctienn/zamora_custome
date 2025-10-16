@@ -1,0 +1,17 @@
+{
+  "action": {
+    "create": "Tạo mới",
+    "update": "Cập nhật",
+    "read": "Đọc",
+    "delete": "Xóa",
+    "rename": "Đổi tên",
+    "clone": "Nhân bản"
+  },
+  "object": {
+    "work": "Công việc",
+    "discussion": "Thảo luận"
+  },
+  "from": "từ",
+  "to": "thành",
+  "changes": "Thay đổi"
+}

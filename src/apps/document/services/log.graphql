@@ -1,0 +1,18 @@
+extend type Query{
+    findLogByObjectId(objectId: String): [Log]
+}
+
+type Log {
+    id: String,
+    objectId: String,
+    docType: DocTypeEnum,
+    actionType: ActionType
+    createdTime: DateTime
+    createdBy: String
+    lastModifiedTime: DateTime
+    lastModifiedBy: String
+}
+
+enum ActionType {
+    CREATE, UPDATE, DELETE, READ
+}

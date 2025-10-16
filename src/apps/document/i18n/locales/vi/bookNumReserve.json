@@ -1,0 +1,24 @@
+{
+  "BookNumReserveExist": "Có số đã được giữ trước đó",
+  "bookName": "Tên sổ",
+  "bookNum": "Số xin",
+  "bookNumReserveList": "Danh sách đăng ký giữ số",
+  "bookType": "Loại văn bản",
+  "confirmDelete": "Xác nhận xóa đăng ký giữ số",
+  "createBookNumReserve": "Thêm mới giữ số",
+  "dateWant": "Ngày muốn cấp",
+  "deleteDone": "Xóa đăng ký giữ số thành công",
+  "errors": {
+    "bookDate": "Ngày muốn cấp không được để trống",
+    "bookId": "Tên sổ không được để trống",
+    "bookNumber": "Số xin không được để trống",
+    "bookType": "Loại văn bản không được để trống",
+    "requestUserId": "Người đăng ký không được để trống"
+  },
+  "note": "Ghi chú",
+  "objectName": "Đăng ký giữ số",
+  "registerDate": "Ngày đăng ký",
+  "registerUser": "Người đăng ký",
+  "saveDone": "Đăng ký giữ số thành công",
+  "updateBookNumReserve": "Chỉnh sửa giữ số"
+}

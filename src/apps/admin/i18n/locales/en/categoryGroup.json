@@ -1,0 +1,14 @@
+{
+  "apps": "Applications",
+  "code": "Category group code",
+  "codeEmpty": "Category group code cannot be empty.",
+  "errors": {
+    "categoryGroupCodeEmpty": "Category group code is empty",
+    "categoryGroupNotFound": "Shared category group does not exist"
+  },
+  "name": "Category group name",
+  "nameEmpty": "Category group name cannot be empty.",
+  "objectName": "Shared category group",
+  "parent": "Superior group",
+  "tableTitle": "Shared category group list"
+}

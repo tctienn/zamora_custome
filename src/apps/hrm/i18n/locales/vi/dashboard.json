@@ -1,0 +1,16 @@
+{
+  "warning": "Hệ thống cảnh báo",
+  "profileNotComplete": "Hồ sơ chưa đầy chủ thông tin cần thiết",
+  "contentMiss": "Nội dung thông tin thiếu",
+  "cccdNumber": "CCCD",
+  "phoneNumber": "số điện thoại",
+  "birthPlace": "nơi sinh",
+  "homeTown": "quê quán",
+  "maritalStatus": "tình trạng hôn nhân",
+  "currentAddress": "địa chỉ hiện tại",
+  "currentResidence": "nơi cư trú hiện tại",
+  "contractExpire": "Hợp đồng lao động sắp hết hạn",
+  "dueReappointment": "Đến hạn bổ nhiệm lại, quá hạn",
+  "degreesCertificates": "Chứng chỉ hết hạn",
+  "maternityLeave": "Hết hạn nghỉ thai sản"
+}

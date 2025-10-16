@@ -1,0 +1,31 @@
+extend type Query {
+    findAllByParamCodes(paramCodes: [String]): [TaskCommonSetting]
+}
+
+extend type Mutation {
+    saveTaskCommonSetting(taskCommonSettingInput: TaskCommonSettingInput): TaskCommonSetting
+}
+
+type TaskCommonSetting{
+    id: String,
+    groupCode: String,
+    paramCode: String,
+    paramValue: String,
+    description: String,
+    orderNo: Int,
+    tenantId: String,
+    isActive: Boolean,
+    isDelete: Boolean,
+}
+
+input TaskCommonSettingInput{
+    id: String,
+    groupCode: String,
+    paramCode: String,
+    paramValue: String,
+    description: String,
+    orderNo: Int,
+    tenantId: String,
+    isActive: Boolean,
+    isDelete: Boolean,
+}

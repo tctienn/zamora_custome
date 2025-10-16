@@ -1,0 +1,18 @@
+{
+  "titleForm": "quốc gia",
+  "code": "Mã quốc gia",
+  "name": "Tên quốc gia",
+  "sortOrder": "Số thứ tự",
+  "cityList": "Thành phố",
+  "setDefault":"Chọn là mặc định",
+  "city": {
+    "name": "Tên thành phố"
+  },
+  "required": {
+    "code": "Mã quốc gia là bắt buộc",
+    "name": "Tên quốc gia là bắt buộc",
+    "cityName": "Tên thành phố là bắt buộc"
+  },
+  "deleteInUseError": "Quốc gia này đang được sử dụng Không thể xóa.",
+  "cityNameDuplicate": "Tên thành phố đã tồn tại trong danh sách."
+}

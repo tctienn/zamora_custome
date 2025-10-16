@@ -1,0 +1,10 @@
+{
+  "addFixedHolidays": "Thêm ngày nghỉ lễ cố định",
+  "deleteFixedHolidays": "Xóa ngày nghỉ lễ cố định",
+  "HolidaysDuringTheYear": "Ngày nghỉ lễ trong năm",
+  "addHolidaysDuringTheYear": "Thêm ngày nghỉ lễ trong năm",
+  "deleteHolidaysDuringYear": "Xóa ngày nghỉ lễ trong năm",
+  "description": "Mô tả",
+  "configurationDeletedSuccessfully": "Xóa cấu hình thành công",
+  "addedNewConfigurationSuccessfully": "Thêm mới cấu hình thành công"
+}

@@ -1,0 +1,27 @@
+{
+  "capacityConfig": "Cấu hình dung lượng",
+  "capacity": "Dung lượng",
+  "capacityGeneralGroup": "Cấu hình dung lượng nhóm chung",
+  "capacityGeneralPerson": "Cấu hình dung lượng cá nhân chung",
+  "configCapacityTitlle": "Cấu hình dung lượng cá nhân/nhóm",
+  "configSuccess": "Cấu hình dung lượng thành công",
+  "error": {
+    "capacityEmpty": "Dung lượng không được để trống",
+    "capacityExceeded": "Dung lượng còn trống không đủ để upload file",
+    "configCapacityExist": "Cấu hình dung lượng đã tồn tại",
+    "invalidName": "Tên không hợp lệ",
+    "objectIdEmpty": "Đối tượng không được để trống",
+    "typeEmpty": "Loại cấu hình không được để trống",
+    "unitEmpty": "Đơn vị không được để trống"
+  },
+  "linkToManage": "Click để chuyển tới màn danh sách cấu hình cá nhân và nhóm...",
+  "name": "Tên",
+  "object": "Đối tượng",
+  "personOrGroup": "Cá nhân/nhóm",
+  "tooltipPercent": "Phần trăm: ",
+  "tooltipTotal": "Tổng số: ",
+  "tooltipUsed": "Đã sử dụng: ",
+  "typeConfig": "Loại cấu hình",
+  "unit": "Đơn vị",
+  "usageStatistics": "Thống kê dung lượng sử dụng"
+}

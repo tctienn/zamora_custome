@@ -1,0 +1,47 @@
+{
+  "account": "Tên tài khoản",
+  "email": "Hộp thư",
+  "forgotPassword": {
+    "accessEmail": "Truy cập email xác nhận để được cấp lại mật khẩu",
+    "accountNotMatch": "Tên đăng nhập và Email không hợp lệ",
+    "backToLogin": "Quay lại trang đăng nhập",
+    "confirmPassword": "Mật khẩu xác nhận",
+    "confirmPasswordNotMatch": "Mật khẩu xác nhận không khớp",
+    "confirmPasswordRequired": "Mật khẩu xác nhận không được để trống",
+    "inputEmail": "Nhập tài khoản email để lấy lại mật khẩu",
+    "inputNewPassword": "Nhập mật khẩu mới",
+    "newPassword": "Mật khẩu mới",
+    "recoveryPassword": "Lấy lại mật khẩu"
+  },
+  "gotoLogin": "Về trang đăng nhập",
+  "login": {
+    "captchaPlaceholder": "Nhập mật mã Captcha tại đây",
+    "emptyCaptcha": "Yêu cầu nhập Captcha",
+    "forgotPassword": "Quên mật khẩu",
+    "invalidCaptcha": "Mã Captcha không đúng, vui lòng thử lại (Yêu cầu nhập đúng chữ hoa, chữ thường)",
+    "loginSystem": "Đăng nhập hệ thống",
+    "passwordRequired": "Mật khẩu không được để trống",
+    "rememberMe": "Ghi nhớ đăng nhập",
+    "retrievingPermissionInformation": "Thông tin phân quyền",
+    "userLocked": "Tài khoản đang bị khóa",
+    "userNotAdmin": "Tài khoản không có vai trò ADMIN",
+    "userNotExits": "Tài khoản không tồn tại",
+    "usernameRequired": "Tài khoản không được để trống",
+    "verifyingAccount": "Đang xác thực tài khoản",
+    "welcomeMessage": "Đăng nhập để tiếp tục",
+    "wrongPassword": "Mật khẩu không chính xác",
+    "byQrCode": "Đăng nhập bằng mã QR"
+  },
+  "logout": {
+    "loggedOut": "Bạn đã đăng xuất!",
+    "loginAgain": "Đăng nhập lại",
+    "redirectingLogin": "Đang chuyển đến trang Đăng nhập sau ",
+    "redirectingLoginCountdown": "{count} giây"
+  },
+  "password": "Mật khẩu",
+  "resetPassword": {
+    "passwordChanged": "Mật khẩu đã được thay đổi"
+  },
+  "username": "Tên đăng nhập",
+  "usernameOrEmail": "Tên đăng nhập hoặc email"
+}

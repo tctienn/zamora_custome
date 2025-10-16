@@ -1,0 +1,33 @@
+extend type Query {
+    taskDeadlineByTaskId(taskId: String!): TaskDeadlineModel!
+}
+
+extend type Mutation {
+    changeDeadline(taskDeadlineModel: TaskDeadlineInput) : TaskDeadlineModel!
+}
+
+type TaskDeadlineModel {
+    id: String
+    reason: String,
+    taskId: String,
+    oldDeadline: String,
+    isCurrent: Boolean,
+    newDeadline: String,
+    oldStart: String,
+    newStart: String,
+    createdTime: String,
+    createdBy: String,
+    lastModifiedTime: String,
+    lastModifiedBy: String
+}
+
+input TaskDeadlineInput {
+    id: String
+    reason: String,
+    taskId: String,
+    oldDeadline: String,
+    isCurrent: Boolean,
+    newDeadline: String,
+    oldStart: String,
+    newStart: String,
+}

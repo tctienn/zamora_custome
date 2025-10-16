@@ -1,0 +1,15 @@
+{
+  "apps": "Ứng dụng",
+  "code": "Mã nhóm danh mục",
+  "codeEmpty": "Mã nhóm danh mục không được để trống.",
+  "errors": {
+    "categoryGroupCodeEmpty": "Mã nhóm danh mục trống",
+    "categoryGroupNotFound": "Nhóm danh mục dùng chung không tồn tại"
+  },
+  "name": "Tên nhóm danh mục",
+  "nameEmpty": "Tên nhóm danh mục không được để trống.",
+  "objectName": "Nhóm danh mục dùng chung",
+  "parent": "Nhóm cấp trên",
+  "tableTitle": "Danh sách nhóm danh mục dùng chung",
+  "create": "Tạo nhóm"
+}

@@ -1,0 +1,15 @@
+{
+  "objectName": "Kết quả công việc",
+  "result": "Kết quả",
+  "status": "Trạng thái",
+  "percent": "Tiến độ",
+  "weight": "Trọng số",
+  "note": "Tối đa 10 điểm",
+  "description": "Bình luận",
+  "comment": "Nhập bình luận",
+  "message": {
+    "percentEmpty": "Tiến độ không được để trống",
+    "weightEmpty": "Trọng số không được để trống",
+    "statusEmpty": "Trạng thái không được để trống"
+  }
+}

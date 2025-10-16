@@ -1,0 +1,27 @@
+extend type Query {
+    getProjectLog(projectId: String!):[ProjectLog]
+    getViewsByProjectId(projectId: String!): [ViewsProjectProjection]
+    findByProjectIdAndObjectType(projectId: String!, objectType: ObjectType) : [ProjectLog]
+}
+type ProjectLog{
+    id:String
+    action:String
+    objectType:String
+    objectId:String
+    projectId:String
+    oldValue:String
+    newValue:String
+    createdTime:DateTime
+    createdBy:String
+}
+type ViewsProjectProjection{
+    userId:String
+    views:Int
+    lastViewTime:DateTime
+}
+
+enum ObjectType{
+    PROJECT,
+    DISCUSSION,
+    WORK_ATTACHMENT
+}

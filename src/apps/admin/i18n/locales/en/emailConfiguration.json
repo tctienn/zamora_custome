@@ -1,0 +1,25 @@
+{
+  "account": "Email account",
+  "accountEmpty": "Email account cannot be empty.",
+  "errors": {
+    "emailConfigurationNotFound": "The system email configuration does not exist"
+  },
+  "name": "Configuration name",
+  "nameEmpty": "Configuration name cannot be empty.",
+  "objectName": "System email configuration",
+  "password": "Email password",
+  "passwordEmpty": "Email password cannot be blank.",
+  "port": "Port",
+  "portEmpty": "Port cannot be empty.",
+  "protocol": "Protocol",
+  "protocolNotSelected": "The protocol must be selected.",
+  "protocols": {
+    "imap": "IMAP",
+    "pop3": "POP3",
+    "smtp": "SMTP",
+    "webMail": "Web-Based Email"
+  },
+  "server": "Email server",
+  "serverEmpty": "Email server cannot be empty.",
+  "tableTitle": "List of system email configurations"
+}

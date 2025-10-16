@@ -1,0 +1,27 @@
+extend type Query {
+    boardWithoutTask(type: BoardType!): Board
+    board(type: BoardType!, id: String, fromDate: DateTime, toDate: DateTime): Board
+}
+
+extend type Mutation {
+    changeColumn(type: BoardType!, taskId: String!, id: String!): IWork
+}
+interface IWork {
+    id: String
+}
+type Board {
+    columns: [Column]
+}
+
+type Column {
+    id: String
+    title: String
+    order: Int
+    color: String
+    type: String
+    listTask: [Task]
+}
+
+enum BoardType {
+    PERSON, PROJECT, PERSON_WORKSPACE, GROUP_WORKSPACE
+}

@@ -1,0 +1,30 @@
+{
+  "action": {
+    "delete": "Delete",
+    "edit": "Edit",
+    "cancelEdit": "Cancel edit",
+    "cancel": "Cancel",
+    "reply": "Reply"
+  },
+  "advise": "Advise",
+  "chooseReceivers": "Choose receivers",
+  "commentInput": {
+    "delAttachment": "Delete file"
+  },
+  "commentItem": {
+    "listSeen": "Viewers list",
+    "seen": "Seen",
+    "time": "Time",
+    "user": "User"
+  },
+  "commentSelectUser": {
+    "staffForDiscussion": "Staff for discussion"
+  },
+  "comments": "Comment(s)",
+  "edited": "Edited",
+  "sendType": {
+    "chat": "Chat",
+    "traLoiYKien": "Reply to comment",
+    "xinYKien": "Ask for opinion"
+  }
+}

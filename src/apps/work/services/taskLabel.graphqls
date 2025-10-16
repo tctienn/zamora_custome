@@ -1,0 +1,25 @@
+extend type Query {
+    taskLabelByTaskId(taskId: String): [TaskLabel]
+}
+
+extend type Mutation {
+    saveLabel(taskLabel: TaskLabelInput): TaskLabel
+    addLabelsToTask(taskId: String, labels: [TaskLabelInput]): [TaskLabel]
+    removeTaskLabelsBy(taskLabels: [String]): Boolean
+}
+
+type TaskLabel {
+    id: String,
+    taskId: String,
+    labelId: String,
+    labelTitle: String,
+    labelColor: String,
+}
+
+input TaskLabelInput {
+    id: String,
+    taskId: String,
+    labelId: String,
+    labelTitle: String,
+    labelColor: String,
+}

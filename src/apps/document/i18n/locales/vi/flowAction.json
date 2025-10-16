@@ -1,0 +1,39 @@
+{
+  "coop": "Phối hợp",
+  "deleteAll": "Xoá tất cả",
+  "emptySelection": "Không có người/phòng ban được chọn",
+  "fileAttachment": "Tệp đính kèm",
+  "iamHere": "Tôi ở đây",
+  "listCanRevoke": "Danh sách có thể thu hồi",
+  "listFile": "Danh sách tệp",
+  "listReceiver": "Danh sách nhận",
+  "main": "Đầu mối",
+  "note": "Nội dung ý kiến",
+  "process": "Thực hiện",
+  "processFlow": "Luồng xử lý",
+  "receiveToKnow": "Nhận để biết",
+  "rejectReason": "Lý do từ chối",
+  "returnReason": "Lý do trả lại",
+  "returnSteps": "Bước trả lại",
+  "selectStep": "Chọn các bước",
+  "revokeReason": "Lý do thu hồi",
+  "status": {
+    "all": "Tất cả",
+    "choBanHanh": "Chờ ban hành",
+    "choXl": "Chờ xử lý",
+    "daBanHanh": "Đã ban hành",
+    "daXl": "Đã xử lý",
+    "dangTrinh": "Đang trình",
+    "dangXl": "Đang xử lý",
+    "duThao": "Dự thảo",
+    "hoanThanh": "Hoàn thành",
+    "nhap": "Nháp",
+    "soanThao": "Soạn thảo"
+  },
+  "stepRequired": "Vui lòng chọn ít nhất một bước để trả lại",
+  "transferDate": "Ngày chuyển",
+  "userOrDeptReceive": "Người/Phòng ban nhận",
+  "validate": {
+    "reasonNotEmpty": "Lý do thu hồi không được để trống."
+  }
+}

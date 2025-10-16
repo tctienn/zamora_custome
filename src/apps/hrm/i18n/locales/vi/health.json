@@ -1,0 +1,23 @@
+{
+  "titleTab": "Thông tin về sức khỏe",
+  "titleForm": " thông tin sức khỏe",
+  "height": "Chiều cao(cm)",
+  "weight": "Cân nặng(kg)",
+  "bloodType": "Nhóm máu",
+  "bloodPressure": "Huyết áp(mmHg)",
+  "heartRate": "Nhịp tim(bpm )",
+  "healthStatus": "Tình trạng sức khỏe",
+  "cholesterol": "Cholesterol(mmol/L)",
+  "triglycerid": "Triglycerid(TG)",
+  "bloodSugarLevel": "Lượng đường huyết(mmol/L)",
+  "waist": "Vòng eo(cm)",
+  "updateDate": "Ngày cập nhật",
+  "doseNumber": "Mũi",
+  "vaccinationDate": "Ngày tiêm",
+  "vaccineType": "Loại Vắc xin",
+  "batchNumber": "Số lô",
+  "vaccinationFacility": "Cơ sở tiêm chủng",
+  "signer": "Người ký",
+  "position": "Chức vụ",
+  "vaccine": "Thông tin vắc xin"
+}

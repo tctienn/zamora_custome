@@ -1,0 +1,12 @@
+{
+  "title": "Danh sách quy hoạch nhân sự",
+  "createTitle": "Lập thông tin quy hoạch",
+  "editTitle": "Chỉnh sửa thông tin quy hoạch",
+  "planDate": "Ngày lập",
+  "noPlan": "Mã số",
+  "listPlan": "Danh sách quy hoạch",
+  "attachmentData": "Tệp đính kèm",
+  "effectDate": "Hiệu lực từ ngày",
+  "expireDate": "Hiệu lực tới ngày",
+  "addEmployee": "Thêm nhân sự"
+}

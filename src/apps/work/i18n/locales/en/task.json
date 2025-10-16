@@ -1,0 +1,145 @@
+{
+  "subTask": "Subtask",
+  "task": "Task",
+  "listTask": "Task List",
+  "viewByType": "View By",
+  "assign": "Assign",
+  "assigner": "Assigner",
+  "follower": "Follower",
+  "percent": "Percent",
+  "implement": "Implement",
+  "taskDuration": "Task Duration",
+  "taskDetail": "Task Details",
+  "duration": "Deadline",
+  "taskDocument": "Task Document",
+  "taskMember": "Task Member",
+  "taskActivity": "Task Activity",
+  "updateDate": "Update Date",
+  "deliver": "Assigner",
+  "implementer": "Implementer",
+  "coordinator": "Coordinator",
+  "supervisor": "Supervisor",
+  "dateOfAssignment": "Assignment Date",
+  "implementationObject": "Implementation Object",
+  "importantMatter": "Important Matter",
+  "completionReminder": "Completion Reminder",
+  "thingsToEvaluate": "Tasks to Evaluate",
+  "originOfWork": "Work Origin",
+  "parentTask": "Parent Task",
+  "iteration": "Recurring Task",
+  "repeatingSchedule": "Repeating Schedule",
+  "project": "Project",
+  "document": "Document",
+  "meetingMinutes": "Meeting Minutes",
+  "procedure": "Procedure",
+  "taskGroup": "Task Group",
+  "daily": "Daily",
+  "veryWeek": "Weekly",
+  "monthly": "Monthly",
+  "individual": "Individual",
+  "organization": "Organization",
+  "generalInformation": "General Information",
+  "taskName": "Task Name",
+  "startDate": "Start Date",
+  "dueDate": "End Date",
+  "completionDeadline": "Completion Deadline",
+  "description": "Description",
+  "progress": "Progress",
+  "status": "Status",
+  "thingsToDo": "Tasks to Do",
+  "childTask": "Subtask",
+  "location": "Location",
+  "attachedFiles": "Attached Files",
+  "workEvaluating": "Task Evaluation",
+  "result": "Result",
+  "obtain": "Achieved",
+  "notAchieved": "Not Achieved",
+  "content": "Content",
+  "point": "Point",
+  "maximumScore": "Maximum: 10",
+  "exchangeLog": "Exchange Log",
+  "error": {
+    "notAllow": "You do not have permission to perform this operation!"
+  },
+  "success": {
+    "updateSuccess": "You have successfully updated the task."
+  },
+  "customer": "Customer",
+  "fileName": "Name",
+  "fileSize": "Size",
+  "fileType": "Type",
+  "origin": "Origin",
+  "originType": {
+    "upload": "Upload",
+    "document": "Document",
+    "ecm": "myBox",
+    "comment": "Comment",
+    "report": "Report",
+    "evaluate": "Evaluate"
+  },
+  "createdTime": "Created Time",
+  "createdBy": "Created By",
+  "detail": {
+    "document": {
+      "filter": {
+        "all": "All",
+        "upload": "From Upload",
+        "document": "From Document",
+        "ecm": "From myBox",
+        "comment": "From Comment",
+        "report": "From Report",
+        "evaluate": "From Evaluate"
+      }
+    }
+  },
+  "attribute": {
+    "report": {
+      "name": "Report Name"
+    },
+    "checkListGroup": {
+      "name": "Checklist Group Name"
+    },
+    "checkList": {
+      "name": "Checklist Name"
+    }
+  },
+  "priority": {
+    "this": "Priority Level",
+    "high": "High",
+    "intermediate": "Medium",
+    "normal": "Normal",
+    "low": "Low"
+  },
+  "filterOptions": {
+    "all": "All",
+    "implement": "I Implement",
+    "follow": "I Follow",
+    "assign": "I Assign"
+  },
+  "sortOptions": {
+    "orderNo": "By Order Number",
+    "lastModifiedTime": "By Last Modified Time",
+    "name": "By Task Name",
+    "percent": "By Progress",
+    "remainTime": "By Deadline"
+  },
+  "menuOptions": {
+    "createTask": "Create Task",
+    "quickCreateTask": "Quick Create Task",
+    "createLoopTask": "Recurring Task"
+  },
+  "reportTab": {
+    "report": "Task Report",
+    "extendDeadline": "Extend Deadline",
+    "evaluate": "Evaluate Task",
+    "reportWaitingEvaluate": "Reports Waiting for Evaluation"
+  },
+  "checklist": {
+    "this": "Checklist",
+    "add": "Add checklist group",
+    "group": "Checklist group",
+    "checked": "Checked",
+    "uncheck": "Unchecked",
+    "overdue": "Overdue"
+  }
+}

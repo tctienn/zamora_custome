@@ -1,0 +1,21 @@
+{
+  "activeWorks": "Quy trình đang thực hiện",
+  "completedWorks": "Quy trình đã hoàn thành",
+  "process": "Quy trình",
+  "name": "Tên quy trình",
+  "description": "Mô tả quy trình",
+  "status": "Trạng thái quy trình",
+  "startTime": "Thời gian bắt đầu",
+  "deadLine": "Thời hạn hoàn thành",
+  "endTime": "Thời gian kết thúc",
+  "priority": "Độ ưu tiên",
+  "createdBy": "Người tạo",
+  "assignee": "Người thực hiện",
+  "objectInfo": "Thông tin đối tượng",
+  "startWorkFlow": "Bắt đầu quy trình",
+  "cancelWorkFlow": "Hủy quy trình",
+  "resumeWorkFlow": "Tiếp tục quy trình",
+  "currentTasks": "Nhiệm vụ hiện tại",
+  "history": "Lịch sử quy trình",
+  "emptyMessage": "Bạn không có quy trình nào"
+}

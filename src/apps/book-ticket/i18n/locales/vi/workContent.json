@@ -1,0 +1,15 @@
+{
+  "titleForm": "Nội dung làm việc",
+  "code": "Mã nội dung",
+  "content": "Tên nội dung làm việc",
+  "timeFrom": "Từ ngày",
+  "timeTo": "Đến ngày",
+  "required": {
+    "code": "Mã nội dung làm việc là bắt buộc",
+    "content": "Tên nội dung làm việc là bắt buộc"
+  },
+  "openTicketRegistration": "Trạng thái đăng ký vé",
+  "placeholder": {
+    "selectDay": "Chọn ngày"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "summary": "Summary",
+  "content": "Content",
+  "honor": "Honor",
+  "views": "{count} of viewers",
+  "otherEmotions": "{count} of emoticons",
+  "selfEmotions": "You have interacted",
+  "emotions": "You and {count} others have interacted",
+  "list": "List",
+  "buttons": {
+    "browser": "Browser",
+    "browsed": "Browse",
+    "back": "Return"
+  },
+  "announcement": {
+    "name": "Notification",
+    "nameLowerCase": " notice",
+    "titleColumn": "Notification title/Name",
+    "announcementName": "Announcement name",
+    "chooseSubAnnouncement": "Choose related notifications",
+    "subAnnouncement": "Related announcement",
+    "isHighlight": "Is highlight notification",
+    "imgAnnouncement": "Announcement image"
+  },
+  "news": {
+    "name": "News",
+    "nameLowerCase": " news",
+    "titleColumn": "Title/News name",
+    "announcementName": "News name",
+    "chooseSubAnnouncement": "Choose related news",
+    "subAnnouncement": "Related news",
+    "isHighlight": "Is highlight news",
+    "imgAnnouncement": "News photo"
+  },
+  "table": {
+    "title": "Title",
+    "type": "Belongs to group",
+    "allowEmoji": "Allow drop emoticons",
+    "allowComment": "Allow comments",
+    "chooseImg": "Click to choose image",
+    "nOrder": "Order number",
+    "createdTime": "Created date",
+    "createdBy": "Creator",
+    "viewCount": "Views",
+    "review": "Review preview",
+    "process": "View rotation process",
+    "evict": "Revoke",
+    "seen": "Seen",
+    "outstanding": "Outstanding",
+    "status": "Status",
+    "setStatus": "Set status",
+    "chooseGroup": "Choose group",
+    "titleSetStatus": "Status Setup Table",
+    "statuses": {
+      "draft": "Draft",
+      "pending": "Waiting for approval",
+      "give_back": "Give back",
+      "refuse": "Refuse",
+      "approved": "Approved",
+      "evict": "Revoke"
+    }
+  },
+  "update": "Update",
+  "create": "Create new",
+  "delete": "Delete",
+  "error": {
+    "titleCantEmpty": "Title cannot be empty.",
+    "summaryCantEmpty": "Summary cannot be empty.",
+    "contentCantEmpty": "Content cannot be empty."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "quickSurvey": "Khảo sát nhanh",
+  "surveyForm": "Phiếu khảo sát",
+  "statusOptions": {
+    "draft": "Dự thảo",
+    "approved": "Đã duyệt"
+  },
+  "error": {
+    "requiredCode": "Mã khảo sát không được để trống.",
+    "requiredCreatedDate": "Ngày lập không được để trống."
+  },
+  "DuplicateCode": "Mã đã tồn tại",
+  "saveSuccess": "Lưu thành công."
+}

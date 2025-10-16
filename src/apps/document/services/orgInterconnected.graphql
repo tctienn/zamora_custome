@@ -1,0 +1,54 @@
+extend type Query{
+    searchOrgInterconnected(keyword: String, pageable: Pageable): OrgInterconnectedConnection
+    getOrgInterconnectedById(id: String): OrgInterconnected
+    getAllOrgInterconnected: [OrgInterconnected]
+    maxOrderActiveOrgInterconnected: Int
+}
+
+extend type Mutation{
+    saveOrgInterconnected(orgInterconnected: OrgInterconnectedInput): OrgInterconnected
+    deleteOrgInterconnected(id: String): OrgInterconnected
+}
+
+input OrgInterconnectedInput {
+    id: String
+    code: String
+    name: String
+    parentUnit: String
+    identify: String
+    signatory: String
+    address: String
+    email: String
+    phone: String
+    fax: String
+    domainName: String
+    lock: Boolean
+    norder: Int
+}
+
+type OrgInterconnected {
+    id: String
+    code: String
+    name: String
+    parentUnit: String
+    identify: String
+    signatory: String
+    address: String
+    email: String
+    phone: String
+    fax: String
+    domainName: String
+    lock: Boolean
+    norder: Int
+}
+
+type OrgInterconnectedConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [OrgInterconnectedEdge]
+}
+
+type OrgInterconnectedEdge {
+    cursor: String!
+    node: OrgInterconnected
+}

@@ -1,0 +1,27 @@
+type OutgoingDocReceiver{
+    id: String,
+    objectId: String,
+    objectName: String,
+    objectType: ReceiveObjectType,
+    receiveType: ReceiveType,
+    orderNo: Int,
+    receiveStatus: ReceiveStatus,
+    receiveTime: Date,
+    isDeleted: Boolean,
+    roleId: String,
+    roleName: String,
+    deptId: String,
+    deptName: String
+}
+
+enum ReceiveObjectType {
+    NGUOI_NHAN_TRONG_HE_THONG, DON_VI_NOI_BO, DON_VI_NGOAI
+}
+
+enum ReceiveType {
+    GUI_TRUC_TIEP_TREN_HE_THONG, NHAN_GIAY, QUA_TRUC_QUOC_GIA
+}
+
+enum ReceiveStatus {
+    CHUA_NHAN, DA_NHAN
+}

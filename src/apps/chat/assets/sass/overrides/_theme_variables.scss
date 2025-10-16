@@ -1,0 +1,17 @@
+$themes: (
+        "light": (
+                "chatItemBg":#c6d1dd,
+        ),
+        "dark": (
+                "chatItemBg":#162a41,
+        )
+);
+
+@each $theme-name, $properties in $themes {
+  html[data-theme="#{$theme-name}"] {
+    // define a css variable for each property
+    @each $name, $property in $properties {
+      --#{$name}: #{$property};
+    }
+  }
+}

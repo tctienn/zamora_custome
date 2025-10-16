@@ -1,0 +1,25 @@
+{
+  "account": "Tài khoản email",
+  "accountEmpty": "Tài khoản email không được để trống.",
+  "errors": {
+    "emailConfigurationNotFound": "Cấu hình email hệ thống không tồn tại"
+  },
+  "name": "Tên cấu hình",
+  "nameEmpty": "Tên cấu hình không được để trống.",
+  "objectName": "Cấu hình email hệ thống",
+  "password": "Mật khẩu email",
+  "passwordEmpty": "Mật khẩu email không được để trống.",
+  "port": "Cổng",
+  "portEmpty": "Cổng không được để trống.",
+  "protocol": "Giao thức",
+  "protocolNotSelected": "Giao thức phải được chọn.",
+  "protocols": {
+    "imap": "IMAP",
+    "pop3": "POP3",
+    "smtp": "SMTP",
+    "webMail": "Web-Based Email"
+  },
+  "server": "Máy chủ email",
+  "serverEmpty": "Mảy chủ email không được để trống.",
+  "tableTitle": "Danh sách cấu hình email hệ thống"
+}

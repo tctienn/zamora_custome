@@ -1,0 +1,21 @@
+{
+  "code": "Mã Ngày nghỉ ",
+  "errors": {
+    "fromDateEmpty": "Thời gian bắt đầu nghỉ không được để trống",
+    "nameEmpty": "Tên Ngày nghỉ không được để trống",
+    "toDateEmpty": "Thời gian kết thúc nghỉ không được để trống",
+    "yearEmpty": "Năm không được để trống"
+  },
+  "fromDate": "Thời gian bắt đầu nghỉ",
+  "id": "Id Ngày nghỉ ",
+  "name": "Tên Ngày nghỉ ",
+  "note": "Ghi chú",
+  "objectName": "Ngày nghỉ ",
+  "saveDuplicateRestDayDone": "Nhân bản ngày nghỉ thành công",
+  "tableTitle": "Danh sách Ngày nghỉ ",
+  "toDate": "Thời gian kết thúc nghỉ",
+  "validateField": {
+    "notNull": "Không được để trống"
+  },
+  "year": "Năm"
+}

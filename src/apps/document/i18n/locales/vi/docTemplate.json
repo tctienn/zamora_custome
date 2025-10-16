@@ -1,0 +1,20 @@
+{
+  "confirmDelete": "Xác nhận xóa mẫu biểu/Template",
+  "contract": "Hợp đồng",
+  "createDocTemplate": "Thêm mới mẫu biểu/Template",
+  "deleteDone": "Xóa mẫu biểu/Template thành công",
+  "description": "Ghi chú",
+  "doc": "Văn bản",
+  "docTemp": "Tệp mẫu",
+  "docTemplateList": "Danh sách mẫu biểu/Template",
+  "docTemplateName": "Tên mẫu biểu",
+  "docTemplateType": "Loại mẫu biểu",
+  "errors": {
+    "nameEmpty": "Tên mẫu biểu không được để trống",
+    "signalEmpty": "Ký hiệu không được để trống",
+    "tempEmpty": "Tệp biểu mẫu không được để trống"
+  },
+  "objectName": "Mẫu biểu/Template",
+  "signal": "Ký hiệu",
+  "updateDocTemplate": "Chỉnh sửa mẫu biểu/Template"
+}

@@ -1,0 +1,41 @@
+extend type Mutation {
+    createTaskCustomer(data: TaskCustomerInput) : TaskCustomer
+    deleteTaskCustomer(id: String!) : TaskCustomer
+    updateTaskCustomer(data: TaskCustomerInput) : TaskCustomer
+}
+
+extend type Query {
+    allTaskCustomer: [TaskCustomer]
+    findTaskCustomerById(id: String) : TaskCustomer
+}
+
+type TaskCustomer {
+    id: String,
+    clientId: String,
+    taskId: String,
+    orderNo : Int,
+    isDeleted: Boolean,
+}
+
+input TaskCustomerInput {
+    id: String,
+    clientId: String,
+    taskId: String,
+    orderNo : Int,
+    isDeleted: Boolean,
+}
+
+type TaskCustomerConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [TaskCustomerEdge]
+}
+
+type TaskCustomerEdge {
+    cursor: String!
+    node: TaskCustomer
+}
+
+input SearchTaskCustomerInput{
+    searchCondition: String
+}

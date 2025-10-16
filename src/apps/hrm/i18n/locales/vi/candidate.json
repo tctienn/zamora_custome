@@ -1,0 +1,97 @@
+{
+  "title": "Hồ sơ ứng viên",
+  "titleManage": "Danh sách hồ sơ ứng viên",
+  "titleCreate": "Thêm mới hồ sơ ứng viên",
+  "titleUpdate": "Cập nhật hồ sơ ứng viên",
+  "general": {
+    "title": "1. Thông tin cá nhân",
+    "recruitmentCampaignId": "Chiến dịch",
+    "positionName": "Vị trí ứng tuyển",
+    "candidateCode": "Mã ứng viên",
+    "recruitmentSource": "Nguồn tuyển dụng",
+    "fullName": "Họ và tên",
+    "dateOfBirth": "Ngày sinh",
+    "gender": "Giới tính",
+    "isMemberOfCommunistParty": "Là đảng viên?",
+    "placeOfPermanentResidenceRegistration": "Nơi đăng ký hộ khẩu thường trú",
+    "citizenID": "Số CCCD",
+    "ethnicityCode": "Dân tộc",
+    "dateOfIssue": "Ngày cấp",
+    "nationalityId": "Quốc tịch",
+    "placeOfIssue": "Nơi cấp",
+    "maritalStatus": "Tình trạng hôn nhân",
+    "phoneNumber": "Số điện thoại",
+    "email": "Email",
+    "websiteLink": "Website/Link",
+    "address": "Nơi ở hiện nay",
+    "careerGoals": "2. Mục tiêu nghề nghiệp",
+    "INTERNAL": "Nguồn bên ngoài",
+    "EXTERNAL": "Nguồn nội bộ",
+    "yes": "Có",
+    "no": "Không"
+  },
+  "education":{
+    "title": "3. Học vấn",
+    "fromYear": "Từ năm",
+    "toYear": "Đến năm",
+    "schoolName": "Tên trường đào tạo",
+    "majorCode": "Chuyên ngành",
+    "graduationClassification": "Xếp loại",
+    "relatedSubjects": "Môn học liên quan",
+    "outstandingAchievements": "Thành tích nổi bật"
+  },
+  "workExperience":{
+    "title": "4. Kinh nghiệm làm việc",
+    "fromMonthYear": "Từ Tháng/Năm",
+    "toMonthYear": "Đến Tháng/Năm",
+    "companyName": "Tên công ty",
+    "jobTitleCode": "Chức danh",
+    "jobDescription": "Mô tả công việc"
+  } ,
+  "extracurricularActivity":{
+    "title": "5. Hoạt động ngoại khoá",
+    "organizationName": "Tên tổ chức",
+    "description": "Mô tả",
+    "positionName": "Tên vị trí đảng nhiệm"
+  } ,
+  "certificates":{
+    "title": "6. Chứng chỉ",
+    "receivedIn": "Năm",
+    "certificateName": "Tên chứng chỉ"
+  } ,
+  "titlesAndAwards":{
+    "title": "7. Danh hiệu và giải thưởng",
+    "titleAndAwardName": "Tên danh hiệu/giải thưởng"
+  } ,
+  "skill":{
+    "title": "8. Kỹ năng",
+    "hardSkill": "Kỹ năng cứng",
+    "softSkill": "Kỹ năng mềm"
+  } ,
+  "referencePersons":{
+    "title": "9. Người giới thiệu",
+    "jobPositionCode": "Chức vụ"
+  },
+  "hobby":{
+    "title": "10. Sở thích"
+  } ,
+  "table": {
+    "positionName": "Vị trí",
+    "quantity": "Số lượng",
+    "apply": "Ứng tuyển",
+    "admitted": "Trúng tuyển",
+    "stillHiring": "Còn tuyển",
+    "deadline": "Hạn tuyển",
+    "dateAndCreatedBy": "Ngày/Người lập"
+  },
+  "statusOptions": {
+    "TOTAL_ALL": "Tất cả",
+    "APPLIED": "Ứng tuyển",
+    "APPLYING": "Đang ứng tuyển",
+    "PASSED": "Trúng tuyển",
+    "FAILED": "Không trúng tuyển",
+    "TRANSFERRED_CANDIDATE_PROFILE": "Đã chuyển HSNS",
+    "SUITABLE_FOR_OTHER_POSITIONS": "Phù hợp vị trí khác",
+    "CONTACT_LATER": "Liên hệ sau"
+}
+}

@@ -1,0 +1,80 @@
+extend type Query {
+    organizations(keyword: String, pageable: Pageable): OrganizationConnection
+    allOrganization: [Organization]
+    allOrganizationPublic: [Organization]
+    organization(code: String!): Organization
+    childOrganization(parentCode: String!): [Organization]
+    parentOrganization(code: String!): Organization
+    getChild(code: String): [Organization]
+}
+
+extend type Mutation {
+    saveOrganization(id: String!, organizationInput: OrganizationInput!): Organization
+    deleteOrganization(id: String!): Organization
+    addUserIntoOrganization(id: String!, users: [UserOrganizationInput]): Organization
+}
+
+type Organization {
+    id: String,
+    code: String,
+    name: String,
+    description: String,
+    status: String,
+    parentCode: String,
+    isDeleted: Boolean!,
+    type: String,
+    manager: String,
+    effectiveDate: Date,
+    expirationDate: Date,
+    fileAttach: String
+    users: [UserOrganization]
+}
+
+type OrganizationTree {
+    id: String,
+    code: String,
+    name: String,
+    description: String,
+    status: String,
+    parentCode: String,
+    isDeleted: Boolean!
+    children:[OrganizationTree]
+}
+
+
+input OrganizationInput {
+    code: String!,
+    name: String!,
+    description: String,
+    status: String!,
+    parentCode: String,
+    type: String,
+    manager: String,
+    effectiveDate: Date,
+    expirationDate: Date
+}
+
+type OrganizationConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [OrganizationEdge]
+}
+
+type OrganizationEdge {
+    cursor: String!
+    node: Organization
+}
+
+input UserOrganizationInput{
+    id: String,
+    fullName: String,
+    username: String,
+    email: String
+}
+
+type UserOrganization{
+    id: String,
+    fullName: String,
+    username: String,
+    email: String
+}

@@ -1,0 +1,21 @@
+{
+  "listDigitized": "Danh sách tệp số hóa",
+  "time": {
+    "Today": "Hôm nay",
+    "inWeek": "Trong tuần này",
+    "inMonth": "Trong tháng này",
+    "inYear": "Trong năm nay"
+  },
+  "placeHolderEmployee": "Chọn nhân viên",
+  "placeHolderTime": "Thời gian",
+  "placeHolderType": "Kiểu tệp",
+  "forEmployee": "Nhân sự",
+  "sidebar": {
+    "title": "Thống kê kho số hóa",
+    "folderChecking": "Bảng theo dõi dung lượng lưu trữ",
+    "userChecking": "Bảng theo dõi lịch sử truy cập"
+  },
+  "table": {
+    "userCol": "Người truy cập"
+  }
+}

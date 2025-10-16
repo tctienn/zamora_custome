@@ -1,0 +1,19 @@
+{
+  "name": "Tên công việc",
+  "projectName": "Tên dự án",
+  "assignerName": "Người giao việc",
+  "description": "Mô tả",
+  "target": "Mục tiêu",
+  "result": "Kết quả đạt được",
+  "follower": "Thành viên theo dõi",
+  "dueTime": "Ngày kết thúc",
+  "startTime": "Ngày bắt đầu",
+  "percent": "Tiến độ",
+  "statusName": "Trạng thái",
+  "numDayExtend": "Số ngày gia hạn",
+  "createdTime": "Ngày tạo",
+  "createdTimeDesc": "Ngày tạo mới đến cũ",
+  "createdTimeAsc": "Ngày tạo cũ đến mới",
+  "startTimeDesc": "Ngày bắt đầu mới đến cũ",
+  "startTimeAsc": "Ngày bắt đầu cũ đến mới"
+}

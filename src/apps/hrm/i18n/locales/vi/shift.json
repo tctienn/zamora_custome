@@ -1,0 +1,12 @@
+{
+  "management": {
+    "title": "Quản lý ca làm việc",
+    "totalHours": "Tổng số giờ làm việc",
+    "shifts": "Ca làm việc",
+    "warning": {
+      "under8": "Tổng thời gian làm việc nhỏ hơn 8 tiếng",
+      "over8": "Tổng thời gian làm việc lớn hơn 8 tiếng",
+      "over24": "Tổng thời gian làm việc lớn hơn 24 tiếng"
+    }
+  }
+}

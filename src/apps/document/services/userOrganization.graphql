@@ -1,0 +1,65 @@
+extend type Query{
+    findByOrganizationId(organizationId: String): [UserOrganizationData]
+    getAllUserOrganization: [UserOrganizationData]
+    findUsersByOrganizationTypeAndRole(type: OrganizationType, role: String): [UserOrganization]
+}
+
+extend type Mutation{
+    saveUserOrganization(userOrganizationInputs: [UserOrganizationPayload]): Boolean
+}
+
+type UserOrganization{
+    id: String
+    organizationId: String
+    userId: String
+    isDeleted: Boolean
+    position: String
+    isConcurrently: Boolean
+    createdTime: DateTime
+    createdBy: String
+    fullName: String
+    gender: Int
+    lastModifiedTime: DateTime
+    lastModifiedBy: String
+    phone: String,
+    email: String,
+    createdDateOfUser: DateTime,
+    birthDay: Date
+    role: String
+}
+
+type UserOrganizationData{
+    id: String
+    organizationId: String
+    userId: String
+    isDeleted: Boolean
+    position: String
+    isConcurrently: Boolean
+    createdTime: DateTime
+    createdBy: String
+    lastModifiedTime: DateTime
+    fullName: String
+    gender: Int
+    lastModifiedBy: String
+    phone: String,
+    email: String,
+    createdDateOfUser: DateTime,
+    birthDay: Date
+    positionName: String
+    role: String
+    roleName:String
+}
+
+input UserOrganizationPayload{
+    organizationId: String,
+    userId: String,
+    position: String,
+    isConcurrently: Boolean,
+    fullName: String
+    gender: Int
+    phone: String,
+    email: String,
+    createdDateOfUser: DateTime,
+    birthDay: Date
+    role: String
+}

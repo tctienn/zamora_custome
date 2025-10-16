@@ -1,0 +1,16 @@
+{
+  "chooseRolePermission": "Chọn vai trò phân quyền",
+  "code": "Mã vai trò",
+  "description": "Mô tả",
+  "message": {
+    "canNotDeleteRole": "Bạn không thể xóa vai trò này bởi vì đang có người dùng sử dụng",
+    "codeIsEmpty": "Mã vai trò không dược để trống",
+    "deleteSuccess": "Xóa vai trò thành công",
+    "nameIsEmpty": "Tên vai trò không được để trống"
+  },
+  "name": "Tên vai trò",
+  "objectName": "vai trò",
+  "status": "Trạng thái",
+  "tableTitle": "Danh sách vai trò",
+  "titleRolePermission": "Tên vai trò phân quyền"
+}

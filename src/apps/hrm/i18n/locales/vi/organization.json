@@ -1,0 +1,17 @@
+{
+  "titleTab": "Cơ cấu tổ chức",
+  "dashboard": {
+    "title": "Dashboard - Tổng hợp về nhân sự",
+    "subtitle": "Xem nhanh số liệu tổng hợp, tình trạng nhân sự và các cảnh báo hệ thống",
+    "employeeStatistics": "Thống kê nhân sự",
+    "employeeDistribution": "Phân bổ nhân sự",
+    "orgStructure": "Cơ cấu tổ chức",
+    "headcount": "Tổng số nhân sự",
+    "department": "Phòng ban",
+    "position": "Chức vụ",
+    "location": "Vị trí",
+    "totalEmployees": "Tổng nhân sự"
+  },
+  "merge": "Sáp nhập",
+  "dissolve": "Giải thể"
+}

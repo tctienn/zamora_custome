@@ -1,0 +1,37 @@
+extend type Query{
+    searchPartyPosition(keyword: String, pageable: Pageable): PartyPositionConnection
+    getPartyPositionById(id: String): PartyPosition
+    getAllPartyPosition: [PartyPosition]
+}
+
+extend type Mutation{
+    savePartyPosition(partyPosition: PartyPositionInput): PartyPosition
+    deletePartyPosition(id: String): PartyPosition
+}
+
+input PartyPositionInput {
+    id: String
+    code: String
+    name: String
+    description: String
+    status: Boolean
+}
+
+type PartyPosition {
+    id: String
+    code: String
+    name: String
+    description: String
+    status: Boolean
+}
+
+type PartyPositionConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [PartyPositionEdge]
+}
+
+type PartyPositionEdge {
+    cursor: String!
+    node: PartyPosition
+}

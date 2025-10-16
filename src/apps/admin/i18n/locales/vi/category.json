@@ -1,0 +1,15 @@
+{
+  "categoryGroupNotSelected": "Nhóm danh mục phải được chọn",
+  "code": "Mã danh mục",
+  "codeEmpty": "Mã danh mục không được để trống.",
+  "errors": {
+    "categoryCodeEmpty": "Mã danh mục trống",
+    "categoryNotFound": "Danh mục dùng chung không tồn tại",
+    "categoryCodeIsExist": "Mã danh mục đã tồn tại"
+  },
+  "group": "Nhóm danh mục",
+  "name": "Tên danh mục",
+  "nameEmpty": "Tên danh mục không được để trống.",
+  "objectName": "Danh mục dùng chung",
+  "tableTitle": "Danh sách danh mục dùng chung"
+}

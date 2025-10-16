@@ -1,0 +1,15 @@
+{
+  "code": "Mã Loại hồ sơ ",
+  "errors": {
+    "codeEmpty": "Mã Loại hồ sơ không được để trống",
+    "codeExits": "Mã Loại hồ sơ đã tồn tại",
+    "nameEmpty": "Tên Loại hồ sơ không được để trống"
+  },
+  "id": "Id Loại hồ sơ ",
+  "name": "Tên Loại hồ sơ ",
+  "objectName": "Loại hồ sơ ",
+  "tableTitle": "Danh sách Loại hồ sơ ",
+  "validateField": {
+    "notNull": "Không được để trống"
+  }
+}

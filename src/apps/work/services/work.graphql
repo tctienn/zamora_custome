@@ -1,0 +1,112 @@
+extend type Query {
+    getWorkById(id:String):Work
+    searchWorks(searchWorkInput: SearchWorkInput,page:Pageable):WorkConnection
+    countWorks(searchWorkInput: SearchWorkInput):CountWork
+    countWorksStatus(searchWorkInput: SearchWorkInput):CountStatus
+}
+
+extend type Mutation {
+    saveWork(workInput: WorkInput): Work
+    deleteWorkById(id: String): Work
+    cloneWork(id: String): Work
+    readWorkById(id: String): Work
+}
+
+type Work {
+    id: String,
+    code: String,
+    name: String,
+    groupId: String,
+    projectId: String,
+    parentId: String,
+    assigner: String,
+    implementers: [String],
+    followers: [String],
+    startDate: DateTime,
+    endDate: DateTime,
+    description: String,
+    target: String,
+    priority:WorkPriority,
+    status:WorkStatus,
+    nOrder: Int
+    isDeleted: Boolean
+    createdDate:Date,
+    createdBy:String,
+    isAssignWithTime:Boolean,
+
+    project:Project,
+    lastModifiedTimeAction:DateTime
+}
+
+type WorkConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [WorkEdge]
+}
+
+type WorkEdge {
+    cursor: String!
+    node: Work
+}
+
+enum WorkPriority{
+    HIGH,
+    INTERMEDIATE,
+    NORMAL,
+    LOW,
+}
+
+enum WorkStatus{
+    NOT_STARTED,
+    WORKING,
+    PENDING,
+    WAITING,
+    COMPLETED,
+    CANCELED,
+}
+
+input WorkInput{
+    id: String
+    code: String
+    name: String
+
+    parentId: String
+    assigner: String
+    implementers: [String]
+    followers: [String]
+    startDate: DateTime
+    endDate: DateTime
+    description: String
+    status: WorkStatus
+
+    groupId: String
+    projectId: String
+    target: String
+    priority: WorkPriority
+    nOrder: Int
+    createdDate:Date
+    isAssignWithTime:Boolean
+}
+input SearchWorkInput{
+    projectId:String
+    keyword:String
+    workStatus:[WorkStatus]
+    workRole:[WorkRoleFilter]
+    userId:String
+}
+
+enum WorkRoleFilter {
+    ALL,
+    IMPLEMENT,
+    ASSIGN,
+    FOLLOW,
+    MY_DEPT,
+}
+
+
+
+# CountWork type definition
+type CountWork {
+    countRoleFilter: CountRoleFilter!
+    countStatus: CountStatus!
+}

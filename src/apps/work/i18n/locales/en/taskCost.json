@@ -1,0 +1,12 @@
+{
+  "objectName": "Task Expenses",
+  "listTaskCost": "List of Task Expenses",
+  "type": "Expense Type",
+  "expenseTime": "Expense Date",
+  "totalMoney": "Total Amount",
+  "description": "Note",
+  "message": {
+    "typeEmpty": "Expense type cannot be empty",
+    "expenseTimeEmpty": "Expense date cannot be empty"
+  }
+}

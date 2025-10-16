@@ -1,0 +1,56 @@
+{
+  "titleManage": "Danh sách đề xuất tuyển dụng",
+  "titleCreate": "Thêm mới đề xuất tuyển dụng",
+  "titleUpdate": "Cập nhật đề xuất tuyển dụng",
+  "title": "Đề xuất tuyển dụng",
+  "general": {
+    "proposalName": "Tên đề xuất",
+    "reason": "Lý do tuyển dụng",
+    "title": "Chức vụ",
+    "position": "Chức danh/Vị trí",
+    "department": "Phòng ban",
+    "fromTime": "Hạn tuyển từ",
+    "toTime": "Hạn tuyển đến",
+    "currentNumberOfEmployees": "SL nhân sự hiện có",
+    "boundaryQuantity": "Số lượng định biên",
+    "numberOfRecruits": "Số lượng tuyển",
+    "isRecruitUntilIsEnough": "Tuyển đến khi đủ",
+    "candidateRequirements": "Yêu cầu ứng viên",
+    "gender": "Giới tính",
+    "MALE": "Nam",
+    "FEMALE": "Nữ",
+    "OTHER": "Nam và Nữ",
+    "major": "Chuyên ngành",
+    "level": "Trình độ",
+    "foreignLanguage": "Ngoại ngữ",
+    "experience": "Kinh nghiệm",
+    "ageFrom": "Tuổi từ",
+    "ageTo": "Tuổi đến",
+    "heightFrom": "Chiều cao từ",
+    "heightTo": "Chiều cao đến",
+    "weightFrom": "Cân nặng từ",
+    "weightTo": "Cân nặng đến",
+    "jobDescription": "Mô tả công việc",
+    "attachments": "Tệp đính kèm",
+    "validator": {
+      "mustBeAfter": "{item} phải sau {after}"
+    }
+  },
+  "table": {
+    "positionName": "Vị trí",
+    "quantity":"Số lượng",
+    "apply": "Ứng tuyển",
+    "titleCv": "Tổng số CV",
+    "admitted": "Trúng tuyển",
+    "stillHiring":"Còn tuyển",
+    "deadline": "Hạn tuyển",
+    "createdBy": "Người lập",
+    "createdTime": "Ngày lập"
+  },
+  "statusOptions": {
+    "TOTAL_ALL": "Tất cả",
+    "DRAFT": "Dự thảo",
+    "WAITING_FOR_APPROVAL": "Chờ duyệt",
+    "APPROVED": "Đã duyệt"
+  }
+}

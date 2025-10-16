@@ -1,0 +1,18 @@
+{
+  "table": {
+    "statuses": {
+      "under_construction": "Under construction",
+      "prepare_for_deployment": "Prepare for deployment",
+      "processing": "Processing",
+      "completed": "Completed",
+      "pause": "Pause",
+      "cancel": "Cancel",
+      "close": "Close"
+    }
+  },
+  "update": "Update",
+  "create": "Create",
+  "project": "project",
+  "views": "Views",
+  "lastViewTime": "Last viewing time"
+}

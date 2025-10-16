@@ -1,0 +1,15 @@
+{
+  "objectName": "Task Result",
+  "result": "Result",
+  "status": "Status",
+  "percent": "Progress",
+  "weight": "Weight",
+  "note": "Up to 10 points",
+  "description": "Comment",
+  "comment": "Enter comment",
+  "message": {
+    "percentEmpty": "Progress cannot be empty",
+    "weightEmpty": "Weight cannot be empty",
+    "statusEmpty": "Status cannot be empty"
+  }
+}

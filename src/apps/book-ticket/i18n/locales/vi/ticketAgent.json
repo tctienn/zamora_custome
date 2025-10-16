@@ -1,0 +1,32 @@
+{
+  "titleForm": "đại lý vé máy bay",
+  "agencyCode": "Mã đại lý",
+  "agencyName": "Tên đại lý",
+  "address": "Địa chỉ",
+  "taxCode": "Mã số thuế",
+  "phone": "Điện thoại",
+  "email": "Email",
+  "contactPoint": "Đầu mối liên hệ",
+  "contactList": {
+    "index": "STT",
+    "name": "Tên đầu mối",
+    "email": "Email liên hệ",
+    "phone": "Số điện thoại",
+    "action":"Thao tác"
+  },
+  "note": "Ghi chú",
+  "status": "Trạng thái",
+  "required": {
+    "code": "Mã đại lý là bắt buộc",
+    "name": "Tên đại lý là bắt buộc",
+    "phone": "Điện thoại là bắt buộc",
+    "email": "Email là bắt buộc",
+    "contactName": "Tên đầu mối là bắt buộc",
+    "contactEmail": "Email liên hệ là bắt buộc",
+    "contactPhone": "Số điện thoại là bắt buộc"
+  },
+  "validator":{
+    "invalidEmail": "Email không hợp lệ",
+    "invalidPhone": "Số điện thoại không hợp lệ"
+  }
+}

@@ -1,0 +1,16 @@
+.bg-highlight {
+  background-color: var(--yellow-50);
+}
+
+.p-menuitem .pi-trash,
+.p-menuitem .pi-trash + .p-menuitem-text {
+  color: var(--red-300) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bg-highlight {
+    background-color: var(--highlight-bg);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

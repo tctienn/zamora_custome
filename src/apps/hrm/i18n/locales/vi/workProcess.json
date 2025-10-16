@@ -1,0 +1,14 @@
+{
+  "titleTab": "Danh sách quá trình công tác ngoài đơn vị",
+  "titleForm": "quá trình công tác ngoài đơn vị",
+  "fromMonth": "Từ tháng/năm",
+  "toMonth": "Đến tháng/năm",
+  "references": "Người tham chiếu",
+  "companyUnit": "Công ty/Đơn vị",
+  "phone": "Điện thoại",
+  "address": "Địa chỉ",
+  "jobPosition": "Vị trí",
+  "description": "Mô tả công việc",
+  "salary": "Mức lương",
+  "reasonForLeaving": "Lý do nghỉ việc"
+}

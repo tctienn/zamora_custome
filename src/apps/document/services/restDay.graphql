@@ -1,0 +1,41 @@
+extend type Query{
+    searchRestDay(keyword: String, pageable: Pageable): RestDayConnection
+    getRestDayById(id: String): RestDay
+    getAllRestDay: [RestDay]
+    getNumberDay(dateA: Date, dateB: Date): Int
+}
+
+extend type Mutation{
+    saveRestDay(restDay: RestDayModel): RestDay
+    deleteRestDay(id: String): RestDay
+    duplicateRestDay(ids: String): Boolean
+}
+
+input RestDayModel {
+    id: String
+    restDayName: String
+    note: String
+    fromDate: Date
+    toDate: Date
+    year: Int
+}
+
+type RestDay {
+    id: String
+    restDayName: String
+    note: String
+    fromDate: Date
+    toDate: Date
+    year: Int
+}
+
+type RestDayConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [RestDayEdge]
+}
+
+type RestDayEdge {
+    cursor: String!
+    node: RestDay
+}

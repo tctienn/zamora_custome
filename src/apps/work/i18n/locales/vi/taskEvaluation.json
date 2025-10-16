@@ -1,0 +1,15 @@
+{
+  "objectName": "Đánh giá công việc",
+  "listTaskEvaluation": "Danh sách thời hạn công việc",
+  "result": "Kết quả",
+  "pass": "Đạt yêu cầu",
+  "notPass": "Không đạt - Đóng việc",
+  "point": "Điểm đánh giá",
+  "note": "Tối đa 10 điểm",
+  "description": "Bình luận",
+  "comment": "Nhập bình luận",
+  "message": {
+    "newDeadlineDayEmpty": "Ngày không được để trống",
+    "newDeadlineTimeEmpty": "Giờ không được để trống"
+  }
+}

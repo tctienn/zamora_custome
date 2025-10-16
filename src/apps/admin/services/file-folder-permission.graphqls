@@ -1,0 +1,41 @@
+extend type Query {
+    findByGroupId(groupId: String): [FileFolderPermission]
+    findByGroupIdAndPath(groupId: String, path: String): [FileFolderPermission]
+}
+
+extend type Mutation {
+    save(inputData : [FileFolderPermissionInput]): [FileFolderPermission]
+}
+
+type FileFolderPermission {
+    id: PermissionId
+    permission: String
+    username: String
+    email: String
+    fullName: String
+}
+
+type PermissionId{
+    groupId: String
+    userId: String
+    path: String
+}
+
+input FileFolderPermissionInput{
+    id: PermissionIdInput,
+    permission: String
+}
+
+input PermissionIdInput{
+    groupId: String
+    userId: String
+    path: String
+}
+
+type User{
+    id: String
+    username: String
+    email: String
+    fullName: String
+}
+

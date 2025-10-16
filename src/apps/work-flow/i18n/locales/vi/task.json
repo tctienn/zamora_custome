@@ -1,0 +1,19 @@
+{
+  "activeTasks": "Nhiệm vụ đang hoạt động",
+  "completedTasks": "Nhiệm vụ đã hoàn thành",
+  "name": "Tên nhiệm vụ",
+  "assigned": "Người xử lý",
+  "status": "Trạng thái nhiệm vụ",
+  "startTime": "Thời gian bắt đầu",
+  "endTime": "Thời gian kết thúc",
+  "result": "Kết quả",
+  "selectedResult": "Kết quả lựa chọn",
+  "comment": "Ý kiến",
+  "chooseUsersForNextTasks": "Chọn người xử lý cho nhiệm vụ tiếp theo",
+  "finishTask": "Hoàn thành nhiệm vụ",
+  "end": "Kết thúc",
+  "workInfo": "Thông tin quy trình",
+  "nextTaskWarning": "Bạn cần lựa chọn hành động tiếp theo",
+  "emptyMessage": "Bạn không có nhiệm vụ nào",
+  "orgTree": "Cây tổ chức"
+}

@@ -1,0 +1,13 @@
+{
+  "objectName": "Cấu hình trạng thái",
+  "listConfigStatus": "Danh sách cấu hình thuộc tính",
+  "statusName": "Tên trạng thái",
+  "statusType": "Loại trạng thái",
+  "description": "Mô tả",
+  "color": "Màu",
+  "orderNo": "STT",
+  "message": {
+    "nameEmpty": "Tên trạng thái không được để trống",
+    "typeEmpty": "Loại trạng thái không được để trống"
+  }
+}

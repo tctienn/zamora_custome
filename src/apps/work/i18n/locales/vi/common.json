@@ -1,0 +1,18 @@
+{
+  "table": {
+    "statuses": {
+      "under_construction": "Đang xây dựng",
+      "prepare_for_deployment": "Chuẩn bị triển khai",
+      "processing": "Đang thực hiện",
+      "completed": "Hoàn thành",
+      "pause": "Tạm dừng",
+      "cancel": "Hủy",
+      "close": "Đóng"
+    }
+  },
+  "update": "Cập nhật",
+  "create": "Tạo mới",
+  "project": "dự án",
+  "views": "Lượt xem",
+  "lastViewTime": "Truy cập gần nhất"
+}

@@ -1,0 +1,207 @@
+type Query {
+    task(id: String!): Task!
+    findTaskByUserRangeDate(fromDate: DateTime, toDate: DateTime): [Task]
+    taskAsParent(sourceType: SourceType, keyword: String!): [Task]
+    findTasksByAssignerRangeDate(fromDate: DateTime, toDate: DateTime): [Task]
+    searchTasks(searchTaskInput: SearchTaskInput, page: Pageable):TaskConnection
+
+    countTasksStatus(searchTaskInput: SearchTaskInput): [CountStatus]
+    countTasksRole(searchTaskInput: SearchTaskInput): CountRoleFilter
+
+    getChildrenTaskByTaskId(taskId:String):[Task]
+    getLeafByTaskId(taskId:String):[Task]
+    getTasksNoParent(searchTaskInput: SearchTaskInput):[Task]
+
+    getTasksCreatedByOriginObject(originObject:TaskOriginObject):[Task]
+}
+
+type Mutation {
+    saveTask(task: TaskInput!, attachments: [Upload], otherInfos: [TaskExtendInput]) : Task!
+    saveTasks(tasks: [TaskInput]!): [Task]!
+    cloneTask(taskId: String): Task
+    saveChildrenTask(taskId:String,childrenTaskIds:[String]):[Task]
+    deleteChildrenTask(childrenTaskIds: [String]):[Task]
+    readTask(taskId:String):Boolean
+}
+
+input Demo {
+    files: [Upload]
+    taskId: String
+}
+
+type Task implements IWork{
+    id: String!
+    code: String
+    name: String!
+    type: SourceType
+    weight: Float
+    description: String
+    startTime: DateTime
+    dueTime: DateTime
+    completionTime: DateTime
+    completionType: CompletionType
+    assignerId: String
+    assignerName: String
+    isRepeat: Boolean
+    isImportant: Boolean
+    needEvaluate: Boolean
+    remind: Boolean
+    assessorId: String
+    assessorName: String
+    percent: Float
+    autoProgress: Boolean
+    statusId: String!
+    statusName: String
+    parentId: String
+    hasAttachment: Boolean
+    hasChecklist: Boolean
+    hasLocation: Boolean
+    hasCustomer: Boolean
+    hasExpense: Boolean
+    hasDynamicField: Boolean
+    isEvaluated: Boolean
+    copyFrom: String
+    createdTime: DateTime
+    createdBy: String
+    lastModifiedTime: DateTime
+    lastModifiedBy: String
+
+    participants: [Participant]
+    labels: [TaskLabel]
+    checkLists: [CheckList]
+    checkListCount: CheckListCount
+    repeatConfig: TaskRepeat
+    taskSource: TaskSource
+    commentCount: Int
+    taskAttachments: [Attachment]
+    locations: [Location]
+    evaluation: Evaluation
+    extends: [TaskExtend]
+    children: [Task]
+    parent: Task
+    taskCustomers: [TaskCustomer]
+
+    project:Project
+
+    projectId:String
+    groupId: String
+    target: String
+    priority: TaskPriority
+    orderNo: Float
+    createdDate:Date
+    isAssignWithTime:Boolean
+
+    originCreatedType: OriginModule
+    originCreatedId: String
+    originData: JSON
+}
+
+input TaskInput {
+    id: String
+    code: String
+    name: String!
+    type: SourceType
+    weight: Float
+    description: String
+    startTime: DateTime
+    dueTime: DateTime
+    completionTime: DateTime
+    assignerId: String
+    isRepeat: Boolean
+    isImportant: Boolean
+    needEvaluate: Boolean
+    remind: Boolean
+    assessorId: String
+    percent: Float
+    autoProgress: Boolean
+    statusId: String!
+    statusName: String
+    parentId: String
+
+    groupId: String
+    projectId: String
+    target: String
+    priority: TaskPriority
+    orderNo: Float
+    createdDate:Date
+    isAssignWithTime:Boolean
+
+    participants: [ParticipantInput]
+    checkLists: [CheckListInput]
+    labels: [LabelInput]
+    repeatConfig: TaskRepeatInput
+    taskSource: TaskSourceInput
+    oldAttachmentIds: [String]
+    createdBy: String
+    createdTime: DateTime
+    hasLocation: Boolean
+    locations: [LocationInput]
+    taskCustomers: [TaskCustomerInput]
+
+    originCreatedType: OriginModule
+    originCreatedId: String
+    originData: JSON
+
+}
+
+enum CompletionType {
+    AUTO, MANUAL
+}
+
+
+input SearchTaskInput{
+    projectId:String
+    keyword:String
+    taskStatusId:[String]
+    taskRole:[TaskRoleFilter]
+    userId:String
+    fromDateTime:DateTime
+    toDateTime:DateTime
+}
+
+input TaskOriginObject{
+    originCreatedType:OriginModule
+    originCreatedId:String
+    originData:JSON
+}
+
+type TaskConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [TaskEdge]
+}
+
+type TaskEdge {
+    cursor: String!
+    node: Task
+}
+enum TaskRoleFilter {
+    ALL,
+    IMPLEMENT,
+    ASSIGN,
+    FOLLOW,
+    MY_DEPT,
+}
+
+type CountRoleFilter {
+    all: Int
+    implement: Int
+    assign: Int
+    follow: Int
+    myDept: Int
+}
+type CountStatus {
+    statusId:String
+    count:Float
+}
+
+enum TaskPriority{
+    HIGH,
+    INTERMEDIATE,
+    NORMAL,
+    LOW,
+}
+
+enum OriginModule{
+    DOCUMENT
+}

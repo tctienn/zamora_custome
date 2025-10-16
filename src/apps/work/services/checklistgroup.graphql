@@ -1,0 +1,27 @@
+extend type Query {
+    listCheckListGroup(taskId:String,filter:CheckListFilter):[CheckListGroup]
+}
+
+extend type Mutation {
+    deleteCheckListGroupById(id: String):Boolean
+    saveCheckListGroup(checkListGroupInput: CheckListGroupInput): CheckListGroup
+}
+
+type CheckListGroup{
+    id:String
+    name:String
+    taskId:String
+    orderNo:String
+    checkLists:[CheckList]
+}
+input CheckListGroupInput{
+    taskId:String
+    checkLists:[CheckListInput]
+    name:String
+    orderNo:String
+}
+input CheckListFilter{
+    from: DateTime
+    to: DateTime
+    isChecked: Boolean
+}

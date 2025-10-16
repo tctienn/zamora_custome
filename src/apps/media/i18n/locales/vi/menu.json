@@ -1,0 +1,18 @@
+{
+  "media": "Truyền thông",
+  "mediaConfig": "Quản trị",
+  "mediaConfigAnnouncement": "Thông báo",
+  "mediaConfigNews": "Tin tức",
+  "mediaConfigHonors": "Vinh danh",
+  "mediaAnnouncement": "Thông báo",
+  "mediaNews": "Tin tức",
+  "mediaHonors": "Vinh danh",
+  "birthday": "Sinh nhật",
+  "mediaContacts": "Danh bạ",
+  "mediaSurveys": "Khảo sát",
+  "mediaConfigSurvey": "Khảo sát",
+  "mediaConfigSurveys": "Khảo sát",
+  "mediaAnnouncementView": "Thông báo",
+  "mediaNewsView": "Tin tức",
+  "mediaHonorsView": "Vinh danh"
+}

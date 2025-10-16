@@ -1,0 +1,44 @@
+extend type Query {
+    categoryGroups(keyword: String, pageable: Pageable): CategoryGroupConnection
+    allCategoryGroup: [CategoryGroup]
+    categoryGroup(code: String!): CategoryGroup
+    childCategoryGroups(parentCode: String!): [CategoryGroup]
+}
+
+extend type Mutation {
+    saveCategoryGroup(categoryGroupInput: CategoryGroupInput!): CategoryGroup
+    deleteCategoryGroup(code: String!): CategoryGroup
+}
+
+type CategoryGroup {
+    code: String!,
+    name: String,
+    description: String,
+    status: String,
+    parentCode: String,
+    order: Int,
+    isGlobal: Boolean
+    parentName: String
+    apps: [String]
+}
+
+input CategoryGroupInput {
+    code: String!,
+    name: String!,
+    description: String,
+    status: String!,
+    isGlobal: Boolean
+    parentCode: String,
+    order: Int,
+}
+
+type CategoryGroupConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [CategoryGroupEdge]
+}
+
+type CategoryGroupEdge {
+    cursor: String!
+    node: CategoryGroup
+}

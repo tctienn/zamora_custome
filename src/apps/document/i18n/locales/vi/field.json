@@ -1,0 +1,15 @@
+{
+  "code": "Mã Lĩnh vực ",
+  "errors": {
+    "codeEmpty": "Mã Lĩnh vực không được để trống.",
+    "codeExits": "Mã Lĩnh vực đã tồn tại.",
+    "nameEmpty": "Tên Lĩnh vực không được để trống."
+  },
+  "id": "Id Lĩnh vực ",
+  "name": "Tên Lĩnh vực ",
+  "objectName": "Lĩnh vực ",
+  "tableTitle": "Danh sách Lĩnh vực ",
+  "validateField": {
+    "notNull": "Không được để trống"
+  }
+}

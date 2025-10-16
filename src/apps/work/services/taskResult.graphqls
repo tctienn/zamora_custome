@@ -1,0 +1,23 @@
+extend type Mutation {
+    addResult(taskResult: TaskResultInput): TaskResult
+}
+
+type TaskResult {
+    id: String,
+    taskId: String,
+    weight: Float,
+    percent: Float,
+    statusId: String,
+    statusName: String,
+    description: String,
+}
+
+input TaskResultInput {
+    id: String,
+    taskId: String,
+    weight: Float,
+    percent: Float,
+    statusId: String,
+    statusName: String,
+    description: String,
+}

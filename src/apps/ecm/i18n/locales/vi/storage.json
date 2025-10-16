@@ -1,0 +1,99 @@
+{
+  "chooseFolderToMove": "Chọn thư mục để di chuyển",
+  "confirmMessage": {
+    "deletesAll": "Bạn có chắc chắn muốn xóa tất cả những mục này không?",
+    "moveToTrash": "Bạn có chắc chắn muốn chuyển những mục này đến Thùng rác không?",
+    "restores": "Bạn có muốn khôi phục những mục này không?",
+    "restoresAll": "Bạn có chắc chắn muốn khôi phục tất cả những mục này không?",
+    "openEditAfterCreate": "Mở trình chỉnh sửa online sau khi tạo tệp tin"
+  },
+  "create": "Tạo mới",
+  "createFileFolder": "Tạo {type}",
+  "displayType": {
+    "grid": "Dạng lưới",
+    "listview": "Dạng danh sách"
+  },
+  "error": {
+    "browserNotSupportAudio": "Trình duyệt của bạn không hỗ trợ tệp âm thanh.",
+    "browserNotSupportVideo": "Trình duyệt của bạn không hỗ trợ tệp video.",
+    "fileNotExits": "Tệp không tồn tại",
+    "permissionDenied": "Không có quyền",
+    "unableDisplayPdf": "Không thể hiển thị tệp tin PDF.",
+    "unableLoadFile": "Không thể tải tệp tin.",
+    "unableLoadImage": "Không thể hiển thị hình ảnh.",
+    "unablePreviewFile": "Không thể xem trước tệp tin."
+  },
+  "fileFolderActions": {
+    "copy": "Sao chép",
+    "copyTo": "Sao chép tới",
+    "cut": "Cắt",
+    "delete": "Xóa",
+    "download": "Tải xuống",
+    "downloadToMyDocument": "Tải tới thư mục cá nhân",
+    "error": {
+      "noPermission": "Bạn không có quyền thao tác với những dữ liệu này!"
+    },
+    "groupPermissions": "Phân quyền nhóm",
+    "important": "Đánh dấu quan trọng",
+    "info": "Thông tin",
+    "move": "Di chuyển",
+    "newVersion": "Cập nhật phiên bản",
+    "open": "Mở",
+    "openWith": "Mở bằng",
+    "paste": "Dán",
+    "rename": "Đổi tên",
+    "restore": "Khôi phục",
+    "restoreAll": "Khôi phục tất cả",
+    "share": "Chia sẻ",
+    "unimportant": "Bỏ đánh dấu quan trọng",
+    "version": "Quản lý phiên bản",
+    "work": "Tạo công việc"
+  },
+  "fileFolderEmpty": "Tạo mới, Tải lên hoặc kéo thả tệp tại đây.",
+  "fileSize": "Kích thước tệp",
+  "fileType": "Loại tệp",
+  "filterFileTypes": {
+    "audio": "Âm thanh",
+    "compress": "Tệp lưu trữ",
+    "document": "Tài liệu",
+    "image": "Hình ảnh",
+    "pdf": "PDF",
+    "sheet": "Bảng tính",
+    "slideshow": "Trình bày",
+    "text": "Văn bản",
+    "video": "Video"
+  },
+  "filterLastModified": {
+    "last30Days": "30 ngày qua",
+    "last7Days": "7 ngày qua",
+    "today": "Hôm nay"
+  },
+  "filterShare": {
+    "all": "Tất cả",
+    "notShare": "Chưa được chia sẻ",
+    "shared": "Đã chia sẻ"
+  },
+  "lastModifiedAt": "Chỉnh sửa lần cuối",
+  "name": "Tên",
+  "filename": "Tên tệp",
+  "newVersionExtensionNotMatch": "Định dạng tệp tin không khớp với phiên bản hiện tại",
+  "noFolder": "Không có thư mục nào.",
+  "noFileFolder": "Không có tệp hay thư mục nào.",
+  "noFileSelected": "Không có tệp tin nào được chọn",
+  "sharedDocuments": "Tài liệu được chia sẻ",
+  "sharer": "Người chia sẻ",
+  "someFilesExceedMaxFileSize": "Có 1 số tệp không thể tải lên do vượt quá dung lượng cho phép ({maxFileSize})",
+  "sortingOptions": {
+    "isImportantAsc": "Tài liệu quan trọng: xuống cuối",
+    "isImportantDesc": "Tài liệu quan trọng: lên đầu",
+    "isShareAsc": "Tài liệu được chia sẻ: xuống cuối",
+    "isShareDesc": "Tài liệu được chia sẻ: lên đầu",
+    "lastModifiedAtAsc": "Chỉnh sửa gần đây: cũ nhất",
+    "lastModifiedAtDesc": "Chỉnh sửa gần đây: mới nhất",
+    "nameAsc": "Tên từ A-Z",
+    "nameDesc": "Tên từ Z-A"
+  },
+  "tree": "Cây thư mục",
+  "uploadFile": "Tải tệp lên",
+  "uploadFolder": "Tải thư mục lên"
+}

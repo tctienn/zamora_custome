@@ -1,0 +1,15 @@
+{
+  "code": "Field Code",
+  "errors": {
+    "codeEmpty": "Field Code cannot be empty.",
+    "codeExits": "Field Code already exists.",
+    "nameEmpty": "Field Name cannot be empty."
+  },
+  "id": "Field Id",
+  "name": "Field Name",
+  "objectName": "Field",
+  "tableTitle": "Field List",
+  "validateField": {
+    "notNull": "Cannot be empty"
+  }
+}

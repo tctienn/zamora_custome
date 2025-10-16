@@ -1,0 +1,38 @@
+extend type Query{
+    searchField(keyword: String, pageable: Pageable): FieldConnection
+    getFieldById(id: String): Field
+    getAllField: [Field]
+    maxOrderActiveField: Int
+}
+
+extend type Mutation{
+    saveField(field: FieldInput): Field
+    deleteField(id: String): Field
+}
+
+input FieldInput {
+    id: String
+    code: String
+    name: String
+    norder: Int
+    status: Boolean
+}
+
+type Field {
+    id: String
+    code: String
+    name: String
+    norder: Int
+    status: Boolean
+}
+
+type FieldConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [FieldEdge]
+}
+
+type FieldEdge {
+    cursor: String!
+    node: Field
+}

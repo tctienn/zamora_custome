@@ -1,0 +1,147 @@
+extend type Query {
+    waitingDocs(search: SearchModel, userDeptRole: UserDeptRole!, pageable: Pageable): IncomingDocConnection
+    processingDocs(search: SearchModel, userDeptRole: UserDeptRole!, pageable: Pageable): IncomingDocConnection
+    processedDocs(search: SearchModel, userDeptRole: UserDeptRole!, pageable: Pageable): IncomingDocConnection
+    ccDocs(search: SearchModel, userDeptRole: UserDeptRole!, pageable: Pageable): IncomingDocConnection
+    waitingCommentDocs(search: SearchModel, userDeptRole: UserDeptRole!, pageable: Pageable): IncomingDocConnection
+    commentedDocs(search: SearchModel, userDeptRole: UserDeptRole!, pageable: Pageable): IncomingDocConnection
+    revokedDocs(search: SearchModel, userDeptRole: UserDeptRole!, pageable: Pageable): IncomingDocConnection
+
+    countWaitingDocs(search: SearchModel, userDeptRole: UserDeptRole!): Int
+    countProcessingDocs(search: SearchModel, userDeptRole: UserDeptRole!): Int
+    countProcessedDocs(search: SearchModel, userDeptRole: UserDeptRole!): Int
+    countCCDocs(search: SearchModel, userDeptRole: UserDeptRole!): Int
+    countWaitingCommentDocs(search: SearchModel, userDeptRole: UserDeptRole!): Int
+    countCommentedDocs(search: SearchModel, userDeptRole: UserDeptRole!): Int
+    countRevokedDocs(search: SearchModel, userDeptRole: UserDeptRole!): Int
+    countOverdueDocs(userDeptRole: UserDeptRole!): Int
+    countDeadlineDocs(daysBefore: Int, userDeptRole: UserDeptRole!): Int
+
+    canRevokeDoc(docId:String, userDeptRole: UserDeptRole!):Boolean
+    getListCanRevokeDoc(docId:String, userDeptRole: UserDeptRole!):[CanRevoke]
+    getListUserInvolveDoc(docId:String,userDeptRole: UserDeptRole):Int
+    docInRelatedUsers(docId:String!, userDeptRole: UserDeptRole!): [DocUser]
+    getFilesFromSystemDocIn(userDeptRole: UserDeptRole): [FilesSystemModel]
+    reportDocIn(userDeptRole: UserDeptRole, reportDocInModel: ReportDocInModel): [ReportDocInData]
+
+    getAllDocInByUserId(page: Pageable): IncomingDocConnection
+}
+
+extend type Mutation {
+    flowAction(currentProcessId: String!, incomingProcesses: [IncomingProcessInput]!, userDeptRole: UserDeptRole!, result: String!, moreInfo:AdditionalInfoFlowAction): Boolean
+    completeDoc(currentProcessId: String!, note: String, userDeptRole: UserDeptRole!): Boolean
+    sendDocBack(docId: String!, userDeptRole: UserDeptRole!,moreInfo:AdditionalInfoFlowAction): Boolean
+    setDocToCC(docId: String!, userDeptRole: UserDeptRole!): Boolean
+    revoke(revokeModelInput:RevokeModelInput,userDeptRole:UserDeptRole!):RevokeModelDocIn
+}
+union CanRevoke = CCInfo| Comment| IncomingProcess | OutgoingProcess | DocSubmitProcess
+
+type IncomingDoc {
+    id: String
+    identifyCode: String
+    docCode: String
+    docDate: Date
+    signerId: String
+    signerName: String
+    publisherId: String
+    publisherName:String
+    docTypeId: String
+    docTypeName: String
+    priorityCode: String
+    securityCode: String
+    areaId: String
+    areaName: String
+    deadlineDate: Date
+    deadlineNumber: Float
+    numberOfPage: Int
+    numberOfCopy: Int
+    quote: String
+    incomingDate: Date
+    isEnvelope: Boolean
+    isRequireAnswer: Boolean
+    isLawDocument: Boolean
+    isReply: Boolean
+    replyFor: String
+    note: String
+    copyFrom: String
+    fileId: String
+    status: DocStatus
+    outgoingDocId: String
+    docFromoutId: String
+    publisherType: PublisherType
+    isDeleted: Boolean
+    sendBackType:DocSendBackType
+    isOnlyLeader: Boolean
+    deliveryNumber: String
+    processId: String
+    ccId: String
+    commentId: String
+
+    book: DocInBook
+    attachments: [Attachment]
+    process: IncomingProcess
+    cc: CCInfo
+    comment: Comment
+}
+
+type IncomingDocConnection {
+    totalCount: Int
+    pageInfo: PageInfo
+    edges: [IncomingDocEdge]
+}
+
+type IncomingDocEdge {
+    cursor: String
+    node: IncomingDoc
+}
+
+type DocInBook {
+    id: String
+    bookId: String
+    bookNumber: Int
+    subBookNumber: String
+    docId: String
+    docType: DocTypeEnum
+    docTypeId: String
+    deadlineDate: Date
+    deadlineNumber: Float
+    isDeleted: Boolean
+    deptId: String
+    status: DocStatus
+}
+
+input RevokeModelInput{
+    incomingProcessIds:[String]
+    outgoingProcessIds:[String]
+    ccInfoIds:[String]
+    commentIds:[String]
+    reason:String
+}
+type RevokeModelDocIn{
+    incomingProcessIds:[String]
+    ccInfoIds:[String]
+    commentIds:[String]
+    reason:String
+}
+
+type ReportDocInData{
+    id: String
+    incomingDate: Date
+    bookName: String
+    docCode: String
+    quote: String
+    docTypeName: String
+    priorityCode: String
+    publisherName: String
+    docDate: Date
+}
+
+input ReportDocInModel{
+    id: String,
+    publisherId: String,
+    incomingDateFrom: Date,
+    incomingDateTo: Date,
+    docDateFrom: Date,
+    docDateTo: Date,
+    structureType: String
+}

@@ -1,0 +1,31 @@
+extend type Query {
+    findByShiftType(shiftType: String): [Shift]
+    findByShiftTypeAndStatus(shiftType: String, status: String): [Shift]
+}
+
+extend type Mutation {
+    saveShift(shiftInput: ShiftInput): Shift
+    deleteShift(id: String): String
+}
+
+type Shift{
+    id: String
+    shiftType: String
+    shiftName: String
+    start: Time
+    end: Time
+    labour: Float
+}
+
+enum ShiftType{
+    PART_OFFICE_SHIFT, NIGHT_SHIFT, BROKEN_SHIFT
+}
+
+input ShiftInput{
+    id: String
+    shiftType: String
+    shiftName: String
+    start: Time
+    end: Time
+    labour: Float
+}

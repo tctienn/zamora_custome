@@ -1,0 +1,17 @@
+extend type Query{
+    getRestDayInWeek: RestDayInWeek
+}
+
+extend type Mutation{
+    saveRestDayInWeek(restDayInWeek: RestDayInWeekModel): Boolean
+}
+
+type RestDayInWeek {
+    id: String
+    restOnWeek: [String]
+}
+
+input RestDayInWeekModel {
+    id: String
+    restOnWeek: [String]
+}

@@ -1,0 +1,37 @@
+{
+  "coop": "Collaborate",
+  "deleteAll": "Delete all",
+  "emptySelection": "No user/department selected",
+  "fileAttachment": "File attachment",
+  "iamHere": "I am here",
+  "listCanRevoke": "List of revocable items",
+  "listFile": "File list",
+  "listReceiver": "Recipient list",
+  "main": "Lead",
+  "note": "Opinion content",
+  "process": "Execute",
+  "processFlow": "Processing flow",
+  "receiveToKnow": "Receive for information",
+  "rejectReason": "Rejection reason",
+  "returnReason": "Return reason",
+  "returnSteps": "Return steps",
+  "selectSteps": "Select steps",
+  "revokeReason": "Revoke reason",
+  "status": {
+    "choBanHanh": "Awaiting Issuance",
+    "choXl": "Pending",
+    "daBanHanh": "Issued",
+    "daXl": "Processed",
+    "dangTrinh": "Submitting",
+    "dangXl": "Processing",
+    "hoanThanh": "Completed",
+    "nhap": "Draft",
+    "soanThao": "Drafting"
+  },
+  "stepRequired": "Please select at least one step to return",
+  "transferDate": "Transfer date",
+  "userOrDeptReceive": "Recipient (User/Department)",
+  "validate": {
+    "reasonNotEmpty": "Revoke reason cannot be empty."
+  }
+}

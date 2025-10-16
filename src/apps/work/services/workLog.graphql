@@ -1,0 +1,31 @@
+extend type Query {
+    getViewsByWorkId(workId:String!):[ViewsWorkProjection]
+    getActivityByWorkId(workId:String!,pageable:Pageable):WorkLogConnection
+}
+
+type ViewsWorkProjection{
+    userId:String
+    views:Int
+    lastViewTime:DateTime
+}
+type WorkLog{
+    id:String
+    action:String
+    objectType:String
+    objectId:String
+    workId:String
+    oldValue:JSON
+    newValue:JSON
+    createdTime:DateTime
+    createdBy:String
+}
+type WorkLogConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [WorkLogEdge]
+}
+
+type WorkLogEdge {
+    cursor: String!
+    node: WorkLog
+}

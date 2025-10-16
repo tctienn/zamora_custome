@@ -1,0 +1,27 @@
+{
+  "No": "STT",
+  "fullName": "Họ tên",
+  "rating": "Xếp loại",
+  "classificationFlag": "Cờ phân loại",
+  "hostUnit": "Đơn vị",
+  "jobOnMissionCount": {
+    "title": "Công việc theo nhiệm vụ",
+    "totalJobByMission": "Tổng",
+    "totalJobOnMissionCompletedAheadOfSchedule": "Hoàn thành trước hạn",
+    "totalJobOnMissionCompletedOnTime": "Hoàn thành đúng hạn",
+    "totalJobOnMissionCompletedLateOnTime": "Hoàn thành trễ hạn",
+    "totalJobOnMissionInProgress": "Đang thực hiện",
+    "totalJobOnMissionUnprocessed": "Chưa hoàn thành",
+    "totalJobOnMissionNew": "Chưa thực hiện"
+  },
+  "jobOtherCount": {
+    "title": "Công việc khác",
+    "totalJobOnOther": "Tổng",
+    "totalJobOtherCompletedAheadOfSchedule": "Hoàn thành trước hạn",
+    "totalJobOtherCompletedOnTime": "Hoàn thành đúng hạn",
+    "totalJobOtherCompletedLateOnTime": "Hoàn thành trễ hạn",
+    "totalJobOtherInProgress": "Đang thực hiện",
+    "totalJobOtherUnprocessed": "Chưa hoàn thành",
+    "totalJobOtherNew": "Chưa thực hiện"
+  }
+}

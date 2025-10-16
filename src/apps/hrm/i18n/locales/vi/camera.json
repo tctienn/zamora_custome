@@ -1,0 +1,28 @@
+{
+  "device": {
+    "place": "Vị trí",
+    "useForCheckin": "Dùng để chấm công"
+  },
+  "checkin": {
+    "count": {
+      "total": "Tổng số nhân sự",
+      "checkedIn": "Nhân sự đã chấm công",
+      "guests": "Tổng số lượt người lạ"
+    },
+    "monitorTable": "Bảng theo dõi vào/ra",
+    "today": "Hôm nay",
+    "location": "Địa điểm",
+    "checkinTime": "Thời gian vào",
+    "checkoutTime": "Thời gian ra",
+    "lastAppearance": "Lần xuất hiện cuối",
+    "unknownLocation": "Địa điểm không xác định"
+  },
+  "cameraConfigTab": {
+    "token": "Token",
+    "place": "Địa điểm",
+    "device": "Thiết bị",
+    "parameters": "Các tham số",
+    "employeesFromCamera": "Danh sách nhân sự từ Camera",
+    "linkTimekeepingCode": "Liên kết mã chấm công"
+  }
+}

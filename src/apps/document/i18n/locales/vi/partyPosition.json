@@ -1,0 +1,53 @@
+{
+  "addOrganization": "Thêm phòng ban",
+  "addUserToOrganization": "Thêm người dùng vào phòng ban",
+  "birthCreated": "Ngày sinh/Ngày khởi tạo",
+  "chooseMember": "Chọn thành viên",
+  "choosePosition": "Chọn chức vụ",
+  "chooseRole": "Chọn vai trò",
+  "code": "Mã chức danh Đảng/Đoàn ",
+  "codeOrganization": "Mã phòng ban",
+  "concurrently": "Kiêm nhiệm",
+  "createOrganization": "Thêm mới phòng ban",
+  "description": "Mô tả",
+  "errors": {
+    "codeEmpty": "Mã chức danh Đảng/Đoàn không được để trống",
+    "codeExits": "Mã chức danh Đảng/Đoàn đã tồn tại",
+    "nameEmpty": "Tên chức danh Đảng/Đoàn không được để trống"
+  },
+  "id": "Id chức danh Đảng/Đoàn ",
+  "message": {
+    "addUserSuccess": "Thêm người dùng vào phòng ban thành công.",
+    "codeNotEmpty": "Mã không được để trống.",
+    "createSuccess": "Thêm mới thành công.",
+    "deleteSuccess": "Xóa phòng ban thành công.",
+    "nameNotEmpty": "Tên không được để trống.",
+    "organizationIsExist": "Phòng ban đã tồn tại.",
+    "organizationIsNotExist": "Phòng ban không tồn tại.",
+    "updateSuccess": "Cập nhật thành công."
+  },
+  "mobileEmail": "Mobile/Email",
+  "name": "Tên chức danh Đảng/Đoàn ",
+  "nameOrganization": "Tên phòng ban",
+  "objectName": "Chức danh Đảng/Đoàn ",
+  "organization": "phòng ban",
+  "parent": "Phòng ban cấp trên",
+  "partyUnionStructure": "Khai báo cơ cấu tổ chức Đảng/Đoàn",
+  "position": "Chức vụ",
+  "role": "Vai trò",
+  "status": {
+    "active": "Hoạt động",
+    "deactivate": "Không hoạt động"
+  },
+  "statusField": "Trạng thái",
+  "structureParty": "Tổ chức Đảng",
+  "structureUnion": "Tổ chức Đoàn",
+  "stt": "STT",
+  "tableTitle": "Danh sách chức danh Đảng/Đoàn ",
+  "updateOrganization": "Cập nhật phòng ban",
+  "userName": "Tên người dùng",
+  "validateField": {
+    "notNull": "Không được để trống"
+  }
+}
+

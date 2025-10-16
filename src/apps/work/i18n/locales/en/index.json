@@ -1,0 +1,154 @@
+{
+  "objectName": "Task",
+  "myWork": "My Tasks",
+  "tableTitle": "My Task List",
+  "create": "Create Task",
+  "update": "Update Task",
+  "detail": "Task Details",
+  "quickCreate": "Quick Create Task",
+  "list": "List",
+  "kanban": "Kanban",
+  "calendar": "Calendar",
+  "search": "Search Tasks",
+  "types": {
+    "single": "Single",
+    "repeat": "Recurring",
+    "project": "Project"
+  },
+  "status": {
+    "unprocessed": "Not Started",
+    "processing": "In Progress",
+    "done": "Completed",
+    "stop": "Stopped",
+    "cancelled": "Cancelled"
+  },
+  "filter": {
+    "expireDays": "Tasks due in {count} days",
+    "expire": "Overdue Tasks",
+    "done": "Completed Tasks",
+    "assign": "Tasks Assigned to Me",
+    "implement": "Tasks I'm Implementing",
+    "takePartIn": "Tasks I'm Participating In"
+  },
+  "code": "Task Code",
+  "name": "Task Name",
+  "weight": "Weight",
+  "description": "Description",
+  "dueTime": "Due Time",
+  "isRepeat": "Recurring Task",
+  "isImportant": "Important Task",
+  "evaluate": "Task Needs Evaluation",
+  "assessor": "Evaluator",
+  "assessorId": "Evaluator",
+  "statusName": "Status",
+  "percent": "Progress",
+  "autoProgress": "Auto Progress Evaluation",
+  "startTime": "Start Date",
+  "completionTime": "Completion Time",
+  "isEvaluated": "Evaluated",
+  "type": "Task Type",
+  "progress": "Progress",
+  "assigner": "Assigner",
+  "assignerId": "Assigner",
+  "supervisor": "Supervisor",
+  "implementer": "Implementer",
+  "deadline": "Deadline",
+  "repeat": "Recurring",
+  "repeats": {
+    "daily": "Daily Recurrence",
+    "weekly": "Weekly Recurrence",
+    "daysInMonth": "Day of the Month Recurrence",
+    "endOfMonth": "End of Month Recurrence"
+  },
+  "cc": "Executor",
+  "implements": {
+    "personal": "Individual",
+    "organization": "Organization"
+  },
+  "cooperator": "Collaborator",
+  "important": "Important",
+  "remind": "Remind to Complete",
+  "needEvaluate": "Evaluation Required",
+  "completionType": "Progress Calculation Method",
+  "completionTypes": {
+    "auto": "Auto Calculation",
+    "manual": "Manual Entry"
+  },
+  "source": "Source",
+  "sources": {
+    "none": "None",
+    "project": "Project",
+    "document": "Document",
+    "board": "Board",
+    "workFlow": "Workflow"
+  },
+  "parent": "Parent Task",
+  "parentId": "Parent Task",
+  "checklist": "Checklist",
+  "addChecklist": "Add Checklist Item",
+  "location": "Execution Location",
+  "addLocation": "Add Location",
+  "attachments": "Attachments",
+  "validate": {
+    "codeEmpty": "Task Code cannot be empty.",
+    "nameEmpty": "Task Name cannot be empty.",
+    "startTimeEmpty": "Start Time cannot be empty.",
+    "endTimeEmpty": "Due Time cannot be empty.",
+    "dueMustGreaterThanStart": "Due time must be greater than the start time.",
+    "assignerNotSelected": "Assigner is not selected.",
+    "implementerNotSelected": "Implementer is not selected.",
+    "outScopeProject": "Individuals outside the project scope are present.",
+    "startTimeBeforePhase": "Start time must be in phase.",
+    "dueTimeBeforePhase": "Due time must be in phase."
+  },
+  "generalInformation": "General Information",
+  "addInformation": "Add Information",
+  "config": "Settings",
+  "taskSetting": {
+    "title": "Task Settings",
+    "resource": {
+      "title": "Resources for Execution",
+      "name": "Resource Name",
+      "position": "Position",
+      "participationRate": "Participation Rate"
+    },
+    "warningReminder": {
+      "title": "Warning and Reminders",
+      "advance": "Advance Warning",
+      "method": "Warning Method",
+      "notification": "System Notification"
+    }
+  },
+  "showType": {
+    "title": "Display Type Options",
+    "dataList": "Single List Type",
+    "treeSelect": "Parent - Child Display Type"
+  },
+  "actions": {
+    "type": "Action Type",
+    "expense": "Expense",
+    "updateProgress": "Update Progress",
+    "delete": "Delete",
+    "copy": "Copy",
+    "viewHistory": "View History",
+    "evaluate": "Evaluate",
+    "setting": "Settings",
+    "deadline": "Extent"
+  },
+  "history": {
+    "title": "Task History"
+  },
+  "expense": {
+    "title": "Task Expenses",
+    "expenseCategory": "Expense Category",
+    "declarer": "Declarer",
+    "amount": "Amount",
+    "attachment": "Receipt",
+    "confirmDelete": "Are you sure you want to delete this record?"
+  },
+  "noGroup": "No Group",
+  "selectTime": "Select Time",
+  "taskCustomers": "Customer",
+  "checkLists": "Checklist",
+  "locations": "Execution Location"
+}

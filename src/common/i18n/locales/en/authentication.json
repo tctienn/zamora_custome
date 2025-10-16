@@ -1,0 +1,47 @@
+{
+  "account": "Account name",
+  "email": "Mailbox",
+  "forgotPassword": {
+    "accessEmail": "Access confirmation email to reset password",
+    "accountNotMatch": "Invalid Username and Email",
+    "backToLogin": "Return to login page",
+    "confirmPassword": "Confirm password",
+    "confirmPasswordNotMatch": "Confirm passwords do not match",
+    "confirmPasswordRequired": "Confirm password cannot be empty",
+    "inputEmail": "Enter email account to retrieve password",
+    "inputNewPassword": "Enter new password",
+    "newPassword": "New password",
+    "recoveryPassword": "Recover password"
+  },
+  "gotoLogin": "Go to login page",
+  "login": {
+    "captchaPlaceholder": "Enter Captcha password here",
+    "emptyCaptcha": "Request to enter Captcha",
+    "forgotPassword": "Forgot password",
+    "invalidCaptcha": "Captcha code is incorrect, please try again (Requires correct uppercase and lowercase letters)",
+    "loginSystem": "Login system",
+    "passwordRequired": "Password cannot be empty",
+    "rememberMe": "Remember login",
+    "retrievingPermissionInformation": "Retrieving permissions",
+    "userLocked": "Account is locked",
+    "userNotAdmin": "The account does not have the ADMIN role",
+    "userNotExits": "Account does not exist",
+    "usernameRequired": "Account cannot be empty",
+    "verifyingAccount": "Verifying account",
+    "welcomeMessage": "Sign in to continue",
+    "wrongPassword": "Incorrect password",
+    "byQrCode": "Login by QR code"
+  },
+  "logout": {
+    "loggedOut": "You are logged out!",
+    "loginAgain": "Login again",
+    "redirectingLogin": "Redirecting to the following Login page",
+    "redirectingLoginCountdown": "{count} seconds"
+  },
+  "password": "Password",
+  "resetPassword": {
+    "passwordChanged": "Password has been changed"
+  },
+  "username": "Login name",
+  "usernameOrEmail": "Username or email"
+}

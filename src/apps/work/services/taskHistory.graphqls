@@ -1,0 +1,23 @@
+extend type Query {
+    findAllHistoryByTaskId(taskId: String!): [TaskHistory]
+}
+
+type TaskHistory {
+    id: String!
+    taskId: String!
+    action: TaskHistoryAction!
+    attribute: TaskAttribute
+    content: String
+    userId: String
+    userName: String
+    time: DateTime
+    createdBy:String
+}
+
+enum TaskHistoryAction {
+    CREATE, UPDATE, DELETE
+}
+
+enum TaskAttribute {
+    CHECK_LIST, DEADLINE, EVALUATION, EXPENSE, LABEL, LOCATION, REPEAT, RESULT, STATUS, SETTING,
+}

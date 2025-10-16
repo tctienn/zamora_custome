@@ -1,0 +1,21 @@
+{
+  "address": "Địa chỉ đơn vị liên thông",
+  "code": "Mã Đơn vị liên thông ",
+  "domainName": "Tên domain",
+  "email": "Email đơn vị liên thông",
+  "errors": {
+    "codeEmpty": "Mã Đơn vị liên thông không được để trống",
+    "codeExits": "Mã Đơn vị liên thông đã tồn tại",
+    "nameEmpty": "Tên Đơn vị liên thông không được để trống"
+  },
+  "id": "Id Đơn vị liên thông ",
+  "identify": "Mã định danh",
+  "lock": "Khóa/Mở",
+  "name": "Tên Đơn vị liên thông ",
+  "objectName": "Đơn vị liên thông ",
+  "phone": "Số điện thoại",
+  "tableTitle": "Danh sách Đơn vị liên thông ",
+  "validateField": {
+    "notNull": "Không được để trống"
+  }
+}

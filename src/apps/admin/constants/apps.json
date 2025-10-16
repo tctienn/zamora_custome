@@ -1,0 +1,27 @@
+[
+  {
+    "icon": "storage",
+    "id": "ecm-service",
+    "status": "ACTIVE"
+  },
+  {
+    "icon": "storage",
+    "id": "hrm-service",
+    "status": "ACTIVE"
+  },
+  {
+    "icon": "person",
+    "id": "customer-service",
+    "status": "DEACTIVATE"
+  },
+  {
+    "icon": "person",
+    "id": "work-service",
+    "status": "ACTIVE"
+  },
+  {
+    "icon": "person",
+    "id": "chat-server",
+    "status": "ACTIVE"
+  }
+]

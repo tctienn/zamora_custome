@@ -1,0 +1,80 @@
+extend type Mutation {
+    deleteGroup(id: String!): Group
+    lockOrUnlockGroup(id: String!): Group
+    updateGroup(id:String,userGroupInput:UserGroupInputUpdate):Group
+    decentralizationUser(id: String, userList:[UserLevelInput]!):Group
+}
+
+extend type Query {
+    getGroups(keyword: String, pageable: Pageable):GroupConnection
+    getGroup(id: String): Group
+    getGroupById(groupId: String): Group
+}
+type Group {
+    id: String
+    name: String
+    description: String
+    createDate: Date
+    isDelete: Boolean
+    status: String
+    groupType: GroupTypeInfo
+    roles:[String]
+    users:[UserLevel]
+}
+
+input UserGroupInput{
+    id:String
+    name:String
+    description:String
+    isDelete:Boolean
+    status:String
+    groupType:GroupTypeInfo
+    roles:[String]
+    users:[UserLevelInput]
+}
+
+input UserGroupInputUpdate{
+    name:String
+    description:String
+    status:String
+    groupType: GroupTypeInfo
+}
+type UserLevel{
+    id:String
+    level:Level
+    fullName:String,
+    email:String
+    groupId:String
+}
+input UserLevelInput{
+    id:String!
+    level:Level!
+    fullName: String!
+    email: String!
+    position: String!
+}
+
+enum GroupTypeInfo {
+    GROUP_SYSTEM
+    GROUP_RESOURCES
+    GROUP_EMAIL
+}
+
+type GroupConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [GroupEdge]
+}
+type GroupEdge {
+    cursor: String!
+    node: Group
+}
+
+enum ActivityStatus {
+    ACTIVE,
+    DEACTIVATE
+}
+enum Level {
+    MANAGE,
+    MEMBER
+}

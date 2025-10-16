@@ -1,0 +1,14 @@
+{
+  "type": "Repeat Type",
+  "createTime": "Task Creation Time",
+  "endRepeat": "End of Repeating",
+  "daysOfWeek": {
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun"
+  }
+}

@@ -1,0 +1,13 @@
+extend type Query{
+    findRoleByUserId(userId: String): String
+}
+
+extend type Mutation{
+    saveRoleDefault(roleDefault: RoleDefault): Boolean
+}
+
+input RoleDefault {
+    id: String
+    userId: String
+    userDeptRoleId: String
+}

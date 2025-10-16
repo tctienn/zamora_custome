@@ -1,0 +1,12 @@
+{
+  "objectName": "Chi phí công việc",
+  "listTaskCost": "Danh sách chi phí công việc",
+  "type": "Loại chi phí",
+  "expenseTime": "Ngày phát sinh",
+  "totalMoney": "Số tiền",
+  "description": "Ghi chú",
+  "message": {
+    "typeEmpty": "Loại chi phí không được để trống",
+    "expenseTimeEmpty": "Ngày phát sinh chi phí không được để trống"
+  }
+}

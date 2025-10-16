@@ -1,0 +1,11 @@
+{
+  "title": "Attendance Configuration",
+  "finger": {
+    "users": {
+      "title": "Attendance Users",
+      "code": "Attendance Code",
+      "name": "Name",
+      "status": "Status"
+    }
+  }
+}

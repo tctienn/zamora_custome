@@ -1,0 +1,22 @@
+extend type Query {
+    findHolidayConfigByType(type: String): [HolidayConfig]
+}
+
+extend type Mutation {
+    saveHolidayConfig(holidayConfigInput: HolidayConfigInput): HolidayConfig
+    deleteHolidayConfig(id: String): String
+}
+
+type HolidayConfig{
+    id: String,
+    calendar: Date,
+    type: String,
+    description: String
+}
+
+input HolidayConfigInput{
+    id: String,
+    calendar: Date,
+    type: String,
+    description: String
+}

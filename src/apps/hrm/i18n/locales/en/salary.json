@@ -1,0 +1,92 @@
+{
+  "salary": {
+    "templateSetting": "Salary Template Setting",
+    "templateList": "Template List",
+    "templateColumns": "Template Columns",
+    "templateName": "Template Name",
+    "enterTemplateName": "Enter template name",
+    "enterTemplateDescription": "Enter template description",
+    "createTemplate": "Create Template",
+    "editTemplate": "Edit Template",
+    "addColumn": "Add Column",
+    "columnCode": "Column Code",
+    "columnName": "Column Name",
+    "columnType": "Type",
+    "columnDataType": "Data Type",
+    "columnIsTotal": "Is Total Column",
+    "columnOrderNumber": "Order Number",
+    "columnStatus": "Status",
+    "enterColumnCode": "Enter column code",
+    "enterColumnName": "Enter column name",
+    "createColumn": "Create Column",
+    "editColumn": "Edit Column",
+    "templateType": "Template Type",
+    "selectTemplateType": "Select template type",
+    "templateTypes": {
+      "salaryCalculation": "Salary Calculation",
+      "salaryPayment": "Salary Payment",
+      "monthlySalary": "Monthly Salary"
+    },
+    "columnTypes": {
+      "text": "Text",
+      "number": "Number",
+      "date": "Date",
+      "boolean": "Boolean",
+      "formula": "Formula"
+    },
+    "dataTypes": {
+      "string": "String",
+      "integer": "Integer",
+      "decimal": "Decimal",
+      "date": "Date",
+      "boolean": "Boolean"
+    },
+    "orderTypes": {
+      "ascending": "Ascending",
+      "descending": "Descending",
+      "none": "None"
+    }
+  },
+  "template": {
+    "createDefaultError": "Error creating default templates",
+    "fetchError": "Error fetching template list",
+    "saveSuccess": "Template saved successfully",
+    "saveError": "Error saving template",
+    "deleteSuccess": "Template deleted successfully",
+    "deleteError": "Error deleting template",
+    "deleteConfirm": "Are you sure you want to delete this template?"
+  },
+  "salaryAndTax": {
+    "title": "Salary Table",
+    "createSalaryTable": "Create Salary Table",
+    "salaryTableName": "Salary Table Name",
+    "enterSalaryTableName": "Enter salary table name",
+    "applicationPeriod": "Application Period",
+    "applicationPeriodRequired": "Please select month and year of application",
+    "location": "Location",
+    "selectLocation": "Select location",
+    "creationDate": "Creation Date",
+    "selectCreationDate": "Select creation date",
+    "creator": "Creator",
+    "enterCreator": "Enter creator name",
+    "departments1": "Departments",
+    "templates": "Templates",
+    "locations": {
+      "hanoi": "Hanoi",
+      "hochiminh": "Ho Chi Minh",
+      "danang": "Da Nang"
+    },
+    "departments": {
+      "hr": "Human Resources",
+      "finance": "Finance",
+      "it": "Information Technology",
+      "operations": "Operations",
+      "marketing": "Marketing"
+    },
+    "template": {
+      "basicSalary": "Basic Salary",
+      "allowance": "Allowance",
+      "deduction": "Deduction"
+    }
+  }
+}

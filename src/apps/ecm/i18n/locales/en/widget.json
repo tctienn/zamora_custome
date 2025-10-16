@@ -1,0 +1,15 @@
+{
+  "group": {
+    "all": "All ({count})",
+    "favorite": "Favorite group ({count})",
+    "files": "document files",
+    "manager": "Management",
+    "member": "Member",
+    "topics": "discussion topics"
+  },
+  "myDocument": {
+    "allDocument": "All ({count})",
+    "recentDocuments": "Recent Documents ({count})",
+    "sharedDocuments": "Shared Documents ({count})"
+  }
+}

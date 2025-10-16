@@ -1,0 +1,8 @@
+{
+  "header": "Cài đặt các tham số cho đối tượng",
+  "allowCrossTaskView": "Cho phép người thực hiện xem chéo công việc.",
+  "allowLinkingSubtasksToParent": "Cho phép các người thực hiện giữa các công việc con được xem các công việc con khác cùng gán vào 1 công việc cha.",
+  "allowCrossTaskViewers": "Cho phép người tham gia xem chéo công việc.",
+  "allowParticipantsToViewLinkedSubtasks": "Cho phép các người tham gia giữa các công việc con được xem các công việc con khác cùng gán vào 1 công việc cha.",
+  "autoTransitionOnStartDate": "Tự động chuyển trạng thái công việc khi đến ngày bắt đầu."
+}

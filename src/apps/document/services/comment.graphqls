@@ -1,0 +1,48 @@
+extend type Query {
+    getCommentByDocIdAndDeptId(docId: String!, deptId: String): [Comment]
+    listComments(objectType: ObjectTypeEnum!,objectId: String!,isPrivate: Boolean!): [Comment]
+    listPrivateComments(request:PrivateCommentDocRequestModel): [Comment]
+}
+
+type Comment {
+    id: String
+    fromUserId: String
+    fromDeptId: String
+    fromRoleId: String
+    toUserId: String
+    toDeptId: String
+    toRoleId: String
+    sendTime: DateTime
+    sendType: CommentSendType
+    objectId: String
+    objectType: ObjectTypeEnum
+    replyForId: String
+    content: String
+    isDeleted: Boolean
+    hasAttachment: Boolean
+    fromUserName: String
+    fromDeptName: String
+    fromRoleName: String
+    toUserName: String
+    toDeptName: String
+    toRoleName: String
+    isRead: Boolean
+    readTime: DateTime
+    isCompleted: Boolean
+    completeTime: DateTime
+    createdTime: DateTime
+    createdBy: String
+    lastModifiedTime: DateTime
+    lastModifiedBy: String
+    isEdited:Boolean
+
+    attachments:[Attachment]
+}
+
+input PrivateCommentDocRequestModel{
+    objectType: ObjectTypeEnum,
+    objectId: String,
+    userSupport: UserSupportModel,
+    canViewPartner: Boolean
+}
+

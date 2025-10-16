@@ -1,0 +1,19 @@
+{
+  "detail": {
+    "title": "Timekeeping details",
+    "checkIn": "Time to enter",
+    "checkOut": "time out",
+    "location": "Location",
+    "type": "Timekeeper",
+    "typeOptions": {
+      "manual": "Crafts",
+      "fingerPrint": "Fingerprint",
+      "camera": "Camera",
+      "qrCode": "QR Code",
+      "nfc": "NFC"
+    },
+    "workingDay": "Working day",
+    "symbol": "Timekeeper",
+    "note": "Notes"
+  }
+}

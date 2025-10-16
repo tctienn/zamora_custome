@@ -1,0 +1,14 @@
+{
+  "titleForm": "Phương tiện/Thiết bị",
+  "nameMediaDevice": "Tên Phương tiện/Thiết bị",
+  "description": "Mô tả",
+  "status": "Trạng thái",
+  "media": "Phương tiện",
+  "device": "Thiết bị",
+  "mediaOrDevice": "Loại",
+  "norder": "Số thứ tự",
+  "imgMediaDevice": "Hình ảnh phương tiện/Thiết bị",
+  "error": {
+    "requiredName": "Tên Phương tiện/Thiết bị không được để trống."
+  }
+}

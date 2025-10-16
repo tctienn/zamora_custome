@@ -1,0 +1,7 @@
+type Evaluation {
+     id: String,
+     taskId: String,
+     ok: Boolean,
+     point: Float,
+     description: String,
+}

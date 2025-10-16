@@ -1,0 +1,23 @@
+{
+  "changeTemplateTypeWarning": "Nếu bạn thay đổi mẫu email bây giờ, các tham số bạn đã chọn có thể sẽ không hoạt động đúng. Bạn có muốn tiếp tục không?",
+  "content": "Nội dung",
+  "contentEmpty": "Nội dung không được để trống.",
+  "editorNotFocus": "Vui lòng focus vào trình chỉnh sửa",
+  "errors": {
+    "emailTemplateNotFound": "Mẫu email không tồn tại"
+  },
+  "objectName": "Mẫu email",
+  "subject": "Tiêu đề",
+  "subjectEmpty": "Tiêu đề mail không được để trống.",
+  "tableTitle": "Danh sách mẫu email",
+  "type": "Loại mẫu",
+  "typeNotSelected": "Loại mẫu phải được chọn.",
+  "types": {
+    "contractExpiration": "Hết hạn hợp đồng",
+    "createAccount": "Tạo tài khoản",
+    "deleteDocument": "Xóa tài liệu",
+    "forgotPassword": "Quên mật khẩu",
+    "resetPassword": "Tạo lại mật khẩu",
+    "shareDocument": "Chia sẻ tài liệu tài liệu"
+  }
+}

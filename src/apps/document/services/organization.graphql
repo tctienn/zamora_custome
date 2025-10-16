@@ -1,0 +1,37 @@
+type Query{
+    getByType(organizationType: OrganizationType): [Organization]
+    getAll: [Organization]
+}
+
+type Mutation{
+    saveOrganization(organizationInput: OrganizationDocumentInput): Organization
+    deleteOrganization(id: String): Boolean
+}
+
+type Organization{
+    id: String
+    name: String
+    type: OrganizationType
+    parentId: String
+    isDeleted: Boolean
+    createdTime: DateTime
+    createdBy: String
+    lastModifiedTime: DateTime
+    lastModifiedBy: String
+    code: String
+    isActive: Boolean,
+    description: String,
+    norder: Int
+}
+
+input OrganizationDocumentInput {
+    id: String
+    name: String
+    type: OrganizationType
+    parentId: String
+    isDeleted: Boolean
+    code: String
+    isActive: Boolean,
+    description: String,
+    norder: Int
+}

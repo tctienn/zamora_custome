@@ -1,0 +1,10 @@
+{
+  "code": "Application code",
+  "name": "Application name",
+  "names": {
+    "customer": "Customer",
+    "ecm": "Documents"
+  },
+  "objectName": "Application",
+  "tableTitle": "Application list"
+}

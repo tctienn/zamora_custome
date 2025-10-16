@@ -1,0 +1,40 @@
+type Query {
+    commentByPostId(objectId:String!,mediaType:MediaType,pageable:Pageable):CommentConnection
+    replyCommentsByRepliedCommentId(objectId: String!, mediaType: MediaType!,repliedCommentId:String,pageable:Pageable):CommentConnection
+}
+
+type Mutation {
+    saveComment(commentInput: CommentInput!): Comment
+    deleteComment(id: String!):String
+}
+input CommentInput{
+    id:String,
+    content:String!,
+    objectId:String!,
+    type:MediaType!,
+    repliedCommentId:String
+}
+type Comment{
+    id:String,
+    content:String,
+    objectId:String,
+    repliedCommentId:String,
+    type:MediaType,
+    createdBy:String,
+    createdTime:DateTime,
+    lastModifiedTime:DateTime
+    count:Int
+}
+type CommentConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [CommentEdge]
+}
+
+type CommentEdge {
+    cursor: String!
+    node: Comment
+}
+enum MediaType {
+    ANNOUNCEMENT, NEWS, HONORS
+}

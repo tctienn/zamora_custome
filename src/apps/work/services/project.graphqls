@@ -1,0 +1,58 @@
+extend type Query {
+    getProjectById(projectId: String!): Project
+    getProjectDetail(id:String!): Project
+    getProjects(pageable:Pageable): ProjectConnection
+    getSeqNumber:Int
+    getAllProjects:[Project]
+}
+
+extend type Mutation {
+    deleteProjectById(projectId: String!): Project
+    readProjectById(projectId: String!): Project
+}
+
+type Project{
+    id: String
+    admins: [String]
+    name: String
+    code: String
+    type: String
+    groupId: String
+    parentId: String
+    logo: String
+    implementers: [String]
+    followers: [String]
+    numbTask: Int
+    description: String
+    sequenceNumber: Int
+    progress: Float
+    startDate: Date
+    endDate: Date
+    status: ProjectStatus
+    isDelete: Boolean
+    createdDate: Date
+    typeName: String
+    groupName: String
+    parentProjName: String
+    createdBy:String
+}
+
+enum  ProjectStatus {
+    UNDER_CONSTRUCTION,
+    PREPARE_FOR_DEPLOYMENT,
+    PROCESSING,
+    COMPLETED,
+    PAUSE,
+    CANCEL
+}
+
+type ProjectConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [ProjectEdge]
+}
+
+type ProjectEdge {
+    cursor: String!
+    node: Project
+}

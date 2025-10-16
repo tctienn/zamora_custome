@@ -1,0 +1,13 @@
+extend type Mutation {
+    saveDocumentTempConfig(config:DocumentTempConfigModelInput):Flow
+}
+
+input DocumentTempConfigModelInput {
+    flowId: String
+    nodes: [NodeInput]
+    edges: [EdgeInput]
+    type: String!
+    orgType: String!
+    orgIds: [String]
+    description: String
+}

@@ -1,0 +1,11 @@
+{
+  "meeting": "Schedule",
+  "meetingCalendar": "Meeting calendar",
+  "meetingPersonal": "Personal calendar",
+  "meetingRoom": "Meeting room",
+  "meetingManager": "Administration",
+  "meetingManagerCalendar": "Meeting schedule",
+  "meetingManagerRoom": "Meeting room",
+  "meetingManagerFlow": "Flow",
+  "meetingSummary": "Summary"
+}

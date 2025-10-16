@@ -1,0 +1,30 @@
+{
+  "action": {
+    "delete": "Xóa",
+    "edit": "Sửa",
+    "cancelEdit": "Hủy sửa",
+    "cancel": "Hủy",
+    "reply": "Trả lời"
+  },
+  "advise": "Tham mưu",
+  "chooseReceivers": "Chọn người nhận",
+  "commentInput": {
+    "delFile": "Xoá tệp"
+  },
+  "commentItem": {
+    "listSeen": "Danh sách người đã xem",
+    "seen": "Đã xem",
+    "time": "Thời gian",
+    "user": "Người dùng"
+  },
+  "commentSelectUser": {
+    "staffForDiscussion": "Nhân sự cần trao đổi"
+  },
+  "comments": "Ý kiến và trao đổi",
+  "edited": "Đã chỉnh sửa",
+  "sendType": {
+    "chat": "Trao đổi",
+    "traLoiYKien": "Trả lời ý kiến",
+    "xinYKien": "Xin ý kiến"
+  }
+}

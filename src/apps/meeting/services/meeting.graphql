@@ -1,0 +1,44 @@
+extend type Query{
+    getMeetingById(id:String!):Meeting
+}
+extend type Mutation{
+    updateStatusMeeting(id:String!,status:Boolean!):Meeting
+}
+
+type Meeting{
+    id: String
+    content: String
+    startTime: DateTime
+    endTime: DateTime
+    hostId: String
+    attendeeIds: [String]
+    roomId: String
+    isOnlineMeeting: Boolean
+    onlineUrl: String
+    departmentIds: [String]
+    setup: String
+    note: String
+    isImportant: Boolean
+    periodDays:Int
+    numberAttendees:Int
+    fileAttachments: [FileAttachment]
+}
+input MeetingInput{
+    id: String
+    content: String
+    startTime: DateTime
+    endTime: DateTime
+    hostId: String
+    attendeeIds: [String]
+    meetingRoom: String
+    isOnlineMeeting: Boolean
+    onlineUrl: String
+    departmentIds: [String]
+    setup: String
+    note: String
+    isImportant: Boolean
+    periodDays:Int
+    numberAttendees:Int
+}
+scalar Date
+scalar DateTime

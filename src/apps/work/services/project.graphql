@@ -1,0 +1,78 @@
+extend type Query {
+    getProjectById(projectId: String!): Project
+    getProjectDetail(id:String!): Project
+    getProjects(projectStatus: ProjectStatus, filterType: FilterType): ResponseProject
+    getSeqNumber:Int
+    getAllProjects:[Project]
+}
+
+extend type Mutation {
+    deleteProjectById(projectId: String!): Project
+    readProjectById(projectId: String!): Project
+}
+
+type ResponseProject{
+    totalFilter: Int
+    totalAdmin: Int
+    totalImplement: Int
+    totalFollow: Int
+    totalOrganization: Int
+    totalUnderConstruction: Int
+    totalPrepareForDeployment: Int
+    totalProcessing: Int
+    totalCompleted: Int
+    totalPause: Int
+    totalCancel: Int
+    projects: [Project]
+}
+
+type Project implements IWork{
+    id: String
+    admins: [String]
+    name: String
+    code: String
+    type: String
+    groupId: String
+    parentId: String
+    logo: String
+    implementers: [String]
+    followers: [String]
+    numbTask: Int
+    description: String
+    sequenceNumber: Int
+    progress: Float
+    startDate: Date
+    endDate: Date
+    status: ProjectStatus
+    isDeleted: Boolean
+    createdDate: Date
+    typeName: String
+    groupName: String
+    parentProjName: String
+    createdBy:String
+}
+
+enum  ProjectStatus {
+    UNDER_CONSTRUCTION,
+    PREPARE_FOR_DEPLOYMENT,
+    PROCESSING,
+    COMPLETED,
+    PAUSE,
+    CANCEL,
+    ALL
+}
+
+enum FilterType{
+    ADMIN,IMPLEMENT,FOLLOW,ORGANIZATION,ALL
+}
+
+type ProjectConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [ProjectEdge]
+}
+
+type ProjectEdge {
+    cursor: String!
+    node: Project
+}

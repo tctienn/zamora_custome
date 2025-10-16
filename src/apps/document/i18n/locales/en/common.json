@@ -1,0 +1,7 @@
+{
+  "error": {
+    "deadlineAfterEndDeadline": "The processing deadline cannot be later than the overall document deadline",
+    "deadlineBeforeNow": "The processing deadline cannot be earlier than the current time",
+    "deadlineNumber": "The number of processing days cannot be less than zero"
+  }
+}

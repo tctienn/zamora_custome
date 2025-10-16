@@ -1,0 +1,12 @@
+{
+  "confirm": {
+    "deleteComment": "Xoá bình luận này"
+  },
+  "comment": "Bình luận",
+  "addComment": "Thêm bình luận",
+  "loadMoreComment": "Xem thêm bình luận",
+  "showNComment": "Xem thêm {number} bình luận",
+  "reply": "Trả lời",
+  "hideComment": "Ẩn bình luận",
+  "toolbar": "Thanh công cụ"
+}

@@ -1,0 +1,27 @@
+{
+  "capacityConfig": "Capacity config",
+  "capacity": "Capacity",
+  "capacityGeneralGroup": "Configure general group capacity",
+  "capacityGeneralPerson": "Configure general personal capacity",
+  "configCapacityTitlle": "Configure individual/group capacity",
+  "configSuccess": "Capacity configuration successful",
+  "error": {
+    "capacityEmpty": "Capacity cannot be empty",
+    "capacityExceeded": "The available space is not enough to upload the file",
+    "configCapacityExist": "Capacity configuration already exists",
+    "invalidName": "Invalid name",
+    "objectIdEmpty": "Object cannot be empty",
+    "typeEmpty": "Configuration type cannot be empty",
+    "unitEmpty": "Unit cannot be empty"
+  },
+  "linkToManage": "Click to go to the individual and group configuration list screen...",
+  "name": "Name",
+  "object": "Object",
+  "personOrGroup": "Individual/group",
+  "tooltipPercent": "Percent: ",
+  "tooltipTotal": "Total: ",
+  "tooltipUsed": "Used: ",
+  "typeConfig": "Configuration type",
+  "unit": "Unit",
+  "usageStatistics": "Usage statistics"
+}

@@ -1,0 +1,24 @@
+type CCInfo {
+    id: String
+    docId: String
+    senderId: String
+    senderRoleId: String
+    senderDeptId: String
+    sendTime: DateTime
+    receiverId: String
+    receiverRoleId: String
+    receiverDeptId: String
+    senderName: String
+    senderRoleName: String
+    senderDeptName: String
+    receiverName: String
+    receiverRoleName: String
+    receiverDeptName: String
+    isRead: Boolean
+    readTime: Date
+    isDeleted: Boolean
+}
+
+extend type Mutation {
+    readCC(ccId: String!): Boolean
+}

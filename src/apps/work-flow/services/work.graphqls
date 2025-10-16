@@ -1,0 +1,72 @@
+extend type Mutation {
+    createWork(work: WorkInput!): Work
+    startWork(workId: String!): Work
+    createAndStartWork(work: WorkInput!): Work
+    cancelWork(workId: String!): Work
+    resumeWork(workId: String!): Work
+
+    completeTask(taskId: String!, result: String!, comment: String): Task
+    createNextTasks(workId: String!, currentTaskId: String!, assignedIds: [String]!, currentNodeId: String!, nextNodeId: String!): Boolean
+
+    deleteWork(workId: String!): Boolean
+}
+
+extend type Query {
+    work(id: String!): Work
+    activeWorks(pageable: Pageable): WorkConnection
+    completedWorks(pageable: Pageable): WorkConnection
+}
+
+type Work {
+    id: String
+    name: String
+    description: String
+    priority: Priority
+    status: WorkStatus
+    startTime: DateTime
+    deadLine: DateTime
+    endTime: DateTime
+
+    createdTime: DateTime
+    createdBy: String
+    lastModifiedTime: DateTime
+    lastModifiedBy: String
+
+    currentTasks: [Task]
+    objectInfo: JSON
+    stepHistories: [StepHistory]
+}
+
+input WorkInput {
+    name: String
+    description: String
+    type: String
+    objectId: String
+    flowId: String
+    priority: Priority
+    deadLine: DateTime
+}
+
+enum Priority {
+    LOW,
+    MEDIUM,
+    HIGH
+}
+
+enum WorkStatus {
+    CREATED,
+    IN_PROGRESS,
+    COMPLETED,
+    CANCELLED
+}
+
+type WorkConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [WorkEdge]
+}
+
+type WorkEdge {
+    cursor: String!
+    node: Work!
+}

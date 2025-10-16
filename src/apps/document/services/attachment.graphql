@@ -1,0 +1,27 @@
+extend type Query{
+    findByObjectId(objectId: String): [Attachment]
+    signFile(docId: String): String
+}
+
+type Attachment {
+    id: String
+    fullName: String
+    objectId: String
+    objectType: ObjectTypeEnum
+    fileName: String
+    fileExtension: String
+    filePath: String
+    note: String
+    isSigned: Boolean
+    isEncrypt: Boolean
+    isDeleted: Boolean
+    pdfAlready: Boolean
+    hasImage: Boolean
+    attachType: AttachType
+    size: Int
+    typeOfTake:TypeOfTake
+}
+
+enum TypeOfTake {
+    UPLOAD, REFERENT, PRE_SIGN
+}

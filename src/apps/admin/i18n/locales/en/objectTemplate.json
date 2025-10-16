@@ -1,0 +1,42 @@
+{
+  "code": "Object class",
+  "codeEmpty": "Object class cannot be empty.",
+  "errors": {
+    "objectNotFound": "Object does not exist"
+  },
+  "listValue": "List of choices",
+  "name": "Object name",
+  "nameEmpty": "Object name cannot be empty.",
+  "objectName": "Object",
+  "properties": {
+    "CATEGORY": "Taken from category",
+    "TEXT": "Automatic input",
+    "codeEmpty": "Attribute code cannot be empty.",
+    "dataType": "Data type",
+    "dataTypeNotSelected": "Data type must be selected.",
+    "defaultValue": "Default value",
+    "defaultValueEmpty": "Default value cannot be empty.",
+    "errors": {
+      "deleteFieldGlobal": "Cannot delete system property",
+      "objectNotFound": "Object does not exist."
+    },
+    "fieldName": "Field",
+    "group": "Group",
+    "name": "Attribute name",
+    "nameEmpty": "Attribute names cannot be empty.",
+    "objectName": "Attribute",
+    "referenceData": "Reference Data",
+    "referenceDataEmpty": "Reference data cannot be empty.",
+    "required": "Required",
+    "selectedValueType": "Selected value",
+    "tableTitle": "Attribute list",
+    "type": {
+      "null": "No data",
+      "title": "Attribute type"
+    },
+    "typeNotSelected": "Attribute type must be selected."
+  },
+  "scope": "Scope of application",
+  "scopeNotSelected": "The applicable scope must be selected",
+  "tableTitle": "List of objects"
+}

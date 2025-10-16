@@ -1,0 +1,17 @@
+{
+  "code": "Mã Nhóm",
+  "errors": {
+    "codeEmpty": "Mã Nhóm nhận văn bản không được để trống",
+    "codeExits": "Mã Nhóm nhận văn bản đã tồn tại",
+    "nameEmpty": "Tên Nhóm nhận văn bản không được để trống"
+  },
+  "id": "Id Nhóm nhận văn bản ",
+  "name": "Tên Nhóm",
+  "objectName": "Nhóm nhận văn bản",
+  "tableTitle": "Danh sách Nhóm nhận văn bản ",
+  "members": "Danh sách thành viên",
+  "validateField": {
+    "notNull": "Không được để trống"
+  },
+  "addMembers": "Thêm thành viên"
+}

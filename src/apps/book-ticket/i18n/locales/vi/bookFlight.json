@@ -1,0 +1,85 @@
+{
+  "titleForm": "yêu cầu đặt vé máy bay",
+  "titleDetail": "Yêu cầu đặt vé máy bay",
+  "requestNumber": "Số phiếu",
+  "createdDate": "Ngày lập",
+  "officerId": "Tên cán bộ",
+  "officerCode": "Mã cán bộ",
+  "departmentName": "Phòng ban",
+  "positionName": "Chức vụ",
+  "unitName": "Đơn vị",
+  "gender": "Giới tính",
+  "phoneNumber": "Điện thoại",
+  "email": "Email",
+  "goldenLotusCode": "Mã bông sen vàng",
+  "workContentId": "Nội dung làm việc",
+  "flightType": "Loại chuyến bay",
+  "flightTypeOption": {
+    "INTERNATIONAL": "Quốc tế",
+    "DOMESTIC": "Nội địa"
+  },
+  "cityId": "Thành phố",
+  "flightDate": "Ngày bay đi",
+  "departureAirportId": "Sân bay khởi hành chiều đi",
+  "airportToDepartureId": "Sân bay đến chiều đi",
+  "returnFlightDate": "Ngày bay về",
+  "airportDepartureReturnId": "Sân bay khởi hành chiều về",
+  "airportToReturnId": "Sân bay đến chiều về",
+  "requestType": "Loại yêu cầu",
+  "requestTypeOption": {
+  "BOOK_SPECIFIC_FLIGHT": "Đặt chuyến bay cụ thể",
+  "AGENT_CHOOSE_FLIGHT": "Đại lý tự chọn chuyến"
+  },
+  "departureTime": "Giờ bay chiều đi",
+  "outboundFlightNumber": "Số hiệu chuyến bay chiều đi",
+  "airlineDepartureId": "Hãng hàng không",
+  "returnFlightTime": "Giờ bay chiều về",
+  "returnFlightNumber": "Số hiệu chuyến bay chiều về",
+  "airlineReturnId": "Hãng hàng không",
+  "flightScheduleDescription": "Mô tả khung giờ bay",
+  "fullName":"Họ và tên",
+  "createdBy": "Người đặt",
+  "attachment": {
+    "title": "Danh sách căn cứ đính kèm",
+    "titleForm": "Thêm tệp đính kèm",
+    "note": "Ghi chú: chỉ tải file có định dạng .PDF, DOC",
+    "table": {
+        "index": "STT",
+        "quote": "Trích yếu",
+        "fileName": "Tên tệp",
+        "fileSize": "Kích thước",
+        "fileAttached":"File đính kèm"
+    },
+    "required": {
+      "quote": "Vui lòng nhập trích yếu",
+      "file": "Vui lòng chọn tệp đính kèm"
+    }
+  },
+  "required": {
+    "requestNumber": "Số phiếu là bắt buộc",
+    "officerId": "Tên cán bộ là bắt buộc",
+    "flightDate": "Ngày bay đi là bắt buộc",
+    "departureAirportId": "Sân bay khởi hành chiều đi là bắt buộc",
+    "airportToDepartureId": "Sân bay đến chiều đi là bắt buộc",
+    "returnFlightDate": "Ngày bay về là bắt buộc",
+    "createdDate":"Ngày lập là bắt buộc"
+  },
+  "validator":{
+    "returnFlightDate":"Ngày bay đi không được lớn hơn ngày bay về",
+    "returnFlightTime":"Giờ bay đi không được lớn hơn giờ bay về",
+    "returnFlightNumber":"Số hiệu chuyến bay về không được trùng với số hiệu chuyến bay đi"
+  },
+  "table":{
+    "flightType": "Loại chuyến",
+    "flightDate": "Ngày đi",
+    "returnFlightDate": "Ngày về",
+    "departureAirportId": "Sân bay đi",
+    "airportDepartureReturnId": "Sân bay về"
+  },
+  "statusOption": {
+  "DRAFT": "Dự thảo",
+  "WAITING_FOR_APPROVAL": "Chờ duyệt",
+  "APPROVED": "Đã duyệt",
+  "COMPLETED": "Hoàn thành"
+  }
+}

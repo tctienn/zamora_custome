@@ -1,0 +1,43 @@
+{
+  "update": "Cập nhật",
+  "create": "Tạo mới",
+  "meeting": "Cuộc họp",
+  "weeklySchedule": "Lịch họp tuần",
+  "monthlySchedule": "Lịch họp tháng",
+  "room": "Phòng họp",
+  "error": {
+    "contentCantEmpty": "Nội dung không được để trống",
+    "startTimeCantEmpty": "Thời gian bắt đầu không được để trống",
+    "hostCantEmpty": "Người chủ trì không được để trống",
+    "attendeesCantEmpty": "Người tham dự không được để trống",
+    "meetingRoomCantEmpty": "Phòng họp/Địa điểm không được để trống",
+    "startTimeInThePass": "Thời gian bắt đầu không được trước hiện tại",
+    "startTimeAfterEndTime": "Thời gian bắt đầu không được lớn hơn thời gian kết thúc",
+    "meetingTimeConflict": "Trùng thời gian với cuộc họp khác trong phòng họp.",
+    "meetingHostConflict": "Trùng người chủ trì với cuộc họp khác trong thời gian.",
+    "meetingRoomConflict": "Trùng phòng họp với cuộc họp khác.",
+    "startDateSameEndDate": "Thời gian bắt đầu và thời gian kết thúc phải cùng ngày"
+  },
+  "repeat": {
+    "noRepeat": "Không lặp",
+    "dailyRepeat": "Lặp ngày",
+    "weeklyRepeat": "Lặp tuần",
+    "monthlyRepeat": "Lặp tháng",
+    "yearlyRepeat": "Lặp năm",
+    "weeklyChoose": "Chọn thứ trong tuần",
+    "monthlyChoose": "Chọn ngày trong tháng",
+    "yearlyChoose": "Nhập năm"
+  },
+  "remindTime": {
+    "minute": "Phút",
+    "hour": "Giờ",
+    "day": "Ngày"
+  },
+  "remindType": {
+    "notification": "Thông báo",
+    "email": "Email",
+    "all": "Email và Thông báo"
+  },
+  "selectUser": "Chọn nhân sự",
+  "saveSuccess": "Lưu thành công."
+}

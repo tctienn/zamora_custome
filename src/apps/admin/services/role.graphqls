@@ -1,0 +1,84 @@
+extend type Query {
+    roles: [Role],
+    rolesPublic: [Role],
+    appPermissions(roleCode: String!): [AppPermission]
+    getRoles(keyword: String, pageable: Pageable) : RoleConnection
+    getRolesByStatus(status: String): [Role]
+    getAllConfiguredPermissions: [AppPermission]
+
+}
+
+extend type Mutation {
+    updateRolePermissions(roleInput: RoleInput) : Role
+    saveRolePermissions(roleInput: RoleInput) : Role
+    deleteRolePermissions(code: String) : Boolean
+    updateAppFunction(permissionInput: PermissionInput) : Role
+}
+
+type RoleConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [RoleEdge]
+}
+
+type RoleEdge {
+    cursor: String!
+    node: Role
+}
+
+type Role {
+    code: String!
+    name: String!,
+    status: ActivityStatus,
+    description: String,
+    apps: [AppPermission]
+}
+
+input PermissionInput {
+    code: String
+    name: String,
+    apps: [AppPermissionInput]
+}
+
+input RoleInput {
+    code: String
+    name: String,
+    status: ActivityStatus,
+    description: String,
+    apps: [AppPermissionInput]
+}
+
+type AppPermission {
+    app : String
+    modules : [ModulePermission]
+}
+
+type ModulePermission {
+    module : String
+    functions : [FunctionPermission]
+}
+
+type FunctionPermission {
+    function : String
+    actions : [String]
+}
+
+input AppPermissionInput {
+    app : String
+    modules : [String]
+}
+
+input ModulePermissionInput {
+    module : String
+    functions : [FunctionPermissionInput]
+}
+
+input FunctionPermissionInput {
+    function : String
+    actions : [String]
+}
+
+type ModuleRolePermission {
+    modules: [ModulePermission],
+    roles: [Role]
+}

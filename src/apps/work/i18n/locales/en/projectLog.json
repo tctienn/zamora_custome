@@ -1,0 +1,15 @@
+{
+  "action": {
+    "create": "Create",
+    "update": "Update",
+    "read": "Read",
+    "delete": "Delete"
+  },
+  "object": {
+    "project": "Project",
+    "discussion": "Discussion"
+  },
+  "from": "from",
+  "to": "to",
+  "changes": "Changes"
+}

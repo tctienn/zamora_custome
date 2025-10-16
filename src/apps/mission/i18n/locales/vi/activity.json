@@ -1,0 +1,75 @@
+{
+  "No": "STT",
+  "tabOptions": {
+    "summary": "Tổng quan",
+    "missions": "Nhiệm vụ",
+    "activities": "Hoạt động",
+    "task": "Công việc",
+    "noteRate": "Đánh giá"
+  },
+  "statusOptions": {
+    "all": "Tất cả",
+    "pending": "Chưa xử lý",
+    "inProgress": "Đang triển khai",
+    "done": "Hoàn thành"
+  },
+  "activityTableCol": {
+    "name": "Hoạt động",
+    "missionType": "Loại nhiệm vụ",
+    "expectedDate": "Thời gian dự kiến",
+    "endDate": "Thời gian kết thúc",
+    "budget": "Kinh phí",
+    "hostUnit": "Đơn vị chủ trì",
+    "combinationUnit": "Đơn vị phối hợp",
+    "createBy": "Người tạo",
+    "status": "Trạng thái"
+  },
+  "common": {
+    "update": "Chỉnh sửa hoạt động",
+    "create": "Tạo mới hoạt động",
+    "activity": "Hoạt động",
+    "action1": "Thao tác"
+  },
+  "properties": {
+    "name": "Tên hoạt động",
+    "type": "Loại nhiệm vụ",
+    "code": "Mã hoạt động",
+    "budget": "Kinh phí",
+    "startTime": "Thời gian ",
+    "endTime": "Thời gian kết thúc nhiệm vụ",
+    "host": "Đơn vị chủ trì",
+    "coordinationUnitName": "Đơn vị phối hợp",
+    "description": "Mô tả",
+    "attachFile": "Văn bản/ Quy chế/ Quy định liên quan",
+    "addFile": "Thêm văn bản",
+    "shortDes": "Trích yếu",
+    "attach": "Đính kèm",
+    "size": "Kích thước",
+    "relatedParentActivityId": "Thuộc hoạt động"
+  },
+  "errors": {
+    "mission": "Nhiệm vụ không được để trống",
+    "code": "Mã hoạt động không được để trống",
+    "name": "Tên hoạt động không được để trống",
+    "budget": "Kinh phí không được để trống",
+    "expectedTime": "Thời gian dự kiến không được để trống",
+    "endTime":"Thời gian kết thúc không được để trống",
+    "hostUnit": "Đơn vị chủ trì không được để trống",
+    "budgetExceedParent":"Kinh phí hoạt động không được vượt quá kinh phí của nhiệm vụ được chọn",
+    "endBeforeStart":"Thời gian kết thúc không được ngắn hơn thời gian dự kiến",
+    "requiredGeneralLeaderIdToSubmit": "Vui lòng chọn lãnh đạo phê duyệt",
+    "coordinationUnitId": "Đơn vị Phối hợp không được để trống",
+    "hasJobs": "Không thể xóa hoạt động do còn các công việc liên quan",
+    "chiefNotFound":"Đơn vị phối hợp không có trưởng phòng nào"
+  },
+  "message":{
+    "deleteSuccess": "Xoá hoạt động thành công",
+    "deleteError":"Xoá hoạt động thất bại"
+  },
+  "placeholder":{
+    "selectHostUnit":"Chọn đơn vị chủ trì",
+    "selectOrganizations":"Chọn đơn vị phối hợp"
+  },
+  "confirmApprove": "Bạn có chắc chắn muốn chấp thuận {itemType}: {itemName}?",
+  "confirmReject": "Bạn có chắc chắn muốn từ chối {itemType}: {itemName}?"
+}

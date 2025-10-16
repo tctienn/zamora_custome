@@ -1,0 +1,15 @@
+{
+  "action": {
+    "create": "Tạo mới",
+    "update": "Cập nhật",
+    "read": "Đọc",
+    "delete": "Xóa"
+  },
+  "object": {
+    "project": "Dự án",
+    "discussion": "Thảo luận"
+  },
+    "from": "từ",
+    "to": "thành",
+    "changes": "Thay đổi"
+}

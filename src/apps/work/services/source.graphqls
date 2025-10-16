@@ -1,0 +1,17 @@
+type TaskSource {
+    id: String
+    taskId: String
+    type: SourceType
+    sourceId: String
+    sourceName: String
+}
+
+input TaskSourceInput {
+    type: SourceType!
+    sourceId: String!
+    sourceName: String
+}
+
+enum SourceType {
+    NONE, PROJECT, DOCUMENT, BOARD, WORK_FLOW
+}

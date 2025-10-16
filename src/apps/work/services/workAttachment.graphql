@@ -1,0 +1,71 @@
+extend type Query {
+    getFileFolderFromRootFolder(objectId: String, objectType: AttachmentType): [WorkAttachment]
+    getFileFolderByParentId(parentId: String): [WorkAttachment]
+    backFolder(path: String!): [WorkAttachment]
+    getFileFolderByPath(path: String!): [WorkAttachment]
+    readFile(objectId: String, id: String!): WorkAttachment
+    findById(id: String!): WorkAttachment
+    getChartInfo(rootPath: String!): CharInfo
+    getListFileOfDiscussion(projectId: String!, onlyImg: Boolean): [WorkAttachmentByDate]
+}
+
+extend type Mutation {
+    createFolder(name: String, path: String, objectType: AttachmentType, objectId: String, parentId: String): WorkAttachment
+    deleteFileFolder(id: String, path: String, objectId: String): WorkAttachment
+    rename(path: String, newName: String): WorkAttachment
+}
+
+type WorkAttachment{
+    id: String
+    name: String
+    extension: String
+    parentPath: String
+    downloadPath: String
+    size: Int
+    objectType: AttachmentType
+    objectId: String
+    isFolder: Boolean
+    parentId: String
+    isDeleted: Boolean
+    createdTime: DateTime
+    createdBy: String
+    lastModifiedTime: DateTime
+    lastModifiedBy: String
+}
+
+type WorkAttachmentData{
+    id: String
+    name: String
+    extension: String
+    parentPath: String
+    downloadPath: String
+    size: Int
+    objectType: AttachmentType
+    objectId: String
+    isFolder: Boolean
+    parentId: String
+    isDeleted: Boolean
+    createdTime: DateTime
+    createdBy: String
+    lastModifiedTime: DateTime
+    lastModifiedBy: String
+    totalSize: Int
+}
+
+type WorkAttachmentByDate{
+    date: Date,
+    workAttachments: [WorkAttachment]
+}
+
+enum AttachmentType{
+    TASK, PROJECT
+}
+
+type CharInfo{
+    totalImage: Int
+    totalPdf: Int
+    totalExcel: Int
+    totalDoc: Int
+    totalOther: Int
+    capacity: Float
+}

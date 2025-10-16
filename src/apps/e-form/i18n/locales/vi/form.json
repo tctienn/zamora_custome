@@ -1,0 +1,27 @@
+{
+  "eFormManagement": "Quản lý biểu mẫu điện tử",
+  "code": "Mã biểu mẫu điện tử",
+  "createEForm": "Tạo biểu mẫu điện tử",
+  "editEForm": "Chỉnh sửa biểu mẫu điện tử",
+  "versions": "Phiên bản",
+  "status": {
+    "draft": "Nháp",
+    "published": "Đã xuất bản",
+    "active": "Đang hoạt động"
+  },
+  "actions": {
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "view": "Xem",
+    "preview": "Xem trước",
+    "publish": "Xuất bản",
+    "unpublish": "Hủy xuất bản",
+    "activate": "Kích hoạt",
+    "deactivate": "Vô hiệu hóa",
+    "clone": "Nhân bản"
+  },
+  "create": {
+    "group": "Tạo nhóm",
+    "eForm": "Tạo biểu mẫu"
+  }
+}

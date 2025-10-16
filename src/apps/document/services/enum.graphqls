@@ -1,0 +1,58 @@
+enum PublisherType {
+    GIAY, DIEN_TU, GIAY_DIEN_TU
+}
+
+enum DocStatus {
+    NHAP, CHO_XL, DANG_XL, DA_XL
+}
+
+enum DocTypeEnum {
+    VB_DEN, VB_DI, PHIEU_TRINH
+}
+
+enum CommentSendType {
+    CHAT, XIN_Y_KIEN, TRA_LOI_Y_KIEN
+}
+
+enum ProcessType {
+    XL_CHINH , PHOI_HOP, DE_BIET
+}
+
+enum OutGoingProcessType {
+    XL_CHINH, PHOI_HOP
+}
+
+enum SendType{
+    VAO_SO, CHUYEN_XL , TRA_LAI, THU_HOI, XIN_Y_KIEN, TRA_LOI_Y_KIEN
+}
+
+enum OrganizationType {
+    UNION,
+    PARTY,
+    ADMINISTRATIVE
+}
+
+enum SupportType {
+    INCOMING_DOC,
+    OUTGOING_DOC,
+    MEETING_SCHEDULE
+}
+
+enum SupportPermission {
+    ADVISE, TRANSFER, RETURN, COMPLETE, WITHDRAW,
+    APPROVE, REGISTER
+}
+
+
+enum AttachType{
+    FILE_CHINH, FILE_PHU, FILE_TRINH_KY, FILE_PHULUC, FILE_LIENQUAN
+}
+
+
+enum ObjectTypeEnum {
+    VB_DEN, VB_DI, PHIEU_TRINH, VB_LIENQUAN, YKIEN, HO_SO, MAU_BIEU
+}
+
+enum DocSendBackType {
+    TU_CHOI, THU_HOI
+}

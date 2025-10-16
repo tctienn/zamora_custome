@@ -1,0 +1,34 @@
+extend type Query {
+    participantByTaskId(taskId: String): [Participant]
+    getParticipantTaskSetting(taskId: String, type: ParticipantType):[Participant]
+}
+
+extend type Mutation {
+    changeParticipant(taskId: String, participants: [ParticipantInput]): Boolean
+}
+
+type Participant {
+    id: String
+    taskId: String!
+    type: ParticipantType!
+    participantId: String!
+    participantName: String
+    participantEmail: String
+    participantAvatar: String
+    percent: Float
+    orderNo: Int
+    createdTime: DateTime
+    createdBy: String
+    lastModifiedTime: DateTime
+    lastModifiedBy: String
+}
+
+input ParticipantInput {
+    type: ParticipantType!
+    participantId: String!
+    percent: Float
+}
+
+enum ParticipantType {
+    IMPLEMENTER, COOPERATOR, SUPERVISOR
+}

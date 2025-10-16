@@ -1,0 +1,15 @@
+{
+  "objectName": "Task Deadline",
+  "listDeadlineTask": "List of Task Deadlines",
+  "oldDeadline": "Old Deadline",
+  "newDeadline": "New Deadline",
+  "description": "Description",
+  "reason": "Reason",
+  "message": {
+    "newDeadlineDayEmpty": "Date cannot be empty",
+    "newDeadlineTimeEmpty": "Time cannot be empty",
+    "newDeadlineMustBeAfterStart": "Completion deadline must be after the start date"
+  },
+  "startTime": "Start Date",
+  "deadline": "Completion Deadline"
+}

@@ -1,0 +1,14 @@
+{
+  "objectName": "Tài liệu công việc",
+  "tableTitle": "Danh sách tài liệu công việc",
+  "name": "Tên tài liệu",
+  "path": "File đính kèm",
+  "taskName": "Tên công việc",
+  "createdBy": "Người tạo",
+  "createdTime": "Thời gian tạo",
+  "action": "Thao tác",
+  "type": "Loại",
+  "size": "Kích thước",
+  "lastModifiedBy": "Người sửa",
+  "lastModifiedTime": "Thời gian sửa"
+}

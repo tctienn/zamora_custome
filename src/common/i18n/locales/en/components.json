@@ -1,0 +1,16 @@
+{
+  "admin": "Admin",
+  "application": "Application",
+  "category": "Category",
+  "chat": "Chat",
+  "dashboard": "Dashboard",
+  "ecm": "ECM",
+  "hrm": "Human resources management",
+  "media": "Media",
+  "meeting": "Meeting schedule",
+  "widget": "Widget",
+  "work": "Work",
+  "work-flow": "Work flow",
+  "document": "Document",
+  "search": "Search"
+}

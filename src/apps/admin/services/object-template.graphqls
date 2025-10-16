@@ -1,0 +1,88 @@
+extend type Query {
+    searchObjectsTemplate(keyword: String, pageable: Pageable): ObjectTemplateConnection
+    getObjectTemplateById(id: String): ObjectTemplate
+    getObjectProperties: [Property]
+}
+
+extend type Mutation {
+    saveObject(id: String!, objectTemplateInput: ObjectTemplateInput!): ObjectTemplate
+    deleteObject(id: String!): ObjectTemplate
+    updateObjectProperty(objectId: String, propertyFieldName: String, propertyInput: PropertyInput!): ObjectTemplate
+    deleteObjectProperty(objectId: String!, propertyFieldName: String!): ObjectTemplate
+}
+
+type ObjectTemplate {
+    id: String,
+    className: String,
+    name: String,
+    description: String,
+    status: String,
+    properties: [Property]
+}
+
+input ObjectTemplateInput {
+    className: String!,
+    name: String!,
+    description: String,
+    status: String!
+}
+
+
+type ObjectTemplateConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [ObjectTemplateEdge]
+}
+
+type ObjectTemplateEdge {
+    cursor: String!
+    node: ObjectTemplate
+}
+
+type Property {
+    fieldName: String,
+    name: String,
+    dataType: DataType,
+    referenceData: String,
+    defaultValue: String,
+    type: PropertyType,
+    listValue: [String],
+    description: String,
+    required: Boolean,
+    status: String,
+    order: Int,
+    group: Int
+}
+
+enum DataType {
+    STRING,
+    INT,
+    FLOAT
+    CHECK_BOX
+    RADIO_BOX
+    MULTI_SELECT
+    CATEGORY,
+    DATE,
+    DATETIME
+    FILE
+}
+
+enum PropertyType {
+    GLOBAL
+    PRIVATE
+}
+
+input PropertyInput {
+    fieldName: String!,
+    name: String!,
+    dataType: DataType,
+    referenceData: String,
+    defaultValue: String,
+    type: PropertyType,
+    listValue: [String],
+    description: String,
+    required: Boolean,
+    status: String!,
+    order: Int,
+    group: Int
+}

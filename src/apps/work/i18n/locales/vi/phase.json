@@ -1,0 +1,14 @@
+{
+  "addPhase": "Thêm giai đoạn",
+  "name": "Tên giai đoạn",
+  "startDate": "Ngày bắt đầu",
+  "endDate": "Ngày kết thúc",
+  "description": "Mô tả",
+  "saveSuccess": "Lưu giai đoạn thành công.",
+  "validate": {
+    "fromDateOrToDateIsNotValid": "Công việc đang không nằm trong khoảng thời gian giai đoạn.",
+    "nameRequired": "Tên giai đoạn không được để trống.",
+    "startDateRequired": "Ngày bắt đầu không được để trống.",
+    "endDateRequired": "Ngày kết thúc không được để trống."
+  }
+}

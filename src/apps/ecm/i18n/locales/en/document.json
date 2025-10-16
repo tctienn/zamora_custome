@@ -1,0 +1,52 @@
+{
+  "appendixFile": "Appendix File",
+  "appendixFormFile": "Appendix form file",
+  "branch": "Industry",
+  "confidentiality": "Confidentiality",
+  "confidentialityValue": {
+    "limit": "Limit",
+    "normal": "Normal"
+  },
+  "content": "Content",
+  "dateIssued": "Issued date",
+  "documentForm": "Text form",
+  "documentNo": "Number, text symbol",
+  "excerptFromTheText": "Excerpt from the text",
+  "fileAttach": "Attachment file",
+  "issuingAgency": "Issuing Agency",
+  "listDocument": "List of documents",
+  "message": {
+    "branchEmpTy": "Branch cannot be empty",
+    "confidentialityEmpTy": "Confidentiality cannot be empty",
+    "contentEmpTy": "Content cannot be empty",
+    "createSuccess": "New creation successful",
+    "dateIssuedEmpTy": "Issued date cannot be empty",
+    "deleteSuccess": "Delete successfully",
+    "documentFormEmpTy": "Text form cannot be empty",
+    "documentNoEmpTy": "Numbers, text symbols cannot be empty",
+    "excerptFromTheTextEmpTy": "Text summary cannot be empty",
+    "fileAttachEmpTy": "Attachments cannot be empty",
+    "processingDeadlineEmpTy": "Processing Deadline cannot be empty",
+    "registrationNoEmpTy": "Registration number cannot be empty",
+    "toDateEmpTy": "The arrival date cannot be empty",
+    "unitGetRegistrationNumberEmpTy": "Unit to get registration number cannot be empty",
+    "urgencyEmpTy": "Urgency cannot be empty"
+  },
+  "noSaved": "Number of saved copies",
+  "processingDeadline": "Processing Deadline",
+  "registrationNo": "Registration number",
+  "sender": "Sender",
+  "signer": "Signer",
+  "status": "Text status",
+  "statusValue": {
+    "processed": "Processed",
+    "unprocessed": "Unprocessed"
+  },
+  "toDate": "Date to",
+  "unitGetRegistrationNumber": "Unit to get registration number",
+  "urgency": "Urgency",
+  "urgencyValue": {
+    "express": "Express",
+    "urgent": "Urgent"
+  }
+}

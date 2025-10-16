@@ -1,0 +1,18 @@
+{
+  "meeting": "Lịch biểu",
+  "meetingCalendar": "Lịch đơn vị",
+  "meetingPersonal": "Lịch cá nhân",
+  "meetingRoom": "Phòng họp",
+  "manager": "Quản trị",
+  "meetingManagerCalendar": "Lịch họp",
+  "meetingManagerRoom": "Phòng họp",
+  "meetingManagerFlow": "Quy trình",
+  "meetingSummary": "Tổng hợp",
+  "mediaDeviceManager": "Phương tiện/Thiết bị",
+  "meetingCalendarView": "Lịch họp",
+  "meetingPersonalView": "Lịch cá nhân",
+  "meetingLeader": "Lịch lãnh đạo",
+  "meetingRoomView": "Phòng họp",
+  "meetingSummaryView": "Tổng hợp",
+  "meetingManager": "Quản lý lịch"
+}

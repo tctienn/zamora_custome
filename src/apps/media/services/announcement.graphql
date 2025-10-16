@@ -1,0 +1,17 @@
+type Query {
+    searchTextMedia(type: MediaType, keyword?: string, pageable: object, status?: string): AnnouncementConnection
+}
+
+type AnnouncementConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [UserEdge]
+}
+
+type AnnouncementEdge {
+    cursor: String!
+    node: User
+}
+enum MediaType {
+    ANNOUNCEMENT, NEWS, HONORS
+}

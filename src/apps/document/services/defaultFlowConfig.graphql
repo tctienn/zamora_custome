@@ -1,0 +1,16 @@
+extend type Query{
+    getAllDeptIds: [String]
+    getIncomingFlowIdByDeptId(id: String): String
+    getOutgoingFlowIdByDeptId(id: String): String
+}
+
+extend type Mutation{
+    saveDefaultFlowConfig(incomingFlowId: String, outgoingFlowId: String, deptId: String): DefaultFlowConfig
+}
+
+type DefaultFlowConfig {
+    id: String
+    incomingFlowId: String
+    outgoingFlowId: String
+    deptId: String
+}

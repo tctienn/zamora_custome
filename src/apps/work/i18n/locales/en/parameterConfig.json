@@ -1,0 +1,8 @@
+{
+  "header": "Parameter Configuration",
+  "allowCrossTaskView": "Allow performers to view tasks across.",
+  "allowLinkingSubtasksToParent": "Allow performers to link subtasks between each other, so they can see other linked subtasks under the same parent task.",
+  "allowCrossTaskViewers": "Allow participants to view tasks across.",
+  "allowParticipantsToViewLinkedSubtasks": "Allow participants to link subtasks between each other, so they can see other linked subtasks under the same parent task.",
+  "autoTransitionOnStartDate": "Automatically change the task status when the start date is reached."
+}

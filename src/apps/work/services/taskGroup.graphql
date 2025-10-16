@@ -1,0 +1,45 @@
+extend type Query {
+    searchByTaskGroup(keyword: String, pageable: Pageable): TaskGroupConnection
+    getTaskGroupById(id: String!): TaskGroup!
+    getAllActiveTaskGroup: [TaskGroup]
+    maxOrderActiveTaskGroup: Int
+}
+
+extend type Mutation {
+    mutationTaskGroup(payload: TaskGroupInput): TaskGroup!
+    deleteTaskGroup(id: String!): TaskGroup!
+}
+
+input TaskGroupInput {
+    id: String
+    name: String
+    status: TaskGroupStatus
+    norder: Int
+}
+
+type TaskGroup {
+    id: String
+    name: String
+    status: TaskGroupStatus
+    norder: Int
+    createdTime: String,
+    createdBy: String,
+    lastModifiedTime: String,
+    lastModifiedBy: String
+}
+
+type TaskGroupConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [TaskGroupEdge]
+}
+
+type TaskGroupEdge {
+    cursor: String!
+    node: TaskGroup
+}
+
+enum TaskGroupStatus {
+    ACTIVE,
+    DEACTIVATE
+}

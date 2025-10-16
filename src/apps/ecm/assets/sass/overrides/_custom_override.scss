@@ -1,0 +1,202 @@
+.filter-panel {
+  .filter-file-type {
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+
+.ecm-breadcrumb {
+  span.p-menuitem-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+}
+
+.ecm-storage {
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .ecm-tree{
+    height: calc(100vh - 11rem);
+
+    &.has-extra-space {
+      height: calc(100vh - 14.25rem);
+    }
+
+    &.has-more-extra-space {
+      height: calc(100vh - 17.5rem);
+    }
+  }
+  .ecm-wrap-view {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 11rem);
+
+    &.has-extra-space {
+      height: calc(100vh - 14.25rem);
+    }
+
+    &.has-more-extra-space {
+      height: calc(100vh - 17.5rem);
+    }
+
+    .list-header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background-color: var(--surface-a);
+    }
+
+    .ecm-full-content {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+
+      .p-dataview-content {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  .p-dataview-header {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    //height: 4rem;
+  }
+
+  .p-dataview-content {
+    padding: 0;
+    //height: calc(100vh - 16rem);
+
+    .p-grid {
+      overflow-y: auto;
+
+      .p-checkbox {
+        width: 1.25rem;
+        height: 1.25rem;
+
+        .p-checkbox-box {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .grid-item {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 24px 36px rgba(0, 0, 0, 0);
+
+        &:hover {
+          background-color: var(--surface-ground) !important;
+        }
+
+        &.selected-file-folder {
+          background-color: var(--primary-light-40) !important;
+          color: var(--primary-color);
+
+          &:hover {
+            background-color: var(--primary-light-40) !important;
+          }
+        }
+
+        &.cut-file-folder {
+          opacity: .4;
+        }
+
+        .folder-icon, .file-extension-icon {
+          height: 5rem;
+          margin: 1rem;
+        }
+      }
+
+      .list-item {
+        &:hover {
+          background-color: var(--surface-ground);
+        }
+
+        &.selected-file-folder {
+          background-color: var(--primary-light-40) !important;
+          color: var(--primary-color);
+
+          &:hover {
+            background-color: var(--primary-light-40) !important;
+          }
+        }
+
+        &.cut-file-folder {
+          opacity: .4;
+        }
+
+        .file-folder-info {
+          width: calc(100% - 6rem);
+        }
+
+        .folder-icon, .file-extension-icon {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+.search-result {
+  .p-tabview {
+    &.p-component {
+      .p-tabview-nav-container {
+        display: flex;
+        justify-content: center;
+
+        .p-tabview-nav {
+          background-color: transparent;
+        }
+      }
+
+      .p-tabview-panels {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .result-item {
+    .folder-icon, .file-extension-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .col-8 {
+      .flex {
+        width: calc(100% - 2rem);
+      }
+    }
+  }
+}
+
+.ecm-exception {
+  .exception-panel {
+    border-radius: 14px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1), 0 24px 36px rgba(0, 0, 0, 0.04);
+    background-color: var(--inputBg);
+  }
+}
+
+.ecm-group {
+  .p-panel {
+    .p-panel-header {
+      padding: 0.25rem 1.25rem;
+    }
+
+    .p-toggleable-content {
+      .p-panel-content {
+        padding: 0.5rem 1.25rem 1rem 1.25rem;
+      }
+    }
+  }
+}

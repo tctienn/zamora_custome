@@ -1,0 +1,48 @@
+extend type Query {
+    getMessage(projectId: String, pageable: Pageable): GetMessageDataConnection
+}
+type GetMessageDataConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [GetMessageDataEdges]
+}
+
+type GetMessageDataEdges {
+    cursor: String!
+    node: GetMessageData
+}
+type ProjectDiscussion{
+    id: String
+    content: String
+    projectId: String
+    sendId: String
+    isAttachment: Boolean
+    isDeleted: Boolean
+    createdTime: DateTime
+    createdBy: String
+    lastModifiedTime: DateTime
+    lastModifiedBy: String
+    isSeen: Boolean
+}
+
+type GetMessageData{
+    id: String
+    content: String
+    projectId: String
+    sendId: String
+    isAttachment: Boolean
+    isDeleted: Boolean
+    size: Int
+    extension: String
+    name: String
+    downloadPath: String
+    createdTime: DateTime
+    createdBy: String
+    lastModifiedTime: DateTime
+    lastModifiedBy: String
+    isSeen: Boolean
+
+    replyId:String
+
+    attachments: [WorkAttachment]
+}

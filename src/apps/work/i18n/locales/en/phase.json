@@ -1,0 +1,14 @@
+{
+  "addPhase": "Add phase",
+  "name": "Phase name",
+  "startDate": "Start date",
+  "endDate": "End date",
+  "description": "Description",
+  "saveSuccess": "Save stage successfully.",
+  "validate": {
+    "fromDateOrToDateIsNotValid": "The work is not within the period period.",
+    "nameRequired": "Phase name cannot be empty.",
+    "startDateRequired": "Start date cannot be empty.",
+    "endDateRequired": "End date cannot be empty."
+  }
+}

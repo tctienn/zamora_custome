@@ -1,0 +1,8 @@
+{
+  "update": "Cập nhật",
+  "create": "Tạo mới",
+  "createSuccess": "Lưu thông tin thành công.",
+  "updateSuccess": "Cập nhật thông tin thành công.",
+  "submitError": "Dữ liệu không hợp lệ",
+  "default": "Mặc định"
+}

@@ -1,0 +1,36 @@
+extend type Query{
+    searchDocTemplateByKeyword(keyword: String, pageable: Pageable): DocTemplateConnection
+    findDocTemplateById(id: String): DocTemplate
+    findAllDocTemplate: [Attachment]
+}
+
+extend type Mutation{
+    deleteDocTemplate(id: String): Boolean
+}
+
+type DocTemplate {
+    id: String
+    deptId: String
+    signal: String
+    docTemplateName: String
+    description: String
+    docTemplateType: DocTemplateType
+    status: Boolean
+    createdTime: DateTime
+    createdBy: String
+}
+
+enum DocTemplateType{
+    DOC, CONTRACT
+}
+
+type DocTemplateConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [DocTemplateEdges]
+}
+
+type DocTemplateEdges {
+    cursor: String!
+    node:DocTemplate
+}

@@ -1,0 +1,30 @@
+{
+  "status": {
+    "completed": {
+      "this": "Hoàn thành",
+      "onTime": "Đúng hạn",
+      "overTime": "Quá hạn",
+      "beforeTime": "Trước hạn"
+    },
+    "onGoing": {
+      "this": "Đang thực hiện",
+      "onTime": "Còn hạn",
+      "overTime": "Quá hạn"
+    }
+  },
+  "priorities": {
+    "high": "Cao",
+    "intermediate": "Trung bình",
+    "normal": "Bình thường",
+    "low": "Thấp"
+  },
+  "statuses": {
+    "notStarted": "Chưa bắt đầu",
+    "working": "Đang thực hiện",
+    "pending": "Tạm dừng",
+    "waiting": "Đang đợi",
+    "completed": "Hoàn thành",
+    "canceled": "Đã hủy"
+  },
+  "assigner": "Người giao việc"
+}

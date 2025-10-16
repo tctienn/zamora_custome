@@ -1,0 +1,15 @@
+{
+  "categoryGroupNotSelected": "Category group must be selected",
+  "code": "Category code",
+  "codeEmpty": "Category code cannot be empty.",
+  "errors": {
+    "categoryCodeEmpty": "Category code is empty",
+    "categoryNotFound": "The shared category does not exist",
+    "categoryCodeIsExist": "Category code is exist"
+  },
+  "group": "Category group",
+  "name": "Category name",
+  "nameEmpty": "Category name cannot be empty.",
+  "objectName": "Shared category",
+  "tableTitle": "List of shared categories"
+}

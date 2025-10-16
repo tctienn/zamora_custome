@@ -1,0 +1,17 @@
+{
+  "code": "Mã Loại văn bản ",
+  "errors": {
+    "codeEmpty": "Mã Loại văn bản không được để trống",
+    "codeExits": "Mã Loại văn bản đã tồn tại",
+    "nameEmpty": "Tên Loại văn bản không được để trống"
+  },
+  "id": "Id Loại văn bản ",
+  "name": "Tên Loại văn bản ",
+  "numberOfProcessingDays": "Số ngày xử lý",
+  "objectName": "Loại văn bản ",
+  "signDefault": "Ký hiệu ban hành mặc định",
+  "tableTitle": "Danh sách Loại văn bản ",
+  "validateField": {
+    "notNull": "Không được để trống"
+  }
+}

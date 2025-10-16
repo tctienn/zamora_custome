@@ -1,0 +1,8 @@
+{
+  "objectName": "Nhãn công việc",
+  "listTaskEvaluation": "Danh sách nhãn công việc",
+  "labelTitle": "Tên nhãn",
+  "message": {
+    "labelTitleEmpty": "Tên nhãn không được để trống"
+  }
+}

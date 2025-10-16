@@ -1,0 +1,16 @@
+{
+  "title": "Yêu cầu nghỉ phép",
+  "leaveType": "Loại nghỉ phép",
+  "startTime": "Thời gian bắt đầu nghỉ",
+  "endTime": "Thời gian kết thúc nghỉ",
+  "leaveTypes": {
+    "annual": "Nghỉ phép hàng năm",
+    "sick": "Nghỉ ốm",
+    "unpaid": "Nghỉ không lương",
+    "maternity": "Nghỉ thai sản",
+    "paternity": "Nghỉ chăm sóc con",
+    "bereavement": "Nghỉ tang lễ",
+    "personal": "Nghỉ cá nhân",
+    "military": "Nghỉ nghĩa vụ quân sự"
+  }
+}

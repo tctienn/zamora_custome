@@ -1,0 +1,22 @@
+{
+  "shiftType": "Loại ca làm việc",
+  "workTime": "Giờ làm việc",
+  "addWorkTime": "Thêm giờ làm việc",
+  "schedule": "Lịch làm việc",
+  "monday": "Thứ 2",
+  "tuesday": "Thứ 3",
+  "wednesday": "Thứ 4",
+  "thursday": "Thứ 5",
+  "friday": "Thứ 6",
+  "saturday": "Thứ 7",
+  "sunday": "Chủ nhật",
+  "all": "Cả ngày",
+  "message": {
+    "validateSetSchedule": "Giờ làm việc này đã được thiết lập lịch làm việc.",
+    "deleteShiftSuccess": "Xóa giờ làm việc thành công.",
+    "addShiftSuccess": "Thêm lịch làm việc thành công.",
+    "addScheduleSuccess": "Thêm lịch làm việc thành công.",
+    "shiftNameWasDuplicated": "Tên ca đang bị trùng.",
+    "hasBeenConfigured": "Giờ làm việc này đã được thiết lập lịch làm việc."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "action": "Action name",
+  "endDate": "End date cannot be empty.",
+  "function": "Function name",
+  "header": "Clear user log",
+  "ip": "IP",
+  "logUser": "List of user logs",
+  "module": "Module",
+  "objectName": "Object name",
+  "startDate": "Start date cannot be empty.",
+  "time": "Time",
+  "userId": "UserId",
+  "userName": "Username",
+  "fullName": "Full name"
+}

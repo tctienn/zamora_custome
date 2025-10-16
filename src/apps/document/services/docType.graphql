@@ -1,0 +1,42 @@
+extend type Query{
+    searchDocType(keyword: String, pageable: Pageable): DocTypeConnection
+    getDocTypeById(id: String): DocType
+    getAllDocType: [DocType]
+    maxOrderActiveDocType: Int
+}
+
+extend type Mutation{
+    saveDocType(docType: DocTypeInput): DocType
+    deleteDocType(id: String): DocType
+}
+
+input DocTypeInput {
+    id: String
+    code: String
+    name: String
+    norder: Int
+    status: Boolean
+    numberOfProcessingDays: Int
+    signDefault: String
+}
+
+type DocType {
+    id: String
+    code: String
+    name: String
+    norder: Int
+    status: Boolean
+    numberOfProcessingDays: Int
+    signDefault: String
+}
+
+type DocTypeConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [DocTypeEdge]
+}
+
+type DocTypeEdge {
+    cursor: String!
+    node: DocType
+}

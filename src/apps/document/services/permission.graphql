@@ -1,0 +1,17 @@
+extend type Query {
+    userOrganizationRoles: [UserOrganizationRole]
+}
+
+type UserOrganizationRole {
+    id: String
+    userId: String
+    organization: Organization
+    role: Role
+}
+
+type Role {
+    code: String!
+    name: String!,
+    permissions: [String]
+}
+

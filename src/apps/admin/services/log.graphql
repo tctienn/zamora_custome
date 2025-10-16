@@ -1,0 +1,30 @@
+extend type Query {
+    logs(keyword: String, pageable: Pageable): LogConnection
+}
+extend type Mutation {
+    deleteLogByDateRage(startDate: Date, endDate: Date): Boolean
+}
+type logAction {
+    id: String!,
+    userId: String,
+    userName: String,
+    email: String,
+    fullName: String,
+    time: String,
+    ip: String,
+    module: String,
+    function: String,
+    objectName: String,
+    action: String,
+}
+
+type LogConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [LogEdge]
+}
+
+type LogEdge {
+    cursor: String!
+    node: logAction
+}

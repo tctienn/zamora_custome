@@ -1,0 +1,11 @@
+{
+  "title": "Cấu hình chấm công",
+  "finger": {
+    "users": {
+      "title": "Danh sách tài khoản",
+      "code": "Mã chấm công",
+      "name": "Tên tài khoản",
+      "status": "Trạng thái"
+    }
+  }
+}

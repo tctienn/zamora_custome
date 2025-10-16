@@ -1,0 +1,18 @@
+{
+  "action": "Tên hành động",
+  "endDate": "Ngày kết thúc không được để trống.",
+  "function": "Tên chức năng",
+  "header": "Xóa nhật ký người dùng",
+  "ip": "IP",
+  "logUser": "Danh sách nhật ký người dùng",
+  "module": "Module",
+  "objectName": "Tên đối tượng",
+  "startDate": "Ngày bắt đầu không được để trống.",
+  "time": "Thời gian",
+  "userId": "Id người dùng",
+  "userName": "Tên người dùng",
+  "fullName": "Họ và tên",
+  "user": "Người dùng",
+  "actionType": "Hành động",
+  "resultType": "Kết quả"
+}

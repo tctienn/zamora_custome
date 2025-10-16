@@ -1,0 +1,38 @@
+extend type Query{
+    searchReceivingMethod(keyword: String, pageable: Pageable): ReceivingMethodConnection
+    getReceivingMethodById(id: String): ReceivingMethod
+    getAllReceivingMethod: [ReceivingMethod]
+    maxOrderActiveReceivingMethod: Int
+}
+
+extend type Mutation{
+    saveReceivingMethod(receivingMethod: ReceivingMethodInput): ReceivingMethod
+    deleteReceivingMethod(id: String): ReceivingMethod
+}
+
+input ReceivingMethodInput {
+    id: String
+    code: String
+    name: String
+    norder: Int
+    status: Boolean
+}
+
+type ReceivingMethod {
+    id: String
+    code: String
+    name: String
+    norder: Int
+    status: Boolean
+}
+
+type ReceivingMethodConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [ReceivingMethodEdge]
+}
+
+type ReceivingMethodEdge {
+    cursor: String!
+    node: ReceivingMethod
+}

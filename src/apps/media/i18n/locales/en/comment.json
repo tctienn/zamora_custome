@@ -1,0 +1,12 @@
+{
+  "confirm": {
+    "deleteComment": "Delete this comment"
+  },
+  "comment": "Comment",
+  "addComment": "Add a comment",
+  "loadMoreComment": "Load more comment",
+  "showNComment": "Show more {number} comments",
+  "reply": "Reply",
+  "hideComment": "Hide comment(s)",
+  "toolbar": "Toolbar"
+}

@@ -1,0 +1,9 @@
+{
+  "bookTicketCategory": "Danh mục",
+  "bookTicketCountry": "Quốc gia",
+  "bookTicketAirport": "Sân Bay",
+  "bookTicketAirline": "Hãng hàng không",
+  "bookTicketAirlineTicketAgent": "Đại lý vé máy bay",
+  "bookTicketWorkContent": "Nội dung công việc",
+  "bookTicketFlight":"Đặt vé"
+}

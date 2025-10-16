@@ -1,0 +1,67 @@
+{
+    "headerTitle": "Báo cáo kết quả công việc",
+    "headerTitleSignature": "Công việc chờ phê duyệt",
+    "history": "Lịch sử công việc",
+    "title": "Tiếp nhận xử lý công việc",
+    "AGREE": "Đồng ý",
+    "DISAGREE": "Không đồng ý",
+    "summary": "Trích yếu: ",
+    "reportResult": "Kết quả công việc của chuyên viên báo cáo: ",
+    "unitSubmit": "Đơn vị trình: ",
+    "submitContent": "Nội dung trình: ",
+    "dueDate": "Hạn xử lý công việc: ",
+    "note": "Diễn giải",
+    "returnSubordinates":"Trả lại Cấp dưới trực tiếp",
+    "returnProcessor": "Trả lại Chuyên viên",
+    "content": {
+        "title": "Nội dung kết quả",
+        "placeholder": "Kết quả công việc",
+        "required": "Kết quả công việc là bắt buộc"
+    },
+    "assignment": {
+        "title": "Nội dung giao việc:",
+        "deadline": "Hạn xử lý:",
+        "assigner":"Phân công:",
+        "unit": "Chủ trì:",
+        "leader": "Chủ trì",
+        "description": "Nội dung công việc:"
+    },
+    "document": {
+        "title": "Văn bản/Quy chế/Quy định liên quan ",
+        "note": "(Yêu cầu đính kèm tài liệu đối với các công việc có sản phẩm là tài liệu để căn cứ đánh giá kết quả công việc)",
+        "table": {
+            "index": "STT",
+            "name": "Tài liệu",
+            "draftDate": "Ngày dự thảo",
+            "download": "Tải về",
+            "signed": "Tài liệu trình ký",
+            "opinion": "Ý kiến",
+            "actions": "Thao tác"
+        },
+        "add": "Thêm mới tài liệu"
+    },
+    "actions": {
+        "close": "Đóng",
+        "draft": "Lưu nháp",
+        "submitToLeader": "Trình Trưởng phòng",
+        "signature":"Trình ký",
+        "giveBack":"Trả lại",
+        "success": "Hoàn thành"
+    },
+    "success": "Đã gửi báo cáo kết quả công việc",
+    "CREATE_NEW":"Tạo mới",
+    "UPDATED": "Chỉnh sửa",
+    "ASSIGNED":"Phân công",
+    "ACCEPTED_JOB":"Tiếp nhận công việc",
+    "DENIED_JOB":"Từ chối công việc",
+    "SEND_REPORT_TO_LEADER":"Gửi báo cáo cho trưởng phòng",
+    "GENERAL_LEADER_SIGNED":"Đã phê duyệt",
+    "LEADER_SEND_REPORT_TO_GENERAL_LEADER_FOR_SIGNATURE": "Đã trình ký",
+    "LEADER_REJECT": "Trưởng phòng từ chối báo cáo",
+    "GENERAL_LEADER_REJECTED_AND_RETURN_TO_LEADER": "Lãnh đạo từ chối báo cáo và trả lại cho trưởng phòng",
+    "GENERAL_LEADER_REJECTED_AND_RETURN_TO_EMPLOYEE": "Lãnh đạo từ chối báo cáo và trả lại cho nhân viên",
+    "LEADER_REQUEST_EXTENSION_DEADLINE": "Chờ duyệt gia hạn",
+    "GENERAL_LEADER_AGREE_EXTENSION_DEADLINE":"Đã duyệt gia hạn",
+    "GENERAL_LEADER_REJECT_EXTENSION_DEADLINE":"Từ chối gia hạn",
+    "LEADER_APPROVE_AND_COMPLETED": "Trưởng phòng phê duyệt"
+}

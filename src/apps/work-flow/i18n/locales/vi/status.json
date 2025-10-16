@@ -1,0 +1,13 @@
+{
+  "created": "Tạo mới",
+  "inProgress": "Đang xử lý",
+  "cancelled": "Đã hủy",
+  "completed": "Đã hoàn thành",
+  "draft": "Dự thảo",
+  "pending": "Chờ duyệt",
+  "giveBack": "Trả lại",
+  "refuse": "Từ chối",
+  "approved": "Đã duyệt",
+  "evict": "Thu hồi",
+  "cancel": "Hủy"
+}

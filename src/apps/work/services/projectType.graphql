@@ -1,0 +1,45 @@
+extend type Query {
+    searchByProjectType(keyword: String, pageable: Pageable): ProjectTypeConnection
+    getProjectTypeById(id: String!): ProjectType!
+    getAllActiveProjectType: [ProjectType]
+    maxOrderActiveProjectType: Int
+}
+
+extend type Mutation {
+    mutationProjectType(payload: ProjectTypeInput): ProjectType!
+    deleteProjectType(id: String!): ProjectType!
+}
+
+input ProjectTypeInput {
+    id: String
+    name: String
+    status: ProjectTypeStatus
+    norder: Int
+}
+
+type ProjectType {
+    id: String
+    name: String
+    status: ProjectTypeStatus
+    norder: Int
+    createdTime: String,
+    createdBy: String,
+    lastModifiedTime: String,
+    lastModifiedBy: String
+}
+
+type ProjectTypeConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [ProjectTypeEdge]
+}
+
+type ProjectTypeEdge {
+    cursor: String!
+    node: ProjectType
+}
+
+enum ProjectTypeStatus {
+    ACTIVE,
+    DEACTIVATE
+}

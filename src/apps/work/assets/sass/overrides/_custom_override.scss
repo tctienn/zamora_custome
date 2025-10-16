@@ -1,0 +1,24 @@
+.layout-primary {
+  .background-expire-project {
+    background-color: #FEFBEF;
+    color: #FF0606;
+  }
+
+  .background-expire-task {
+    background-color: #FEFBEF;
+    color: #FF0606;
+  }
+}
+
+.layout-dark {
+  .background-expire-project {
+    background-color: var(--primary-darker);
+    color: var(--red-200);
+  }
+
+  .background-expire-task {
+    background-color: var(--primary-darker);
+    color: var(--red-200);
+  }
+
+}

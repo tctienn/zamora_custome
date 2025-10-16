@@ -1,0 +1,23 @@
+{
+  "changeTemplateTypeWarning": "If you change your email template now, the parameters you selected may not work properly. Do you want to continue?",
+  "content": "Content",
+  "contentEmpty": "Content cannot be empty.",
+  "editorNotFocus": "Please focus the editor",
+  "errors": {
+    "emailTemplateNotFound": "Email template does not exist"
+  },
+  "objectName": "Email template",
+  "subject": "Title",
+  "subjectEmpty": "Email subject cannot be empty.",
+  "tableTitle": "List of email templates",
+  "type": "Model type",
+  "typeNotSelected": "Template type must be selected.",
+  "types": {
+    "contractExpiration": "Contract Expiration",
+    "createAccount": "Create account",
+    "deleteDocument": "Delete document",
+    "forgotPassword": "Forgot password",
+    "resetPassword": "Regenerate password",
+    "shareDocument": "Share document document"
+  }
+}

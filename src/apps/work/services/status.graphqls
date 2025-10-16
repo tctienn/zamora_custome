@@ -1,0 +1,51 @@
+extend type Query {
+    search(keyword: String, pageable: Pageable): StatusConnection
+    findStatusesCount(fromDate: DateTime, toDate: DateTime): [StatusCountResult]
+    allStatus: [Status]
+}
+
+extend type Mutation {
+    addOrEditConfigStatus(statusInput: StatusInput): Status
+    deleteConfigStatus(id: String): String
+}
+
+type Status{
+    id: String
+    name: String
+    type: StatusType
+    color: String
+    description: String
+    orderNo: Int
+}
+
+type StatusCountResult {
+    id: String
+    name: String
+    type: StatusType
+    color: String
+    count: Int
+}
+
+type StatusConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [StatusEdge]
+}
+
+type StatusEdge {
+    cursor: String!
+    node: Status
+}
+
+enum StatusType {
+    START, IN_PROGRESS, COMPLETED, CANCELED
+}
+
+input StatusInput{
+    id: String
+    name: String
+    type: StatusType
+    color: String
+    description: String
+    orderNo: Int
+}

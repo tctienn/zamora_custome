@@ -1,0 +1,28 @@
+type TaskRepeat {
+    id: String
+    taskId: String!
+    type: RepeatType!
+    createTimeConfig: Time
+    daysOfWeek: [DayOfWeek]
+    daysOfMonth: [Int]
+    endRepeatDate: Date
+    description: String
+}
+
+input TaskRepeatInput {
+    taskId: String
+    type: RepeatType!
+    createTimeConfig: Time
+    daysOfWeek: [DayOfWeek]
+    daysOfMonth: [Int]
+    endRepeatDate: Date
+    description: String
+}
+
+enum RepeatType {
+    DAILY, WEEKLY, DAYS_IN_MONTH, END_OF_MONTH
+}
+
+enum DayOfWeek {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+}

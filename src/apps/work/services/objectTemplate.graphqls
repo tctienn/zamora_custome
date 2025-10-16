@@ -1,0 +1,36 @@
+extend type Query {
+    getObjectProperties: [Property]
+}
+
+type Property {
+    fieldName: String,
+    name: String,
+    dataType: DataType,
+    referenceData: String,
+    defaultValue: String,
+    listValue: [String],
+    type: PropertyType,
+    description: String,
+    required: Boolean
+    status: String,
+    order: Int,
+    group: Int
+}
+
+enum PropertyType {
+    GLOBAL
+    PRIVATE
+}
+
+enum DataType {
+    STRING,
+    INT,
+    FLOAT
+    CHECK_BOX
+    RADIO_BOX
+    MULTI_SELECT
+    CATEGORY,
+    DATE,
+    DATETIME
+    FILE
+}

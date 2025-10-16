@@ -1,0 +1,90 @@
+{
+  "title": "Hợp đồng lao động",
+  "titleContractAppendixFormCreate": "Thêm mới phụ lục hợp đồng lao động",
+  "titleContractAppendixFormUpdate": "Cập nhật phụ lục hợp đồng lao động",
+  "general": {
+    "title": "Thông tin chung",
+    "employee": "Nhân sự",
+    "code": "Mã hợp đồng",
+    "type": "Loại hợp đồng",
+    "organization": "Phòng ban",
+    "jobTitle": "Chức danh/Vị trí",
+    "position": "Chức vụ",
+    "rank": "Cấp bậc",
+    "workType": "Hình thức làm việc",
+    "workLocation": "Nơi làm việc",
+    "workingHoursPerWeek": "Số giờ làm việc trong tuần",
+    "workDescription": "Mô tả công việc",
+    "manager": "Người quản lý",
+    "employeeType": "Loại nhân sự",
+    "employeeRank": "Cấp nhân sự",
+    "effectiveDate": "Hiệu lực từ ngày",
+    "expiryDate": "Hiệu lực đến ngày",
+    "signedDate": "Ngày ký",
+    "createdDate": "Ngày tạo",
+    "status": "Trạng thái",
+    "signatory": "Người ký",
+    "haveInsurance": "Có đóng bảo hiểm",
+    "contractType": "Loại hợp đồng",
+    "workingForm": "Hình thức làm việc",
+    "effectiveMonth": "Tháng hiệu lực",
+    "expiryDate2": "Ngày hết hạn",
+    "mainJob": "Làm chính",
+    "multiJob": "Kiêm nhiệm",
+    "professionalWork": "Công việc chuyên môn"
+  },
+  "salary": {
+    "title": "Thông tin lương và phụ cấp",
+    "type": "Hình thức lương",
+    "typeOptions": {
+      "coefficient": "Lương hệ số",
+      "agreement": "Lương khoán",
+      "payroll": "Thang bảng lương",
+      "COEFFICIENT": "Lương hệ số",
+      "AGREEMENT": "Lương khoán",
+      "PAYROLL": "Thang bảng lương"
+    },
+    "jobTitle": "Chức danh công việc",
+    "rank": "Bậc",
+    "scale": "Bậc lương",
+    "grade": "Ngạch lương",
+    "coefficient": "Hệ số lương",
+    "coefficientSalary": "Mức lương",
+    "regionalMinimum": "Lương tối thiểu vùng",
+    "agreementSalary": "Tiền lương",
+    "totalSalary": "Tổng lương",
+    "bonus": {
+      "title": "Phụ cấp",
+      "type": "Khoản phụ cấp",
+      "amount": "Số tiền"
+    }
+  },
+  "attachment": "Tài liệu đính kèm",
+  "statusOptions": {
+    "all": "Tất cả",
+    "notYetValid": "Chưa hiệu lực",
+    "valid": "Đang hiệu lực",
+    "expired": "Hết hiệu lực",
+    "liquidated": "Đã chấm dứt"
+  },
+  "actionOptions": {
+    "addContractAppendix": "Thêm phụ lục hợp đồng",
+    "viewOrPrint": "Xem hoặc in hợp đồng",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "pdf": "Xuất PDF",
+    "setStatus": "Thiết lập trạng thái"
+  },
+  "error": {
+    "requiredNumContractAppendix": "Số PLHĐ không được để trống",
+    "requiredSignDate": "Ngày ký phụ lục không được để trống"
+  },
+  "numContractAppendix": "Số PLHĐ",
+  "signDate": "Ngày ký phụ lục",
+  "effectiveDate": "Ngày hiệu lực",
+  "signatory": "Người ký",
+  "content": "Nội dung của phụ lục",
+  "contractForContractAppendix": "Căn cứ hợp đồng lao động: ",
+  "expire": "Hết hiệu lực",
+  "stillEffect": "Còn hiệu lực"
+}

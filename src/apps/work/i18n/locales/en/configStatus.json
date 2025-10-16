@@ -1,0 +1,13 @@
+{
+  "objectName": "Status Configuration",
+  "listConfigStatus": "List of Attribute Configurations",
+  "statusName": "Status Name",
+  "statusType": "Status Type",
+  "description": "Description",
+  "color": "Color",
+  "orderNo": "Order No",
+  "message": {
+    "nameEmpty": "Status name cannot be empty",
+    "typeEmpty": "Status type cannot be empty"
+  }
+}

@@ -1,0 +1,24 @@
+extend type Query {
+    findScheduleByShiftType(shiftType: String!): [Schedule]
+    findByShiftTypeAndShift(shiftType: String!, status: String!): [Schedule]
+}
+
+extend type Mutation {
+    saveSchedule(scheduleInput: ScheduleInput): Schedule
+}
+
+type Schedule{
+    id: String
+    day: String
+    shiftType: String
+    shift: String
+    totalLabour: Float
+}
+
+input ScheduleInput{
+    id: String
+    day: String
+    shiftType: String
+    shift: String
+    totalLabour: Float
+}

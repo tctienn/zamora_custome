@@ -1,0 +1,38 @@
+{
+  "create": "Tạo mới quy trình",
+  "update": "Cập nhật quy trình",
+  "delete": "Xóa quy trình",
+  "manage": "Quản lý quy trình",
+  "name": "Tên quy trình",
+  "type": "Loại luồng công việc",
+  "startTime": "Thời gian bắt đầu",
+  "flow": "Luồng công việc",
+  "object": "Đối tượng",
+  "priorityName": "Độ ưu tiên",
+  "deadline": "Hạn chót",
+  "process": "Luồng xử lý",
+  "description": "Mô tả",
+  "priority": {
+    "low": "Thấp",
+    "medium": "Trung bình",
+    "high": "Cao"
+  },
+  "validation": {
+    "name": {
+      "required": "Tên quy trình không được để trống"
+    },
+    "type": {
+      "required": "Loại Luồng công việc không được để trống"
+    },
+    "flow": {
+      "required": "Luồng công việc không được để trống"
+    },
+    "object": {
+      "required": "Đối tượng không được để trống"
+    }
+  },
+  "error": {
+    "objectInActiveFlow": "Đối tượng đã tồn tại trong luồng công việc khác",
+    "invalidFlowConfig": "Cấu hình luồng công việc không hợp lệ"
+  }
+}

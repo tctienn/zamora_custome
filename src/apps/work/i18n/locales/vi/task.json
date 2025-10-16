@@ -1,0 +1,157 @@
+{
+  "subTask": "Công việc con",
+  "task": "Công việc",
+  "listTask": "Danh sách công việc",
+  "viewByType": "Xem theo",
+  "assign": "Giao việc",
+  "assigner": "Người giao việc",
+  "follower": "Người theo dõi",
+  "percent": "Tiến độ",
+  "implement": "Thực hiện",
+  "taskDuration": "Thời gian thực hiện",
+  "taskDetail": "Thông tin chi tiết công việc",
+  "duration": "Hạn",
+  "taskDocument": "Tài liệu",
+  "taskMember": "Thành viên",
+  "taskActivity": "Hoạt động",
+  "updateDate": "Ngày cập nhật",
+  "deliver": "Người giao",
+  "implementer": "Người thực hiện",
+  "coordinator": "Người phối hợp",
+  "supervisor": "Người giám sát",
+  "dateOfAssignment": "Ngày giao việc",
+  "implementationObject": "Đối tượng thực hiện",
+  "importantMatter": "Việc quan trọng",
+  "completionReminder": "Nhắc nhở hoàn thành",
+  "thingsToEvaluate": "Việc cần đánh giá",
+  "originOfWork": "Nguồn gốc việc",
+  "parentTask": "Công việc cha",
+  "iteration": "Việc lặp",
+  "repeatingSchedule": "Lịch lặp",
+  "project": "Dự án",
+  "document": "Văn bản",
+  "meetingMinutes": "BB Họp",
+  "procedure": "Quy trình",
+  "taskGroup": "Nhóm công việc",
+  "daily": "Hằng ngày",
+  "veryWeek": "Hằng tuần",
+  "monthly": "Hằng tháng",
+  "individual": "Cá nhân",
+  "organization": "Đơn vị",
+  "generalInformation": "Thông tin chung",
+  "taskName": "Tên công việc",
+  "startDate": "Ngày bắt đầu",
+  "dueDate": "Ngày kết thúc",
+  "completionDeadline": "Hạn hoàn thành",
+  "description": "Mô tả",
+  "progress": "Tiến độ",
+  "status": "Trạng thái",
+  "thingsToDo": "Việc cần làm",
+  "childTask": "Công việc con",
+  "location": "Địa điểm",
+  "attachedFiles": "File đính kèm",
+  "workEvaluating": "Đánh giá công việc",
+  "result": "Kết quả",
+  "obtain": "Đạt",
+  "notAchieved": "Không đạt",
+  "content": "Nội dung",
+  "point": "Điểm",
+  "maximumScore": "Tối đa: 10",
+  "exchangeLog": "Nhật ký trao đổi",
+  "error": {
+    "notAllow": "Bạn không có quyền thao tác!",
+    "userNotInParentTask": "Người tham gia công việc con không thuộc công việc cha.",
+    "codeIsEarlyExists": "Mã công việc đã tồn tại",
+    "ProjectNotFound": "Không tìm thấy dự án.",
+    "userNotInProject": "Người tham gia không thuộc dự án."
+  },
+  "success": {
+    "updateSuccess": "Bạn đã cập nhật công việc thành công"
+  },
+  "customer": "Khách hàng",
+  "fileName": "Tên",
+  "fileSize": "Kích thước",
+  "fileType": "Định dạng",
+  "origin": "Nguồn",
+  "originType": {
+    "upload": "Tải lên",
+    "document": "Văn bản",
+    "ecm": "myBox",
+    "comment": "Trao đổi",
+    "report": "Báo cáo",
+    "evaluate": "Đánh giá"
+  },
+  "createdTime": "Thời gian tạo",
+  "createdBy": "Tạo bởi",
+  "detail": {
+    "document": {
+      "name": "Tên tệp",
+      "uploadFromMyBox": "Tải lên từ MyBox",
+      "chooseFromDocument": "Chọn từ tài liệu",
+      "filter": {
+        "this": "Lọc",
+        "all": "Tất cả",
+        "upload": "Tài liệu tải lên",
+        "document": "Liên kết từ văn bản",
+        "ecm": "Liên kết từ myBox",
+        "comment": "Tài liệu từ trao đổi",
+        "report": "Tài liệu từ báo cáo",
+        "evaluate": "Tài liệu từ đánh giá"
+      },
+      "rename": "Đổi tên tệp",
+      "renameSuccess": "Đổi tên thành công",
+      "deleteSuccess": "Xóa tài liệu thành công",
+      "saveToEcm": "Lưu vào myBox"
+    }
+  },
+  "attribute": {
+    "report": {
+      "name": "Tên báo cáo "
+    },
+    "checkListGroup": {
+      "name": "Tên nhóm checklist"
+    },
+    "checkList": {
+      "name": "Tên checklist"
+    }
+  },
+  "priority": {
+    "this": "Mức độ ưu tiên",
+    "high": "Cao",
+    "intermediate": "Trung bình",
+    "normal": "Bình thường",
+    "low": "Thấp"
+  },
+  "filterOptions": {
+    "all": "Tất cả",
+    "implement": "Tôi thực hiện",
+    "follow": "Tôi theo dõi",
+    "assign": "Tôi đã giao"
+  },
+  "sortOptions": {
+    "orderNo": "Theo số thứ tự",
+    "lastModifiedTime": "Theo thời gian cập nhật",
+    "name": "Theo tên công việc",
+    "percent": "Theo tiến độ",
+    "remainTime": "Theo hạn"
+  },
+  "menuOptions": {
+    "createTask": "Tạo công việc",
+    "quickCreateTask": "Tạo nhanh công việc",
+    "createLoopTask": "Công việc lặp"
+  },
+  "reportTab": {
+    "report": "Báo cáo công việc",
+    "extendDeadline": "Gia hạn xử lý",
+    "evaluate": "Đánh giá công việc",
+    "reportWaitingEvaluate": "Báo cáo chờ đánh giá"
+  },
+  "checklist": {
+    "this": "Checklist",
+    "add": "Thêm nhóm checklist",
+    "group": "Nhóm checklist",
+    "checked": "Đã check",
+    "uncheck": "Chưa check",
+    "overdue": "Quá hạn"
+  }
+}

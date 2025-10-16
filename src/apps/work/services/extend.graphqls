@@ -1,0 +1,13 @@
+type TaskExtend {
+    id: String,
+    fieldName: String,
+    taskId: String,
+    type: DataType,
+    value: String,
+}
+
+input TaskExtendInput {
+    key: String
+    value: Any
+    type: DataType
+}

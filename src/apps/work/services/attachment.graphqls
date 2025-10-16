@@ -1,0 +1,51 @@
+extend type Query {
+    getAttachmentsMyWork: [Attachment]
+    searchAttachmentsMyWork(searchCondition: String, pageable: Pageable) : AttachmentConnection
+    getFileById(id: String) : AttachmentModel
+    getFilesByIds(ids: [String]) : [Attachment]
+}
+type Attachment {
+    id: String
+    name: String
+    extension: String
+    path: String
+    size: Int
+    taskId: String
+    orderNo: Int
+    objectType: TaskAttachmentType
+    objectId: String
+}
+
+type AttachmentModel {
+    id: String
+    name: String
+    extension: String
+    path: String
+    size: Int
+    taskId: String
+    orderNo: Int
+    objectType: TaskAttachmentType
+    objectId: String
+    taskName: String
+    createdTime: DateTime
+    createdName: String
+    createdBy: String
+    lastModifiedTime: DateTime
+    lastModifiedBy: String
+    lastModifiedName: String
+}
+
+enum TaskAttachmentType {
+    TASK, EXPENSE, COMMENT, TASK_EXTEND
+}
+
+type AttachmentConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [AttachmentEdge]
+}
+
+type AttachmentEdge {
+    cursor: String!
+    node: AttachmentModel
+}

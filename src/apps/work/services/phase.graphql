@@ -1,0 +1,32 @@
+extend type Mutation {
+    savePhase(phaseInput: PhaseInput): Phase
+}
+
+extend type Query {
+    findPhaseById(id: String): Phase
+    getPhasesByProjectId(projectId: String): [Phase]
+    searchPhase(searchModel: SearchPhaseModel):[Phase]
+}
+
+type Phase{
+    id: String,
+    projectId: String,
+    name: String,
+    fromDate: Date,
+    toDate: Date,
+    description: String
+}
+
+input PhaseInput{
+    id: String,
+    projectId: String,
+    name: String,
+    fromDate: Date,
+    toDate: Date,
+    description: String
+}
+input SearchPhaseModel{
+    projectId: String
+    from: DateTime
+    to: DateTime
+}

@@ -1,0 +1,16 @@
+{
+  "code": "Mã Nơi lập ",
+  "errors": {
+    "codeEmpty": "Mã Nơi lập không được để trống",
+    "codeExits": "Mã Nơi lập đã tồn tại",
+    "nameEmpty": "Tên Nơi lập không được để trống"
+  },
+  "id": "Id Nơi lập ",
+  "isDefault": "Là mặc định",
+  "name": "Tên Nơi lập ",
+  "objectName": "Nơi lập ",
+  "tableTitle": "Danh sách Nơi lập ",
+  "validateField": {
+    "notNull": "Không được để trống"
+  }
+}

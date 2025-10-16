@@ -1,0 +1,9 @@
+type FileAttachment {
+    id: ID!
+    objectId: ID
+    extension: String
+    name: String
+    path: String
+    size: Int
+    isDeleted: Boolean
+}

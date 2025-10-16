@@ -1,0 +1,154 @@
+{
+  "objectName": "Công việc",
+  "myWork": "Công việc của tôi",
+  "tableTitle": "Danh sách công việc của tôi",
+  "create": "Thêm công việc",
+  "update": "Cập nhật công việc",
+  "detail": "Chi tiết công việc",
+  "quickCreate": "Thêm nhanh công việc",
+  "list": "Danh sách",
+  "kanban": "Bảng",
+  "calendar": "Lịch",
+  "search": "Tìm công việc",
+  "types": {
+    "single": "Đơn lẻ",
+    "repeat": "Lặp",
+    "project": "Dự án"
+  },
+  "status": {
+    "unprocessed": "Chưa thực hiện",
+    "processing": "Đang thực hiện",
+    "done": "Hoàn thành",
+    "stop": "Dừng",
+    "cancelled": "Hủy"
+  },
+  "filter": {
+    "expireDays": "Công việc hết hạn trong {count} ngày",
+    "expire": "Công việc quá hạn",
+    "done": "Công việc đã hoàn thành",
+    "assign": "Công việc tôi giao",
+    "implement": "Công việc tôi thực hiện",
+    "takePartIn": "Công việc tôi tham gia"
+  },
+  "code": "Mã công việc",
+  "name": "Tên công việc",
+  "weight": "Trọng số",
+  "description": "Mô tả",
+  "dueTime": "Hạn hoàn thành",
+  "isRepeat": "Việc lặp",
+  "isImportant": "Việc quan trọng",
+  "evaluate": "Việc cần đánh giá",
+  "assessor": "Người đánh giá",
+  "assessorId": "Người đánh giá",
+  "statusName": "Trạng thái",
+  "percent": "Tiến độ",
+  "autoProgress": "Tự động đánh giá tiến độ",
+  "startTime": "Ngày bắt đầu",
+  "completionTime": "Thời gian hoàn thành",
+  "isEvaluated": "Đã được đánh giá",
+  "type": "Loại việc",
+  "progress": "Tiến độ",
+  "assigner": "Người giao",
+  "assignerId": "Người giao",
+  "supervisor": "Người giám sát",
+  "implementer": "Người thực hiện",
+  "deadline": "Hạn hoàn thành",
+  "repeat": "Việc lặp",
+  "repeats": {
+    "daily": "Lặp hàng ngày",
+    "weekly": "Lặp hàng tuần",
+    "daysInMonth": "Lặp ngày trong tháng",
+    "endOfMonth": "Lặp cuối tháng"
+  },
+  "cc": "Đối tượng thực hiện",
+  "implements": {
+    "personal": "Cá nhân",
+    "organization": "Đơn vị"
+  },
+  "cooperator": "Người phối hợp",
+  "important": "Việc quan trọng",
+  "remind": "Nhắc nhở hoàn thành",
+  "needEvaluate": "Việc cần đánh giá",
+  "completionType": "Cách tính tiến độ",
+  "completionTypes": {
+    "auto": "Tự động tính",
+    "manual": "Tự nhập"
+  },
+  "source": "Nguồn gốc",
+  "sources": {
+    "none": "Không",
+    "project": "Dự án",
+    "document": "Văn bản",
+    "board": "Bảng",
+    "workFlow": "Quy trình"
+  },
+  "parent": "Công việc cha",
+  "parentId": "Công việc cha",
+  "checklist": "Việc cần làm",
+  "addChecklist": "Thêm việc cần làm",
+  "location": "Địa điểm thực hiện",
+  "addLocation": "Thêm địa điểm",
+  "attachments": "File đính kèm",
+  "validate": {
+    "codeEmpty": "Mã công việc không được để trống",
+    "nameEmpty": "Tên công việc không được để trống.",
+    "startTimeEmpty": "Thời gian bắt đầu không được để trống.",
+    "endTimeEmpty": "Thời gian kết thúc không được để trống.",
+    "dueMustGreaterThanStart": "Ngày kết thúc phải lớn hơn ngày bắt đầu.",
+    "assignerNotSelected": "Người giao việc chưa được chon.",
+    "implementerNotSelected": "Người thực hiện chưa được chọn.",
+    "outScopeProject": "Tồn tại người không thuộc phạm vi dự án.",
+    "startTimeBeforePhase": "Thời gian bắt đầu phải nằm trong giai đoạn.",
+    "dueTimeBeforePhase": "Thời gian kết thúc phải nằm trong giai đoạn."
+  },
+  "generalInformation": "Thông tin chung",
+  "addInformation": "Thêm thông tin",
+  "config": "Thiết lập",
+  "taskSetting": {
+    "title": "Cài đặt công việc",
+    "resource": {
+      "title": "Nguồn lực thực hiện",
+      "name": "Tên nguồn lực",
+      "position": "Chức danh",
+      "participationRate": "Tỷ lệ tham gia"
+    },
+    "warningReminder": {
+      "title": "Cảnh báo nhắc nhở",
+      "advance": "Cảnh báo hạn trước",
+      "method": "Hình thức cảnh báo",
+      "notification": "Thông báo hệ thống"
+    }
+  },
+  "showType": {
+    "title": "Tùy chọn kiểu hiển thị",
+    "dataList": "Kiểu danh sách đơn lẻ",
+    "treeSelect": "Kiểu hiển thị cha - con"
+  },
+  "actions": {
+    "type": "Loại hành động",
+    "expense": "Chi phí",
+    "updateProgress": "Cập nhật tiến độ",
+    "delete": "Xóa",
+    "copy": "Sao chép",
+    "viewHistory": "Xem lịch sử",
+    "evaluate": "Đánh giá",
+    "setting": "Cài đặt",
+    "deadline": "Gia hạn"
+  },
+  "history": {
+    "title": "Lịch sử công việc"
+  },
+  "expense": {
+    "title": "Chi phí công việc",
+    "expenseCategory": "Loại chi phí",
+    "declarer": "Người kê khai",
+    "amount": "Số tiền",
+    "attachment": "Chứng từ",
+    "confirmDelete": "Bạn có chắc chắn muốn xóa bản ghi này không?"
+  },
+  "noGroup": "Không nhóm",
+  "selectTime": "Chọn thời điểm",
+  "taskCustomers": "Khách hàng",
+  "checkLists": "Việc cần làm",
+  "locations": "Địa điểm thực hiện"
+}

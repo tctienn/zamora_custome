@@ -1,0 +1,16 @@
+{
+  "titleForm": "Sân Bay",
+  "code": "Mã sân Bay",
+  "name": "Tên sân Bay",
+  "sortOrder": "Số thứ tự",
+  "cityId": "Thành phố",
+  "countryId":"Quốc gia",
+  "required": {
+    "code": "Mã sân Bay là bắt buộc",
+    "name": "Tên sân Bay là bắt buộc"
+  },
+  "placeholder": {
+    "selectCountry": "Chọn quốc gia",
+    "selectCity": "Chọn thành phố"
+  }
+}

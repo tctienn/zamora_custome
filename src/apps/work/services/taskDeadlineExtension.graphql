@@ -1,0 +1,25 @@
+extend type Query{
+    searchDeadlineExtension(searchModel: SearchDeadlineExtension,pageable:Pageable): TaskDeadlineExtensionConnection
+}
+
+type TaskDeadlineExtension {
+    id: String
+    taskId: String
+    reason: String
+    newDeadline: DateTime
+    isAccepted: Boolean
+}
+type TaskDeadlineExtensionConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [TaskDeadlineExtensionEdge]
+}
+
+type TaskDeadlineExtensionEdge {
+    cursor: String!
+    node: TaskDeadlineExtension!
+}
+
+input SearchDeadlineExtension{
+    taskId: String
+}

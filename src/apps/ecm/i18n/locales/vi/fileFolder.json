@@ -1,0 +1,45 @@
+{
+  "createDate": "Thời gian tạo",
+  "creator": "Người tạo",
+  "error": {
+    "fileNameAlreadyExists": "Tên tệp khôi phục đã tồn tại, vui lòng đổi tên để tiếp tục khôi phục",
+    "folderNameAlreadyExists": "Tên thư mục khôi phục đã tồn tại, vui lòng đổi tên để tiếp tục khôi phục",
+    "invalidName": "Tên không hợp lệ"
+  },
+  "format": "Định dạng",
+  "message": {
+    "createFileSuccess": "Tạo tệp thành công",
+    "createFolderSuccess": "Tạo thư mục thành công",
+    "deleteVersionSuccess": "Xóa phiên bản thành công",
+    "renameSuccess": "Đổi tên thành công",
+    "statusComment": "Bạn vừa {status} tính năng thảo luận tài liệu",
+    "turnOff": "tắt",
+    "turnOn": "bật"
+  },
+  "name": "Tên",
+  "path": "Đường dẫn",
+  "size": "Kích thước",
+  "tooltip": {
+    "turnOffComment": "Tắt thảo luận tài liệu",
+    "turnOnComment": "Bật thảo thuận tài liệu"
+  },
+  "type": "Loại",
+  "updateDate": "Thời gian cập nhật",
+  "updater": "Người cập nhật",
+  "version": "Phiên bản",
+  "versionActions": {
+    "create": "Thêm mới",
+    "delete": "Xóa",
+    "deleteVersion": "Xóa phiên bản",
+    "revert": "Khôi phục phiên bản",
+    "update": "Chỉnh sửa",
+    "viewVersion": "Xem phiên bản"
+  },
+  "versions": {
+    "action": "Tác động",
+    "actionAt": "Thời điểm tác động",
+    "agent": "Người tác động",
+    "listVersion": "Danh sách phiên bản",
+    "revertConfirm": "Bạn có chắc chắn muốn khôi phục phiên bản này?"
+  }
+}

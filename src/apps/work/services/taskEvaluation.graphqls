@@ -1,0 +1,21 @@
+type TaskEvaluation {
+    id: String,
+    taskId: String,
+    description: String,
+    evaluationType:EvaluationType,
+    starRating:Float
+    reportId:String
+    percent:Float
+    attachments :[Attachment]
+}
+
+input TaskEvaluationInput {
+    id: String,
+    taskId: String,
+    ok: Boolean,
+    point: Float,
+    description: String,
+}
+enum EvaluationType {
+    ACCEPT, REJECT
+}

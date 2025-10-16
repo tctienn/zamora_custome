@@ -1,0 +1,29 @@
+{
+  "dashboardNote": {
+    "all": "All ({count})",
+    "group": "Group ({count})",
+    "personal": "Personal ({count})"
+  },
+  "editWidgets": "Edit widgets",
+  "hideChartDashboard": "Hide the chart",
+  "listWidget": "List of widgets",
+  "mainDashboard": "Home screen",
+  "other": "Other",
+  "showChartDashboard": "Show chart",
+  "sidebarDashboard": "Side menu",
+  "widgets": {
+    "dashboardContact": "Conversation",
+    "dashboardEvent": "Schedule",
+    "dashboardNote": "Note",
+    "ecmMyDocument": "My Documents",
+    "ecmMyGroup": "My group",
+    "mediaAnnouncement": "Announcement",
+    "mediaNews": "News",
+    "mediaHonor": "Honor",
+    "mediaBirthday": "Birthday",
+    "newsfeedPoll": "Poll",
+    "newsfeedQuestionAnswer": "Question and Answer",
+    "newsfeedSurvey": "Survey",
+    "workplaceMyWork": "My Work"
+  }
+}

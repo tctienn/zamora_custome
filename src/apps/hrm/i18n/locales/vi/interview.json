@@ -1,0 +1,42 @@
+{
+  "title": "Lịch phỏng vấn",
+  "titleManage": "Danh sách lịch phỏng vấn",
+  "titleCreate": "Thêm mới lịch phỏng vấn",
+  "titleUpdate": "Cập nhật lịch phỏng vấn",
+  "general": {
+    "title": "Thông tin chung",
+    "interviewRoundCode": "Vòng phỏng vấn",
+    "recruitmentCampaignId": "Chiến dịch",
+    "interviewName": "Tên lịch phỏng vấn",
+    "judgesScoringId": "GK chấm điểm",
+    "judgesEvaluatingId": "GK đánh giá",
+    "secretaryId": "Thư ký",
+    "interviewDateFrom": "Từ ngày",
+    "interviewDateTo": "Đến ngày",
+    "interviewTimeFrom": "Thời gian từ",
+    "interviewTimeTo": "Thời gian đến",
+    "scoringFormCode": "Phiếu chấm điểm",
+    "interviewRoom": "Phòng phỏng vấn"
+  },
+  "candidateTitleForm": "Danh sách ứng viên tham gia phỏng vấn",
+  "fileTitle": "File đính kèm",
+  "table": {
+    "positionName": "Vị trí",
+    "quantity": "Số lượng",
+    "apply": "Ứng tuyển",
+    "admitted": "Trúng tuyển",
+    "stillHiring": "Còn tuyển",
+    "deadline": "Hạn tuyển",
+    "dateAndCreatedBy": "Ngày/Người lập"
+  },
+  "statusOptions": {
+    "TOTAL_ALL": "Tất cả",
+    "PLAN": "Lên kế hoạch",
+    "WAITING_FOR_APPROVAL": "Chờ duyệt",
+    "IN_PROGRESS": "Đang thực hiện",
+    "COMPLETED": "Đã hiện thành",
+    "PAUSE": "Tạm dừng",
+    "GIVE_BACK": "Trả lại",
+    "CANCELED": "Đã hủy"
+}
+}

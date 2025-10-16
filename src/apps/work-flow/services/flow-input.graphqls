@@ -1,0 +1,44 @@
+type Mutation {
+    createFlow(flowEntityInput: FlowEntityInput): Flow
+    saveFlowConfig(id: ID!, flow: FlowInput): String
+    deleteFlow(id: ID!): String
+    updateFlow(id:String!,flowEntityInput: FlowEntityInput):Flow
+    updateNameFlow(id:String!,name: String!):Flow
+
+}
+
+input FlowInput {
+    nodes: [NodeInput]
+    edges: [EdgeInput]
+}
+input FlowEntityInput{
+    name:String!
+    type:String!
+    orgIds:[String]
+    orgType:OrganizationType
+    description:String
+}
+input NodeInput {
+    id: String!
+    type: NodeType!
+    data: JSON
+    position: JSON
+    initialized:Boolean
+    dimensions: JSON
+    handleBounds: JSON
+}
+
+input EdgeInput {
+    source: String
+    target: String
+    id: String
+    data: JSON
+    targetX:Float
+    targetY:Float
+    sourceX:Float
+    sourceY:Float
+    sourceHandle:String
+    targetHandle:String
+    type:String
+    updatable:Boolean
+}

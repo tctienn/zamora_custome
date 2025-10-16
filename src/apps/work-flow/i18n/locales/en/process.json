@@ -1,0 +1,37 @@
+{
+  "create": "Create new process",
+  "update": "Update process",
+  "delete": "Delete process",
+  "name": "Process name",
+  "manage": "Process management",
+  "type": "Workflow Type",
+  "startTime": "Start Time",
+  "flow": "Workflow",
+  "object": "Object",
+  "priorityName": "Priority",
+  "deadline": "Deadline",
+  "description": "Description",
+  "priority": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "validation": {
+    "name": {
+      "required": "Process name cannot be empty"
+    },
+    "type": {
+      "required": "Workflow Type cannot be empty"
+    },
+    "flow": {
+      "required": "Workflow cannot be empty"
+    },
+    "object": {
+      "required": "Object cannot be empty"
+    }
+  },
+  "error": {
+    "objectInActiveFlow": "Object already exists in another workflow",
+    "invalidFlowConfig": "Invalid workflow configuration"
+  }
+}

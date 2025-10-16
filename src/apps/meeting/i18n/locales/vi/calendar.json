@@ -1,0 +1,25 @@
+{
+  "meetingSchedule": "Lịch họp",
+  "today": "hôm nay",
+  "Today": "Hôm nay",
+  "week": "tuần",
+  "month": "tháng",
+  "Week": "Tuần",
+  "Month": "Tháng",
+  "table": {
+    "time": "Thời gian",
+    "startTime": "Bắt đầu",
+    "endTime": "Kết thúc",
+    "date": "Ngày",
+    "content": "Nội dung",
+    "host": "Chủ trì",
+    "attend": "Tham dự",
+    "location": "Địa điểm",
+    "creationTime": "Ngày tạo",
+    "creationUser": "Người tạo",
+    "element": "Thành phần",
+    "invited": "Người, phòng ban được mời"
+  },
+  "extension": "Tiện ích",
+  "clickToSeeDuplicateCalendar": "Click xem lịch trùng"
+}

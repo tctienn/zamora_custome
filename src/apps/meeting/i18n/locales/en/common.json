@@ -1,0 +1,30 @@
+{
+  "meeting": "Meeting",
+  "update": "Update",
+  "create": "Create",
+  "room": "Room",
+  "error": {
+    "contentCantEmpty": "Content cannot be empty",
+    "startTimeCantEmpty": "Start time cannot be empty",
+    "hostCantEmpty": "Host cannot be empty",
+    "attendeesCantEmpty": "Attendees cannot be empty",
+    "meetingRoomCantEmpty": "Meeting room/Location cannot be empty",
+    "startTimeInThePass": "Start time must not be before the present",
+    "startTimeAfterEndTime": "Start time must not be greater than end time",
+    "meetingTimeConflict": "Conflicts with another meeting time in this room.",
+    "meetingHostConflict": "Conflicts with another meeting host in this time.",
+    "meetingRoomConflict": "Conflicts with another meeting room.",
+    "startDateSameEndDate": "Start time and end time must same date"
+  },
+  "repeat": {
+    "noRepeat": "No repeat",
+    "dailyRepeat": "Daily repeat",
+    "weeklyRepeat": "Weekly repeat",
+    "monthlyRepeat": "Monthly repeat",
+    "yearlyRepeat": "Yearly repeat",
+    "weeklyChoose": "Select day(s) of the week",
+    "monthlyChoose": "Select day(s) of month",
+    "yearlyChoose": "Insert year"
+  },
+  "selectUser": "Select personnel."
+}

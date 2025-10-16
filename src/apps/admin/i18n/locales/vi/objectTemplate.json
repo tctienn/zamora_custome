@@ -1,0 +1,42 @@
+{
+  "code": "Lớp đối tượng",
+  "codeEmpty": "Lớp đối tượng không được để trống.",
+  "errors": {
+    "objectNotFound": "Đối tượng không tồn tại"
+  },
+  "listValue": "Danh sách lựa chọn",
+  "name": "Tên đối tượng",
+  "nameEmpty": "Tên đối tượng không được để trống.",
+  "objectName": "Đối tượng",
+  "property": {
+    "CATEGORY": "Lấy từ danh mục",
+    "TEXT": "Tự nhập",
+    "codeEmpty": "Mã thuộc tính không được để trống.",
+    "dataType": "Loại dữ liệu",
+    "dataTypeNotSelected": "Loại dữ liệu phải được chọn.",
+    "defaultValue": "Giá trị mặc định",
+    "defaultValueEmpty": "Giá trị mặc định không được để trống.",
+    "errors": {
+      "deleteFieldGlobal": "Không thể xóa thuộc tính của hệ thống",
+      "objectNotFound": "Đối tượng không tồn tại."
+    },
+    "fieldName": "Trường",
+    "group": "Nhóm",
+    "name": "Tên thuộc tính",
+    "nameEmpty": "Tên thuộc tính không được để trống.",
+    "objectName": "Thuộc tính",
+    "referenceData": "Dữ liệu tham chiếu",
+    "referenceDataEmpty": "Dữ liệu tham chiếu không được để trống.",
+    "required": "Bắt buộc",
+    "selectedValueType": "Chọn giá trị",
+    "tableTitle": "Danh sách thuộc tính",
+    "type": {
+      "null": "Không có dữ liệu",
+      "title": "Loại thuộc tính"
+    },
+    "typeNotSelected": "Loại thuộc tính phải được chọn."
+  },
+  "scope": "Phạm vi áp dụng",
+  "scopeNotSelected": "Phạm vi áp dụng phải được chọn",
+  "tableTitle": "Danh sách đối tượng"
+}

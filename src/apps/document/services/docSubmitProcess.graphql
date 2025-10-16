@@ -1,0 +1,46 @@
+extend type Query {
+    findSubmitProcessById(processId:String): DocSubmitProcess
+    getProcessByDocSubmitId(docId: String): [DocSubmitProcess]
+    findLastProcessByDocSubmitId(docId: String,userDeptRole:UserDeptRole): DocSubmitProcess
+}
+
+type DocSubmitProcess {
+    id: String
+    docSubmitId: String
+    senderId: String
+    senderName: String
+    senderDeptId: String
+    senderDeptName: String
+    senderRoleId: String
+    senderRoleName: String
+    sendTime: DateTime
+    receiverId: String
+    receiverName: String
+    receiverDeptId: String
+    receiverDeptName: String
+    receiverRoleId: String
+    receiverRoleName: String
+    processType: OutGoingProcessType
+    sendType: DocSubmitSendType
+    status: StatusProcess
+    deadlineDate: Date
+    flowInstanceId: String
+    stepId: String
+    actionType: String
+    actionName: String
+    parentId: String
+    isRead: Boolean
+    readTime: DateTime
+    isComplete: Boolean
+    completeTime: DateTime
+    note: String
+    orderProcess: Int
+    isDeleted: Boolean
+
+    attachments:[Attachment]
+
+}
+
+enum DocSubmitSendType {
+    CHUYEN_XL, TU_CHOI, XIN_Y_KIEN, TRA_LOI_Y_KIEN, THU_HOI
+}

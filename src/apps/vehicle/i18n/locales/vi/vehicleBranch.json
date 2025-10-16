@@ -1,0 +1,11 @@
+{
+  "titlePage": "Danh mục hãng xe và dòng xe",
+  "titleForm": "Hãng xe",
+  "code": "Mã hãng xe",
+  "name": "Tên hãng xe",
+  "error": {
+    "requiredCode": "Mã hãng xe không được để trống.",
+    "requiredName": "Tên hãng xe không được để trống."
+  },
+  "countVehicleModel": "Số lượng dòng xe"
+}

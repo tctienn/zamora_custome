@@ -1,0 +1,21 @@
+{
+  "accessiblePeople": "People with access rights",
+  "addSharedUser": "Add people with access",
+  "copyLink": "Copy link",
+  "email": "Email",
+  "fullName": "Full name",
+  "generalAccessPermission": "General access permission",
+  "permission": "Permission",
+  "share-x": "Share {0}",
+  "sharePermission": {
+    "edit": "Edit",
+    "owner": "Owner",
+    "view": "View only"
+  },
+  "shareType": {
+    "limited": "Limited",
+    "public": "Anyone with the link"
+  },
+  "sharedListOfPeople": "Shared list of people",
+  "userName": "Account name"
+}

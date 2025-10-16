@@ -1,0 +1,40 @@
+{
+  "title": "Chiến dịch",
+  "titleManage": "Danh sách chiến dịch",
+  "titleCreate": "Thêm mới chiến dịch",
+  "titleUpdate": "Cập nhật chiến dịch",
+  "general": {
+    "positionTitle": "Thông tin vị trí tuyển",
+    "code": "Mã chiến dịch",
+    "recruitmentProposalId": "Đề xuất",
+    "name": "Tên chiến dịch",
+    "personInChargeId": "Người phụ trách",
+    "personFollowerId": "Người theo dõi",
+    "expectedCosts": "Chi phí dự kiến",
+    "fromTime": "Ngày bắt đầu",
+    "toTime": "Ngày kết thúc",
+    "workTypeCode": "Hình thức làm việc",
+    "workLocationCode": "Nơi làm việc",
+    "salaryFrom": "Mức lương (từ)",
+    "salaryTo": "Mức lương (đến)"
+  },
+  "table": {
+    "positionName": "Vị trí",
+    "quantity": "Số lượng",
+    "apply": "Ứng tuyển",
+    "admitted": "Trúng tuyển",
+    "stillHiring": "Còn tuyển",
+    "deadline": "Hạn tuyển",
+    "dateAndCreatedBy": "Ngày/Người lập"
+  },
+  "statusOptions": {
+    "TOTAL_ALL": "Tất cả",
+    "PLAN": "Lên kế hoạch",
+    "WAITING_FOR_APPROVAL": "Chờ duyệt",
+    "IN_PROGRESS": "Đang thực hiện",
+    "COMPLETED": "Đã hiện thành",
+    "PAUSE": "Tạm dừng",
+    "GIVE_BACK": "Trả lại",
+    "CANCELED": "Đã hủy"
+}
+}

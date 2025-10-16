@@ -1,0 +1,30 @@
+{
+  "status": {
+    "completed": {
+      "this": "Completed",
+      "onTime": "On time",
+      "overTime": "Overdue",
+      "beforeTime": "Before due"
+    },
+    "onGoing": {
+      "this": "In progress",
+      "onTime": "In time",
+      "overTime": "Overdue"
+    }
+  },
+  "priority": {
+    "high": "High",
+    "intermediate": "Medium",
+    "normal": "Normal",
+    "low": "Low"
+  },
+  "statuses": {
+    "notStarted": "Not started",
+    "working": "Working",
+    "pending": "Pending",
+    "waiting": "Waiting",
+    "completed": "Completed",
+    "canceled": "Canceled"
+  },
+  "assigner": "Assigner"
+}

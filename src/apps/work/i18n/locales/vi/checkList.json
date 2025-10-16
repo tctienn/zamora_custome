@@ -1,0 +1,6 @@
+{
+  "defaultName": "Việc cần làm",
+  "error": {
+    "startTimeAfterEndTime": "Ngày bắt đầu không được lớn hơn ngày kết thúc"
+  }
+}

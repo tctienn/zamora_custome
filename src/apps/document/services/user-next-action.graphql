@@ -1,0 +1,66 @@
+extend type Query {
+    getListUserSelectNext(model: UserSelectNextActionModel): [UserSelectNextResponse]
+    canSkipChooseUser(model: SkipChooseUserModel): Boolean
+}
+input UserSelectNextActionModel{
+    flowId:String
+    flowInstanceId:String
+    processId:String
+    result:String!
+    nodeId:String!
+    orgType: OrganizationType
+    isStartNode:Boolean!
+}
+type UserSelectNext{
+    userId:String
+    userName:String
+    deptId:String
+    deptName:String
+    roleId:String
+    roleName:String
+    type:String
+    avatar:String
+    email:String
+    positionName:String
+    isClericalCharged:Boolean
+}
+
+type UserSelectNextResponse{
+    node:Node
+    usersSelectNext:[UserSelectNext]
+    edge:Edge
+}
+type Node {
+    id: String!
+    type: NodeType!
+    data: JSON
+    position: JSON
+    dimensions: JSON
+    handleBounds: JSON
+    orgType:OrganizationType
+}
+type Edge {
+    id: String
+    source: String
+    target: String
+    data: JSON
+    targetX:Float
+    targetY:Float
+    sourceX:Float
+    sourceY:Float
+    sourceHandle:String
+    targetHandle:String
+}
+input SkipChooseUserModel{
+    flowInstanceId: String
+    nodeId: String
+    result: String
+    processId: String
+    type: ProcessNameType
+}
+
+enum ProcessNameType{
+    INCOMING,
+    OUTGOING,
+    SUBMIT,
+}

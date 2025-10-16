@@ -1,0 +1,15 @@
+{
+  "code": "Mã Phương thức nhận ",
+  "errors": {
+    "codeEmpty": "Mã Phương thức nhận không được để trống",
+    "codeExits": "Mã Phương thức nhận đã tồn tại",
+    "nameEmpty": "Tên Phương thức nhận không được để trống"
+  },
+  "id": "Id Phương thức nhận ",
+  "name": "Tên Phương thức nhận ",
+  "objectName": "Phương thức nhận ",
+  "tableTitle": "Danh sách Phương thức nhận ",
+  "validateField": {
+    "notNull": "Không được để trống"
+  }
+}

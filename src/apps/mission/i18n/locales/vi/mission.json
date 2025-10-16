@@ -1,0 +1,80 @@
+{
+  "No": "STT",
+  "tabOptions": {
+    "summary": "Tổng quan",
+    "missions": "Nhiệm vụ",
+    "activities": "Hoạt động",
+    "job": "Công việc",
+    "noteRate": "Đánh giá"
+  },
+  "title": {
+    "listMission": "Danh sách nhiệm vụ",
+    "listActivity": "Danh sách hoạt động",
+    "listJob": "Danh sách công việc",
+    "listNote": "Đánh giá công việc"
+  },
+  "statusOptions": {
+    "all": "Tất cả",
+    "new": "Tạo mới",
+    "pending": "Chưa xử lý",
+    "inProgress": "Đang triển khai",
+    "done": "Hoàn thành",
+    "waitingApproval": "Chờ phê duyệt"
+  },
+  "missionTableCol": {
+    "name": "Nhiệm vụ",
+    "missionType": "Loại nhiệm vụ",
+    "startDate": "Thời gian bắt đầu",
+    "endDate": "Thời gian kết thúc",
+    "budget": "Kinh phí",
+    "hostUnit": "Đơn vị chủ trì",
+    "createDate": "Ngày tạo",
+    "createBy": "Người tạo",
+    "status": "Trạng thái"
+  },
+  "common": {
+    "update": "Chỉnh sửa nhiệm vụ",
+    "create": "Tạo mới nhiệm vụ",
+    "mission": "Nhiệm vụ",
+    "action1": "Thao tác"
+  },
+  "properties": {
+    "mission": "nhiệm vụ",
+    "name": "Tên nhiệm vụ",
+    "type": "Loại nhiệm vụ",
+    "code": "Mã nhiệm vụ",
+    "budget": "Kinh phí",
+    "startTime": "Thời gian bắt đầu nhiệm vụ",
+    "endTime": "Thời gian kết thúc nhiệm vụ",
+    "host": "Đơn vị chủ trì",
+    "description": "Mô tả",
+    "attachFile": "Văn bản/ Quy chế/ Quy định liên quan",
+    "addFile": "Thêm tệp đính kèm",
+    "shortDes": "Trích yếu",
+    "attach": "Tên tệp",
+    "size": "Kích thước",
+    "note": "Ghi chú: chỉ tải file có định dạng .PDF",
+    "relatedParentMissionId": "Thuộc nhiệm vụ"
+  },
+  "errors": {
+    "quote": "Trích yếu không được để trống",
+    "draftDate": "Ngày dự thảo không được để trống",
+    "startTimeInThePass": "Thời gian bắt đầu không được trước hiện tại",
+    "startTimeAfterEndTime": "Thời gian bắt đầu không được lớn hơn thời gian kết thúc",
+    "code": "Mã nhiệm vụ không được để trống",
+    "name": "Tên nhiệm vụ không được để trống",
+    "budget": "Kinh phí không được để trống",
+    "startDate": "Thời gian bắt đầu không được để trống",
+    "budgetTooHigh": "Kinh phí không được vượt quá 2 tỷ",
+    "endDate": "Thời gian kết thúc không được để trống",
+    "hostUnit":"Đơn vị chủ trì không được để trống",
+    "can_not_select_the_same_record_as_its_parent":"Không thể chọn chính nhiệm vụ hiện tại làm nhiệm vụ cha.",
+    "errors":"Dữ liệu không hợp lệ",
+    "hasActivities": "Không thể xóa nhiệm vụ do còn các hoạt động liên quan"
+  }, 
+  "statusDeadline": {
+    "PENDING": "Chờ duyệt gia hạn",
+    "AGREE_EXTENSION_DEADLINE":"Đã duyệt gia hạn",
+    "REJECTED_EXTENSION_DEADLINE":"Từ chối gia hạn"
+  }
+}

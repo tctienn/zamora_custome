@@ -1,0 +1,74 @@
+extend type Mutation {
+    createClient(data: ClientInput) : Client
+    deleteClient(id: String!) : Client
+    updateClient(data: ClientInput) : Client
+}
+
+extend type Query {
+    clients(searchCondition: String, pageable: Pageable) : ClientConnection
+    allClient: [Client]
+    findClientById(id: String) : Client
+}
+
+type Client {
+    id: String,
+    city: String,
+    clientCode: String,
+    clientName: String,
+    address: String,
+    email: String,
+    employeeCode: String,
+    employeeName: String,
+    field: String,
+    foundingDate: DateTime,
+    groupClient: String,
+    home: String,
+    note: String,
+    phone: String,
+    scale: String,
+    taxCode: String,
+    status : String,
+    isDelete: Boolean,
+    contact: String,
+    contactEmail: String,
+    contactPhone: String,
+    position: String
+}
+
+input ClientInput {
+    id: String,
+    city: String,
+    clientCode: String,
+    clientName: String,
+    address: String,
+    email: String,
+    field: String,
+    foundingDate: DateTime,
+    groupClient: String,
+    home: String,
+    note: String,
+    phone: String,
+    scale: String,
+    taxCode: String,
+    status : String,
+    isDelete: Boolean,
+    contact: String,
+    contactEmail: String,
+    contactPhone: String,
+    position: String
+}
+
+type ClientConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [ClientEdge]
+}
+
+type ClientEdge {
+    cursor: String!
+    node: Client
+}
+
+input SearchClientInput{
+    searchCondition: String
+}

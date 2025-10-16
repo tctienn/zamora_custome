@@ -1,0 +1,19 @@
+{
+  "tableTitle": "Danh sách loại hồ sơ",
+  "id": "Id",
+  "documentCode": "Mã loại hồ sơ",
+  "documentName": "Tên loại hồ sơ",
+  "required": "Yêu cầu bắt buộc",
+  "description": "Mô tả",
+  "validateField": {
+    "notNull": "Không được để trống"
+  },
+  "objectName": "Danh mục hồ sơ",
+  "title": "Loại hồ sơ",
+  "errors": {
+    "codeExits": "Đã tồn tại mã loại hồ sơ"
+  },
+  "deleteConfirm": "Loại hồ sơ",
+  "noRecord": "Bản ghi",
+  "saveSuccess": "Lưu danh mục hồ sơ {item} thành công"
+}

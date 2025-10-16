@@ -1,0 +1,79 @@
+extend type Query {
+    getListDocInSignerByKeyWord(keyword:String,page:Pageable):SignerProjectionModelConnection
+    getListDocInPublisherByKeyWord(keyword:String,page:Pageable):PublisherProjectionModelConnection
+    getListDocInDocCodeByKeyWord(keyword:String,page:Pageable):DocCodeProjectionModelConnection
+    getListDocInQuoteByKeyWord(keyword:String,page:Pageable):QuoteProjectionModelConnection
+
+    getListDocOutSignerByKeyWord(keyword:String,page:Pageable):SignerProjectionModelConnection
+    getListDocOutPublisherByKeyWord(keyword:String,page:Pageable):PublisherProjectionModelConnection
+    getListDocOutDocCodeByKeyWord(keyword:String,page:Pageable):DocCodeProjectionModelConnection
+    getListDocOutQuoteByKeyWord(keyword:String,page:Pageable):QuoteProjectionModelConnection
+
+    searchAllDocIn(search: SearchModel,userDeptRole:UserDeptRole!, page: Pageable): IncomingDocConnection
+    searchAllDocOut(search: DocOutSearch,userDeptRole:UserDeptRole!, page: Pageable): OutgoingDocConnection
+}
+
+type SignerProjectionModelConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [SignerProjectionModelEdge]
+}
+
+type SignerProjectionModelEdge {
+    cursor: String!
+    node: SignerProjectionModel
+}
+
+type SignerProjectionModel{
+    signerId:String
+    signerName:String
+}
+
+type PublisherProjectionModelConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [PublisherProjectionModelEdge]
+}
+
+type PublisherProjectionModelEdge {
+    cursor: String!
+    node: PublisherProjectionModel
+}
+
+type PublisherProjectionModel{
+    publisherId:String
+    publisherName:String
+    publisherType:String
+}
+
+
+type DocCodeProjectionModelConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [DocCodeProjectionModelEdge]
+}
+
+type DocCodeProjectionModelEdge {
+    cursor: String!
+    node: DocCodeProjectionModel
+}
+
+type DocCodeProjectionModel{
+    docCode:String
+}
+
+
+type QuoteProjectionModelConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [QuoteProjectionModelEdge]
+}
+
+type QuoteProjectionModelEdge {
+    cursor: String!
+    node: QuoteProjectionModel
+}
+
+type QuoteProjectionModel{
+    quote:String
+}

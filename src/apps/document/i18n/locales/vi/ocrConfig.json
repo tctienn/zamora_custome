@@ -1,0 +1,8 @@
+{
+  "title": "Cấu hình OCR",
+  "confirmDelete": "Xác nhận xóa cấu hình OCR",
+  "deleteDone": "Xóa thành công",
+  "requiredField": "Không được để trống Trường",
+  "requiredRegex": "Không được để trống Regex",
+  "requiredType": "Không được để trống Kiểu"
+}

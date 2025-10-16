@@ -1,0 +1,64 @@
+extend type Query {
+   categories(keyword: String, pageable: Pageable): CategoryConnection
+   allCategory: [Category]
+   category(code: String!): Category
+   groupCategories(groupCode: String!,pageable:Pageable): [Category],
+   allGroupCategories(groupCode: String!,pageable:Pageable): [Category],
+   getCategoryByGroup(groupCode: String!): [Category],
+   packetCategories: PacketCategories,
+   serviceCategories: ServiceCategories
+   findCategoryById(id: String!): Category
+   getAllCategoryByGroupCodeNotDeleted(groupCode: String!): [Category]
+   getAllCategoryByListGroupCodePublic(groupCode: [String]!): [Category]
+   getCategoryByGroupCodePublic(groupCode: String!): [Category]
+   getAllChildCategoryByCategoryGroup(groupCode:String!):[Category],
+}
+
+extend type Mutation {
+    saveCategory(categoryInput: CategoryInput!): Category
+    deleteCategory(code: String!): Category
+}
+
+type Category {
+    code: String,
+    name: String,
+    description: String,
+    status: String,
+    groupCode: String,
+    order: Int,
+    isGlobal: Boolean,
+    isDefault: Boolean,
+    groupName: String
+}
+
+input CategoryInput {
+    code: String!,
+    name: String!,
+    description: String,
+    status: String!,
+    order: Int,
+    isDefault: Boolean,
+    groupCode: String
+}
+
+type CategoryConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [CategoryEdge]
+}
+
+type CategoryEdge {
+    cursor: String!
+    node: Category
+}
+
+type PacketCategories {
+    priceTypes: [Category]
+    units: [Category]
+    types: [Category]
+}
+
+type ServiceCategories {
+    types: [Category]
+    units: [Category]
+}

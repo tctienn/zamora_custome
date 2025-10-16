@@ -1,0 +1,15 @@
+{
+  "titleTab": "Organization Structure",
+  "dashboard": {
+    "title": "Dashboard - HR Overview",
+    "subtitle": "Quick view of HR statistics, employee status, and system alerts",
+    "employeeStatistics": "Employee Statistics",
+    "employeeDistribution": "Employee Distribution",
+    "orgStructure": "Organization Structure",
+    "headcount": "Total Employees",
+    "department": "Department",
+    "position": "Position",
+    "location": "Location",
+    "totalEmployees": "Total Staff"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "title": "Hợp đồng lao động",
+  "general": {
+    "title": "Thông tin chung",
+    "employee": "Nhân sự",
+    "code": "Mã hợp đồng",
+    "type": "Loại hợp đồng",
+    "organization": "Phòng ban",
+    "jobTitle": "Chức danh/Vị trí",
+    "position": "Chức vụ",
+    "rank": "Cấp bậc",
+    "workType": "Hình thức làm việc",
+    "workLocation": "Nơi làm việc",
+    "workingHoursPerWeek": "Số giờ làm việc trong tuần",
+    "workDescription": "Mô tả công việc",
+    "manager": "Người quản lý",
+    "employeeType": "Loại nhân sự",
+    "employeeRank": "Cấp nhân sự",
+    "effectiveDate": "Hiệu lực từ ngày",
+    "expiryDate": "Hiệu lực đến ngày",
+    "signedDate": "Ngày ký",
+    "createdDate": "Ngày tạo",
+    "status": "Trạng thái",
+    "signatory": "Người ký",
+    "haveInsurance": "Có đóng bảo hiểm",
+    "contractType": "Contract's type",
+    "workingForm": "Working form",
+    "effectiveMonth": "Effective month"
+  },
+  "salary": {
+    "title": "Thông tin lương và phụ cấp",
+    "type": "Hình thức lương",
+    "typeOptions": {
+      "coefficient": "Lương hệ số",
+      "agreement": "Lương khoán",
+      "payroll": "Thang bảng lương"
+    },
+    "jobTitle": "Chức danh công việc",
+    "rank": "Bậc",
+    "scale": "Ngạch lương",
+    "grade": "Bậc lương",
+    "coefficient": "Hệ số lương",
+    "coefficientSalary": "Mức lương",
+    "regionalMinimum": "Lương tối thiểu vùng",
+    "agreementSalary": "Tiền lương",
+    "totalSalary": "Tổng lương",
+    "bonus": {
+      "title": "Phụ cấp",
+      "type": "Khoản phụ cấp",
+      "amount": "Số tiền"
+    }
+  },
+  "attachment": "Tài liệu đính kèm",
+  "statusOptions": {
+    "all": "Tất cả",
+    "notYetValid": "Chưa hiệu lực",
+    "valid": "Đang hiệu lực",
+    "expired": "Hết hiệu lực",
+    "liquidated": "Đã chấm dứt"
+  },
+  "actionOptions": {
+    "viewOrPrint": "Xem hoặc in hợp đồng",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "pdf": "Xuất PDF",
+    "setStatus": "Thiết lập trạng thái"
+  }
+}

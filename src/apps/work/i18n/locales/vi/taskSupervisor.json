@@ -1,0 +1,8 @@
+{
+  "objectSupervisor": "Người giám sát",
+  "listTaskEvaluation": "Danh sách nhãn công việc",
+  "labelTitle": "Tên nhãn",
+  "message": {
+    "labelTitleEmpty": "Tên nhãn không được để trống"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "addMember": "Thêm thành viên vào nhóm",
+  "attachment": "Đính kèm",
+  "send": "Gửi",
+  "confirm": {
+    "deleteConversation": "Bạn có chắc chắn muốn xóa cuộc hội thoại? Tất cả tin nhắn, tệp sẽ bị xóa vĩnh viễn nếu bạn xác nhận.",
+    "removeMember": "Bạn có chắc muốn xóa thành viên {member} khỏi cuộc hội thoại?"
+  },
+  "conversation": "Cuộc hội thoại",
+  "conversationAction": {
+    "downloadHistory": "Tải lịch sử"
+  },
+  "conversationInvalid": "Conversation is invalid.",
+  "conversationNotFound": "Conversation not found.",
+  "create1on1Conversation": "Thêm hội thoại cá nhân",
+  "createGroupConversation": "Thêm hội thoại nhóm",
+  "deleteConversation": "Xóa cuộc hội thoại",
+  "deletedMessage": "Tin nhắn đã bị xóa",
+  "fileMessage": "tệp",
+  "groupConversation": "Nhóm",
+  "groupName": "Tên nhóm",
+  "groupNameEmpty": "Tên nhóm không được để trống.",
+  "imageMessage": "ảnh",
+  "link": "Đường dẫn",
+  "member": "Thành viên",
+  "memberCount": "{count} thành viên",
+  "membersNotSelected": "Chưa có người dùng nào được chọn.",
+  "message": "Tin nhắn",
+  "messageAction": {
+    "addMember": "{sender} đã thêm thành viên.",
+    "create": "{sender} đã tạo nhóm.",
+    "removeMember": "{sender} đã xóa thành viên."
+  },
+  "messageActionMenu": {
+    "copyText": "Sao chép nội dung",
+    "pin": "Ghim tin nhắn",
+    "reply": "Trả lời"
+  },
+  "oneOnOneConversation": "Cá nhân",
+  "pinnedMessage": "Tin nhắn đã ghim",
+  "searchMember": "Tìm kiếm thành viên",
+  "searchUser": "Tìm kiếm người dùng",
+  "selectChatConversation": "Chọn cuộc hội thoại để bắt đầu trò chuyện",
+  "selectMember": "Chọn người dùng",
+  "selectedMembers": "Đã chọn {count} thành viên ",
+  "sentMessage": "Đã gửi {count} {type}",
+  "unpin": "Bỏ ghim",
+  "unreadConversation": "Chưa đọc",
+  "emoji": "Biểu tượng cảm xúc"
+}

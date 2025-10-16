@@ -1,0 +1,21 @@
+{
+  "accessiblePeople": "Những người có quyền truy cập",
+  "addSharedUser": "Thêm người có quyền truy cập",
+  "copyLink": "Sao chép liên kết",
+  "email": "Email",
+  "fullName": "Họ và tên",
+  "generalAccessPermission": "Quyền truy cập chung",
+  "permission": "Quyền",
+  "share-x": "Chia sẻ {0}",
+  "sharePermission": {
+    "edit": "Chỉnh sửa",
+    "owner": "Chủ sở hữu",
+    "view": "Chỉ xem"
+  },
+  "shareType": {
+    "limited": "Hạn chế",
+    "public": "Bất kì ai có liên kết"
+  },
+  "sharedListOfPeople": "Danh sách người được chia sẻ",
+  "userName": "Tên tài khoản"
+}

@@ -1,0 +1,50 @@
+{
+  "addMember": "Add member to group",
+  "attachment": "Attachment",
+  "send": "Send",
+  "confirm": {
+    "deleteConversation": "Are you sure you want to delete the conversation? All messages and files will be permanently deleted if you confirm.",
+    "removeMember": "Are you sure you want to remove {member} from the conversation?"
+  },
+  "conversation": "Conversation",
+  "conversationAction": {
+    "downloadHistory": "Download history"
+  },
+  "conversationInvalid": "Conversation is invalid.",
+  "conversationNotFound": "Conversation not found.",
+  "create1on1Conversation": "Add a private conversation",
+  "createGroupConversation": "Add group conversation",
+  "deleteConversation": "Delete conversation",
+  "deletedMessage": "Message has been deleted",
+  "fileMessage": "file",
+  "groupConversation": "Group",
+  "groupName": "Group name",
+  "groupNameEmpty": "Group name cannot be empty.",
+  "imageMessage": "image",
+  "link": "Link",
+  "member": "Member",
+  "memberCount": "{count} members",
+  "membersNotSelected": "No users have been selected yet.",
+  "message": "Message",
+  "messageAction": {
+    "addMember": "{sender} has added a member.",
+    "create": "{sender} has created a group.",
+    "removeMember": "{sender} removed member."
+  },
+  "messageActionMenu": {
+    "copyText": "Copy content",
+    "pin": "Message pin",
+    "reply": "Reply"
+  },
+  "oneOnOneConversation": "Personal",
+  "pinnedMessage": "Pinned message",
+  "searchMember": "Search for members",
+  "searchUser": "Search for users",
+  "selectChatConversation": "Select a conversation to start chatting",
+  "selectMember": "Select user",
+  "selectedMembers": "Selected {count} members",
+  "sentMessage": "Sent {count} {type}",
+  "unpin": "Unpin",
+  "unreadConversation": "Unread",
+  "emoji": "Emoji"
+}

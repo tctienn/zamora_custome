@@ -1,0 +1,19 @@
+{
+  "titleForm": "Hãng hàng không",
+  "code": "Mã hãng hàng không",
+  "name": "Tên hãng hàng không",
+  "sortOrder": "Số thứ tự",
+  "type": "Phân loại",
+  "required": {
+    "code": "Mã hãng hàng không là bắt buộc",
+    "name": "Tên hãng hàng không là bắt buộc"
+  },
+  "placeholder": {
+    "selectType": "Chọn phân loại"
+  },
+  "typeOption": {
+      "INTERNATIONAL": "Quốc tế",
+      "DOMESTIC": "Nội địa",
+      "OTHER": "Khác"
+  }
+}

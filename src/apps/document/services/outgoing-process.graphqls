@@ -1,0 +1,23 @@
+extend type Query {
+    findOutProcessById(processId: String!): OutgoingProcess
+    findLastOutProcessByDocId(docId: String!, userDeptRole: UserDeptRole!): OutgoingProcess
+    findProcessByDocId(docId: String) : [OutgoingProcess]
+    getAllOutProcessByDocIdForDrawRealFlow(docId: String!, userDeptRole: UserDeptRole!): [OutgoingProcess]
+}
+
+extend type Mutation {
+    readOutProcess(processId: String!): Boolean
+}
+
+input OutgoingProcessInput {
+    receiverId: String
+    receiverName: String
+    receiverDeptId: String
+    receiverDeptName: String
+    receiverRoleId: String
+    receiverRoleName: String
+    deadlineDate: Date
+    deadlineNumber: Float
+    processType:ProcessType
+}
+

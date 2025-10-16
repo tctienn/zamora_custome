@@ -1,0 +1,9 @@
+{
+  "titleForm": "Điểm đến/đi",
+  "name": "Tên điểm đến/đi",
+  "error": {
+    "requiredName": "Tên điểm đến/đi không được để trống.",
+    "requiredQuote": "Trích yếu không được để trống.",
+    "requiredAttachment": "Tệp đính kèm không được để trống."
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "jobTableCol": {
+    "name": "Tên công việc",
+    "activityEndMission": "Hoạt động/Nhiệm vụ",
+    "budget": "Kinh phí",
+    "hostUnit": "Đơn vị chủ trì",
+    "processingDeadline":"Hạn xử lý",
+    "assignJob": "Phân công công việc",
+    "createDate": "Ngày tạo",
+    "createBy": "Người tạo",
+    "jobType": {
+      "ON_MISSION": "Công việc theo nhiệm vụ",
+      "OTHER": "Công việc khác"
+    }
+  },
+  "common": {
+    "job": "Công việc",
+    "update": "Chỉnh sửa công việc",
+    "create": "Tạo mới công việc"
+  },
+  "createOptions":{
+    "missionBased": "Công việc theo nhiệm vụ",
+    "other": "Công việc khác"
+  },
+  "properties": {
+    "missionId": "Nhiệm vụ",    
+    "activityId": "Hoạt động",
+    "jobName": "Tên công việc",
+    "jobCode": "Mã công việc",
+    "budget": "Kinh phí",
+    "expectedDate": "Thời gian dự kiến",
+    "endDate": "Thời gian kết thúc",
+    "host": "Đơn vị chủ trì",
+    "description": "Nội dung tóm tắt",
+    "processingDeadline":"Thời hạn xử lý",
+    "attachFile": "Văn bản/ Quy chế/ Quy định liên quan",
+    "addFile": "Thêm văn bản",
+    "shortDes": "Trích yếu",
+    "attach": "Đính kèm",
+    "size": "Kích thước",
+    "jobContent":"Nội dung giao việc",
+    "employmentContact": "Đầu mối nhận việc",
+    "hostName":"Tên đơn vị",
+    "nameUnit":"Chủ trì",
+    "mainProcessing":"Xử lý chính",
+    "followers":"Người theo dõi",
+    "fullName":"Họ và tên",
+    "PERSONAL":"Cá nhân",
+    "UNIT":"Đơn vị"
+
+  },
+  "errors": {
+    "code": "Mã công việc không được để trống",
+    "name": "Tên công việc không được để trống",
+    "activityId": "Hoạt động không được để trống",
+    "processingDeadline": "Thời hạn xử lý không được để trống",
+    "atLeastOneUnit": "Vui lòng chọn ít nhất một đơn vị",
+    "atLeastOnePersonal": "Vui lòng chọn ít nhất một cá nhân",
+    "mustHaveMainHandler": "Vui lòng chọn ít nhất một người xử lý chính",
+    "fileRequired": "Vui lòng đính kèm tài liệu minh chứng",
+    "maxFileSize": "Kích thước tệp không được vượt quá 20MB",
+    "budgetExceedParent":"Kinh phí công việc không được vượt quá kinh phí của hoạt động được chọn",
+    "noUserInDep": "Phòng ban này chưa có trưởng phòng, vui lòng bổ sung trưởng phòng trước khi giao việc.",
+    "cannotUpdateAcceptedAssign": "Không thể chỉnh sửa công việc vì một nhân viên đã tiếp nhận công việc đó."
+  },
+  "message":{
+    "createAssignmentSuccess": "Giao việc thành công",
+    "updateAssignmentSuccess": "Chỉnh sửa thông tin giao việc thành công",
+    "submitError": "Lỗi khi giao việc"
+  },
+  "tableHeaderPersonal": {
+    "titleUnit": "Danh sách đơn vị",
+    "titlePersonal": "Danh sách nhân sự", 
+    "mainHandler": "Xử lý chính",
+    "follower": "Người theo dõi",
+    "fullName": "Họ và tên",
+    "positionName": "Chức danh",
+    "departmentName": "Trực thuộc"
+  },
+  "reject": "Từ chối",
+  "reception": "Tiếp nhận",
+  "signature":"Trình ký",
+  "report": "Báo cáo",
+  "confirmReception": "Bạn có chắc chắn muốn tiếp nhận {itemType}: {itemName}?",
+  "confirmReject": "Bạn có chắc chắn muốn từ chối {itemType}: {itemName}?"
+}

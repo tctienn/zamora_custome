@@ -1,0 +1,8 @@
+{
+  "objectName": "Task Labels",
+  "listTaskEvaluation": "List of Task Labels",
+  "labelTitle": "Label Title",
+  "message": {
+    "labelTitleEmpty": "Label Title cannot be empty"
+  }
+}

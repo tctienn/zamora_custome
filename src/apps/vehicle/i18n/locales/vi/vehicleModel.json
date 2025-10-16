@@ -1,0 +1,9 @@
+{
+  "titleForm": "Dòng xe",
+  "code": "Mã dòng xe",
+  "name": "Tên dòng xe",
+  "error": {
+    "requiredCode": "Mã dòng xe không được để trống.",
+    "requiredName": "Tên dòng xe không được để trống."
+  }
+}

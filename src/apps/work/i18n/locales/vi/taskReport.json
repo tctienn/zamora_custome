@@ -1,0 +1,29 @@
+{
+
+  "objectName": "Báo cáo công việc",
+  "status": {
+    "evaluated": "Đã đánh giá",
+    "waitingEvaluate": "Chờ đánh giá",
+    "reReported": "Đã báo cáo lại",
+    "requestReReport": "Yêu cầu báo cáo lại",
+    "reported": "Đã báo cáo",
+    "draft": "Nháp",
+    "deleted": "Đã xóa"
+  },
+  "action": {
+    "create": "Tạo báo cáo",
+    "edit": "Sửa báo cáo",
+    "delete": "Xóa báo cáo",
+    "evaluate": "Đánh giá",
+    "reReport": "Báo cáo lại"
+  },
+  "field": {
+    "content": "Nội dung báo cáo",
+    "status": "Trạng thái",
+    "createdAt": "Ngày tạo",
+    "createdBy": "Người tạo",
+    "evaluatedAt": "Ngày đánh giá",
+    "evaluatedBy": "Người đánh giá",
+    "evaluateContent": "Nội dung đánh giá"
+  }
+}

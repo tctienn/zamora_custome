@@ -1,0 +1,43 @@
+extend type Query{
+    searchOrgOut(keyword: String, pageable: Pageable): OrgOutConnection
+    getOrgOutById(id: String): OrgOut
+    getOrgOut: [OrgOut]
+}
+
+extend type Mutation {
+    saveOrgOut(orgOut: OrgOutInput): OrgOut
+    deleteOrgOut(id: String): Boolean
+}
+
+input OrgOutInput {
+    id: String
+    orgOutCode: String
+    orgOutIdentify: String
+    orgOutName: String
+    address: String
+    email: String
+    isSendToEsb: Boolean
+    isDeleted: Boolean
+}
+
+type OrgOut {
+    id: String
+    orgOutCode: String
+    orgOutIdentify: String
+    orgOutName: String
+    address: String
+    email: String
+    isSendToEsb: Boolean
+    isDeleted: Boolean
+}
+
+type OrgOutConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [OrgOutEdge]
+}
+
+type OrgOutEdge {
+    cursor: String!
+    node: OrgOut
+}

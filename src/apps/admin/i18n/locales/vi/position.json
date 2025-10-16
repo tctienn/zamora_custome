@@ -1,0 +1,15 @@
+{
+  "tableTitle": "Danh sách chức danh",
+  "id": "Id chức danh",
+  "name": "Tên chức danh",
+  "code": "Mã chức danh",
+  "errors":{
+    "codeEmpty": "Mã chức danh không được để trống",
+    "nameEmpty": "Tên chức danh không được để trống",
+    "codeExits": "Mã chức danh đã tồn tại"
+  },
+  "validateField": {
+    "notNull": "Không được để trống"
+  },
+  "objectName": "Chức danh"
+}

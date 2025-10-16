@@ -1,0 +1,17 @@
+{
+  "titleForm": "Lái xe",
+  "driverSource": "Nguồn lái xe",
+  "fullname": "Họ và tên",
+  "gender": "Giới tính",
+  "phone": "Điện thoại",
+  "organization": "Đơn vị",
+  "driverType": "Phân loại",
+  "INTERNAL": "Nội bộ",
+  "OUTSOURCED": "Bên ngoài",
+  "DRIVER_FOR_DIRECTORS": "Lái xe cho giám đốc",
+  "GENERAL": "Lái xe chung",
+  "requiredFullname": "Họ và tên là bắt buộc",
+  "requiredPhone": "Điện thoại là bắt buộc",
+  "driverLicense": "Giấy phép lái xe",
+  "driverLicenseExpiryDate": "Ngày hết hạn giấy phép lái xe"
+}

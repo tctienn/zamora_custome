@@ -1,0 +1,37 @@
+extend type Query {
+    searchDocumentConfigs(keyword: String, pageable: Pageable): DocumentConfigConnection
+    findDocumentConfigById(id: String): DocumentConfig
+    getAllDocumentConfigs:[DocumentConfig]
+}
+
+extend type Mutation {
+    saveDocumentConfig(body: DocumentConfigInput): DocumentConfig
+    deleteDocumentConfig(id: String): Boolean
+}
+
+input DocumentConfigInput {
+    id: String
+    documentName: String!
+    documentCode: String!
+    required: Boolean
+    description: String
+}
+
+type DocumentConfig {
+    id: String!
+    documentName: String!
+    documentCode: String!
+    required: Boolean!
+    description: String
+}
+
+type DocumentConfigConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [DocumentConfigEdge]
+}
+
+type DocumentConfigEdge {
+    cursor: String!
+    node: DocumentConfig
+}

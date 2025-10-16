@@ -1,0 +1,38 @@
+{
+  "addUser": "Add user",
+  "usersList": "List of users",
+  "autoCreateGroup": "Automatically create group",
+  "code": "Department code",
+  "codeEmpty": "Department code cannot be empty.",
+  "dissolution": "Dissolution",
+  "dissolutionDay": "Dissolution Day",
+  "dissolutionReason": "Reason for dissolution",
+  "order": "Order",
+  "errors": {
+    "canNotDissolve": "You cannot dissolve the department because the department is occupied",
+    "codeEmpty": "Department code cannot be empty",
+    "dissolutionDateCanNotEmpty": "Dissolution date cannot be empty",
+    "effectiveDateEmpty": "Effective date cannot be empty",
+    "managerEmpty": "Department manager cannot be empty",
+    "nameEmpty": "Department name cannot be empty",
+    "organizationCodeAlreadyExists": "Department code already exists",
+    "organizationNameAlreadyExists": "Department name already exists",
+    "organizationNotFound": "The department does not exist.",
+    "reasonDissolutionCanNotEmpty": "Reason for dissolution cannot be empty",
+    "typeEmpty": "Department type cannot be empty"
+  },
+  "fromDate": "From date",
+  "message": {
+    "dissolutionSuccess": "Department dissolution successful"
+  },
+  "name": "Department name",
+  "nameEmpty": "Department name cannot be empty.",
+  "objectName": "Department",
+  "organizationHistory": "department history",
+  "organizationName": "Department name",
+  "parent": "Superior department",
+  "showListUser": "Show list of users",
+  "tableTitle": "List of departments",
+  "toDate": "To date",
+  "type": "Impact type"
+}

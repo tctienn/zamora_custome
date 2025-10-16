@@ -1,0 +1,14 @@
+{
+  "objectName": "Task Documents",
+  "tableTitle": "List of Task Documents",
+  "name": "Document Name",
+  "path": "Attachment File",
+  "taskName": "Task Name",
+  "createdBy": "Created By",
+  "createdTime": "Created Time",
+  "action": "Action",
+  "type": "Type",
+  "size": "Size",
+  "lastModifiedBy": "Last Modified By",
+  "lastModifiedTime": "Last Modified Time"
+}

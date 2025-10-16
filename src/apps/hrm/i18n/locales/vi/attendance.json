@@ -1,0 +1,19 @@
+{
+  "detail": {
+    "title": "Chi tiết chấm công",
+    "checkIn": "Thời gian vào",
+    "checkOut": "Thời gian ra",
+    "location": "Địa điểm",
+    "type": "Loại chấm công",
+    "typeOptions": {
+      "manual": "Thủ công",
+      "fingerPrint": "Vân tay",
+      "camera": "Camera",
+      "qrCode": "QR Code",
+      "nfc": "NFC"
+    },
+    "workingDay": "Ngày công",
+    "symbol": "Ký hiệu chấm công",
+    "note": "Ghi chú"
+  }
+}

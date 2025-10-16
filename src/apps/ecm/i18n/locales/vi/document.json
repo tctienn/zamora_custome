@@ -1,0 +1,52 @@
+{
+  "appendixFile": "File phụ lục",
+  "appendixFormFile": "File biểu mẫu phụ lục",
+  "branch": "Ngành",
+  "confidentiality": "Độ mật",
+  "confidentialityValue": {
+    "limit": "Giới hạn",
+    "normal": "Bình thường"
+  },
+  "content": "Nội dung",
+  "dateIssued": "Ngày ban hành",
+  "documentForm": "Hình thức văn bản",
+  "documentNo": "Số, ký hiệu văn bản",
+  "excerptFromTheText": "Trích yếu nội dung văn bản",
+  "fileAttach": "File đính kèm",
+  "issuingAgency": "Cơ quan phát hành",
+  "listDocument": "Danh sách văn bản",
+  "message": {
+    "branchEmpTy": "Ngành không được để trống",
+    "confidentialityEmpTy": "Độ mật không được để trống",
+    "contentEmpTy": "Nội dung không được để trống",
+    "createSuccess": "Tạo mới thành công",
+    "dateIssuedEmpTy": "Ngày ban hành không được để trống",
+    "deleteSuccess": "Xóa thành công",
+    "documentFormEmpTy": "Hình thức văn bản không được để trống",
+    "documentNoEmpTy": "Số, ký hiệu văn bản không được để trống",
+    "excerptFromTheTextEmpTy": "Trích yếu nội dung văn bản không được để trống",
+    "fileAttachEmpTy": "File đính kèm không được để trống",
+    "processingDeadlineEmpTy": "Hạn xử lý không được để trống",
+    "registrationNoEmpTy": "Số đăng ký không được để trống",
+    "toDateEmpTy": "Ngày đến không được để trống",
+    "unitGetRegistrationNumberEmpTy": "Đơn vị lấy số đăng ký không được để trống",
+    "urgencyEmpTy": "Độ khẩn không được để trống"
+  },
+  "noSaved": "Số bản lưu",
+  "processingDeadline": "Hạn xử lý",
+  "registrationNo": "Số đăng ký",
+  "sender": "Người gửi",
+  "signer": "Người ký",
+  "status": "Trạng thái văn bản",
+  "statusValue": {
+    "processed": "Đã xử lý",
+    "unprocessed": "Chưa xử lý"
+  },
+  "toDate": "Ngày đến",
+  "unitGetRegistrationNumber": "Đơn vị lấy số đăng ký",
+  "urgency": "Độ khẩn",
+  "urgencyValue": {
+    "express": "Hỏa tốc",
+    "urgent": "Khẩn"
+  }
+}

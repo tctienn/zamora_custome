@@ -1,0 +1,28 @@
+{
+  "device": {
+    "place": "Location",
+    "useForCheckin": "used for timekeeping"
+  },
+  "checkin": {
+    "count": {
+      "total": "Total number of personnel",
+      "checkedIn": "Human resources have been timekeeper",
+      "guests": "Total number of strangers"
+    },
+    "monitorTable": "Table of monitoring in/out",
+    "today": "Today",
+    "location": "Location",
+    "checkinTime": "Time to enter",
+    "checkoutTime": "time out",
+    "lastAppearance": "The last appearance",
+    "unknownLocation": "unknown location"
+  },
+  "cameraConfigTab": {
+    "token": "token",
+    "place": "Location",
+    "device": "Equipment",
+    "parameters": "parameters",
+    "employeesFromCamera": "List of personnel from the camera",
+    "linkTimekeepingCode": "Link the timekeeping code"
+  }
+}

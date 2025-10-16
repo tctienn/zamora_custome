@@ -1,0 +1,15 @@
+{
+  "objectName": "Thời hạn công việc",
+  "listDeadlineTask": "Danh sách thời hạn công việc",
+  "oldDeadline": "Thời hạn cũ",
+  "newDeadline": "Thời hạn mới",
+  "description": "Mô tả",
+  "reason": "Lý do",
+  "message": {
+    "newDeadlineDayEmpty": "Ngày không được để trống",
+    "newDeadlineTimeEmpty": "Giờ không được để trống",
+    "newDeadlineMustBeAfterStart": "Hạn hoàn thành phải sau ngày bắt đầu"
+  },
+  "startTime": "Ngày bắt đầu",
+  "deadline": "Hạn hoàn thành"
+}

@@ -1,0 +1,17 @@
+{
+  "action": {
+    "create": "Create",
+    "update": "Update",
+    "read": "Read",
+    "delete": "Delete",
+    "rename": "Rename",
+    "clone": "Clone"
+  },
+  "object": {
+    "work": "Work",
+    "discussion": "Discussion"
+  },
+  "from": "from",
+  "to": "to",
+  "changes": "Changes"
+}

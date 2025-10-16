@@ -1,0 +1,18 @@
+input UserDeptRole {
+    userId: String!,
+    userName: String!,
+    deptId: String!,
+    deptName: String!,
+    roleId: String!,
+    roleName: String!
+    type: OrganizationType!
+}
+
+type DocUser {
+    userId: String,
+    userName: String,
+    deptId: String,
+    deptName: String,
+    roleId: String,
+    roleName: String
+}

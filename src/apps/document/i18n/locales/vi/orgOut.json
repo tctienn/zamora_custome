@@ -1,0 +1,19 @@
+{
+  "address": "Địa chỉ đơn vị ngoài",
+  "code": "Mã Đơn vị ngoài ",
+  "email": "Email đon vị ngoài",
+  "errors": {
+    "codeEmpty": "Mã Đơn vị ngoài không được để trống",
+    "codeExits": "Mã Đơn vị ngoài đã tồn tại",
+    "nameEmpty": "Tên Đơn vị ngoài không được để trống"
+  },
+  "id": "Id Đơn vị ngoài ",
+  "identify": "Mã định danh đơn vị ngoài",
+  "isSendToEsb": "Gửi văn bản phát hành tới trục văn bản quốc gia hay không?",
+  "name": "Tên Đơn vị ngoài ",
+  "objectName": "Đơn vị ngoài ",
+  "tableTitle": "Danh sách Đơn vị ngoài ",
+  "validateField": {
+    "notNull": "Không được để trống"
+  }
+}

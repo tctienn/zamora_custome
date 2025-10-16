@@ -1,0 +1,13 @@
+{
+  "created": "Create new",
+  "inProgress": "In progress",
+  "cancelled": "Cancelled",
+  "completed": "Completed",
+  "draft": "Draft",
+  "pending": "Waiting for approval",
+  "giveBack": "Give back",
+  "refuse": "Refuse",
+  "approved": "Approved",
+  "evict": "Revoke",
+  "cancel": "Cancel"
+}

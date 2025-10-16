@@ -1,0 +1,99 @@
+{
+  "chooseFolderToMove": "Choose folder to move",
+  "confirmMessage": {
+    "deletesAll": "Are you sure you want to delete all these items?",
+    "moveToTrash": "Are you sure you want to move these items to the Trash?",
+    "restores": "Do you want to restore these items?",
+    "restoresAll": "Are you sure you want to restore all of these items?",
+    "openEditAfterCreate": "Open the online editor after creating the file"
+  },
+  "create": "Create new",
+  "createFileFolder": "Create {type}",
+  "displayType": {
+    "grid": "Grid",
+    "listview": "List view"
+  },
+  "error": {
+    "browserNotSupportAudio": "Your browser does not support audio files.",
+    "browserNotSupportVideo": "Your browser does not support video files.",
+    "fileNotExits": "The file does not exist",
+    "permissionDenied": "No permission",
+    "unableDisplayPdf": "Unable to display the PDF file.",
+    "unableLoadFile": "Unable to load file.",
+    "unableLoadImage": "Unable to display image.",
+    "unablePreviewFile": "Unable to preview the file."
+  },
+  "fileFolderActions": {
+    "copy": "Copy",
+    "copyTo": "Copy to",
+    "cut": "Cut",
+    "delete": "Delete",
+    "download": "Download",
+    "downloadToMyDocument": "Download to personal folder",
+    "error": {
+      "noPermission": "You do not have permission to manipulate this data!"
+    },
+    "groupPermissions": "Group permissions",
+    "important": "Mark important",
+    "info": "Information",
+    "move": "Move",
+    "newVersion": "Update version",
+    "open": "Open",
+    "openWith": "Open with",
+    "paste": "Paste",
+    "rename": "Rename",
+    "restore": "Restore",
+    "restoreAll": "Restore all",
+    "share": "Share",
+    "unimportant": "Unmark important",
+    "version": "Version management",
+    "work": "Create work"
+  },
+  "fileFolderEmpty": "Create, Upload or drag and drop files here.",
+  "fileSize": "File size",
+  "fileType": "File type",
+  "filterFileTypes": {
+    "audio": "Audio",
+    "compress": "Archive file",
+    "document": "Document",
+    "image": "Image",
+    "pdf": "PDF",
+    "sheet": "Spreadsheet",
+    "slideshow": "Presentation",
+    "text": "Text",
+    "video": "Video"
+  },
+  "filterLastModified": {
+    "last30Days": "Last 30 days",
+    "last7Days": "Last 7 days",
+    "today": "Today"
+  },
+  "filterShare": {
+    "all": "All",
+    "notShare": "Not shared yet",
+    "shared": "Shared"
+  },
+  "lastModifiedAt": "Last modified",
+  "name": "Name",
+  "filename": "File name",
+  "newVersionExtensionNotMatch": "The file format does not match the current version",
+  "noFolder": "There are no folders.",
+  "noFileFolder": "There are no files or folders.",
+  "noFileSelected": "No files selected",
+  "sharedDocuments": "Shared Documents",
+  "sharer": "Sharer",
+  "someFilesExceedMaxFileSize": "There are some files that cannot be uploaded due to exceeding the allowed capacity ({maxFileSize})",
+  "sortingOptions": {
+    "isImportantAsc": "Important documents: to the bottom",
+    "isImportantDesc": "Important documents: to top",
+    "isShareAsc": "Shared document: to bottom",
+    "isShareDesc": "Shared document: to top",
+    "lastModifiedAtAsc": "Recently modified: oldest",
+    "lastModifiedAtDesc": "Recently modified: latest",
+    "nameAsc": "Name from A-Z",
+    "nameDesc": "Name from Z-A"
+  },
+  "tree": "Directory tree",
+  "uploadFile": "Upload file",
+  "uploadFolder": "Upload folder"
+}

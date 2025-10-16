@@ -1,0 +1,11 @@
+{
+  "carExecutesOrderDuringDay": "Xe thực hiện lệnh trong ngày",
+  "carIsFreeForTheDay": "Xe đang rảnh trong ngày",
+  "generalSummary": "Tổng hợp chung",
+  "processingSummary": "Tổng hợp xử lý",
+  "summaryCarBookingsByUnit": "Tổng hợp đặt xe theo đơn vị",
+  "summaryDriverPerformance": "Tổng hợp hiệu xuất tài xế chạy xe",
+  "summaryTripsDuringDay": "Tổng hợp chuyến trong ngày",
+  "systemWarning": "Cảnh báo từ hệ thống",
+  "vehicleSummaryExecuteCommand": "Tổng hợp xe thực hiện lệnh điều"
+}

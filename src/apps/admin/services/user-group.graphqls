@@ -1,0 +1,80 @@
+extend type Mutation {
+    lockOrUnlockUserGroup(id: String!): UserGroup
+    deleteUserGroup(id: String!): UserGroup
+    updateUserGroup(id:String,userGroupInput:UserGroupInputUpdate):UserGroup
+    addUserToUserGroup(id:String!,userList:[UserLevelInput]!):UserGroup
+    addRoleToUserGroup(id:String!,codeList:[String]!):UserGroup
+    removeUserFromUserGroup(id: String!, userId: String!): UserGroup
+}
+extend type Query {
+    getUserGroups(keyword: String, pageable: Pageable):UserGroupConnection
+    userGroups (keyword: String, pageable: Pageable):UserGroupConnection
+    getAllUserGroup(id:String!):UserGroup
+    searchUserGroup (keyword: String, pageable: Pageable):UserGroupConnection
+    getAllLevel:[String]
+    getUserGroup(id: String): UserGroup
+}
+type UserGroup {
+    id: String
+    name: String
+    description: String
+    createDate: Date
+    isDelete: Boolean
+    status: String
+    groupType: GroupTypeInfo
+    roles:[String]
+    users:[UserLevel]
+}
+
+input UserGroupInput{
+    id:String
+    name:String
+    description:String
+    isDelete:Boolean
+    status:String
+    groupType:GroupTypeInfo
+    roles:[String]
+    users:[UserLevelInput]
+}
+
+input UserGroupInputUpdate{
+    name:String
+    description:String
+    status:String
+}
+type UserLevel{
+    id:String
+    level:Level
+    fullName:String,
+    email:String
+}
+input UserLevelInput{
+    id:String!
+    #    level:UserLevel!
+}
+
+enum GroupTypeInfo {
+    GROUP_SYSTEM
+    GROUP_SOURCES
+    GROUP_EMAIL
+}
+
+type UserGroupConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [UserGroupEdge]
+}
+type UserGroupEdge {
+    cursor: String!
+    node: UserGroup
+}
+
+enum ActivityStatus {
+    ACTIVE,
+    DEACTIVATE
+}
+
+enum Level {
+    MANAGE,
+    MEMBER
+}

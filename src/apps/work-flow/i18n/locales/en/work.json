@@ -1,0 +1,21 @@
+{
+  "activeWorks": "Active works",
+  "completedWorks": "Completed works",
+  "process": "Process",
+  "name": "Process name",
+  "description": "Process description",
+  "status": "Process status",
+  "startTime": "Start time",
+  "deadLine": "Deadline",
+  "endTime": "End time",
+  "priority": "Priority",
+  "createdBy": "Creator",
+  "assignee": "Implementer",
+  "objectInfo": "Object information",
+  "startWorkFlow": "Start Workflow",
+  "cancelWorkFlow": "Cancel Workflow",
+  "resumeWorkFlow": "Resume Workflow",
+  "currentTasks": "Current Tasks",
+  "history": "Process history",
+  "emptyMessage": "You have no processes"
+}

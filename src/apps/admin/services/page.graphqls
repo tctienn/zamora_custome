@@ -1,0 +1,21 @@
+input Pageable {
+    page: Int
+    size: Int
+    sort: [Order]
+}
+
+input Order {
+    property: String!
+    direction: Direction
+}
+
+enum Direction {
+    ASC, DESC
+}
+
+type PageInfo {
+    startCursor: String!
+    endCursor: String!
+    hasPreviousPage: Boolean!
+    hasNextPage: Boolean!
+}

@@ -1,0 +1,7 @@
+{
+  "status": {
+    "waitingAccept": "Waiting accept",
+    "accepted": "Accepted",
+    "rejected": "Rejected"
+  }
+}

@@ -1,0 +1,61 @@
+extend type Query{
+    searchBook(keyword: String, pageable: Pageable,structureType: OrganizationType): BookConnection
+    getBookById(id: String): Book
+    getAllBook: [Book]
+    getAllBookByStructureType(structureType: OrganizationType): [Book]
+    maxOrderActiveBook: Int
+    getBook(depId: String, bookType: BookType, structureType: OrganizationType): [Book]
+    getAllByDeptId(id: String): [Book]
+}
+
+extend type Mutation{
+    saveBook(book: BookInput): Book
+    deleteBook(id: String): Boolean
+}
+
+input BookInput {
+    id: String
+    bookType: BookType
+    bookName: String
+    bookOrder: Int
+    isDefault: Boolean
+    prefix: String
+    bookYear: Int
+    currentNumber: Int
+    deptId: String
+    isAuto: Boolean
+    isGenerateByBook: Boolean
+    isGenerateByDoctype: Boolean
+    structureType: OrganizationType
+}
+
+type Book {
+    id: String
+    bookType: BookType
+    bookName: String
+    bookOrder: Int
+    isDefault: Boolean
+    prefix: String
+    bookYear: Int
+    currentNumber: Int
+    deptId: String
+    isAuto: Boolean
+    isGenerateByBook: Boolean
+    isGenerateByDoctype: Boolean
+    structureType: OrganizationType
+}
+
+type BookConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [BookEdge]
+}
+
+type BookEdge {
+    cursor: String!
+    node: Book
+}
+
+enum BookType{
+    DOC_IN, DOC_OUT
+}

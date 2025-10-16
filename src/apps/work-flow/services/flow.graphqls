@@ -1,0 +1,66 @@
+type Query {
+    loadFlow(id: ID!): FlowConfig
+    flowsByType(type: String!): [Flow]
+    getAllFlows(pageable: Pageable): FlowConnection
+    getFlowEntity(id: String): Flow
+    search(keyword:String, pageable: Pageable):FlowConnection
+}
+
+type Flow {
+    id: ID!
+    name: String!
+    type: String!
+    orgType:OrganizationType
+    orgIds:[String]
+    description: String
+    isTemp:Boolean
+}
+type FlowConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [FlowEdge]
+}
+
+type FlowEdge {
+    cursor: String!
+    node: Flow
+}
+type FlowConfig {
+    name:String
+    type:String
+    orgType:OrganizationType
+    nodes: [Node],
+    edges: [Edge]
+}
+
+type Node {
+    id: String!
+    type: NodeType!
+    data: JSON
+    position: JSON
+    dimensions: JSON
+    handleBounds: JSON
+    ortType:OrganizationType
+}
+
+type Edge {
+    id: String
+    source: String
+    target: String
+    data: JSON
+    targetX:Float
+    targetY:Float
+    sourceX:Float
+    sourceY:Float
+    sourceHandle:String
+    targetHandle:String
+}
+
+enum NodeType {
+    START, END, BASIC, ELEMENT, SUBFLOW,SPLIT,JOIN
+}
+scalar JSON
+
+enum OrganizationType {
+    UNION, PARTY,ADMINISTRATIVE
+}

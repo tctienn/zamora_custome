@@ -1,0 +1,22 @@
+{
+  "shiftType": "Shift Type",
+  "workTime": "Working Hours",
+  "addWorkTime": "Add Working Hours",
+  "schedule": "Work Schedule",
+  "monday": "Monday",
+  "tuesday": "Tuesday",
+  "wednesday": "Wednesday",
+  "thursday": "Thursday",
+  "friday": "Friday",
+  "saturday": "Saturday",
+  "sunday": "Sunday",
+  "all": "All Day",
+  "message": {
+    "validateSetSchedule": "This work time is already scheduled.",
+    "deleteShiftSuccess": "Shift deleted successfully.",
+    "addShiftSuccess": "Work schedule added successfully.",
+    "addScheduleSuccess": "Work schedule added successfully.",
+    "shiftNameWasDuplicated": "Shift name is duplicated.",
+    "hasBeenConfigured": "This work time is already scheduled."
+  }
+}

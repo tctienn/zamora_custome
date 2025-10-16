@@ -1,0 +1,13 @@
+extend type Query {
+    getListOrganizationHistory(organizationId : String): [OrganizationHistory]
+}
+
+type OrganizationHistory {
+    id: String,
+    organizationId: String,
+    organizationName: String,
+    type: String,
+    fromDate: String,
+    toDate: String
+}
+

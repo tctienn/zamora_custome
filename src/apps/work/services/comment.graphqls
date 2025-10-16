@@ -1,0 +1,37 @@
+extend type Query {
+    findComments(type: String, objectId: String, replyId: String, pageable: Pageable): CommentConnection
+}
+
+extend type Mutation {
+    addComment(type: String, objectId: String, content: String, replyId: String): Comment
+}
+
+type Comment{
+    id: String,
+    content: String,
+    replyId: String,
+    type: CommentType,
+    objectId: String,
+    createdBy:String,
+    createdTime:DateTime,
+    isEdited:Boolean,
+
+    replyComment:Comment,
+    lastModifiedTime:DateTime
+    seenUserIds:[String]
+}
+
+enum CommentType{
+    TASK,PROJECT
+}
+
+type CommentConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [CommentEdge]
+}
+
+type CommentEdge {
+    cursor: String!
+    node: Comment
+}

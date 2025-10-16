@@ -1,0 +1,50 @@
+{
+  "add": "Thêm nhân viên",
+  "addUser": "Thêm người dùng vào nhóm",
+  "addUserGroup": "Thêm nhóm người dùng",
+  "createBy": "Người tạo",
+  "createDate": "Ngày tạo",
+  "decentralization": "Phân quyền",
+  "deleteUser": "Xóa người dùng",
+  "description": "Mô tả",
+  "descriptionEmpty": "Mô tả không được để trống",
+  "detail": "Chi tiết",
+  "email": "Email",
+  "error": {
+    "canNotRemoveMember": "Nhóm phải có ít nhất 1 thành viên với vai trò là quản lý"
+  },
+  "group": "nhóm",
+  "groupLeader": "Trưởng nhóm",
+  "groupName": "Tên nhóm",
+  "groupType": "Loại nhóm",
+  "groupTypeEmpty": "Loại nhóm không được để trống",
+  "level": "Cấp độ",
+  "listUser": "Danh sách nhân viên trong phòng ban",
+  "manageGroup": "Quản lý nhóm",
+  "manageMember": "Quản lý thành viên",
+  "managerName": "Quản lý",
+  "message": {
+    "validateLeveNotNull": "Cấp độ không được để trống."
+  },
+  "nameEmpty": "Tên không được để trống",
+  "permission": {
+    "contribute": "Đóng góp",
+    "editor": "Chỉnh sửa",
+    "full_control": "Toàn quyền",
+    "read": "Đọc",
+    "title": "Quyền",
+    "view": "Xem"
+  },
+  "role": "Gán vai trò",
+  "showListUser": "Hiển thị danh sách nhân viên",
+  "totalUser": "Số thành viên",
+  "typeOfPrivacy": "Loại quyền riêng tư",
+  "typePrivacyEmpty": "Loại riêng tư không được để trống",
+  "types": {
+    "manage": "Quản lý",
+    "member": "Thành viên"
+  },
+  "userGroup": "Quản lý nhóm người dùng",
+  "userGroupName": "Nhóm",
+  "userName": "Người dùng"
+}

@@ -1,0 +1,19 @@
+{
+  "activeTasks": "Active Tasks",
+  "completedTasks": "Completed Tasks",
+  "name": "Task name",
+  "assigned": "Assigned",
+  "status": "Task status",
+  "startTime": "Start time",
+  "endTime": "End time",
+  "result": "Result",
+  "selectedResult": "Selected result",
+  "comment": "Comment",
+  "chooseUsersForNextTasks": "Choose user for next tasks",
+  "finishTask": "Finish task",
+  "end": "End",
+  "workInfo": "Process information",
+  "nextTaskWarning": "You need to choose the next action",
+  "emptyMessage": "You have no tasks",
+  "orgTree": "Organization tree"
+}

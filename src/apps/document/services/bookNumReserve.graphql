@@ -1,0 +1,43 @@
+extend type Query{
+    searchBookNumReserve(keyword: String, pageable: Pageable): BookNumReserveConnection
+    getBookNumReserveById(id: String): BookNumReserve
+    findByBookIdAndRequestUserId(bookId: String!, requestUserId: String!): BookNumReserve
+}
+
+extend type Mutation{
+    saveBookNumReserve(bookNumReserve: BookNumReserveModel): BookNumReserve
+    deleteBookNumReserve(id: String): Boolean
+}
+
+input BookNumReserveModel {
+    id: String
+    bookType: String
+    bookDate: Date
+    bookId: String
+    bookNumberUsed: [String]
+    requestUserId: String
+    bookNumber: [String]
+    note: String
+}
+
+type BookNumReserve {
+    id: String
+    bookType: String
+    bookDate: Date
+    bookId: String
+    requestUserId: String
+    bookNumber: [String]
+    bookNumberUsed: [String]
+    note: String
+}
+
+type BookNumReserveConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [BookNumReserveEdge]
+}
+
+type BookNumReserveEdge {
+    cursor: String!
+    node: BookNumReserve
+}

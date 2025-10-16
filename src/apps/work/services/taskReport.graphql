@@ -1,0 +1,44 @@
+extend type Query {
+    getTaskReportsByTaskId(taskId: String, pageable: Pageable): TaskReportConnection
+}
+extend type Mutation {
+    addReport(taskReport: TaskReportRequest):TaskReport
+}
+
+
+type TaskReport{
+    id: String
+    taskId: String
+    weight: Float
+    percent: Float
+    status: ReportStatus
+    description: String
+    attachments :[Attachment]
+    taskEvaluation: TaskEvaluation
+}
+
+enum ReportStatus{
+    WAITING_EVALUATE,
+    REQUEST_RE_REPORT,
+    RE_REPORTED,
+    EVALUATED,
+}
+
+type TaskReportEdge{
+    cursor: String!
+    node: TaskReport
+}
+type TaskReportConnection{
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [TaskReportEdge]
+}
+
+input TaskReportRequest{
+    taskId: String
+    percent: Float
+    description: String
+    attachments: [Upload]
+    weight:Float
+    forceSave:Boolean
+}

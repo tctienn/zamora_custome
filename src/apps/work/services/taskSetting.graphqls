@@ -1,0 +1,55 @@
+extend type Query {
+    getTaskSetting(taskId: String): TaskSettingResponse
+}
+
+extend type Mutation {
+    saveTaskSetting(taskSettingInput: TaskSettingInput): Boolean
+    deleteTask(taskId: String!): Boolean
+}
+
+type ParticipantTaskSettingResponse {
+    id: String
+    taskId: String!
+    type: ParticipantType!
+    participantId: String!
+    participantName: String
+    participantEmail: String
+    participantAvatar: String
+    percent: Float
+    orderNo: Int
+    positionName: String
+}
+
+input TaskSettingWeightInput{
+    id: String,
+    weight: Float
+}
+
+input RemindInput {
+    id: String!
+    taskId: String!
+    warningBeforeDays: Int!
+    emailAlert: Boolean!
+    notification: Boolean!
+}
+
+input TaskSettingInput {
+    tasks: [TaskSettingWeightInput]
+    participantRemove: [String]
+    remind: RemindInput
+    parentId: String!
+}
+
+type TaskSettingResponse {
+    tasks: [Task]
+    participantTaskSettingResponse: [ParticipantTaskSettingResponse]
+    remind: Remind
+}
+
+type Remind {
+    id: String
+    taskId: String
+    warningBeforeDays: Int
+    emailAlert: Boolean
+    notification: Boolean
+}

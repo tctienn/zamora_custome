@@ -1,0 +1,10 @@
+{
+  "addFixedHolidays": "Add fixed holidays",
+  "deleteFixedHolidays": "Delete fixed holidays",
+  "HolidaysDuringTheYear": "Holidays during the year",
+  "addHolidaysDuringTheYear": "Add holidays during the year",
+  "deleteHolidaysDuringYear": "Delete holidays during the year",
+  "description": "Description",
+  "configurationDeletedSuccessfully": "Configuration deleted successfully",
+  "addedNewConfigurationSuccessfully": "Added new configuration successfully"
+}

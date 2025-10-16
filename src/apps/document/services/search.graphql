@@ -1,0 +1,42 @@
+input SearchModel {
+    keyword:String
+    quote: String
+    identifyCode: String
+    docCode: String
+    docDateFrom: Date
+    docDateTo: Date
+    signerId: String
+    signerName: String
+    publisherType: PublisherType
+    publisherId: String
+    publisherName: String
+    publishDateFrom:Date
+    publishDateTo:Date
+    docTypeId: [String]
+    docTypeName: String
+    priorityCode: String
+    securityCode: String
+    areaId: [String]
+    areaName: String
+    deadlineDateFrom: Date
+    deadlineDateTo: Date
+    incomingDateFrom: Date
+    incomingDateTo: Date
+    isEnvelope: Boolean
+    isRequireAnswer: Boolean
+    isLawDocument: Boolean
+    isReply: Boolean
+    isDeleted: Boolean
+    bookId: String
+    searchTimeFrom: DateTime
+    searchTimeTo: DateTime
+    processType: ProcessType
+    status:[DocStatus]
+    bookNumber:Int
+    handler: String
+    readStatus: Boolean
+    docSource:String
+    publisherNameIn:String
+    transferDateFrom:Date
+    transferDateTo:Date
+}

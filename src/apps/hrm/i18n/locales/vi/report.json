@@ -1,0 +1,17 @@
+{
+  "employeeEducationReport": "BÁO CÁO NHÂN SỰ THEO TRÌNH ĐỘ HỌC VẤN",
+  "employeeByOrganizationReport": "BÁO CÁO TỔNG HỢP NHÂN SỰ THEO CƠ CẤU TỔ CHỨC",
+  "contractStatisticsReport": "BÁO CÁO THỐNG KÊ HỢP ĐỒNG",
+  "professionalSkillsReport": "BÁO CÁO THỐNG KÊ CÁN BỘ NHÂN VIÊN THEO KỸ NĂNG CHUYÊN MÔN",
+  "laborUtilizationReport": "BÁO CÁO TÌNH HÌNH SỬ DỤNG LAO ĐỘNG THEO MẪU NGHỊ ĐỊNH 145/2020/NĐ-CP",
+  "workProgressReport": "BÁO CÁO QUÁ TRÌNH CÔNG CÔNG TÁC CỦA NHÂN SỰ TRƯỚC KHI VÀO CÔNG TY",
+  "childrenOfficerReport": "BÁO CÁO TRÍCH NGANG CON CÁN BỘ CÔNG NHÂN VIÊN",
+  "employeeResignsReport": "BÁO CÁO NHÂN SỰ ĐÃ NGHỈ VIỆC",
+  "employeeContractTransferReport": "BÁO CÁO NHÂN SỰ CHUYỂN DIỆN HỢP ĐỒNG LAO ĐỘNG",
+  "rewardAll": "Tổng hợp thành tích khen thưởng và danh hiệu thi đua của tập thể",
+  "rewardYear": "Tổng hợp danh sách thành tích khen thưởng các năm",
+  "rewardEmployee": "Tổng hợp thành tích khen thưởng của cá nhân",
+  "laborStructureReport":"BÁO CÁO CƠ CẤU LAO ĐỘNG",
+  "emulationTitles": "Danh hiệu thi đua ",
+  "position": "Chức vụ"
+}

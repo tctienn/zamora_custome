@@ -1,0 +1,44 @@
+{
+  "title": "Bảng chấm công",
+  "table": {
+    "sumDayPoints": "Tổng số ngày công thực tế",
+    "sumDayOffPoints": "Tổng số ngày nghỉ phép",
+    "sumOvertimePoints": "Số ngày CT, HN, HT có hưởng lương",
+    "sumPointGetPaid": "Tổng công hưởng {0} lương",
+    "sumPointGetBHXH": "Tổng công hưởng BHXH",
+    "sumPointLeaveGetBHXH": "Nghỉ bù hưởng lương",
+    "sumPointLeaveCDGetPaid": "Nghỉ chế độ hưởng lương",
+    "sumPointLeaveHolidayGetPain": "Số ngày nghỉ lễ hưởng lương",
+    "other": "Hội nghị, học tập",
+    "sumOvertimePointsWithSalary": "Số công làm TG không quá 3 công/tháng",
+    "sumTotalPoints": "Tổng số công hưởng lương"
+  },
+  "tabView": {
+    "draft": "Dự thảo & Theo dõi",
+    "waitingForApproval": "Chờ tổng hợp "
+  },
+  "form": {
+    "titleCreate": "Thêm mới bảng chấm công",
+    "titleEdit": "Chỉnh sửa bảng chấm công",
+    "organization": "Phòng/ban lập",
+    "name": "Tên bảng chấm công",
+    "time": "Thời gian",
+    "location": "Nơi lập",
+    "dateTime": "Ngày lập",
+    "creator": "Người lập",
+    "employeeList": "Danh sách nhân viên",
+    "year": "Năm",
+    "month": "Tháng",
+    "selectCreationDate": "Chọn ngày lập",
+    "noEmployees": "Chưa có nhân viên nào trong phòng/ban",
+    "successCreate": "Tạo bảng chấm công thành công",
+    "successUpdate": "Cập nhật bảng chấm công thành công",
+    "errorCreate": "Tạo bảng chấm công thất bại",
+    "errorUpdate": "Cập nhật bảng chấm công thất bại",
+    "errorDelete": "Xoá bảng chấm công thất bại"
+  },
+  "fetchApi": {
+    "errorGetTimeSheet": "Lấy bảng chấm công thất bại",
+    "errorGetTimeSheets": "Lấy danh sách bảng chấm công thất bại"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "admin": "Quản trị",
+  "application": "Ứng dụng",
+  "category": "Danh mục",
+  "chat": "Chat",
+  "dashboard": "Bảng điều khiển",
+  "ecm": "Tài liệu",
+  "hrm": "Quản lý nhân sự",
+  "media": "Truyền thông",
+  "meeting": "Lịch họp",
+  "widget": "Tiện ích",
+  "work": "Công việc",
+  "work-flow": "Quy trình",
+  "document": "Văn bản",
+  "vehicle": "Điều xe",
+  "search": "Tìm kiếm",
+  "book-ticket": "Đặt vé",
+  "mission": "Nhiệm vụ",
+  "e-form": "E-form"
+}

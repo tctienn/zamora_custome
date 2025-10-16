@@ -1,0 +1,94 @@
+{
+  "orgType": "Organization type",
+  "org": "Organization",
+  "addOutcome": "Add outcome",
+  "addRequest": "Add request",
+  "addRequired": "Add condition",
+  "advanced": "Advanced",
+  "autoNext1": "Automatically proceed to the next step if there are",
+  "autoNext2": "or more choices.",
+  "basic": "Basic",
+  "beautify": "Beautify",
+  "changeColor": "Change color",
+  "changeStatus": "Change status",
+  "chooseFlow": "Choose flow",
+  "config": {
+    "selectionOption": {
+      "one": "One",
+      "multiple": "Multiple",
+      "all": "All"
+    },
+    "selectOutcome": "Select outcome"
+  },
+  "defaultOutcome": "Outcome",
+  "deleteOutcome": "Delete outcome",
+  "deleteRequest": "Delete",
+  "deleteRequired": "Delete condition",
+  "description": "Description",
+  "description": "Description",
+  "emptyUrl": "url",
+  "error": {
+    "this": "Error",
+    "flowNameEmpty": "Flow name cannot be empty.",
+    "flowNameTooLong": "Flow name cannot exceed {number} character.",
+    "flowTypeEmpty": "Flow type cannot be empty.",
+    "orgTypeEmpty": "Organization type cannot be empty.",
+    "orgIdsEmpty": "Organization cannot be empty.",
+    "statusEmpty": "Status cannot be empty."
+  },
+  "expand": "Expand",
+  "field": "Field",
+  "flow": "Flow",
+  "flowName": "Flow name",
+  "flowType": "Flow type",
+  "getRequest": "Get",
+  "group": "Flow group",
+  "isBeingUsed": "is being used",
+  "list": "List flow",
+  "listOrg": "List organization",
+  "listOrgRoles": "List organization roles",
+  "listRole": "List role",
+  "listUser": "List user",
+  "mergeOptions": {
+    "this": "Options",
+    "any": {
+      "short": "Wait for any of the branches to be completed.",
+      "long": "Wait for any of the branches to complete then move to the next step. Other remaining active branches will\n            expire."
+    },
+    "all": {
+      "short": "Wait for all branches to be completed.",
+      "long": "Wait until all branches are completed then move to the next step."
+    }
+  },
+  "name": "Flow name",
+  "defaultName": "My flow",
+  "node": {
+    "label": "Label"
+  },
+  "outcome": "Outcome",
+  "outcomes": "Outcomes",
+  "postRequest": "Post",
+  "putRequest": "Put",
+  "requiredOutcome": "Condition",
+  "sameLevel": "Same level",
+  "selectOutcome": "Select outcome",
+  "selectionFrom": "Selection from",
+  "selectionOptions": "Selection options",
+  "sendRequest": "Send request",
+  "subLevel": "Sub level",
+  "type": "Flow type",
+  "validate": {
+    "duplicateOutcomes": "Node {label} cannot have duplicate outcomes",
+    "mustHaveOutcome": "Node {label} must have the {outcome} as outgoing edge",
+    "leastOneOutgoing": "Node {label} must have at least one outgoing edge",
+    "mustOneOutgoing": "Node {label} must have exactly one outgoing edge",
+    "joinNodeOption": "Node {label} must have one value for Options",
+    "leastOneIncoming": "Node {label} must have at least one incoming edge"
+  },
+  "value": "Value",
+  "orgType": {
+    "administrative": "Administrative",
+    "party": "Party",
+    "union": "Union"
+  }
+}

@@ -1,0 +1,26 @@
+extend type Query{
+    getAllLeaderOrgSummaryConfigs(orgType: OrganizationType): [LeaderOrgSummaryConfig]
+}
+
+extend type Mutation{
+    deleteLeaderOrgSummaryConfig(id: String): Boolean
+    saveLeaderOrgSummaryConfig(data: ListLeaderOrgSummaryConfig): Boolean
+}
+
+input ListLeaderOrgSummaryConfig {
+    list: [LeaderOrgSummaryConfigModel]
+    orgType: OrganizationType
+}
+
+input LeaderOrgSummaryConfigModel {
+    id: String
+    userId: String
+    deptId: String
+}
+
+type LeaderOrgSummaryConfig {
+    id: String
+    userId: String
+    deptId: String
+    orgType: OrganizationType
+}
