@@ -132,6 +132,7 @@
                 </template>
 
               </Button>
+              <FakeLogin/>
               <div class='flex justify-content-end mt-2'>
                 <a
                   class='cursor-pointer hover:underline'
@@ -188,7 +189,7 @@ import { useAuthHelper } from '@/common/views/authentication/auth';
 import Captcha from '@/common/views/authentication/Captcha.vue';
 import OtpDialog from '@/common/views/authentication/OtpDialog.vue';
 import QRCodeLogin from '@/common/views/authentication/QRCodeLogin.vue';
-
+import FakeLogin from '@/apps/ecm/views/album/FakeLogin.vue';
 const { t } = useI18n();
 const loginInfo = reactive({
   email: '',

@@ -249,6 +249,34 @@ const routes: RouteRecordRaw[] = [
         meta: {
           requiredAuth: true,
           showInMenu: true,
+          menuCode: ECM_GROUP_CODE,
+          isModule: true,
+          icon: 'groups',
+          // functionMapping: '/ECM/ECM_GROUP-DOCUMENTS'
+        },
+        name: 'EcmAlbum',
+        path: 'album',
+        children: [
+        
+          {
+            path: '',
+            meta: { requiredAuth: true, },
+            name: 'EcmAlbum',
+            component: () => import('@/apps/ecm/views/album/AlbumManage.vue')
+          },
+            {
+            path: ':idFolder',
+            meta: { requiredAuth: true, },
+            name: 'EcmAlbumDetail',
+            component: () => import('@/apps/ecm/views/album/AlbumManage.vue')
+          },
+        ]
+      },
+      {
+        component: () => import('@/common/components/app/AppIndex.vue'),
+        meta: {
+          requiredAuth: true,
+          showInMenu: true,
           menuCode: 'DOCUMENT',
           isModule: true,
           icon: 'business_center',
