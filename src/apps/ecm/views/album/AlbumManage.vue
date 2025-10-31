@@ -1,104 +1,136 @@
 <template>
-
     <!-- Floating fixed button -->
-    <button class="butonFix" @click="showDialog = true">
-        +
-    </button>
-    <!-- mẫu chặn ảnh -->
-    <!-- <img crossorigin="use-credentials"
-        src="http://localhost:8080/api/photos/get_photo_author?pathFile=/Album/user/650000000000000000000002/Folder3/567e0eac-824f-4e5c-a0e7-def46f30a263.png"
-        class="album-cover" /> -->
-    <!-- Dialog -->
+    <button class="butonFix" @click="showDialog = true">+</button>
+
+    <!-- Dialog giả lập cookie -->
     <div v-if="showDialog" class="modal-backdrop">
         <div class="modal" role="dialog">
-            <h3 class="modal-title">giả lập cookie lúc đăng nhập</h3>
-            <input v-model="text" type="text" class="text-input" placeholder="nhập user id" />
+            <h3 class="modal-title">Giả lập cookie lúc đăng nhập</h3>
+            <input v-model="tempUserId" type="text" class="text-input" placeholder="Nhập user id" />
             <div class="modal-actions">
                 <button class="btn-cancel" @click="showDialog = false">Hủy</button>
-                <button class="btn-confirm" @click="() => { confirmCreateCookie() }">
-                    Xác nhận
-                </button>
+                <button class="btn-confirm" @click="confirmCreateCookie">Xác nhận</button>
             </div>
         </div>
     </div>
 
     <div class="albums-page">
-        <!-- header  -->
+        <!-- header -->
         <div class="header">
-            <div class="header-left">
-                <!-- router.back() -->
-                <div>
-                    <div>
-                        <button @click="rollbackPage"
-                            style="border:none; background:none; cursor:pointer; color:#3b82f6; font-weight:500; font-size:14px; padding:4px 8px;">
-                            &lt; back
-                        </button>
-                        <b>{{ pathTree }}</b>
-                    </div>
-                    <div class="page-title" @click="() => {
-                        router.push({ name: 'EcmAlbum' })
-                            .then(() => router.go(0))
-                    }">
+            <div class="">
+                <div class="breadcrumb-wrapper">
+                    <button @click="rollbackPage" class="back-button" :disabled="pageList.length <= 0">
+                        <i class="pi pi-chevron-left"></i>
+                        <span>Quay lại</span>
+                    </button>
 
-                        Albums : {{ folderCurrant.name }}
-
+                    <div class="breadcrumb" v-if="pathTree">
+                        <span v-for="(segment, index) in breadcrumbSegments" :key="index" class="breadcrumb-item">
+                            <span class="breadcrumb-segment">{{ segment }}</span>
+                            <i v-if="index < breadcrumbSegments.length - 1"
+                                class="pi pi-chevron-right breadcrumb-separator"></i>
+                        </span>
                     </div>
                 </div>
 
-                <p class="subtle">Tổng {{ filteredAlbums.length }} album</p>
-                <!-- <h2>{{ rootFolder?.path }}</h2> -->
-                <!-- danh sách người dùng được chia sẻ  -->
-                <div v-if="folderCurrant.permissionUsers">
-                    Người dùng được chia sẻ:
-                    <div class="listUser">
-                        <div @click="showUserShareButton = true"
-                            v-for="(user, i) in folderCurrant.permissionUsers.sharedUsers" :key="i" class="userItem">
-                            <i class="pi pi-user iconUser" :title="`${user.fullName}-(${user.permission})`"
-                                style="color: #708090"></i>
+                <div class="page-title" @click="goRoot">
+                    <i class="pi pi-folder"></i>
+                    <span>{{ folderCurrent.name }}</span>
+                </div>
 
+                <p class="subtle">{{ filteredAlbums.length }} album</p>
 
-
-
+                <div v-if="folderCurrent.permissionUsers?.sharedUsers?.length" class="shared-users-section">
+                    <div class="shared-users-header" @click="showUserList = !showUserList">
+                        <div class="header-left">
+                            <i class="pi pi-users"></i>
+                            <span>Đang chia sẻ với</span>
+                            <span class="user-count">{{ folderCurrent.permissionUsers.sharedUsers.length }} người</span>
                         </div>
-                        <!-- dialog user  -->
-                        <Dialog v-if="folderCurrant.permissionUsers" v-model:visible="showUserShareButton"
-                            header="Sửa quyền chia sẻ" :style="{ width: '25rem' }">
-                            <div v-for="(user, i) in folderCurrant.permissionUsers.sharedUsers" :key="i">
-                                <div class="flex items-center space-between gap-4 mb-8">
-                                    <div><strong>{{ user.fullName }}</strong></div>
-                                    <select v-model="user.permission" class="optionPermission">
-                                        <option value="VIEW">VIEW</option>
-                                        <option value="EDIT">EDIT</option>
-                                        <option value="NONE">NONE</option>
-                                    </select>
+                        <i class="pi" :class="showUserList ? 'pi-chevron-up' : 'pi-chevron-down'"
+                            style="color: #6c5ce7; font-size: 14px;">
+                        </i>
+                    </div>
+
+                    <transition name="slide-fade">
+                        <div v-show="showUserList" class="listUser">
+                            <div v-for="(user, i) in folderCurrent.permissionUsers.sharedUsers.slice(0, maxDisplayUsers)"
+                                :key="i" class="userItem">
+                                <div class="user-avatar">
+                                    <i class="pi pi-user"></i>
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">{{ user.fullName }}</div>
+                                    <div class="user-permission" :class="{
+                                        'permission-view': user.permission === 'VIEW',
+                                        'permission-edit': user.permission === 'EDIT',
+                                        'permission-none': user.permission === 'NONE'
+                                    }">
+                                        <i class="pi" :class="{
+                                            'pi-eye': user.permission === 'VIEW',
+                                            'pi-pencil': user.permission === 'EDIT',
+                                            'pi-times': user.permission === 'NONE'
+                                        }">
+                                        </i>
+                                        <span>{{ user.permission }}</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="flex justify-end gap-2">
-                                <Button type="button" label="Cancel" severity="secondary"
-                                    @click="showUserShareButton = false"></Button>
-                                <Button type="button" label="Save" @click="handleUpdatePermission"></Button>
+
+                            <button v-if="folderCurrent.permissionUsers.sharedUsers.length > maxDisplayUsers"
+                                class="view-more-btn" @click="showUserShareButton = true">
+                                <i class="pi pi-cog"></i>
+                                <span>Xem tất cả và quản lý</span>
+                            </button>
+                            <button v-else class="view-more-btn" @click="showUserShareButton = true">
+                                <i class="pi pi-cog"></i>
+                                <span>Quản lý quyền</span>
+                            </button>
+                        </div>
+                    </transition>
+
+                    <Dialog v-if="folderCurrent.permissionUsers" v-model:visible="showUserShareButton" modal
+                        header="Quản lý quyền chia sẻ" :style="{ width: '35rem' }">
+                        <template #header>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <i class="pi pi-users" style="font-size: 1.25rem;"></i>
+                                <span>Quản lý quyền chia sẻ</span>
                             </div>
-                        </Dialog>
-                        <!-- <div @click="showUserShareButton = true">
-                            <Dialog v-model:visible="showUserShareButton" modal header="Sửa quyền chia sẻ"
-                                :style="{ width: '25rem' }">
-                                <Listbox v-model="selectedCity" :options="folderCurrant.permissionUsers.sharedUsers"
-                                    multiple optionLabel="fullName" class="w-full md:w-56" />
-                            </Dialog>
-                        </div> -->
+                        </template>
 
+                        <div class="user-permissions-list">
+                            <div v-for="(user, i) in folderCurrent.permissionUsers.sharedUsers" :key="i"
+                                class="permission-row">
+                                <div class="user-details">
+                                    <div class="user-avatar-small">
+                                        <i class="pi pi-user"></i>
+                                    </div>
+                                    <div>
+                                        <div class="user-name-bold">{{ user.fullName }}</div>
+                                        <div class="user-email">{{ user.email }}</div>
+                                    </div>
+                                </div>
+                                <Dropdown v-model="user.permission" :options="permissionOptions" option-label="label"
+                                    option-value="value" class="permission-dropdown" />
+                            </div>
+                        </div>
 
-                    </div>
-
+                        <template #footer>
+                            <Button label="Xóa chia sẻ" severity="danger" @click="handleDeleteCurrentFolderShare" />
+                            <div style="flex: 1;"></div>
+                            <Button label="Hủy" severity="secondary" @click="showUserShareButton = false" />
+                            <Button label="Lưu" @click="handleUpdatePermission" />
+                        </template>
+                    </Dialog>
                 </div>
-
             </div>
+
             <div class="actions">
                 <button class="p-button-outlined create-album-btn" @click="showDialogCreateAlbum = true">+ Tạo
                     album</button>
+                <Button_uploadFile @updateData="handleUpdateData" :album="folderCurrent" />
+                <Button_uploadFile_loader @updateData="handleUpdateData" :album="folderCurrent" />
 
-                <Button_uploadFile @updateData="handleUPdateData" :album="folderCurrant" />
-                <!-- dialog create album -->
                 <Dialog v-model:visible="showDialogCreateAlbum" modal header="Tạo folder" :style="{ width: '25rem' }">
                     <div class="flex items-center gap-4 mb-4">
                         <InputText id="username" class="flex-auto" v-model="nameFolder" autocomplete="off"
@@ -107,294 +139,382 @@
 
                     <div class="flex justify-end gap-2">
                         <Button type="button" label="Thoát" severity="secondary"
-                            @click="showDialogCreateAlbum = false"></Button>
-                        <Button type="button" label="Tạo" @click="createAlbum"></Button>
+                            @click="showDialogCreateAlbum = false" />
+                        <Button type="button" label="Tạo" @click="createAlbum" />
                     </div>
                 </Dialog>
-
-
-
-
             </div>
         </div>
 
         <!-- mode switch -->
         <div class="album-list-header">
-            <button :class="['mode-btn', { active: albumMode === 'all' }]" @click="changeAlbumMode('all')">Tất
-                cả</button>
-            <button :class="['mode-btn', { active: albumMode === 'shared' }]" @click="changeAlbumMode('shared')">Chia
-                sẻ</button>
+            <div class="header-left-group">
+                <button :class="['mode-btn', { active: albumMode === 'all' }]" @click="changeAlbumMode('all')">Tất
+                    cả</button>
+                <button :class="['mode-btn', { active: albumMode === 'shared' }]" @click="changeAlbumMode('shared')">Chia
+                    sẻ</button>
+            </div>
+            <div class="sort-selector">
+                <label class="sort-label">Sắp xếp:</label>
+                <Dropdown v-model="sortType" :options="sortOptions" optionLabel="label" optionValue="value" 
+                    placeholder="Chọn kiểu sắp xếp" class="sort-dropdown" @change="handleSortChange" />
+            </div>
         </div>
 
         <!-- List view -->
-        <div class="album-list-wrap" v-if="viewMode === 'list'">
-
-            <!-- list album here -->
-            <div class="album-list" v-if="filteredAlbums.length >= 0">
-                <div class="album-card" @click="() => openFolder(album.id)" v-for="(album, index) in filteredAlbums"
-                    :key="index">
-
-                    <AlbumCard @updateData="handleUPdateData" :album="album" :default-image="defaultAlbumImage" />
-                </div>
-            </div>
-            <!-- list photo or other file like video ,.... -->
-            <div class="album-list" v-if="photos?.length >= 0">
-                <div class="album-card" v-for="(photo, index) in photos" :key="index">
-                    <FileCart @updateData="handleUPdateData" :photo="photo" />
-
+        <div v-if="viewMode === 'list'" class="album-list-wrap">
+            <div v-if="filteredAlbums.length >= 0" class="album-list">
+                <div class="album-card" v-for="(album, index) in filteredAlbums" :key="album.id ?? index"
+                    @click="openFolder(album.id)">
+                    <AlbumCard @updateData="handleUpdateData" :album="album" :default-image="defaultAlbumImage" />
                 </div>
             </div>
 
+            <div v-if="photos?.length >= 0" class="album-list">
+                <div class="album-card" v-for="(photo, index) in photos" :key="photo.id ?? index">
+                    <FileCart @updateData="handleUpdateData" :photo="photo" />
+                </div>
+            </div>
         </div>
-        <!-- share view -->
-
-
-
-
     </div>
-    <!-- {{ route.params.idFolder }} -->
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import Dropdown from 'primevue/dropdown';
+
 import AlbumCard from './template/cart/AlbumCart.vue';
 import FileCart from './template/cart/FileCart.vue';
-import { taocock } from './api/CookieFuntion.js';
-import { getFolderRoot, getFoldersByFolder, postCreateFolder, getFolderDetail, getPhotosByFolder, getAllUser, getAllFolderShareWithUser, postCreateAndUpadateShare } from './api/Album.js';
-import {
-    toastError,
-    toastSuccess,
-} from '@/common/helpers/custom-toast-service';
-import { useRoute, useRouter } from 'vue-router';
 import Button_uploadFile from './template/button/Button_uploadFile.vue';
+import Button_uploadFile_loader from './template/button/Button_uploadFile_loader.vue';
 
+import { taocock } from './api/CookieFuntion.js';
+import {
+    getFolderRoot,
+    getFoldersByFolder,
+    postCreateFolder,
+    getFolderDetail,
+    getPhotosByFolder,
+    getAllFolderShareWithUser,
+    postCreateAndUpadateShare,
+    DeletePermission,
+    getAllPhotosShareWithUser
+} from './api/Album.js';
 
-/////// tạo cookie dùng tạm cho image giải pháp tạm thời
-const text = ref('');
+import { toastError, toastSuccess } from '@/common/helpers/custom-toast-service';
+
+// ALL,  NAME,  DATE_CREATED,  DATE_MODIFIED,
+const sortType = ref("ALL")
+
+// ---------- reactive state ----------
 const showDialog = ref(false);
+const tempUserId = ref('');
 const showDialogCreateAlbum = ref(false);
-// const showUserShareButton = ref(false)
-const nameFolder = ref('');
-const route = useRoute()
-const router = useRouter()
-var parentIdParam = route.params.idFolder
+const showUserList = ref(false);
+const maxDisplayUsers = ref(3);
 
-const confirmCreateCookie = () => {
-    taocock("userDetail", {
-        id_user: text.value.trim(),
-        usename: text.value.trim()
-    })
-    showDialog.value = false;
-};
-
-////////////////////
-
-const rootFolder = ref({})
-const folderCurrant = ref({})
-const defaultAlbumImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEaYTaC-q-QWUu2g7QgVvRKkJkqXjXtjBU2w&s';
+const rootFolder = ref(null);
+const folderCurrent = ref({});
 const folders = ref([]);
 const photos = ref([]);
 const userList = ref([]);
 
-
-
-/////// api rest
-const getrootFolder = async () => {
-    const response = await getFolderRoot()
-    console.log('getrootFolder : ', response.data);
-    rootFolder.value = response.data;
-
-    getFoldersByFolderId(response.data.id);
-};
-const getFolder = async (id) => {
-    const response = await getFolderDetail(id)
-    console.log('getFolder : ', response.data);
-    // folders.value = response.data;
-    folderCurrant.value = response.data
-    getFoldersByFolderId(response.data.id);
-    const responsePhoto = await getPhotosByFolder(id);
-    photos.value = responsePhoto.data
-    console.log('photos.value : ', photos.value);
-    await filterPath(folderCurrant.value.path)
-};
-
-const filterPath = (path) => {
-    const parts = path.split("/");
-    // ["", "Album", "User", "68ec9efbc69d94a74d3d7573", "f1"]
-
-    const result = "/" + parts.slice(4).join("/"); // từ phần tử thứ 4 trở đi
-    console.log('sssssss', result)
-    pathTree.value = result
-}
-const getFoldersByFolderId = async (id) => {
-    const response = await getFoldersByFolder(id)
-    console.log('getFoldersByFolderId : ', response.data);
-    folders.value = response.data;
-};
-
-const createAlbum = () => {
-    console.log('createAlbum : ', parentIdParam == undefined ? rootFolder.value.id : parentIdParam);
-    // return
-    postCreateFolder(nameFolder.value.trim(), parentIdParam == undefined ? rootFolder.value.id : parentIdParam).then((res) => {
-        // router.go(0);
-        handleUPdateData()
-
-    }).catch((err) => {
-        // toastError({ message: ('Tạo folder thất bại') });
-
-    });
-    // toastSuccess({ message: ('Tạo folder Thành công') });
-    showDialogCreateAlbum.value = false;
-};
-
-const getFoldersShareWithUser = async () => { // share
-    const response = await getAllFolderShareWithUser()
-    folders.value = response.data;
-
-    // sử lý dữ liệu ảnh được chia sẻ
-    photos.value = []
-
-
-}
-
-const handleUpdatePermission = async () => {
-    const sharedUsers = folderCurrant.value.permissionUsers.sharedUsers.filter(e => e.permission !== 'NONE');
-    const fileFolderId = folderCurrant.value.permissionUsers.fileFolderId
-    const visibility = folderCurrant.value.permissionUsers.visibility
-    const defaultPermission = folderCurrant.value.permissionUsers.permission
-
-    await postCreateAndUpadateShare(fileFolderId, visibility, defaultPermission, sharedUsers)
-    await handleUPdateData()
-    showUserShareButton.value = false
-
-    // showUserShareButton.value = false
-
-}
-
-/// restart data
-const handleUPdateData = () => {
-    // alert(parentIdParam)
-    if (route.params.idFolder == undefined) {
-        getrootFolder();
-    } else {
-        getFolder(parentIdParam)
-        folderCurrant.value = {}
-    }
-}
-
-
-
-
-
-
-
+const nameFolder = ref('');
 const viewMode = ref('list');
 const albumMode = ref('all');
-const selectedAlbum = ref(null);
-const showShareDialog = ref(false);
-const showUserShareButton = ref(false)
-const albumShareLink = ref('');
+const pageList = ref([]);
+const showUserShareButton = ref(false);
 
+const defaultAlbumImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEaYTaC-q-QWUu2g7QgVvRKkJkqXjXtjBU2w&s';
 
-const filteredAlbums = computed(() => {
-    console.log('folders.value : ', folders.value);
-    return folders.value;
+const route = useRoute();
+const router = useRouter();
+
+// Computed property để lấy parentIdParam từ route params một cách reactive
+const parentIdParam = computed(() => route.params.idFolder);
+
+// ---------- computed ----------
+const filteredAlbums = computed(() => folders.value || []);
+const pathTree = ref('');
+
+const breadcrumbSegments = computed(() => {
+    if (!pathTree.value) return [];
+    return pathTree.value.split('/').filter(p => p.length > 0);
 });
 
-const changeAlbumMode = async (mode) => {
-    if (albumMode.value == mode)
-        return
+const canGoBack = computed(() => {
+    // Có thể quay lại nếu:
+    // 1. Có folder trong pageList, HOẶC
+    // 2. Đang ở trong một folder con (không phải root)
+    const canBack = pageList.value.length > 0 || (route.params.idFolder && route.params.idFolder !== undefined);
+
+    // Debug log để theo dõi
+    console.log('canGoBack debug:', {
+        pageListLength: pageList.value.length,
+        currentFolderId: route.params.idFolder,
+        folderCurrentId: folderCurrent.value.id,
+        canBack: canBack,
+        pageList: [...pageList.value]
+    });
+
+    return canBack;
+});
+
+const permissionOptions = [
+    { label: 'Xem (VIEW)', value: 'VIEW' },
+    { label: 'Chỉnh sửa (EDIT)', value: 'EDIT' },
+    { label: 'Không (NONE)', value: 'NONE' }
+];
+
+const sortOptions = ref([
+    { label: 'Tất cả', value: 'ALL' },
+    { label: 'Theo tên', value: 'NAME' },
+    { label: 'Ngày tạo', value: 'DATE_CREATED' },
+    { label: 'Ngày sửa', value: 'DATE_MODIFIED' }
+])
+
+// ---------- helpers ----------
+function confirmCreateCookie() {
+    if (!tempUserId.value.trim()) {
+        toastError({ message: 'Vui lòng nhập user id' });
+        return;
+    }
+    taocock('userDetail', { id_user: tempUserId.value.trim(), usename: tempUserId.value.trim() });
+    showDialog.value = false;
+}
+
+function normalizePathForTree(path = '') {
+    // cắt 4 segment đầu nếu path có dạng "/.../Album/User/{id}/..."
+    const parts = path.split('/');
+    if (parts.length <= 4) return path;
+    return '/' + parts.slice(4).join('/');
+}
+
+const fetchRootFolder = async () => {
+    try {
+        const res = await getFolderRoot();
+        rootFolder.value = res.data;
+        folderCurrent.value = res.data || {};
+        pathTree.value = normalizePathForTree(res.data.path || '');
+
+        if (rootFolder.value?.id != undefined) {
+            await fetchChildren(rootFolder.value.id);
+        }
+    } catch (err) {
+        console.error('fetchRootFolder error', err);
+    }
+}
+
+async function fetchFolder(id) {
+    try {
+        const res = await getFolderDetail(id);
+        folderCurrent.value = res.data || {};
+        await fetchChildren(id);
+        const photosRes = await getPhotosByFolder(sortType.value,id);
+        photos.value = photosRes.data || [];
+        pathTree.value = normalizePathForTree(folderCurrent.value.path || '');
+    } catch (err) {
+        console.error('fetchFolder error', err);
+    }
+}
+
+async function fetchChildren(id) {
+    try {
+        const res = await getFoldersByFolder(sortType.value,id);
+        folders.value = res.data || [];
+        const photosRes = await getPhotosByFolder(sortType.value,id);
+        photos.value = photosRes.data || [];
+        console.log("folders: ", res.data)
+    } catch (err) {
+        console.error('fetchChildren error', err);
+    }
+}
+
+async function createAlbum() {
+    try {
+        const parentId = parentIdParam.value === undefined ? rootFolder.value?.id : parentIdParam.value;
+        await postCreateFolder(nameFolder.value.trim(), parentId);
+        showDialogCreateAlbum.value = false;
+        nameFolder.value = '';
+        await handleUpdateData();
+    } catch (err) {
+        console.error('createAlbum error', err);
+        toastError({ message: 'Tạo folder thất bại' });
+    }
+}
+
+async function getFoldersShareWithUser() {
+    try {
+        const res = await getAllFolderShareWithUser();
+        const photosRes = await getAllPhotosShareWithUser();
+        photos.value = photosRes.data || [];
+        console.log("phoro share", photosRes)
+        folders.value = res.data || [];
+        // photos.value = [];
+    } catch (err) {
+        console.error('getFoldersShareWithUser error', err);
+    }
+}
+
+async function handleUpdatePermission() {
+    try {
+        const sharedUsers = (folderCurrent.value.permissionUsers?.sharedUsers || []).filter(e => e.permission !== 'NONE');
+        const fileFolderId = folderCurrent.value.permissionUsers?.fileFolderId;
+        const visibility = folderCurrent.value.permissionUsers?.visibility;
+        const defaultPermission = folderCurrent.value.permissionUsers?.permission;
+        if (!fileFolderId) return;
+        await postCreateAndUpadateShare(fileFolderId, visibility, defaultPermission, sharedUsers);
+        await handleUpdateData();
+        showUserShareButton.value = false;
+    } catch (err) {
+        console.error('handleUpdatePermission error', err);
+    }
+}
+
+async function handleDeleteCurrentFolderShare() {
+    try {
+        const permissionId = folderCurrent.value.permissionUsers?.id;
+        if (!permissionId) {
+            toastError({ message: 'Không tìm thấy permission ID' });
+            return;
+        }
+        await DeletePermission(permissionId);
+        toastSuccess({ message: 'Xóa chia sẻ thành công' });
+        showUserShareButton.value = false;
+        await handleUpdateData();
+    } catch (err) {
+        console.error('handleDeleteCurrentFolderShare error', err);
+        toastError({ message: 'Xóa chia sẻ thất bại' });
+    }
+}
+
+async function handleUpdateData() {
+    if (route.params.idFolder == undefined) {
+        await fetchRootFolder();
+    } else {
+        // parentIdParam là computed property, nó sẽ tự động cập nhật theo route
+        await fetchFolder(parentIdParam.value);
+    }
+}
+
+function openFolder(id) {
+    // Lưu folder hiện tại vào pageList trước khi chuyển
+    const currentFolderId = folderCurrent.value.id || parentIdParam.value;
+    if (currentFolderId && currentFolderId !== id) {
+        pageList.value.push(currentFolderId);
+    }
+    router.replace({ name: 'EcmAlbumDetail', params: { idFolder: id } }).then(() => fetchFolder(id));
+}
+
+function rollbackPage() {
+    // Nếu đang ở root folder và không có pageList, không làm gì
+    if (!route.params.idFolder && !pageList.value.length) {
+        return;
+    }
+
+    // Nếu có pageList, quay về folder trước đó
+    if (pageList.value.length > 0) {
+        const previousFolderId = pageList.value.pop();
+        if (previousFolderId) {
+            router.replace({ name: 'EcmAlbumDetail', params: { idFolder: previousFolderId } }).then(() => fetchFolder(previousFolderId));
+            return;
+        }
+    }
+
+    // Nếu không có pageList nhưng đang ở folder con, về root
+    if (route.params.idFolder) {
+        goRoot();
+    }
+}
+
+function changeAlbumMode(mode) {
+    if (albumMode.value === mode) return;
     albumMode.value = mode;
-    if (mode == 'all') {
-
-        router.push({ name: 'EcmAlbum' }).then(() => { router.go(0) })
-
+    if (mode === 'all') {
+        // Reset pageList khi về mode all
+        pageList.value = [];
+        router.push({ name: 'EcmAlbumDetail', params: { idFolder: rootFolder.value.id } }).then(() => fetchRootFolder());
+        // fetchRootFolder()
+        // getFoldersShareWithUser()
     } else {
-        getFoldersShareWithUser()
+        getFoldersShareWithUser();
     }
+}
+
+function goRoot() {
+    // Reset pageList khi về root
+    pageList.value = [];
+    // router.push({ name: 'EcmAlbum' }).then(() => fetchRootFolder());
+    router.push({ name: 'EcmAlbumDetail' }).then(() => fetchRootFolder());
 
 }
 
-
-/// page
-const pathTree = ref("")
-const pageList = ref([])
-const openFolder = (id) => {
-    // router.push(`album / ${ id }`);
-    // getFolder(parentIdParam)\
-    // router.push(`album / ${ id }`)
-    // router.replace({ name: 'album', params: { idFolder: id } })
-    router.replace({ name: 'EcmAlbumDetail', params: { idFolder: id } }).then(() => getFolder(id).then())
-    parentIdParam = route.params.idFolder
-    // console.log("new  parame page ", route.params.idFolder)
-    pageList.value.push(id)
-    console.log("page ", pageList)
-
-
-}
-const rollbackPage = () => {
-    if (pageList.value.length <= 0) {
-        return
-    }
-    const idPage = pageList.value[pageList.value.length - 1]
-    router.replace({ name: 'EcmAlbumDetail', params: { idFolder: idPage } }).then(() => getFolder(idPage).then())
-    pageList.value.pop()
+function handleSortChange() {
+    // Reload data khi thay đổi sortType
+    handleUpdateData();
 }
 
-
-
-
-
-
-onMounted(() => {
-    if (parentIdParam == undefined) {
-        getrootFolder();
-    } else {
-        getFolder(parentIdParam)
+// ---------- watch route params changes ----------
+watch(() => route.params.idFolder, (newId, oldId) => {
+    // Chỉ fetch lại data khi idFolder thay đổi
+    if (newId !== oldId) {
+        handleUpdateData();
     }
-
-
-    // window.addEventListener('keydown', (e) => {
-    //     if (e.key === 'Escape') {
-    //         // close dialogs
-    //         showShareDialog.value = false;
-    //         showPermissionDialog.value = false;
-    //     }
-    // });
 });
-onBeforeUnmount(() => {
 
-})
+// Watch route name để reset pageList khi về root
+watch(() => route.name, (newName, oldName) => {
+    // Chỉ reset pageList khi thực sự navigate về root từ một route khác
+    if (newName === 'EcmAlbum' && oldName && oldName !== 'EcmAlbum') {
+        pageList.value = [];
+    }
+});
+
+// ---------- lifecycle ----------
+onMounted(() => {
+    handleUpdateData();
+});
 </script>
 
 <style scoped>
-/* (Use same styles from your previous file) */
+/* --- styles kept mostly as original but cleaned --- */
 .albums-page {
     min-height: calc(100vh - 80px);
     padding: 1.25rem;
-    /* background: linear-gradient(180deg, #f7f8fc 0%, #ffffff 100%); */
     color: #222;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap: 1rem;
     margin-bottom: 0.9rem;
     padding: 0.25rem 0;
+    align-items: center;
 }
 
 .header-left {
     display: flex;
     flex-direction: column;
+    align-items: start;
 }
 
 .page-title {
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #2d2d2d;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+}
+
+.page-title:hover {
+    color: #6c5ce7;
 }
 
 .subtle {
@@ -419,8 +539,15 @@ onBeforeUnmount(() => {
 
 .album-list-header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 8px;
     margin-bottom: 10px;
+}
+
+.header-left-group {
+    display: flex;
+    gap: 8px;
 }
 
 .mode-btn {
@@ -436,13 +563,29 @@ onBeforeUnmount(() => {
     color: white;
 }
 
+.sort-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sort-label {
+    font-size: 14px;
+    color: #374151;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.sort-dropdown {
+    min-width: 180px;
+}
+
 .album-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 1rem;
 }
 
-/* modal styles (same as before) */
 .modal-backdrop {
     position: fixed;
     inset: 0;
@@ -462,51 +605,288 @@ onBeforeUnmount(() => {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
 }
 
-.thumb {
-    width: 56px;
-    height: 56px;
-    object-fit: cover;
+.butonFix {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    border-radius: 37px;
+    background: #6c5ce7;
+    color: white;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.shared-users-section {
+    margin-top: 12px;
+    background: #f9fafb;
     border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
 }
 
-.muted {
-    color: #6b7280;
-    font-size: 0.9rem;
+.shared-users-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    transition: background 0.2s ease;
 }
 
-.folder-list {
-    list-style: none;
-    padding: 0;
-    margin: 0.5rem 0 1rem 0;
-    max-height: 220px;
-    overflow: auto;
+.shared-users-header:hover {
+    background: #f3f4f6;
 }
 
-.album-item {
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-count {
+    color: #6c5ce7;
+    font-weight: 700;
+}
+
+.listUser {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 12px 12px 12px;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+    transition: all 0.3s ease;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.view-more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    background: white;
+    border: 1px dashed #6c5ce7;
+    border-radius: 8px;
+    color: #6c5ce7;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-more-btn:hover {
+    background: #f5f3ff;
+    border-color: #5a4fcf;
+    color: #5a4fcf;
+}
+
+.userItem {
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 10px;
-    cursor: pointer;
+    background: white;
     border-radius: 8px;
-}
-
-.album-item:hover {
-    background: rgba(15, 23, 42, 0.03);
-}
-
-.btn-secondary {
-    background: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 6px 10px;
-    border-radius: 6px;
-}
-
-.p-button-text {
-    background: transparent;
-    border: none;
+    border: 1px solid #e5e7eb;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.userItem:hover {
+    border-color: #6c5ce7;
+    box-shadow: 0 2px 8px rgba(108, 92, 231, 0.1);
+    transform: translateX(4px);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.user-permission {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.permission-view {
+    background: rgba(255, 193, 7, 0.15);
+    color: #856404;
+}
+
+.permission-edit {
+    background: rgba(34, 197, 94, 0.15);
+    color: #166534;
+}
+
+.permission-none {
+    background: rgba(220, 53, 69, 0.15);
+    color: #991b1b;
+}
+
+.user-permissions-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.permission-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    gap: 16px;
+}
+
+.permission-row:last-child {
+    border-bottom: none;
+}
+
+.user-details {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.user-avatar-small {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+}
+
+.user-name-bold {
+    font-weight: 600;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 2px;
+}
+
+.user-email {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.permission-dropdown {
+    min-width: 140px;
+}
+
+.optionPermission {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 6px 8px;
+}
+
+.breadcrumb-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #374151;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 12px;
+    transition: all 0.2s ease;
+}
+
+.back-button:hover:not(:disabled) {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    color: #111827;
+}
+
+.back-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumb-segment {
+    color: #6b7280;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: #f3f4f6;
+}
+
+.breadcrumb-separator {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.album-card {
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.album-card:hover {
+    box-shadow: #6c5ce733 0px 4px 20px;
 }
 
 @media (max-width:640px) {
@@ -519,93 +899,20 @@ onBeforeUnmount(() => {
     .actions {
         justify-content: flex-end;
     }
-}
 
-
-.album-card {
-    padding: 5px;
-    border-radius: 10px;
-}
-
-.album-card:hover {
-    box-shadow: #6c5ce733 0px 4px 20px;
-}
-
-.butonFix {
-    width: 50px;
-    height: 50px;
-    aspect-ratio: 2 / 2;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    border-radius: 37px;
-}
-
-.listUser {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.userItem {
-    margin: 5px;
-}
-
-.pi-user {
-    size: 10px;
-    height: max-content;
-    width: max-content;
-    border-radius: 20px;
-    padding: 5px;
-}
-
-.iconUser {
-    font-size: 10px;
-    color: rgb(112, 128, 144);
-    font-size: 28px;
-    border: solid 1px #bababa;
-}
-
-.iconUser:hover {
-    font-size: 10px;
-    color: rgb(110, 122, 255);
-    font-size: 28px;
-    border: solid 1px #8cd3ff;
-    background-color: #b3a9ff;
-}
-
-.optionPermission {
-    border: none;
-}
-
-/* 
-
-
-
-.imgslide {
-    width: 60%;
-    height: 100%;
-    position: relative;
-    animation: img_dow 2s;
-}
-
-.imgslide:before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image: url("https://flone.jamstacktemplates.dev/assets/img/slider/single-slide-hm1-2.png");
-    background-size: cover;
-}
-
-@keyframes img_dow {
-    0% {
-        opacity: 0;
-        transform: translateY(10rem);
+    .album-list-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
     }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0);
+    .sort-selector {
+        width: 100%;
     }
-} */
+
+    .sort-dropdown {
+        width: 100%;
+        min-width: unset;
+    }
+}
 </style>

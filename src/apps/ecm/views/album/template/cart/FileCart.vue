@@ -8,8 +8,7 @@
 
             <i @click="menuVisible = true" class="pi pi-ellipsis-v icon" style="font-size: 17px"></i>
         </div>
-        <img crossorigin="use-credentials" @click="visiblPhoto = true" :src="urlImage + photo?.treePath"
-            class="image" />
+        <img @click="visiblPhoto = true" :src="urlImage + photo?.treePath" class="image" />
 
         <!-- photo full screen -->
         <Dialog v-model:visible="visiblPhoto" maximizable modal :header="photo.filename" :style="{ width: '50rem' }"
@@ -20,14 +19,14 @@
                 <!-- Or use a custom SVG -->
                 <!-- <svg ...>...</svg> -->
             </template>
-            <img crossorigin="use-credentials" :src="urlImage + photo?.treePath" class="image" />
+            <img :src="urlImage + photo?.treePath" class="image" />
 
         </Dialog>
         <!-- Dialog menu 3 chấm -->
         <Dialog v-model:visible="menuVisible" modal :style="{ width: '18rem' }" class="custom-dialog">
             <template #header>
                 <div class="dialog-header">
-                    <img crossorigin="use-credentials" :src="urlImage + photo?.treePath" class="thumb" />
+                    <img :src="urlImage + photo?.treePath" class="thumb" />
                     <div class="info">
                         <h3>{{ photo?.filename }}</h3>
                         <p>{{ new Date(photo?.createdAt).toLocaleDateString() }}</p>
@@ -36,9 +35,18 @@
             </template>
             <div class="dialog-body">
                 <ul style="list-style:none; padding:0; margin:0;">
-                    <li style="padding:10px 0; cursor:pointer;" @click="openShareDialog">
-                        <i class="pi pi-share-alt" style="margin-right:8px"></i> Chia sẻ
+                    <li style="padding:10px 0; cursor:pointer;" @click="openDetailDialog">
+                        <i class="pi pi-info-circle" style="margin-right:8px"></i> Xem chi tiết
                     </li>
+                    <li style="padding:10px 0; cursor:pointer;" @click="handleDownload">
+                        <i class="pi pi-download" style="margin-right:8px"></i> Tải xuống
+                    </li>
+                    <li style="padding:10px 0; cursor:pointer;" @click="openShareDialog">
+                        <i class="pi pi-share-alt" style="margin-right:8px"></i> Chia sẻ quyền
+                    </li>
+                    <!-- <li style="padding:10px 0; cursor:pointer;" @click="openCopyUrlDialog">
+                        <i class="pi pi-link" style="margin-right:8px"></i> Copy link
+                    </li> -->
                     <!-- <li style="padding:10px 0; cursor:pointer;"
                         @click="addAlbumDialogVisible = true; menuVisible = false">
                         <i class="pi pi-folder-plus" style="margin-right:8px"></i> Thêm vào album
@@ -51,59 +59,29 @@
             </div>
         </Dialog>
         <!-- Dialog chia sẻ -->
-        <Dialog v-model:visible="shareDialogVisible" modal header="Chia sẻ Album" :style="{ width: '25rem' }">
-            <div class="modal" role="dialog" aria-modal="true">
-                <div class="dialog-header">
-                    <div class="info">
-                        <h3 class="album-name">{{ selectedAlbum?.name }}</h3>
-                    </div>
-                </div>
+        <Button_share v-model:visible="shareDialogVisible" :item-id="photo?.id" :item-name="photo?.filename || ''"
+            item-type="file" @update="handleUpdate" />
 
-                <div class="dialog-body">
-                    <h4>Chọn người dùng để chia sẻ</h4>
-                    <hr class="thin-sep" />
-                    <div style="margin: 10px;">
-                        public:
-                        <Checkbox v-model="role" binary />
-                    </div>
+        <!-- Detail Viewer Dialog -->
+        <DetailViewer
+            v-model:visible="showDetailDialog"
+            :item="photo"
+            item-type="file"
+            @hide-dialog="showDetailDialog = false"
+        />
 
-                    <!-- {{ role }} -->
-                    <ul v-if="!role" class="folder-list">
-                        <li v-for="(user, i) in userListToShare" :key="i" class="album-item">
-                            <i class="pi pi-user"></i>
-                            <div class="user-info">
-                                <div class="user-name">{{ user.name }}</div>
-                                <div class="user-email muted">{{ user.email }}</div>
-                            </div>
-
-                            <div class="action">
-                                <select v-model="user.permission" style="border: none;" class="w-full">
-                                    <option selected :value="'NONE'">
-                                        NONE
-                                    </option>
-                                    <option v-for="opt in permissionOptions" :key="opt.code" :value="opt.code">
-                                        {{ opt.name }}
-                                    </option>
-                                </select>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <Button label="link " style="margin: 10px;" icon="pi pi-link"
-                    @click="copyUrl(urlImage + photo?.treePath)"></Button>
-                <div class="dialog-footer flex justify-end gap-2">
-                    <Button type="button" label="Đóng" severity="secondary" @click="showShareDialog = false"></Button>
-                    <Button type="button" label="Chia sẻ" severity="secondary"
-                        @click="handleConfirmPermission"></Button>
-                </div>
+        <!-- Copy URL Button -->
+        <Dialog v-model:visible="copyUrlDialogVisible" modal header="Chia sẻ link" :style="{ width: '25rem' }">
+            <div class="p-3">
+                <InputText v-model="shareUrl" readonly class="w-full" />
+                <Button label="Copy link" icon="pi pi-link" class="mt-3 w-full" @click="copyUrl(shareUrl)" />
             </div>
         </Dialog>
         <!-- Dialog xác nhận xóa -->
         <Dialog v-model:visible="deleteDialogVisible" modal :style="{ width: '18rem' }" class="custom-dialog">
             <template #header>
                 <div class="dialog-header">
-                    <img crossorigin="use-credentials" :src="urlImage + photo?.treePath" class="thumb" />
+                    <img :src="urlImage + photo?.treePath" class="thumb" />
                     <div class="info">
                         <h3>{{ photo?.filename }}</h3>
                     </div>
@@ -122,12 +100,15 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref, computed } from "vue"
 import Dialog from "primevue/dialog"
 import Button from "primevue/button"
-import { deleteImageHard, getAllUser, urlImage } from "../../api/Album"
-import router from "@/common/router"
+import InputText from "primevue/inputtext"
+import { deleteImageHard, urlImage, dowLoadFile } from "../../api/Album.js"
 import { copyToClipboard } from "../../api/CookieFuntion.js"
+import { toastError, toastSuccess } from '@/common/helpers/custom-toast-service'
+import Button_share from "../button/Button_share.vue"
+import DetailViewer from "../viewer/DetailViewer.vue"
 
 const props = defineProps({
     photo: {
@@ -144,38 +125,29 @@ const emit = defineEmits(['updateData'])
 const menuVisible = ref(false)
 const shareDialogVisible = ref(false)
 const deleteDialogVisible = ref(false)
-const addAlbumDialogVisible = ref(false)
 const visiblPhoto = ref(false)
-const albums = ref([])
+const copyUrlDialogVisible = ref(false)
+const showDetailDialog = ref(false)
+const shareUrl = ref('')
 
-const showEditDialog = ref(false)
-const showShareDialog = ref(false)
-const showPermissionDialog = ref(false)
+const openDetailDialog = () => {
+    menuVisible.value = false
+    showDetailDialog.value = true
+}
 
-
-const selectedAlbum = ref(null)
-const selectedUser = ref(null)
-const selectedPermission = ref('VIEW')
-
-const permissionOptions = ref([
-
-    { name: 'VIEW', code: 'VIEW' },
-    { name: 'EDIT', code: 'EDIT' },
-
-])
-const role = ref(false) //LIMITED, PUBLIC 
-const openMenu = ref(false)
-const nameFolder = ref('')
-
-
-const userListToShare = ref([])
-
-const openShareDialog = async () => {
-    const res = await getAllUser()
-    userListToShare.value = res.data
+const openShareDialog = () => {
     shareDialogVisible.value = true
     menuVisible.value = false
+}
 
+const openCopyUrlDialog = () => {
+    shareUrl.value = urlImage + props.photo?.treePath
+    copyUrlDialogVisible.value = true
+    menuVisible.value = false
+}
+
+const handleUpdate = () => {
+    emit('updateData')
 }
 
 
@@ -199,18 +171,56 @@ const deletePhoto = async () => {
 
 }
 
-///// share 
 const copyUrl = (url) => {
     copyToClipboard(url)
 }
-const handleConfirmPermission = () => {
-    // console.log('confirm ', userListToShare.value)
-    const userspermission = userListToShare.value.filter(u => (u.permission && u.permission !== 'NONE')).map(e => ({
-        ...e,
-        userId: e.id,
-        fullName: e.name
-    }));
-    console.log('confirm userspermission ', userspermission)
+
+const handleDownload = async () => {
+    if (!props.photo?.id) {
+        toastError({ message: 'Không tìm thấy file để tải xuống' });
+        return;
+    }
+
+    try {
+        menuVisible.value = false;
+        const response = await dowLoadFile(props.photo.id);
+        
+        // Tạo blob từ response data
+        const blob = new Blob([response.data]);
+        
+        // Tạo URL từ blob
+        const url = window.URL.createObjectURL(blob);
+        
+        // Tạo link để download
+        const link = document.createElement('a');
+        link.href = url;
+        
+        // Lấy tên file từ Content-Disposition header hoặc sử dụng filename từ photo
+        const contentDisposition = response.headers['content-disposition'];
+        let filename = props.photo.filename || 'download';
+        
+        if (contentDisposition) {
+            const filenameMatch = contentDisposition.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/);
+            if (filenameMatch && filenameMatch[1]) {
+                filename = filenameMatch[1].replace(/['"]/g, '');
+                // Decode URI nếu cần
+                filename = decodeURIComponent(filename);
+            }
+        }
+        
+        link.setAttribute('download', filename);
+        document.body.appendChild(link);
+        link.click();
+        
+        // Cleanup
+        link.remove();
+        window.URL.revokeObjectURL(url);
+        
+        toastSuccess({ message: 'Tải xuống thành công' });
+    } catch (error) {
+        console.error('Download error:', error);
+        toastError({ message: 'Tải xuống thất bại. Vui lòng thử lại.' });
+    }
 }
 
 
@@ -263,7 +273,7 @@ const handleConfirmPermission = () => {
 .image {
     width: 100%;
     aspect-ratio: 7 / 5;
-    object-fit: cover;
+    /* object-fit: cover; */
     transition: opacity 0.6s;
 }
 

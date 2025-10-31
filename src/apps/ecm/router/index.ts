@@ -270,6 +270,12 @@ const routes: RouteRecordRaw[] = [
             name: 'EcmAlbumDetail',
             component: () => import('@/apps/ecm/views/album/AlbumManage.vue')
           },
+          {
+            path: 'demo',
+            meta: { requiredAuth: true, },
+            name: 'demouse',
+            component: () => import('@/apps/ecm/views/album/DemoUse.vue')
+          },
         ]
       },
       {

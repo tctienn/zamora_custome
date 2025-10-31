@@ -279,6 +279,17 @@
                   :avatar-url='url'
                   name-image='avatar'
                   @is-change='changeAvatar'/>
+                  <ImageSelector 
+            v-model:visible="showImageSelector" 
+            :activeTab="activeTab"
+            @select="handleImageSelect" 
+        />
+         <Button 
+                            label="Chọn từ Album" 
+                            icon="pi pi-images"
+                            @click="showImageSelector=!showImageSelector"
+                            severity="secondary"
+                        />
                 <input
                   name='isAvatarChange'
                   type='hidden'
@@ -418,6 +429,7 @@ import { getPreviewFile } from '@/common/helpers/file-utils';
 import useMoment from '@/common/helpers/mixins/use-moment';
 import { listToTree } from '@/common/helpers/utils';
 import LogoUpload from '@/common/views/logo/LogoUpload.vue';
+import ImageSelector from '@/apps/ecm/views/album/template/ImageSelector.vue';
 
 const props = defineProps({
   item: {
@@ -577,10 +589,69 @@ function validateForm() {
       || visibleErrorEmailInvalid.value || visibleErrorFullnameIsEmpty.value || visibleErrorBirthDay.value);
 }
 
+///// chèn demo 
+// Selected image state
+const selectedImage = ref(null)
+const selectedImagePreview = ref(null)
+const selectedImageInfo = ref('')
+
+const dataa = ref()
+const showImageSelector = ref(false)
+const activeTab = ref('upload')
+const urlImage = ref('http://localhost:4000/files/preview/localhost/')
+
+function handleImageSelect(imageData) {
+    selectedImage.value = imageData
+    console.log("cath seu kien emit",imageData)
+    urlImage.value = urlImage.value +imageData.url
+    isAvatarChange.value = true;
+    urlToBlob(imageData.url)
+    
+    if (imageData.type === 'upload') {
+        // For uploaded file
+        selectedImagePreview.value = imageData.preview
+        selectedImageInfo.value = `File: ${imageData.file.name} (${formatFileSize(imageData.file.size)})`
+    } else if (imageData.type === 'album') {
+        // For album photo
+        selectedImagePreview.value = imageData.url
+        selectedImageInfo.value = `Album: ${imageData.photo.filename}`
+    }
+    
+    toastSuccess({ message: 'Đã chọn ảnh thành công' })
+}
+
+// var imgeInject = 'http://localhost:4000/files/preview/localhost/main/Album/users/651a6dffea5a6a1f1b92575c/ba41f3dd-ccf8-4c2c-8169-5efa30abd93e.png'
+// imgeInject = 'http://localhost:4000/files/preview/localhost/main/Album/users/651a6dffea5a6a1f1b92575c/cc/cc/8710a592-134f-478c-ad84-64c7cf604a88.jpg'
+// const url = imgeInject
+
+async function urlToBlob(imgeInject: String) {
+  const res = await fetch(imgeInject);
+  if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+  dataa.value = await res.blob()
+      // dataa.value = new File([res.blob()], 'avatarss.png', { type: res.blob().type || 'image/png' });
+
+  return await res.blob(); // <- đây là binary dạng Blob
+}
+
+
+
 function submit() {
   isSubmit.value = true;
   if (validateForm()) {
     const formData = new FormData(form.value);
+    ///demo chèn mã
+    
+    console.log("ssssss",dataa.value)
+    formData.delete('avatar');
+  formData.set('avatar', dataa.value);
+   
+    // formData.append('isAvatarChange',true);
+    // formData.append('image',dataa.value);
+
+    //   isAvatarChange.value = true;
+    // formData.set('isAvatarChange', 'true');
+    ////
+    console.log("bắt sự kiện sửa người dung tài koản ", form.value)
     formData.append('locked', user.value.locked?.toString());
     formData.append('roles', user.value.roles?.toString() ?? '');
     formData.append('position', user.value.position?.toString() ?? '');

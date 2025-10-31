@@ -24,7 +24,8 @@
         accept='image/*'
         :name='nameImage'
         type='file'
-        @change='onFileChange'>
+        @change='onFileChange'
+        >
     </label>
   </div>
 </template>

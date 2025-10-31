@@ -77,15 +77,10 @@ const handleUpload = async () => {
         return
     }
 
-    // const form = new FormData()
-    // form.append('folderId', props.album.id)
-    // rawFiles.value.forEach(f => form.append('files', f))
+
 
     try {
-        // await axios.post('http://localhost:8080/api/photos/create-photos', form, {
-        //     // headers: { 'Content-Type': 'multipart/form-data' },
-
-        // })
+        console.log("props album butonipload", props.album)
         await createPhotos(props.album.id, rawFiles.value).then(() => emit('updateData'))
         toastSuccess({ message: 'Upload thành công!' })
         showDialogUploadImage.value = false

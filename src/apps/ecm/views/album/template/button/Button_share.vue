@@ -1,0 +1,225 @@
+<template>
+  <Dialog v-model:visible="localVisible" modal header="Chia sẻ Album" :style="{ width: '37rem' }">
+    <template #header>
+      <div class="font-bold text-lg">{{ itemName }}</div>
+    </template>
+
+    <div class="share-container">
+      <!-- User Search -->
+      <AutoComplete inputStyle="width: 100%" v-model="userToAdd" class="w-full"  option-label="label"
+        placeholder="Tìm kiếm người dùng để chia sẻ..." :suggestions="suggestUsers" :min-length="3"
+        @complete="searchShareUsers"  @item-select="addSharedUser" />
+
+      <!-- Selected Users -->
+      <div v-if="selectedUsers.length > 0" class="selected-users mt-3">
+        <div class="font-bold py-2">Người dùng được chia sẻ</div>
+        <div class="border-round border-1 surface-border p-2" style="max-height: 250px; overflow-y: auto;">
+          <div v-for="(user, index) in selectedUsers" :key="index" class="flex align-items-center border-bottom-1 py-2"
+            :class="{ 'border-bottom-none': index === selectedUsers.length - 1 }">
+            <div class="flex align-items-center gap-2 flex-1">
+              <i class="pi pi-user"></i>
+              <div class="flex flex-column">
+                <div class="font-medium">{{ user.name }}</div>
+                <div class="text-sm text-color-secondary">{{ user.email }}</div>
+              </div>
+            </div>
+
+            <div class="flex align-items-center gap-2">
+              <Dropdown v-model="user.permission" option-label="name" option-value="code" :options="permissionOptions"
+                class="p-inputtext-sm w-full" style="min-width: 120px;" />
+              <i class="pi pi-times cursor-pointer text-red-500 hover:text-red-700" @click="removeUser(index)" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Public Access Toggle -->
+      <div class="mt-4 pt-3 border-top-1">
+        <div class="font-bold py-2">Quyền truy cập chung</div>
+        <div class="flex align-items-center gap-3">
+          <i class="pi" :class="shareType === 'PUBLIC' ? 'pi-globe' : 'pi-lock'" style="font-size: 1.5rem;" />
+          <Dropdown v-model="shareType" option-label="label" option-value="value" :options="shareTypeOptions"
+            class="flex-1" />
+          <Dropdown v-if="shareType === 'PUBLIC'" v-model="defaultPermission" option-label="name" option-value="code"
+            :options="permissionOptions" class="flex-shrink-0" style="min-width: 120px;" />
+        </div>
+      </div>
+    </div>
+
+    <template #footer>
+      <Button label="Đóng" severity="secondary" @click="closeDialog" />
+      <Button label="Chia sẻ" @click="handleShare" :disabled="!canShare" />
+    </template>
+  </Dialog>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue'
+import AutoComplete from 'primevue/autocomplete'
+import Dropdown from 'primevue/dropdown'
+import Button from 'primevue/button'
+import Dialog from 'primevue/dialog'
+import { getSearchShareUsers } from '@/apps/ecm/api/graphql/share'
+import { postCreateAndUpadateShare, postCreateAndUpadateSharePhoto } from '@/apps/ecm/views/album/api/Album.js'
+import { toastError, toastSuccess } from '@/common/helpers/custom-toast-service'
+
+const props = defineProps({
+  itemId: {
+    type: String,
+    required: false
+  },
+  itemName: {
+    type: String,
+    required: false
+  },
+  itemType: {
+    type: String,
+    default: 'album',
+     required: false,
+    validator: (value) => ['album', 'file'].includes(value)
+  },
+  visible: {
+    type: Boolean,
+    default: false
+  }
+
+})
+
+const emit = defineEmits(['update:visible', 'update'])
+
+const localVisible = computed({
+  get: () => props.visible,
+  set: (value) => emit('update:visible', value)
+})
+
+const userToAdd = ref(null)
+const suggestUsers = ref([])
+const selectedUsers = ref([])
+const shareType = ref('LIMITED')
+const defaultPermission = ref('VIEW')
+
+const permissionOptions = [
+  { name: 'Xem', code: 'VIEW' },
+  { name: 'Chỉnh sửa', code: 'EDIT' },
+  { name: 'Không', code: 'NONE' }
+]
+
+const shareTypeOptions = [
+  { label: 'Giới hạn', value: 'LIMITED' },
+  { label: 'Công khai', value: 'PUBLIC' }
+]
+
+const canShare = computed(() => {
+  
+
+  return selectedUsers.value.length > 0 || shareType.value === 'PUBLIC'
+})
+
+function searchShareUsers(event) {
+    
+  if (event.query.length > 2) {
+    getSearchShareUsers(event.query)
+      .onResult((result) => {
+        if (result.data?.searchShareUsers) {
+          suggestUsers.value = result.data.searchShareUsers.map((user) => ({
+            ...user,
+            label: `${user.fullName} - ${user.email}`
+          }))
+        }
+      })
+  } else {
+    suggestUsers.value = []
+  }
+  console.log(" check searchShareUsers !! ",selectedUsers.value)
+}
+
+function addSharedUser(event) {
+  const user = event.value
+  console.log(" check selectedUsers ",selectedUsers.value)
+  if (!selectedUsers.value.some((u) => u.userId === user.userId)) {
+    selectedUsers.value.push({
+      userId: user.userId,
+      name: user.fullName,
+      fullName: user.fullName,
+      email: user.email,
+      permission: 'VIEW'
+    })
+  }
+  userToAdd.value = null
+}
+
+function removeUser(index) {
+  selectedUsers.value.splice(index, 1)
+}
+
+function handleShare() {
+  const usersPermission = selectedUsers.value
+    .filter((u) => u.permission && u.permission !== 'NONE')
+    .map((u) => ({
+      userId: u.userId,
+      fullName: u.fullName,
+      permission: u.permission
+    }))
+  // console.log("type share: ",props.itemType)
+  if (props.itemType == "album") {
+    postCreateAndUpadateShare(
+      props.itemId,
+      shareType.value,
+      defaultPermission.value,
+      shareType.value === 'PUBLIC' ? [] : usersPermission
+    )
+      .then(() => {
+        toastSuccess('Chia sẻ thành công')
+        emit('update')
+        closeDialog()
+      })
+      .catch((error) => {
+        toastError('Lỗi khi chia sẻ: ' + error.message)
+      })
+  } else {
+    postCreateAndUpadateSharePhoto(
+      props.itemId,
+      shareType.value,
+      defaultPermission.value,
+      shareType.value === 'PUBLIC' ? [] : usersPermission
+    )
+      .then(() => {
+        toastSuccess('Chia sẻ thành công')
+        emit('update')
+        closeDialog()
+      })
+      .catch((error) => {
+        toastError('Lỗi khi chia sẻ: ' + error.message)
+      })
+
+  }
+
+
+
+}
+
+function closeDialog() {
+  localVisible.value = false
+  // Reset state
+  selectedUsers.value = []
+  userToAdd.value = null
+  shareType.value = 'LIMITED'
+  defaultPermission.value = 'VIEW'
+}
+</script>
+
+<style scoped>
+.share-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.selected-users {
+  margin-top: 1rem;
+}
+
+.border-bottom-none {
+  border-bottom: none !important;
+}
+</style>

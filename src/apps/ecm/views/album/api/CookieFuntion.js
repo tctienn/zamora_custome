@@ -85,3 +85,18 @@ export    function  copyToClipboard (stringData) {
     alter("Lỗi khi copy: ")
   });
 }
+
+
+///lấy token từ localstorate
+export function getToken(key) {
+    const userData = localStorage.getItem(key);
+    if (!userData) return null; // chưa đăng nhập
+
+    try {
+        const userObj = JSON.parse(userData);
+        // userObj.authentication = "Bearer token_xxx"
+        return userObj.authentication?.replace('Bearer ', '') || null;
+    } catch (e) {
+        return null;
+    }
+}

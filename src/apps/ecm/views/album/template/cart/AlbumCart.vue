@@ -5,7 +5,7 @@
         <div class="card-title">
             <div class="title-left">
                 <div class="album-title">{{ album.name }}</div>
-                <div class="album-meta">{{ album.countImage }} ảnh</div>
+                <!-- <div class="album-meta">{{ album.countImage }} ảnh</div> -->
             </div>
 
             <div class="menu-wrap" @click.stop v-if="album.permissionStatus">
@@ -15,9 +15,10 @@
 
                 <div v-if="openMenu" class="album-menu" @click.stop>
                     <ul>
+                        <li @click="openDetail">Xem chi tiết</li>
                         <li @click="openEdit">Sửa</li>
                         <li @click="openShare">Chia sẻ</li>
-                        <li class="danger" @click="">Xóa</li>
+                        <li class="danger" @click="deleteHandle">Xóa</li>
                     </ul>
                 </div>
             </div>
@@ -25,25 +26,45 @@
 
         <!-- Card body -->
         <div class="card-body">
-            <div class="cover-wrap">
-                <img class="album-cover"
-                    :src="'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png?20210521171500'"
-                    alt="cover" />
+            <div class="cover-wrap" @click="toggleMenu">
+                <div class="album-cover">
+                    <div class="album-icon">
+                        <i class="pi pi-folder" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="album-icon-shadow"></div>
+                </div>
 
-                <div v-if="album.isShared" class="badge shared">Đã chia sẻ</div>
+                <div v-if="album.isShared" class="badge shared">
+                    <i class="pi pi-share-alt" style="margin-right: 4px;"></i>
+                    Đã chia sẻ
+                </div>
 
-                <div class="permission-text"
-                    :style="{ color: album.permissionStatus === 'EDIT' ? 'green' : (album.permissionStatus === 'VIEW' ? 'goldenrod' : 'red') }"
-                    v-if="album.permissionStatus">
+                <div v-if="album.owner" class="permission-badge permission-edit">
+                    <i class="pi" :class="{
+                        'pi-pencil': album.permissionStatus === 'EDIT',
+                        'pi-eye': album.permissionStatus === 'VIEW',
+                        'pi-star': album.permissionStatus === 'OWNER'
+                    }"></i>
+                    OWNER
+                    <!-- đăy là điều keienj nếu như là owner <div class="permission-badge" không cần hiên thị nếu là owner -->
+                </div>
+                <div class="permission-badge" :class="{
+                    'permission-edit': album.permissionStatus === 'EDIT',
+                    'permission-view': album.permissionStatus === 'VIEW',
+                    'permission-owner': album.permissionStatus === 'OWNER'
+                }" v-if="!album.owner">
+                    <i class="pi" :class="{
+                        'pi-pencil': album.permissionStatus === 'EDIT',
+                        'pi-eye': album.permissionStatus === 'VIEW',
+                        'pi-star': album.permissionStatus === 'OWNER'
+                    }">
+                    </i>
                     {{ album.permissionStatus }}
                 </div>
 
-                <div class="album-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18"
-                        height="18">
-                        <path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 
-                        2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z" />
-                    </svg>
+                <div class="image-count-badge">
+                    <i class="pi pi-image"></i>
+                    <span>{{ album.countImage }}</span>
                 </div>
             </div>
         </div>
@@ -62,52 +83,12 @@
     </Dialog>
 
     <!-- Share Dialog -->
-    <Dialog v-model:visible="showShareDialog" modal header="Chia sẻ Album" :style="{ width: '25rem' }">
-        <div class="modal" role="dialog" aria-modal="true">
-            <div class="dialog-header">
-                <div class="info">
-                    <h3 class="album-name">{{ selectedAlbum?.name }}</h3>
-                </div>
-            </div>
+    <Button_share v-model:visible="showShareDialog" :item-id="selectedAlbum?.id" :item-name="selectedAlbum?.name || ''"
+        item-type="album" @update="handleUpdate" />
 
-            <div class="dialog-body">
-                <h4>Chọn người dùng để chia sẻ</h4>
-                <hr class="thin-sep" />
-                <div style="margin: 10px;">
-                    public:
-                    <Checkbox v-model="role" binary />
-                </div>
-
-                <!-- {{ role }} -->
-                <ul v-if="!role" class="folder-list">
-                    <li v-for="(user, i) in users" :key="i" class="album-item">
-                        <i class="pi pi-user"></i>
-                        <div class="user-info">
-                            <div class="user-name">{{ user.name }}</div>
-                            <div class="user-email muted">{{ user.email }}</div>
-                        </div>
-
-                        <div class="action">
-                            <select v-model="user.permission" style="border: none;" class="w-full">
-                                <option selected :value="'NONE'">
-                                    NONE
-                                </option>
-                                <option v-for="opt in permissionOptions" :key="opt.code" :value="opt.code">
-                                    {{ opt.name }}
-                                </option>
-                            </select>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="dialog-footer flex justify-end gap-2">
-                <Button type="button" label="Đóng" severity="secondary" @click="showShareDialog = false"></Button>
-                <Button type="button" label="Chia chia sẻ" severity="secondary"
-                    @click="handleConfirmPermission"></Button>
-            </div>
-        </div>
-    </Dialog>
+    <!-- Detail Viewer Dialog -->
+    <DetailViewer v-model:visible="showDetailDialog" :item="selectedAlbum" item-type="folder"
+        @hide-dialog="showDetailDialog = false" />
 
     <!-- Permission Dialog -->
     <!-- <Dialog v-model:visible="showPermissionDialog" modal header="Phân quyền người dùng" :style="{ width: '22rem' }">
@@ -131,15 +112,18 @@
 
 <script setup>
 import { ref, onBeforeUnmount } from 'vue'
-import { getAllUser, postChangeNameFolder, postCreateAndUpadateShare } from '@/apps/ecm/views/album/api/Album.js'
+import { deleteFolder, postChangeNameFolder } from '@/apps/ecm/views/album/api/Album.js'
 import { toastError, toastSuccess } from '@/common/helpers/custom-toast-service'
+import Button_share from '../button/Button_share.vue'
+import DetailViewer from '../viewer/DetailViewer.vue'
 
 const emit = defineEmits(['updateData'])
 
 const props = defineProps({
-    album: { type: Object, required: true },
+    album: { type: Object, required: false },
     defaultImage: {
         type: String,
+        required: false,
         default:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEaYTaC-q-QWUu2g7QgVvRKkJkqXjXtjBU2w&s'
     }
@@ -147,20 +131,9 @@ const props = defineProps({
 
 const showEditDialog = ref(false)
 const showShareDialog = ref(false)
-const showPermissionDialog = ref(false)
+const showDetailDialog = ref(false)
 
-const users = ref([])
 const selectedAlbum = ref(null)
-const selectedUser = ref(null)
-const selectedPermission = ref('VIEW')
-
-const permissionOptions = ref([
-
-    { name: 'VIEW', code: 'VIEW' },
-    { name: 'EDIT', code: 'EDIT' },
-
-])
-const role = ref(false) //LIMITED, PUBLIC 
 const openMenu = ref(false)
 const nameFolder = ref('')
 
@@ -175,7 +148,14 @@ const onWindowClick = () => {
     window.removeEventListener('click', onWindowClick)
 }
 
+const openDetail = () => {
+    openMenu.value = false
+    selectedAlbum.value = props.album
+    showDetailDialog.value = true
+}
+
 const openEdit = () => {
+    openMenu.value = false
     showEditDialog.value = true
     nameFolder.value = props.album.name
 }
@@ -192,40 +172,18 @@ const handleEditFolder = async () => {
 }
 
 // Mở dialog chia sẻ
-const openShare = async () => {
-    const response = await getAllUser()
-    users.value = response.data
+const openShare = () => {
     selectedAlbum.value = props.album
     showShareDialog.value = true
 }
 
-// Mở dialog phân quyền cho 1 user
-const openPermission = (user) => {
-    selectedUser.value = user
-    selectedPermission.value = 'VIEW'
-    showPermissionDialog.value = true
+// Xử lý sau khi share thành công
+const handleUpdate = () => {
+    emit('updateData')
 }
 
-// Xác nhận quyền cho user
-const handleConfirmPermission = async () => {
-    try {
-
-        const userspermission = users.value.filter(u => (u.permission && u.permission !== 'NONE')).map(e => ({
-            ...e,
-            userId: e.id,
-            fullName: e.name
-        }));
-        console.log('confirm userspermission ', userspermission)
-
-        await postCreateAndUpadateShare(props.album.id, (role.value ? 'PUBLIC' : 'LIMITED'), 'EDIT', (role.value ? [] : userspermission))
-
-        toastSuccess(`Đã gán quyền thành công`)
-        showPermissionDialog.value = false
-        showShareDialog.value = false
-        emit('updateData')
-    } catch (err) {
-        toastError('Lỗi khi gán quyền:', err)
-    }
+const deleteHandle = async () => {
+    await deleteFolder(props.album.id).then(() => emit('updateData'))
 }
 
 onBeforeUnmount(() => {
@@ -239,7 +197,9 @@ onBeforeUnmount(() => {
     justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
-    padding: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    background: white;
 }
 
 .title-left {
@@ -248,9 +208,13 @@ onBeforeUnmount(() => {
 }
 
 .album-title {
-    font-weight: 600;
-    font-size: 0.98rem;
+    font-weight: 700;
+    font-size: 1rem;
     color: #111827;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
 }
 
 .album-meta {
@@ -313,66 +277,151 @@ onBeforeUnmount(() => {
 
 .cover-wrap {
     position: relative;
-    border-radius: 8px;
+    border-radius: 0;
     overflow: hidden;
-    margin-top: 10px;
+    margin-top: 0;
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    min-height: 180px;
+    cursor: pointer;
+}
+
+.card-body {
+    padding: 0;
 }
 
 .album-cover {
     width: 100%;
-    aspect-ratio: 3/2;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.2s ease;
-}
-
-.cover-wrap:hover .album-cover {
-    transform: scale(1.03);
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
 }
 
 .badge.shared {
     position: absolute;
     top: 10px;
     left: 10px;
-    background: rgba(34, 197, 94, 0.12);
-    color: #16a34a;
-    padding: 6px 10px;
-    border-radius: 999px;
-    font-size: 0.78rem;
+    background: rgba(34, 197, 94, 0.95);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
     display: inline-flex;
     gap: 6px;
     align-items: center;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .album-icon {
-    position: absolute;
-    background: rgba(34, 197, 94, 0.12);
-    padding: 6px 10px;
-    border-radius: 999px;
-    font-size: 0.78rem;
-    display: inline-flex;
-    gap: 6px;
-    align-items: center;
-    bottom: 3%;
-    left: 1%;
-    color: #e3d73b;
+    position: relative;
+    z-index: 2;
+    color: rgb(207, 188, 10);
+    /* text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); */
+    animation: float 3s ease-in-out infinite;
 }
 
-.permission-text {
+.album-icon-shadow {
     position: absolute;
-    background: rgba(34, 197, 94, 0.12);
-    padding: 6px 10px;
-    border-radius: 999px;
-    font-size: 0.78rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    filter: blur(20px);
+    animation: pulse-shadow 2s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse-shadow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+.permission-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
     display: inline-flex;
     gap: 6px;
     align-items: center;
-    top: 3%;
-    right: 1%;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+.permission-edit {
+    background: rgba(34, 197, 94, 0.9);
+    color: white;
+}
+
+.permission-view {
+    background: rgba(255, 193, 7, 0.9);
+    color: #856404;
+}
+
+.permission-owner {
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+}
+
+.image-count-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    z-index: 10;
 }
 
 .album-card {
-    box-shadow: 16px 10px 20px -16px #00000045;
+    border-radius: 12px;
+    background: white;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.album-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 ul {
