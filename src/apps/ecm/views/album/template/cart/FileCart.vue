@@ -6,10 +6,34 @@
 
             <!-- <i v-else @click="() => LikeHandle(photo)" class="pi pi-heart icon" style="font-size: 17px;"></i> -->
 
-            <i @click="menuVisible = true" class="pi pi-ellipsis-v icon" style="font-size: 17px"></i>
+            <div class="menu-wrap" @click.stop v-if="true">
+                <button class="icon-btn icon" @click.stop="toggleMenu" title="Tùy chọn file">
+                    <i class="pi pi-ellipsis-v" style="font-size: 17px"></i>
+                </button>
+
+                <div v-if="openMenu" class="file-menu" @click.stop>
+                    <ul>
+                        <li @click="openDetail">
+                            <i class="pi pi-info-circle" style="margin-right:8px"></i> Xem chi tiết
+                        </li>
+                        <li @click="handleDownload">
+                            <i class="pi pi-download" style="margin-right:8px"></i> Tải xuống
+                        </li>
+                        <li v-if="photo?.owner" @click="openShare">
+                            <i class="pi pi-share-alt" style="margin-right:8px"></i> Chia sẻ
+                        </li>
+                        <li v-if="photo?.owner|| photo?.permissionStatus=='EDIT'" class="danger" @click="openDeleteDialog">
+                            <i class="pi pi-trash" style="margin-right:8px"></i> Xóa
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <img @click="visiblPhoto = true" :src="urlImage + photo?.treePath" class="image" />
-
+         <div v-if="photo?.isShared" class="badge shared">
+                <i class="pi pi-share-alt" style="margin-right: 4px;"></i>
+                Đã chia sẻ
+            </div>
         <!-- photo full screen -->
         <Dialog v-model:visible="visiblPhoto" maximizable modal :header="photo.filename" :style="{ width: '50rem' }"
             :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
@@ -22,45 +46,9 @@
             <img :src="urlImage + photo?.treePath" class="image" />
 
         </Dialog>
-        <!-- Dialog menu 3 chấm -->
-        <Dialog v-model:visible="menuVisible" modal :style="{ width: '18rem' }" class="custom-dialog">
-            <template #header>
-                <div class="dialog-header">
-                    <img :src="urlImage + photo?.treePath" class="thumb" />
-                    <div class="info">
-                        <h3>{{ photo?.filename }}</h3>
-                        <p>{{ new Date(photo?.createdAt).toLocaleDateString() }}</p>
-                    </div>
-                </div>
-            </template>
-            <div class="dialog-body">
-                <ul style="list-style:none; padding:0; margin:0;">
-                    <li style="padding:10px 0; cursor:pointer;" @click="openDetailDialog">
-                        <i class="pi pi-info-circle" style="margin-right:8px"></i> Xem chi tiết
-                    </li>
-                    <li style="padding:10px 0; cursor:pointer;" @click="handleDownload">
-                        <i class="pi pi-download" style="margin-right:8px"></i> Tải xuống
-                    </li>
-                    <li style="padding:10px 0; cursor:pointer;" @click="openShareDialog">
-                        <i class="pi pi-share-alt" style="margin-right:8px"></i> Chia sẻ quyền
-                    </li>
-                    <!-- <li style="padding:10px 0; cursor:pointer;" @click="openCopyUrlDialog">
-                        <i class="pi pi-link" style="margin-right:8px"></i> Copy link
-                    </li> -->
-                    <!-- <li style="padding:10px 0; cursor:pointer;"
-                        @click="addAlbumDialogVisible = true; menuVisible = false">
-                        <i class="pi pi-folder-plus" style="margin-right:8px"></i> Thêm vào album
-                    </li> -->
-                    <li style="padding:10px 0; cursor:pointer; color:#dc2626;"
-                        @click="deleteDialogVisible = true; menuVisible = false">
-                        <i class="pi pi-trash" style="margin-right:8px"></i> Xóa
-                    </li>
-                </ul>
-            </div>
-        </Dialog>
         <!-- Dialog chia sẻ -->
-        <Button_share v-model:visible="shareDialogVisible" :item-id="photo?.id" :item-name="photo?.filename || ''"
-            item-type="file" @update="handleUpdate" />
+        <Button_share v-model:visible="shareDialogVisible" :selectedAlbum="selectedPhoto" :item-id="photo?.id" 
+            :item-name="photo?.filename || ''" item-type="file" @update="handleUpdate" />
 
         <!-- Detail Viewer Dialog -->
         <DetailViewer
@@ -100,7 +88,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue"
+import { ref, computed, onBeforeUnmount } from "vue"
 import Dialog from "primevue/dialog"
 import Button from "primevue/button"
 import InputText from "primevue/inputtext"
@@ -122,42 +110,90 @@ const props = defineProps({
 })
 const emit = defineEmits(['updateData'])
 
-const menuVisible = ref(false)
+/**
+ * Get current user permission for the file
+ */
+const currentFilePermission = computed(() => {
+    // Nếu là owner
+    if (props.photo?.owner) {
+        return 'OWNER';
+    }
+    
+    // Check từ permissionStatus
+    if (props.photo?.permissionStatus) {
+        return props.photo.permissionStatus;
+    }
+    
+    // Default: nếu không có permission info, có thể là owner
+    return 'OWNER';
+})
+
+/**
+ * Check if user can edit (OWNER or EDIT)
+ */
+const canEditFile = computed(() => {
+    const permission = currentFilePermission.value;
+    return permission === 'OWNER' || permission === 'EDIT';
+});
+
+/**
+ * Check if user can delete (only OWNER)
+ */
+const canDeleteFile = computed(() => {
+    return currentFilePermission.value === 'OWNER';
+});
+
+const openMenu = ref(false)
 const shareDialogVisible = ref(false)
 const deleteDialogVisible = ref(false)
 const visiblPhoto = ref(false)
 const copyUrlDialogVisible = ref(false)
 const showDetailDialog = ref(false)
 const shareUrl = ref('')
+const selectedPhoto = ref(null)
 
-const openDetailDialog = () => {
-    menuVisible.value = false
+// Toggle menu
+const toggleMenu = () => {
+    openMenu.value = !openMenu.value
+    if (openMenu.value) window.addEventListener('click', onWindowClick)
+    else window.removeEventListener('click', onWindowClick)
+}
+
+const onWindowClick = () => {
+    openMenu.value = false
+    window.removeEventListener('click', onWindowClick)
+}
+
+const openDetail = () => {
+    openMenu.value = false
     showDetailDialog.value = true
 }
 
-const openShareDialog = () => {
+const openShare = () => {
+    openMenu.value = false
+    selectedPhoto.value = props.photo || {}
     shareDialogVisible.value = true
-    menuVisible.value = false
+}
+
+const openDeleteDialog = () => {
+    openMenu.value = false
+    deleteDialogVisible.value = true
 }
 
 const openCopyUrlDialog = () => {
     shareUrl.value = urlImage + props.photo?.treePath
     copyUrlDialogVisible.value = true
-    menuVisible.value = false
+    openMenu.value = false
 }
 
 const handleUpdate = () => {
     emit('updateData')
 }
 
-
-
-
 const addToAlbum = async (photoParam, albumParam) => {
     alert(`Đã thêm ảnh "${photoParam.filename}" vào album "${albumParam.name}"`)
     // visible.value = false
 }
-
 
 // const LikeHandle = (item) => {
 //     alert("sử lý sự liện ảnh yêu thích ở đây")
@@ -167,9 +203,11 @@ const deletePhoto = async () => {
     await deleteImageHard(props.photo.id).then(() => { deleteDialogVisible.value = false })
     emit('updateData')
     // router.go(0)
-
-
 }
+
+onBeforeUnmount(() => {
+    window.removeEventListener('click', onWindowClick)
+})
 
 const copyUrl = (url) => {
     copyToClipboard(url)
@@ -182,7 +220,7 @@ const handleDownload = async () => {
     }
 
     try {
-        menuVisible.value = false;
+        openMenu.value = false;
         const response = await dowLoadFile(props.photo.id);
         
         // Tạo blob từ response data
@@ -230,7 +268,7 @@ const handleDownload = async () => {
 .image-card {
     border: 1px solid #eee;
     border-radius: 6px;
-    overflow: hidden;
+    /* overflow: hidden; */
     background: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -268,6 +306,61 @@ const handleDownload = async () => {
 
 .icon:hover {
     background: rgba(0, 0, 0, 0.6);
+}
+
+.menu-wrap {
+    position: relative;
+}
+
+.icon-btn {
+    background: #ffffff85;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 1s;
+}
+
+.icon-btn:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.file-menu {
+    position: absolute;
+    right: 0;
+    top: 34px;
+    background: white;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+    border-radius: 8px;
+    min-width: 180px;
+    z-index: 30;
+}
+
+.file-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 6px 0;
+}
+
+.file-menu li {
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #111827;
+    display: flex;
+    align-items: center;
+}
+
+.file-menu li:hover {
+    background: rgba(15, 23, 42, 0.03);
+}
+
+.file-menu li.danger {
+    color: #dc2626;
 }
 
 .image {
@@ -344,4 +437,25 @@ const handleDownload = async () => {
 
     background-color: #a8a8a8;
 }
+
+
+.badge.shared {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(34, 197, 94, 0.95);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    opacity:1
+}
+
 </style>

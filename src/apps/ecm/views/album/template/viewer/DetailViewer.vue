@@ -1,22 +1,11 @@
 <template>
-  <Sidebar
-    :visible="visible"
-    :header="header"
-    position="right"
-    :style="{ width: '600px' }"
-    :dismissable="false"
+  <Sidebar :visible="visible" :header="header" position="right" :style="{ width: '600px' }" :dismissable="false"
     @hide="emits('hide-dialog')">
-    
     <template #header>
       <div class="align-items-center flex justify-content-between w-full">
         <div class="align-items-center flex gap-2 p-sidebar-header-content">
-          <Button
-            class="border-round-sm px-0"
-            icon="pi pi-arrow-left"
-            severity="secondary"
-            text
-            style="width: 30px; height: 30px;"
-            @click="emits('hide-dialog')" />
+          <Button class="border-round-sm px-0" icon="pi pi-arrow-left" severity="secondary" text
+            style="width: 30px; height: 30px;" @click="emits('hide-dialog')" />
           <span style="font-weight: 600;">{{ header }}</span>
         </div>
       </div>
@@ -28,11 +17,11 @@
           <i class="pi pi-folder-open" style="margin-right: 8px; color: #6c5ce7;"></i>
           Thông tin {{ itemType === 'folder' ? 'folder' : 'file' }}
         </div>
-        
+
         <div class="info-grid">
           <div class="info-item">
             <span class="label">{{ itemType === 'folder' ? 'Tên folder' : 'Tên file' }}:</span>
-            <span class="value">{{ itemType === 'folder' ? item.name : item.filename }}</span>
+            <span class="value">{{ itemType === 'folder' ? item.name : item.name }}</span>
           </div>
 
           <div class="info-item" v-if="itemType === 'folder' && item.countImage">
@@ -68,7 +57,7 @@
       </div>
 
       <!-- Quyền và chia sẻ -->
-      <div class="detail-section" v-if="item.permissionStatus || item.isShared">
+      <div class="detail-section" v-if="true||item.permissionStatus || item.isShared">
         <div class="section-title">
           <i class="pi pi-shield" style="margin-right: 8px; color: #6c5ce7;"></i>
           Quyền và chia sẻ
@@ -77,19 +66,16 @@
         <div class="info-grid">
           <div class="info-item" v-if="item.permissionStatus">
             <span class="label">Quyền truy cập:</span>
-            <span class="value badge-permission" 
-                  :class="{
-                    'permission-owner': item.permissionStatus === 'OWNER',
-                    'permission-edit': item.permissionStatus === 'EDIT',
-                    'permission-view': item.permissionStatus === 'VIEW'
-                  }">
-              <i class="pi" 
-                 :class="{
-                   'pi-star': item.permissionStatus === 'OWNER',
-                   'pi-pencil': item.permissionStatus === 'EDIT',
-                   'pi-eye': item.permissionStatus === 'VIEW'
-                 }"
-                 style="font-size: 0.875rem;">
+            <span class="value badge-permission" :class="{
+              'permission-owner': item.permissionStatus === 'OWNER',
+              'permission-edit': item.permissionStatus === 'EDIT',
+              'permission-view': item.permissionStatus === 'VIEW'
+            }">
+              <i class="pi" :class="{
+                'pi-star': item.permissionStatus === 'OWNER',
+                'pi-pencil': item.permissionStatus === 'EDIT',
+                'pi-eye': item.permissionStatus === 'VIEW'
+              }" style="font-size: 0.875rem;">
               </i>
               {{ item.permissionStatus }}
             </span>
@@ -106,21 +92,16 @@
           <div class="info-item" v-if="item.permissionUsers?.sharedUsers?.length">
             <span class="label">Chia sẻ với {{ item.permissionUsers.sharedUsers.length }} người:</span>
             <div class="shared-users-list">
-              <div 
-                v-for="(user, index) in item.permissionUsers.sharedUsers" 
-                :key="index"
-                class="shared-user-item"
-              >
+              <div v-for="(user, index) in item.permissionUsers.sharedUsers" :key="index" class="shared-user-item">
                 <div class="user-avatar-small">
                   <i class="pi pi-user"></i>
                 </div>
                 <div class="user-info">
                   <div class="user-name-small">{{ user.fullName || user.name }}</div>
-                  <div class="user-permission-badge" 
-                       :class="{
-                         'perm-view': user.permission === 'VIEW',
-                         'perm-edit': user.permission === 'EDIT'
-                       }">
+                  <div class="user-permission-badge" :class="{
+                    'perm-view': user.permission === 'VIEW',
+                    'perm-edit': user.permission === 'EDIT'
+                  }">
                     {{ user.permission }}
                   </div>
                 </div>
@@ -174,7 +155,7 @@ const emits = defineEmits(['hide-dialog'])
 
 const header = computed(() => {
   if (!props.item) return 'Chi tiết'
-  return props.itemType === 'folder' 
+  return props.itemType === 'folder'
     ? props.item.name || 'Chi tiết folder'
     : props.item.filename || 'Chi tiết file'
 })

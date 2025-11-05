@@ -9,20 +9,13 @@
     <!--        class='h-10rem'>{{ t('ecm.storage.tree') }}</p>-->
     <!--    </div>-->
 
-    <Tree
-      class='border-noround-bottom border-noround-right ecm-tree flex-grow-1 overflow-y-auto'
-      :expanded-keys='expands'
-      :value='tree'>
-      <template #default='{node}'>
-        <router-link
-          class='align-items-center flex gap-2 text-color'
-          :class='{"font-bold text-primary current-folder": isCurrentFolder(node.to.query?.folderId || "")}'
+    <Tree class='border-noround-bottom border-noround-right ecm-tree flex-grow-1 overflow-y-auto'
+      :expanded-keys='expands' :value='tree'>
+      <template #default='{ node }'>
+        <router-link class='align-items-center flex gap-2 text-color'
+          :class='{ "font-bold text-primary current-folder": isCurrentFolder(node.to.query?.folderId || "") }'
           :to='node.to'>
-          <AppIcon
-            class='text-orange-400'
-            fill
-            :name='getFolderIcon(node.to.query?.folderId || "")'
-            size='1.5'/>
+          <AppIcon class='text-orange-400' fill :name='getFolderIcon(node.to.query?.folderId || "")' size='1.5' />
           {{ node.label }}
         </router-link>
       </template>

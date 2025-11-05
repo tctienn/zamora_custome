@@ -181,6 +181,10 @@ export const postCreateAndUpadateSharePhoto =(fileFolderId,visibility,defaultPer
 	);
 }
 
+export const pingCurrenView =(idFolder)=>{
+	return api.post(`api/folders/folders/${idFolder}/viewing`);
+}
+
 /// xóa dữ liệu trong bảng permisson
 export const DeletePermission =(permissionId)=>{
 	return api.post(`api/permission/delete/${permissionId}`);
@@ -211,3 +215,9 @@ export const createPhotos_load = async (folderId, files) => {
     }});
     
 };
+
+
+export const getTreeAlbumFolder =()=>{
+	return api.get(`api/folders/album-folers-tree`);
+}
+

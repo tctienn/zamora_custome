@@ -1,22 +1,23 @@
 <template>
-    <!-- Floating fixed button -->
-    <button class="butonFix" @click="showDialog = true">+</button>
+    <div class="album-manage-container">
+        <!-- Floating fixed button -->
+        <button class="butonFix" @click="showDialog = true">+</button>
 
-    <!-- Dialog giả lập cookie -->
-    <div v-if="showDialog" class="modal-backdrop">
-        <div class="modal" role="dialog">
-            <h3 class="modal-title">Giả lập cookie lúc đăng nhập</h3>
-            <input v-model="tempUserId" type="text" class="text-input" placeholder="Nhập user id" />
-            <div class="modal-actions">
-                <button class="btn-cancel" @click="showDialog = false">Hủy</button>
-                <button class="btn-confirm" @click="confirmCreateCookie">Xác nhận</button>
+        <!-- Dialog giả lập cookie -->
+        <div v-if="showDialog" class="modal-backdrop">
+            <div class="modal" role="dialog">
+                <h3 class="modal-title">Giả lập cookie lúc đăng nhập</h3>
+                <input v-model="tempUserId" type="text" class="text-input" placeholder="Nhập user id" />
+                <div class="modal-actions">
+                    <button class="btn-cancel" @click="showDialog = false">Hủy</button>
+                    <button class="btn-confirm" @click="confirmCreateCookie">Xác nhận</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="albums-page">
-        <!-- header -->
-        <div class="header">
+
+        <!-- Header trên cùng -->
+        <div class="page-header">
             <div class="">
                 <div class="breadcrumb-wrapper">
                     <button @click="rollbackPage" class="back-button" :disabled="pageList.length <= 0">
@@ -38,14 +39,73 @@
                     <span>{{ folderCurrent.name }}</span>
                 </div>
 
-                <p class="subtle">{{ filteredAlbums.length }} album</p>
+                <!-- mode switch -->
+                <div class="album-list-header">
+                    <div class="header-left-group">
+                        <button :class="['mode-btn', { active: albumMode === 'all' }]"
+                            @click="changeAlbumMode('all')">Tất
+                            cả</button>
+                        <button :class="['mode-btn', { active: albumMode === 'shared' }]"
+                            @click="changeAlbumMode('shared')">Chia
+                            sẻ</button>
+                            
 
-                <div v-if="folderCurrent.permissionUsers?.sharedUsers?.length" class="shared-users-section">
+                            <!-- list user avatar -->
+                            <div v-if="folderCurrent.permissionUsers?.sharedUsers?.length" class="user-avatar-group">
+                                <AvatarGroup  @click="showShareDialog = true">
+                                    <Avatar 
+                                        v-for="(user, i) in folderCurrent.permissionUsers.sharedUsers.slice(0, maxDisplayUsers)"
+                                        :key="i" 
+                                        :label="getUserInitials(user.fullName || user.name)" 
+                                        shape="circle"
+                                        size="small"
+                                        style="background-color: var(--primary-color); color: white;"
+                                        :title="user.fullName"
+                                        />
+                                    <Avatar v-if="(folderCurrent.permissionUsers?.sharedUsers?.length-3)>0" :label="(folderCurrent.permissionUsers?.sharedUsers?.length-3)" shape="circle" />
+
+                                </AvatarGroup>
+                                 <!-- <Avatar @click="showShareDialog = true" style="cursor:'pointer'"  :label="'+'" shape="circle" /> -->
+
+                                
+                            </div>
+                            <Button 
+                            
+                                v-if="folderCurrent.owner"
+                                icon="pi pi-share-alt" 
+                                rounded 
+                                text
+                                severity="secondary"
+                                size="small"
+                                label="Chia sẻ"
+                                @click="folderCurrent.owner?showShareDialog = true:''"
+                            />
+                            
+                            <!-- share component -->
+                            <Button_share 
+                                v-if="folderCurrent.owner"
+                                v-model:visible="showShareDialog" 
+                                :selectedAlbum="folderCurrent" 
+                                :item-id="folderCurrent?.id"
+                                :item-name="folderCurrent?.name || ''" 
+                                item-type="album" 
+                                @update="handleUpdateData" 
+                            />
+                    </div>
+
+                </div>
+                <!-- view count -->
+                <CountcurrentUserView :idfolder="folderCurrent.id" />
+                <!-- <p class="subtle">{{ filteredAlbums.length }} album</p> -->
+
+                <!-- <div v-if="folderCurrent.permissionUsers?.sharedUsers?.length" class="shared-users-section">
+                    
                     <div class="shared-users-header" @click="showUserList = !showUserList">
                         <div class="header-left">
                             <i class="pi pi-users"></i>
                             <span>Đang chia sẻ với</span>
-                            <span class="user-count">{{ folderCurrent.permissionUsers.sharedUsers.length }} người</span>
+                            <span class="user-count">{{ folderCurrent.permissionUsers.sharedUsers.length }}
+                                người</span>
                         </div>
                         <i class="pi" :class="showUserList ? 'pi-chevron-up' : 'pi-chevron-down'"
                             style="color: #6c5ce7; font-size: 14px;">
@@ -122,57 +182,78 @@
                             <Button label="Lưu" @click="handleUpdatePermission" />
                         </template>
                     </Dialog>
-                </div>
+                </div> -->
             </div>
 
             <div class="actions">
-                <button class="p-button-outlined create-album-btn" @click="showDialogCreateAlbum = true">+ Tạo
-                    album</button>
-                <Button_uploadFile @updateData="handleUpdateData" :album="folderCurrent" />
-                <Button_uploadFile_loader @updateData="handleUpdateData" :album="folderCurrent" />
+                <div>
+                    <button 
+                        v-if="canCreateFolder"
+                        class="p-button-outlined create-album-btn" 
+                        @click="showDialogCreateAlbum = true">
+                        + Tạo album
+                    </button>
+                    <!-- <Button_uploadFile 
+                        v-if="canUpload"
+                        @updateData="handleUpdateData" 
+                        :album="folderCurrent" 
+                    /> -->
+                    <Button_uploadFile_loader 
+                        v-if="canUpload"
+                        @updateData="handleUpdateData" 
+                        :album="folderCurrent" 
+                    />
 
-                <Dialog v-model:visible="showDialogCreateAlbum" modal header="Tạo folder" :style="{ width: '25rem' }">
-                    <div class="flex items-center gap-4 mb-4">
-                        <InputText id="username" class="flex-auto" v-model="nameFolder" autocomplete="off"
-                            placeholder="Nhập tên folder" />
-                    </div>
+                    <Dialog v-model:visible="showDialogCreateAlbum" modal header="Tạo folder"
+                        :style="{ width: '25rem' }">
+                        <div class="flex items-center gap-4 mb-4">
+                            <InputText id="username" class="flex-auto" v-model="nameFolder" autocomplete="off"
+                                placeholder="Nhập tên folder" />
+                        </div>
 
-                    <div class="flex justify-end gap-2">
-                        <Button type="button" label="Thoát" severity="secondary"
-                            @click="showDialogCreateAlbum = false" />
-                        <Button type="button" label="Tạo" @click="createAlbum" />
-                    </div>
-                </Dialog>
-            </div>
-        </div>
+                        <div class="flex justify-end gap-2">
+                            <Button type="button" label="Thoát" severity="secondary"
+                                @click="showDialogCreateAlbum = false" />
+                            <Button type="button" label="Tạo" @click="createAlbum" />
+                        </div>
+                    </Dialog>
+                </div>
 
-        <!-- mode switch -->
-        <div class="album-list-header">
-            <div class="header-left-group">
-                <button :class="['mode-btn', { active: albumMode === 'all' }]" @click="changeAlbumMode('all')">Tất
-                    cả</button>
-                <button :class="['mode-btn', { active: albumMode === 'shared' }]" @click="changeAlbumMode('shared')">Chia
-                    sẻ</button>
-            </div>
-            <div class="sort-selector">
-                <label class="sort-label">Sắp xếp:</label>
-                <Dropdown v-model="sortType" :options="sortOptions" optionLabel="label" optionValue="value" 
-                    placeholder="Chọn kiểu sắp xếp" class="sort-dropdown" @change="handleSortChange" />
-            </div>
-        </div>
-
-        <!-- List view -->
-        <div v-if="viewMode === 'list'" class="album-list-wrap">
-            <div v-if="filteredAlbums.length >= 0" class="album-list">
-                <div class="album-card" v-for="(album, index) in filteredAlbums" :key="album.id ?? index"
-                    @click="openFolder(album.id)">
-                    <AlbumCard @updateData="handleUpdateData" :album="album" :default-image="defaultAlbumImage" />
+                <div class="sort-selector">
+                    <label class="sort-label">Sắp xếp:</label>
+                    <Dropdown v-model="sortType" :options="sortOptions" optionLabel="label" optionValue="value"
+                        placeholder="Chọn kiểu sắp xếp" class="sort-dropdown" @change="handleSortChange" />
                 </div>
             </div>
 
-            <div v-if="photos?.length >= 0" class="album-list">
-                <div class="album-card" v-for="(photo, index) in photos" :key="photo.id ?? index">
-                    <FileCart @updateData="handleUpdateData" :photo="photo" />
+        </div>
+
+        <!-- Content area với tree và page -->
+        <div class="content-wrapper">
+            <!-- Tree bên trái -->
+            <div class="tree-left">
+                <AlbumTree />
+            </div>
+
+            <!-- Page content bên phải -->
+            <div class="albums-page">
+
+
+                <!-- List view -->
+                <div v-if="viewMode === 'list'" class="album-list-wrap">
+                    <div v-if="filteredAlbums.length >= 0" class="album-list">
+                        <div class="album-card" v-for="(album, index) in filteredAlbums" :key="album.id ?? index"
+                            @click="openFolder(album.id)">
+                            <AlbumCard @updateData="handleUpdateData" :album="album"
+                                :default-image="defaultAlbumImage" />
+                        </div>
+                    </div>
+
+                    <div v-if="photos?.length >= 0" class="album-list">
+                        <div class="album-card" v-for="(photo, index) in photos" :key="photo.id ?? index">
+                            <FileCart @updateData="handleUpdateData" :photo="photo" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -183,6 +264,11 @@
 import { ref, computed, onMounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import Dropdown from 'primevue/dropdown';
+import Avatar from 'primevue/avatar';
+import AvatarGroup from 'primevue/avatargroup';
+import Button from 'primevue/button';
+import InputText from 'primevue/inputtext';
+import Dialog from 'primevue/dialog';
 
 import AlbumCard from './template/cart/AlbumCart.vue';
 import FileCart from './template/cart/FileCart.vue';
@@ -203,6 +289,9 @@ import {
 } from './api/Album.js';
 
 import { toastError, toastSuccess } from '@/common/helpers/custom-toast-service';
+import CountcurrentUserView from './template/CountcurrentUserView.vue';
+import AlbumTree from './template/tree/AlbumTree.vue';
+import Button_share from './template/button/Button_share.vue';
 
 // ALL,  NAME,  DATE_CREATED,  DATE_MODIFIED,
 const sortType = ref("ALL")
@@ -219,6 +308,8 @@ const folderCurrent = ref({});
 const folders = ref([]);
 const photos = ref([]);
 const userList = ref([]);
+
+const showShareDialog = ref(false)
 
 const nameFolder = ref('');
 const viewMode = ref('list');
@@ -261,6 +352,66 @@ const canGoBack = computed(() => {
     return canBack;
 });
 
+/**
+ * Get current user permission for the folder
+ */
+const currentUserPermission = computed(() => {
+    // Nếu là owner (createdBy)
+    if (folderCurrent.value.owner || folderCurrent.value.permissionStatus === 'OWNER') {
+        return 'OWNER';
+    }
+    
+    // // Check từ permissionUsers
+    // if (folderCurrent.value.permissionUsers?.permissionStatus) {
+    //     return folderCurrent.value.permissionUsers.permissionStatus;
+    // }
+    
+    // Check từ permissionStatus
+    if (folderCurrent.value.permissionStatus) {
+        return folderCurrent.value.permissionStatus;
+    }
+    
+    // Default: nếu không có permission info, có thể là owner
+    return 'OWNER';
+});
+
+/**
+ * Check if user can edit (OWNER or EDIT)
+ */
+const canEdit = computed(() => {
+    const permission = currentUserPermission.value;
+    return permission === 'OWNER' || permission === 'EDIT';
+});
+
+/**
+ * Check if user can view (all permissions allow viewing)
+ */
+const canView = computed(() => {
+    const permission = currentUserPermission.value;
+    return permission === 'OWNER' || permission === 'EDIT' || permission === 'VIEW';
+});
+
+/**
+ * Check if user can create folder (OWNER or EDIT)
+ */
+const canCreateFolder = computed(() => {
+    return canEdit.value;
+});
+
+/**
+ * Check if user can upload (OWNER or EDIT)
+ */
+const canUpload = computed(() => {
+    return canEdit.value;
+});
+
+/**
+ * Check if user can delete (only OWNER)
+ */
+const canDelete = computed(() => {
+    return currentUserPermission.value === 'OWNER';
+});
+
 const permissionOptions = [
     { label: 'Xem (VIEW)', value: 'VIEW' },
     { label: 'Chỉnh sửa (EDIT)', value: 'EDIT' },
@@ -275,6 +426,18 @@ const sortOptions = ref([
 ])
 
 // ---------- helpers ----------
+/**
+ * Get user initials from full name
+ */
+function getUserInitials(name) {
+    if (!name) return '?';
+    const parts = name.trim().split(' ');
+    if (parts.length === 1) {
+        return parts[0].charAt(0).toUpperCase();
+    }
+    return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
+}
+
 function confirmCreateCookie() {
     if (!tempUserId.value.trim()) {
         toastError({ message: 'Vui lòng nhập user id' });
@@ -310,8 +473,9 @@ async function fetchFolder(id) {
     try {
         const res = await getFolderDetail(id);
         folderCurrent.value = res.data || {};
+        console.log('curran folder :', res.data)
         await fetchChildren(id);
-        const photosRes = await getPhotosByFolder(sortType.value,id);
+        const photosRes = await getPhotosByFolder(sortType.value, id);
         photos.value = photosRes.data || [];
         pathTree.value = normalizePathForTree(folderCurrent.value.path || '');
     } catch (err) {
@@ -321,9 +485,9 @@ async function fetchFolder(id) {
 
 async function fetchChildren(id) {
     try {
-        const res = await getFoldersByFolder(sortType.value,id);
+        const res = await getFoldersByFolder(sortType.value, id);
         folders.value = res.data || [];
-        const photosRes = await getPhotosByFolder(sortType.value,id);
+        const photosRes = await getPhotosByFolder(sortType.value, id);
         photos.value = photosRes.data || [];
         console.log("folders: ", res.data)
     } catch (err) {
@@ -471,6 +635,7 @@ watch(() => route.name, (newName, oldName) => {
     }
 });
 
+
 // ---------- lifecycle ----------
 onMounted(() => {
     handleUpdateData();
@@ -478,13 +643,65 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* --- styles kept mostly as original but cleaned --- */
-.albums-page {
-    min-height: calc(100vh - 80px);
-    padding: 1.25rem;
-    color: #222;
+/* Container chính - full viewport height, không scroll */
+.album-manage-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
 }
 
+/* Header trên cùng - fixed height */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    flex-shrink: 0;
+    align-items: flex-start;
+    overflow: visible;
+    /* Cho phép dialog hiển thị */
+}
+
+.page-header>div:first-child {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Content wrapper - chiếm phần còn lại, flex row */
+.content-wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+    /* Quan trọng để flex child có thể scroll */
+}
+
+/* Tree bên trái - fixed width, có scroll riêng */
+.tree-left {
+    width: 300px;
+    flex-shrink: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right: 1px solid #e5e7eb;
+    background-color: var(--surface-c);
+}
+
+/* Albums page bên phải - chiếm phần còn lại, có scroll riêng */
+.albums-page {
+    flex: 1;
+    padding: 1.25rem;
+    color: #222;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-width: 0;
+    /* Quan trọng để flex child có thể scroll */
+}
+
+/* Header styles - giữ lại cho các header con bên trong nếu cần */
 .header {
     display: flex;
     justify-content: space-between;
@@ -525,7 +742,10 @@ onMounted(() => {
 
 .actions {
     display: flex;
-    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .create-album-btn {
@@ -543,6 +763,12 @@ onMounted(() => {
     align-items: center;
     gap: 8px;
     margin-bottom: 10px;
+}
+
+.user-avatar-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .header-left-group {
@@ -566,6 +792,7 @@ onMounted(() => {
 .sort-selector {
     display: flex;
     align-items: center;
+
     gap: 8px;
 }
 
@@ -904,6 +1131,7 @@ onMounted(() => {
         flex-direction: column;
         align-items: stretch;
         gap: 12px;
+        width: 100%;
     }
 
     .sort-selector {
@@ -913,6 +1141,21 @@ onMounted(() => {
     .sort-dropdown {
         width: 100%;
         min-width: unset;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .tree-left {
+        width: 100%;
+        height: 200px;
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .albums-page {
+        flex: 1;
     }
 }
 </style>

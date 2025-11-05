@@ -8,7 +8,7 @@
                 <!-- <div class="album-meta">{{ album.countImage }} ảnh</div> -->
             </div>
 
-            <div class="menu-wrap" @click.stop v-if="album.permissionStatus">
+            <div class="menu-wrap" @click.stop v-if="album.permissionStatus || album.owner">
                 <button class="icon-btn" @click.stop="toggleMenu" title="Tùy chọn album">
                     •••
                 </button>
@@ -16,9 +16,9 @@
                 <div v-if="openMenu" class="album-menu" @click.stop>
                     <ul>
                         <li @click="openDetail">Xem chi tiết</li>
-                        <li @click="openEdit">Sửa</li>
-                        <li @click="openShare">Chia sẻ</li>
-                        <li class="danger" @click="deleteHandle">Xóa</li>
+                        <li v-if="canEditAlbum" @click="openEdit">Sửa</li>
+                        <li v-if="canEditAlbum" @click="openShare">Chia sẻ</li>
+                        <li v-if="canDeleteAlbum" class="danger" @click="deleteHandle">Xóa</li>
                     </ul>
                 </div>
             </div>
@@ -71,20 +71,51 @@
     </div>
 
     <!-- Edit Folder Dialog -->
-    <Dialog v-model:visible="showEditDialog" modal header="Đổi tên Folder" :style="{ width: '25rem' }">
-        <div class="modal" role="dialog" aria-modal="true">
-            <h3>Đổi tên Folder</h3>
-            <InputText name="foldeName" type="text" v-model="nameFolder" placeholder="Nhập tên folder vào đây" />
-            <div class="flex justify-end gap-2 mt-4">
-                <button class="btn-secondary" @click="showEditDialog = false">Thoát</button>
-                <button @click="handleEditFolder">Xác nhận</button>
+    <Dialog v-model:visible="showEditDialog" modal :style="{ width: '28rem' }" :dismissableMask="true">
+        <template #header>
+            <div class="flex align-items-center gap-2">
+                <i class="pi pi-pencil" style="font-size: 1.25rem; color: #6c5ce7;"></i>
+                <span style="font-weight: 600; font-size: 1.125rem;">Đổi tên Folder</span>
+            </div>
+        </template>
+        
+        <div class="edit-folder-dialog">
+            <div class="field mb-4">
+                <label for="folderName" class="field-label">Tên folder</label>
+                <InputText 
+                    id="folderName"
+                    v-model="nameFolder" 
+                    placeholder="Nhập tên folder mới"
+                    class="w-full"
+                    :class="{ 'p-invalid': !nameFolder || nameFolder.trim() === '' }"
+                    autofocus
+                    @keyup.enter="handleEditFolder"
+                />
+                <small v-if="!nameFolder || nameFolder.trim() === ''" class="p-error">
+                    Vui lòng nhập tên folder
+                </small>
             </div>
         </div>
+
+        <template #footer>
+            <Button 
+                label="Hủy" 
+                severity="secondary" 
+                outlined
+                @click="showEditDialog = false" 
+            />
+            <Button 
+                label="Lưu" 
+                @click="handleEditFolder"
+                :disabled="!nameFolder || nameFolder.trim() === ''"
+            />
+        </template>
     </Dialog>
 
+
     <!-- Share Dialog -->
-    <Button_share v-model:visible="showShareDialog" :item-id="selectedAlbum?.id" :item-name="selectedAlbum?.name || ''"
-        item-type="album" @update="handleUpdate" />
+    <Button_share v-model:visible="showShareDialog" :selectedAlbum="selectedAlbum" :item-id="selectedAlbum?.id"
+        :item-name="selectedAlbum?.name || ''" item-type="album" @update="handleUpdate" />
 
     <!-- Detail Viewer Dialog -->
     <DetailViewer v-model:visible="showDetailDialog" :item="selectedAlbum" item-type="folder"
@@ -111,7 +142,10 @@
 </template>
 
 <script setup>
-import { ref, onBeforeUnmount } from 'vue'
+import { ref, computed, onBeforeUnmount } from 'vue'
+import Dialog from 'primevue/dialog'
+import InputText from 'primevue/inputtext'
+import Button from 'primevue/button'
 import { deleteFolder, postChangeNameFolder } from '@/apps/ecm/views/album/api/Album.js'
 import { toastError, toastSuccess } from '@/common/helpers/custom-toast-service'
 import Button_share from '../button/Button_share.vue'
@@ -128,6 +162,39 @@ const props = defineProps({
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEaYTaC-q-QWUu2g7QgVvRKkJkqXjXtjBU2w&s'
     }
 })
+
+/**
+ * Get current user permission for the album
+ */
+const currentAlbumPermission = computed(() => {
+    // Nếu là owner
+    if (props.album?.owner) {
+        return 'OWNER';
+    }
+    
+    // Check từ permissionStatus
+    if (props.album?.permissionStatus) {
+        return props.album.permissionStatus;
+    }
+    
+    // Default: nếu không có permission info, có thể là owner
+    return 'OWNER';
+})
+
+/**
+ * Check if user can edit (OWNER or EDIT)
+ */
+const canEditAlbum = computed(() => {
+    const permission = currentAlbumPermission.value;
+    return permission === 'OWNER' || permission === 'EDIT';
+});
+
+/**
+ * Check if user can delete (only OWNER)
+ */
+const canDeleteAlbum = computed(() => {
+    return currentAlbumPermission.value === 'OWNER';
+});
 
 const showEditDialog = ref(false)
 const showShareDialog = ref(false)
@@ -156,18 +223,29 @@ const openDetail = () => {
 
 const openEdit = () => {
     openMenu.value = false
+    nameFolder.value = props.album.name || ''
     showEditDialog.value = true
-    nameFolder.value = props.album.name
 }
 
 const handleEditFolder = async () => {
+    if (!nameFolder.value || nameFolder.value.trim() === '') {
+        toastError({ message: 'Vui lòng nhập tên folder' })
+        return
+    }
+    
+    if (nameFolder.value.trim() === props.album.name) {
+        showEditDialog.value = false
+        return
+    }
+    
     try {
-        await postChangeNameFolder(props.album.id, nameFolder.value)
-        toastSuccess('Sửa thành công')
+        await postChangeNameFolder(props.album.id, nameFolder.value.trim())
+        toastSuccess({ message: 'Đổi tên folder thành công' })
         emit('updateData')
         showEditDialog.value = false
+        nameFolder.value = ''
     } catch (err) {
-        toastError('Lỗi sửa tên folder:', err)
+        toastError({ message: 'Lỗi khi đổi tên folder: ' + (err.message || err) })
     }
 }
 
@@ -436,5 +514,34 @@ ul {
     border-radius: 6px;
     margin-bottom: 8px;
     align-items: center;
+}
+
+.edit-folder-dialog {
+    padding: 0.5rem 0;
+}
+
+.field-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #374151;
+    font-size: 0.875rem;
+}
+
+.field {
+    margin-bottom: 1rem;
+}
+
+:deep(.p-inputtext) {
+    width: 100%;
+}
+
+:deep(.p-dialog-footer) {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 1rem;
 }
 </style>
