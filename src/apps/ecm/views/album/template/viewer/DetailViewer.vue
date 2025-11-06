@@ -57,7 +57,7 @@
       </div>
 
       <!-- Quyền và chia sẻ -->
-      <div class="detail-section" v-if="true||item.permissionStatus || item.isShared">
+      <div class="detail-section" v-if="true || item.permissionStatus || item.isShared">
         <div class="section-title">
           <i class="pi pi-shield" style="margin-right: 8px; color: #6c5ce7;"></i>
           Quyền và chia sẻ
@@ -93,9 +93,9 @@
             <span class="label">Chia sẻ với {{ item.permissionUsers.sharedUsers.length }} người:</span>
             <div class="shared-users-list">
               <div v-for="(user, index) in item.permissionUsers.sharedUsers" :key="index" class="shared-user-item">
-                <div class="user-avatar-small">
-                  <i class="pi pi-user"></i>
-                </div>
+
+                <AppAvatar :avatar="''" :label='user.fullName' shape='circle' size='2.5' />
+
                 <div class="user-info">
                   <div class="user-name-small">{{ user.fullName || user.name }}</div>
                   <div class="user-permission-badge" :class="{
@@ -111,8 +111,17 @@
         </div>
       </div>
 
+      <!-- Nhật ký hoạt động -->
+      <div class="detail-section" v-if="itemType === 'folder' && item?.id">
+        <div class="section-title">
+          <i class="pi pi-history" style="margin-right: 8px; color: #6c5ce7;"></i>
+          Nhật ký hoạt động
+        </div>
+        <ViewFolderLogs :parentId="item.id" />
+      </div>
+
       <!-- Preview cho file ảnh -->
-      <div class="detail-section" v-if="itemType === 'file' && isImage">
+      <div class="detail-section" v-if="itemType === 'photo' && isImage">
         <div class="section-title">
           <i class="pi pi-image" style="margin-right: 8px; color: #6c5ce7;"></i>
           Xem trước
@@ -135,6 +144,7 @@ import { ref, computed } from 'vue'
 import Sidebar from 'primevue/sidebar'
 import Button from 'primevue/button'
 import { urlImage } from '../../api/Album.js'
+import ViewFolderLogs from './ViewFolderLogs.vue'
 
 const props = defineProps({
   visible: {

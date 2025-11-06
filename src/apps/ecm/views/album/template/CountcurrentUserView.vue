@@ -1,5 +1,52 @@
 <template>
     <div class="current-user-view">
+
+
+        <!-- logview -->
+        <div style="cursor: pointer;" @click="visibleListUserLogView = true" class="viewers-info">
+            <i class="pi pi-eye"></i>
+            <span class="viewers-count">{{ AuditLogViewers?.length }} người đã xem </span>
+            <!-- <span class="viewers-text">{{ currentFoled.activeViewersCount === 1 ? 'người đang xem' : 'người đang xem'
+            }}</span> -->
+
+            <!-- list  log user view -->
+            <Dialog v-model:visible="visibleListUserLogView" modal :style="{ width: '28rem' }">
+                <template #header>
+                    <div class="dialog-header">
+                        <i class="pi pi-users" style="font-size: 1.25rem; margin-right: 8px;"></i>
+                        <span>Người đã xem</span>
+                    </div>
+                </template>
+
+                <div class="viewers-list">
+                    <div v-for="(e, i) in AuditLogViewers" :key="i" class="viewer-item">
+                        <AppAvatar :avatar="generateAvatarUrl(e.user.avatar)" :label="e.user.fullName" shape="circle"
+                            size="2.5" class="viewer-avatar" />
+                        <div class="viewer-info">
+                            <div class="viewer-name">{{ e.user.fullName }}</div>
+                            <div class="viewer-email">{{ e.user.email }}</div>
+                        </div>
+                    </div>
+
+                    <div v-if="AuditLogViewers.length === 0" class="empty-viewers">
+                        <i class="pi pi-users" style="font-size: 2rem; color: #ccc;"></i>
+                        <p>Không có người đã xem</p>
+                    </div>
+                </div>
+
+                <template #footer>
+                    <Button type="button" label="Đóng" severity="secondary"
+                        @click="visibleListUserView = false"></Button>
+                </template>
+            </Dialog>
+        </div>
+
+        <!-- view now -->
+        <!-- <div v-if="loading" class="loading-state">
+            <i class="pi pi-spin pi-spinner"></i>
+            <span>Đang tải...</span>
+        </div>
+        
         <div v-if="loading" class="loading-state">
             <i class="pi pi-spin pi-spinner"></i>
             <span>Đang tải...</span>
@@ -11,7 +58,6 @@
             <span class="viewers-text">{{ currentFoled.activeViewersCount === 1 ? 'người đang xem' : 'người đang xem'
                 }}</span>
 
-            <!-- list user view -->
             <Dialog v-model:visible="visibleListUserView" modal :style="{ width: '28rem' }">
                 <template #header>
                     <div class="dialog-header">
@@ -46,7 +92,7 @@
         <div v-else class="error-state">
             <i class="pi pi-exclamation-triangle"></i>
             <span>Không thể tải thông tin</span>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -56,7 +102,7 @@ import Dialog from 'primevue/dialog'
 import Button from 'primevue/button'
 import AppAvatar from '@/common/components/app/AppAvatar.vue'
 import { generateAvatarUrl } from '@/common/helpers/file-utils'
-import { pingCurrenView, getFolderDetail } from "../api/Album.js"
+import { pingCurrenView, getFolderDetail, getAllUSersLogsByFolderParentAndAction } from "../api/Album.js"
 
 const props = defineProps({
     idfolder: {
@@ -65,11 +111,18 @@ const props = defineProps({
     }
 })
 const visibleListUserView = ref(false)
+const visibleListUserLogView = ref(false)
 const currentViewers = ref(null)
 const loading = ref(true)
 let pingInterval = null
 const currentFoled = ref({})
-
+const AuditLogViewers = ref([])
+//hàm gọi APO để lấy số người đã xem
+async function fetchAuditLogViewers() {
+    const response = await getAllUSersLogsByFolderParentAndAction(props.idfolder, 'VIEW')
+    AuditLogViewers.value = response.data
+    // console.log("AuditLogViewersssssssssssssssss", AuditLogViewers.value)
+}
 // Hàm gọi API để lấy số người đang xem
 async function fetchCurrentViewers() {
 
@@ -138,6 +191,7 @@ function stopPingInterval() {
 // Theo dõi thay đổi idfolder
 watch(() => props.idfolder, (newId) => {
     if (newId) {
+        fetchAuditLogViewers()
         loading.value = true
         fetchFolderDetail()
         startPingInterval()
@@ -150,6 +204,7 @@ watch(() => props.idfolder, (newId) => {
 // Khởi tạo khi component mount
 onMounted(async () => {
     if (props.idfolder) {
+        await fetchAuditLogViewers()
         await fetchFolderDetail()
         startPingInterval()
     }

@@ -1,35 +1,27 @@
 <template>
   <div class='layout-topbar'>
     <div class='flex'>
-      <router-link
-        class='app-logo'
-        to='/'>
-        <img
-          alt='app logo'
-          :src='logo'/>
+      <router-link class='app-logo' to='/'>
+        <img alt='app logo' :src='logo' />
         <span class='app-name'>{{ productName }}</span>
       </router-link>
-      <button
-        ref='menubutton'
-        class='p-link topbar-menubutton'
-        type='button'
-        @click='onMenuButtonClick'>
+      <button ref='menubutton' class='p-link topbar-menubutton' type='button' @click='onMenuButtonClick'>
         <span></span>
       </button>
     </div>
 
     <div class='topbar-search topbar-search-active w-25rem'>
-      <SearchTopBar/>
+      <SearchTopBar />
     </div>
     <div class='align-items-center flex gap-4'>
       <div class='align-items-center flex gap-2'>
         <slot name='customMenu'></slot>
-        <AppNotification/>
-        <AppProductsMenu/>
+        <AppNotification />
+        <AppProductsMenu />
       </div>
 
       <div class='m-0 topbar-profile'>
-        <AppTopbarUser/>
+        <AppTopbarUser />
       </div>
     </div>
   </div>
@@ -102,9 +94,9 @@ const isOutsideClicked = (event) => {
 
   return !(
     sidebarEl.isSameNode(event.target)
-      || sidebarEl.contains(event.target)
-      || topbarEl.isSameNode(event.target)
-      || topbarEl.contains(event.target)
+    || sidebarEl.contains(event.target)
+    || topbarEl.isSameNode(event.target)
+    || topbarEl.contains(event.target)
   );
 };
 const onMenuButtonClick = () => {

@@ -258,24 +258,71 @@ const routes: RouteRecordRaw[] = [
         path: 'album',
         children: [
         
+          // {
+          //   path: '',
+          //   meta: { requiredAuth: true, },
+          //   name: 'EcmAlbum',
+          //   component: () => import('@/apps/ecm/views/album/AlbumManage.vue')
+          // },
+          //   {
+          //   path: ':idFolder',
+          //   meta: { requiredAuth: true, },
+          //   name: 'EcmAlbumDetail',
+          //   component: () => import('@/apps/ecm/views/album/AlbumManage.vue')
+          // },
+          // {
+          //   path: 'share/:idFolder',
+          //   meta: { requiredAuth: true, },
+          //   name: 'EcmAlbumShare',
+          //   component: () => import('@/apps/ecm/views/album/AlbumShare.vue')
+          // },
+          // {
+          //   path: 'demo',
+          //   meta: { requiredAuth: true, },
+          //   name: 'demouse',
+          //   component: () => import('@/apps/ecm/views/album/DemoUse.vue')
+          // },
+
+          //////////////////////////
           {
-            path: '',
-            meta: { requiredAuth: true, },
+            component: () => import('@/apps/ecm/views/album/AlbumManage.vue'),
+            meta: {
+              requiredAuth: true,
+              icon: 'menu_book',
+              showInMenu: true,
+              menuCode: MY_DOCUMENT_CODE,
+              functionMapping: '/ECM/ECM_PERSONAL-DOCUMENTS/ECM_PERSONAL_DOCUMENTS_MY-DOCUMENTS'
+            },
             name: 'EcmAlbum',
-            component: () => import('@/apps/ecm/views/album/AlbumManage.vue')
+            path: '',
           },
-            {
+           {
             path: ':idFolder',
             meta: { requiredAuth: true, },
             name: 'EcmAlbumDetail',
             component: () => import('@/apps/ecm/views/album/AlbumManage.vue')
           },
-          {
-            path: 'demo',
+          {// share album
+            component: () => import('@/apps/ecm/views/album/AlbumShare.vue'),
+            meta: {
+              requiredAuth: true,
+              icon: 'menu_book',
+              showInMenu: true,
+              menuCode: MY_DOCUMENT_CODE,
+              functionMapping: '/ECM/ECM_PERSONAL-DOCUMENTS/ECM_PERSONAL_DOCUMENTS_MY-DOCUMENTS'
+            },
+            name: 'AlbumShared',
+            path: 'share',
+            children:[
+              {
+            path: ':idFolder',
             meta: { requiredAuth: true, },
-            name: 'demouse',
-            component: () => import('@/apps/ecm/views/album/DemoUse.vue')
+            name: 'EcmAlbumSharedDetail',
+            component: () => import('@/apps/ecm/views/album/AlbumShare.vue')
           },
+            ]
+          },
+          
         ]
       },
       {

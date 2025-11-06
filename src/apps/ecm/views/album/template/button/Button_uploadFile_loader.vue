@@ -1,5 +1,5 @@
 <template>
-    <Button label="Upload Ảnh" icon="pi pi-upload" outlined @click="showDialogUploadImage = true" />
+    <Button class="butotn" label="Upload Ảnh" icon="pi pi-upload" outlined @click="showDialogUploadImage = true" />
 
     <Dialog v-model:visible="showDialogUploadImage" modal header="Tải ảnh lên album" :style="{ width: '35rem' }">
         <template #header>
@@ -436,5 +436,9 @@ const handleUpload = async () => {
 /* Hide PrimeVue FileUpload default UI */
 :deep(.p-fileupload) {
     display: none;
+}
+
+.butotn{
+    margin:0 0 0 10px
 }
 </style>

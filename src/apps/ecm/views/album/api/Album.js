@@ -221,3 +221,13 @@ export const getTreeAlbumFolder =()=>{
 	return api.get(`api/folders/album-folers-tree`);
 }
 
+///// /api/audit-logs
+
+export const getAllLogsByFolderParent =(parentId)=>{
+	return api.get(`api/audit-logs/logs-folder?parentId=${parentId}`);
+}
+
+// actionType :  VIEW,      CREATE,     UPDATE,     DELETE,     SHARE,     UPLOAD,     RENAME    
+export const getAllUSersLogsByFolderParentAndAction =(targetId,actionType)=>{
+	return api.get(`api/audit-logs/logs-folder-action?targetId=${targetId}&actionType=${actionType}`);
+}

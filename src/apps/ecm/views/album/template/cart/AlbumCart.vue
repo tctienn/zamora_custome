@@ -4,7 +4,7 @@
         <!-- Card title -->
         <div class="card-title">
             <div class="title-left">
-                <div class="album-title">{{ album.name }}</div>
+                <div class="album-title truncate-no-width">{{ album.name }}</div>
                 <!-- <div class="album-meta">{{ album.countImage }} ảnh</div> -->
             </div>
 
@@ -78,19 +78,13 @@
                 <span style="font-weight: 600; font-size: 1.125rem;">Đổi tên Folder</span>
             </div>
         </template>
-        
+
         <div class="edit-folder-dialog">
             <div class="field mb-4">
                 <label for="folderName" class="field-label">Tên folder</label>
-                <InputText 
-                    id="folderName"
-                    v-model="nameFolder" 
-                    placeholder="Nhập tên folder mới"
-                    class="w-full"
-                    :class="{ 'p-invalid': !nameFolder || nameFolder.trim() === '' }"
-                    autofocus
-                    @keyup.enter="handleEditFolder"
-                />
+                <InputText id="folderName" v-model="nameFolder" placeholder="Nhập tên folder mới" class="w-full"
+                    :class="{ 'p-invalid': !nameFolder || nameFolder.trim() === '' }" autofocus
+                    @keyup.enter="handleEditFolder" />
                 <small v-if="!nameFolder || nameFolder.trim() === ''" class="p-error">
                     Vui lòng nhập tên folder
                 </small>
@@ -98,17 +92,8 @@
         </div>
 
         <template #footer>
-            <Button 
-                label="Hủy" 
-                severity="secondary" 
-                outlined
-                @click="showEditDialog = false" 
-            />
-            <Button 
-                label="Lưu" 
-                @click="handleEditFolder"
-                :disabled="!nameFolder || nameFolder.trim() === ''"
-            />
+            <Button label="Hủy" severity="secondary" outlined @click="showEditDialog = false" />
+            <Button label="Lưu" @click="handleEditFolder" :disabled="!nameFolder || nameFolder.trim() === ''" />
         </template>
     </Dialog>
 
@@ -171,12 +156,12 @@ const currentAlbumPermission = computed(() => {
     if (props.album?.owner) {
         return 'OWNER';
     }
-    
+
     // Check từ permissionStatus
     if (props.album?.permissionStatus) {
         return props.album.permissionStatus;
     }
-    
+
     // Default: nếu không có permission info, có thể là owner
     return 'OWNER';
 })
@@ -232,12 +217,12 @@ const handleEditFolder = async () => {
         toastError({ message: 'Vui lòng nhập tên folder' })
         return
     }
-    
+
     if (nameFolder.value.trim() === props.album.name) {
         showEditDialog.value = false
         return
     }
-    
+
     try {
         await postChangeNameFolder(props.album.id, nameFolder.value.trim())
         toastSuccess({ message: 'Đổi tên folder thành công' })
@@ -278,11 +263,14 @@ onBeforeUnmount(() => {
     padding: 14px 16px;
     border-bottom: 1px solid #f0f0f0;
     background: white;
+    /* border: solid 1px black; */
 }
 
 .title-left {
     display: flex;
     flex-direction: column;
+    /* border: solid 1px black; */
+    width: 70%;
 }
 
 .album-title {
@@ -293,6 +281,8 @@ onBeforeUnmount(() => {
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 200px;
+
+
 }
 
 .album-meta {
@@ -347,10 +337,22 @@ onBeforeUnmount(() => {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    display: block;
 }
 
-.icon-btn:hover {
-    background: rgba(0, 0, 0, 0.04);
+.album-card:hover .icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    display: block;
+
 }
 
 .cover-wrap {
@@ -416,7 +418,7 @@ onBeforeUnmount(() => {
     animation: pulse-shadow 2s ease-in-out infinite;
 }
 
-@keyframes float {
+/* @keyframes float {
 
     0%,
     100% {
@@ -440,7 +442,7 @@ onBeforeUnmount(() => {
         opacity: 0.8;
         transform: translate(-50%, -50%) scale(1.1);
     }
-}
+} */
 
 .permission-badge {
     position: absolute;
@@ -543,5 +545,13 @@ ul {
     padding-top: 1rem;
     border-top: 1px solid #e5e7eb;
     margin-top: 1rem;
+}
+
+.truncate-no-width {
+    /* Không giới hạn width, nó sẽ chiếm 100% chiều rộng của trình duyệt */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* width: 80%; */
 }
 </style>

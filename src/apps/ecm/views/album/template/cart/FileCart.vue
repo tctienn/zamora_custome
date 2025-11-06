@@ -22,7 +22,8 @@
                         <li v-if="photo?.owner" @click="openShare">
                             <i class="pi pi-share-alt" style="margin-right:8px"></i> Chia sẻ
                         </li>
-                        <li v-if="photo?.owner|| photo?.permissionStatus=='EDIT'" class="danger" @click="openDeleteDialog">
+                        <li v-if="photo?.owner || photo?.permissionStatus == 'EDIT'" class="danger"
+                            @click="openDeleteDialog">
                             <i class="pi pi-trash" style="margin-right:8px"></i> Xóa
                         </li>
                     </ul>
@@ -30,10 +31,10 @@
             </div>
         </div>
         <img @click="visiblPhoto = true" :src="urlImage + photo?.treePath" class="image" />
-         <div v-if="photo?.isShared" class="badge shared">
-                <i class="pi pi-share-alt" style="margin-right: 4px;"></i>
-                Đã chia sẻ
-            </div>
+        <div v-if="photo?.isShared" class="badge shared">
+            <i class="pi pi-share-alt" style="margin-right: 4px;"></i>
+            Đã chia sẻ
+        </div>
         <!-- photo full screen -->
         <Dialog v-model:visible="visiblPhoto" maximizable modal :header="photo.filename" :style="{ width: '50rem' }"
             :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
@@ -47,16 +48,12 @@
 
         </Dialog>
         <!-- Dialog chia sẻ -->
-        <Button_share v-model:visible="shareDialogVisible" :selectedAlbum="selectedPhoto" :item-id="photo?.id" 
+        <Button_share v-model:visible="shareDialogVisible" :selectedAlbum="selectedPhoto" :item-id="photo?.id"
             :item-name="photo?.filename || ''" item-type="file" @update="handleUpdate" />
 
         <!-- Detail Viewer Dialog -->
-        <DetailViewer
-            v-model:visible="showDetailDialog"
-            :item="photo"
-            item-type="file"
-            @hide-dialog="showDetailDialog = false"
-        />
+        <DetailViewer v-model:visible="showDetailDialog" :item="photo" item-type="file"
+            @hide-dialog="showDetailDialog = false" />
 
         <!-- Copy URL Button -->
         <Dialog v-model:visible="copyUrlDialogVisible" modal header="Chia sẻ link" :style="{ width: '25rem' }">
@@ -118,12 +115,12 @@ const currentFilePermission = computed(() => {
     if (props.photo?.owner) {
         return 'OWNER';
     }
-    
+
     // Check từ permissionStatus
     if (props.photo?.permissionStatus) {
         return props.photo.permissionStatus;
     }
-    
+
     // Default: nếu không có permission info, có thể là owner
     return 'OWNER';
 })
@@ -222,21 +219,21 @@ const handleDownload = async () => {
     try {
         openMenu.value = false;
         const response = await dowLoadFile(props.photo.id);
-        
+
         // Tạo blob từ response data
         const blob = new Blob([response.data]);
-        
+
         // Tạo URL từ blob
         const url = window.URL.createObjectURL(blob);
-        
+
         // Tạo link để download
         const link = document.createElement('a');
         link.href = url;
-        
+
         // Lấy tên file từ Content-Disposition header hoặc sử dụng filename từ photo
         const contentDisposition = response.headers['content-disposition'];
         let filename = props.photo.filename || 'download';
-        
+
         if (contentDisposition) {
             const filenameMatch = contentDisposition.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/);
             if (filenameMatch && filenameMatch[1]) {
@@ -245,15 +242,15 @@ const handleDownload = async () => {
                 filename = decodeURIComponent(filename);
             }
         }
-        
+
         link.setAttribute('download', filename);
         document.body.appendChild(link);
         link.click();
-        
+
         // Cleanup
         link.remove();
         window.URL.revokeObjectURL(url);
-        
+
         toastSuccess({ message: 'Tải xuống thành công' });
     } catch (error) {
         console.error('Download error:', error);
@@ -321,11 +318,25 @@ const handleDownload = async () => {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
     transition: background 1s;
 }
 
 .icon-btn:hover {
     background: rgba(0, 0, 0, 0.6);
+}
+
+.image-card:hover .icon-btn {
+    background: #ffffff85;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: background 1s;
 }
 
 .file-menu {
@@ -455,7 +466,6 @@ const handleDownload = async () => {
     z-index: 10;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
-    opacity:1
+    opacity: 1
 }
-
 </style>

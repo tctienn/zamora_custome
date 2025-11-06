@@ -16,7 +16,8 @@
           <div v-for="(user, index) in selectedUsers" :key="index" class="flex align-items-center border-bottom-1 py-2"
             :class="{ 'border-bottom-none': index === selectedUsers.length - 1 }">
             <div class="flex align-items-center gap-2 flex-1">
-              <i class="pi pi-user"></i>
+              <!-- <i class="pi pi-user"></i> -->
+              <AppAvatar :avatar='generateAvatarUrl(user.avatar)' :label='user.fullName' shape='circle' size='2.5' />
               <div class="flex flex-column">
                 <div class="font-medium">{{ user.name }}</div>
                 <div class="text-sm text-color-secondary">{{ user.email }}</div>
@@ -46,7 +47,8 @@
     </div>
 
     <template #footer>
-      <Button v-if="props.selectedAlbum.permissionUsers?.id" label="Xóa chia sẻ" severity="danger" @click="handleDeleteCurrentFolderShare" />
+      <Button v-if="props.selectedAlbum.permissionUsers?.id" label="Xóa chia sẻ" severity="danger"
+        @click="handleDeleteCurrentFolderShare" />
 
       <Button label="Đóng" severity="secondary" @click="closeDialog" />
       <Button label="Chia sẻ" @click="handleShare" :disabled="!canShare" />
@@ -63,6 +65,7 @@ import Dialog from 'primevue/dialog'
 import { getSearchShareUsers } from '@/apps/ecm/api/graphql/share'
 import { DeletePermission, postCreateAndUpadateShare, postCreateAndUpadateSharePhoto } from '@/apps/ecm/views/album/api/Album.js'
 import { toastError, toastSuccess } from '@/common/helpers/custom-toast-service'
+import { generateAvatarUrl } from '@/common/helpers/file-utils'
 
 const props = defineProps({
   selectedAlbum: {
@@ -155,20 +158,20 @@ function removeUser(index) {
 
 
 async function handleDeleteCurrentFolderShare() {
-    try {
-        const permissionId = props.selectedAlbum.permissionUsers?.id;
-        if (!permissionId) {
-            toastError({ message: 'Không tìm thấy permission ID' });
-            return;
-        }
-        await DeletePermission(permissionId);
-        toastSuccess({ message: 'Xóa chia sẻ thành công' });
-        // showUserShareButton.value = false;
-        await emit('update')
-    } catch (err) {
-        console.error('handleDeleteCurrentFolderShare error', err);
-        toastError({ message: 'Xóa chia sẻ thất bại' });
+  try {
+    const permissionId = props.selectedAlbum.permissionUsers?.id;
+    if (!permissionId) {
+      toastError({ message: 'Không tìm thấy permission ID' });
+      return;
     }
+    await DeletePermission(permissionId);
+    toastSuccess({ message: 'Xóa chia sẻ thành công' });
+    // showUserShareButton.value = false;
+    await emit('update')
+  } catch (err) {
+    console.error('handleDeleteCurrentFolderShare error', err);
+    toastError({ message: 'Xóa chia sẻ thất bại' });
+  }
 }
 
 /**

@@ -48,49 +48,36 @@
                         <button :class="['mode-btn', { active: albumMode === 'shared' }]"
                             @click="changeAlbumMode('shared')">Chia
                             sẻ</button>
-                            
 
-                            <!-- list user avatar -->
-                            <div v-if="folderCurrent.permissionUsers?.sharedUsers?.length" class="user-avatar-group">
-                                <AvatarGroup  @click="showShareDialog = true">
-                                    <Avatar 
-                                        v-for="(user, i) in folderCurrent.permissionUsers.sharedUsers.slice(0, maxDisplayUsers)"
-                                        :key="i" 
-                                        :label="getUserInitials(user.fullName || user.name)" 
-                                        shape="circle"
-                                        size="small"
-                                        style="background-color: var(--primary-color); color: white;"
-                                        :title="user.fullName"
-                                        />
-                                    <Avatar v-if="(folderCurrent.permissionUsers?.sharedUsers?.length-3)>0" :label="(folderCurrent.permissionUsers?.sharedUsers?.length-3)" shape="circle" />
 
-                                </AvatarGroup>
-                                 <!-- <Avatar @click="showShareDialog = true" style="cursor:'pointer'"  :label="'+'" shape="circle" /> -->
+                        <!-- list user avatar -->
+                        <div v-if="folderCurrent.permissionUsers?.sharedUsers?.length" class="user-avatar-group">
+                            <AvatarGroup @click="showShareDialog = true">
+                                <AppAvatar
+                                    v-for="(user, i) in folderCurrent.permissionUsers.sharedUsers.slice(0, maxDisplayUsers)"
+                                    :key="i" :avatar='generateAvatarUrl(user.avatar)' :label='user.fullName'
+                                    shape='circle' size='2.0' />
 
-                                
-                            </div>
-                            <Button 
-                            
-                                v-if="folderCurrent.owner"
-                                icon="pi pi-share-alt" 
-                                rounded 
-                                text
-                                severity="secondary"
-                                size="small"
-                                label="Chia sẻ"
-                                @click="folderCurrent.owner?showShareDialog = true:''"
-                            />
-                            
-                            <!-- share component -->
-                            <Button_share 
-                                v-if="folderCurrent.owner"
-                                v-model:visible="showShareDialog" 
-                                :selectedAlbum="folderCurrent" 
-                                :item-id="folderCurrent?.id"
-                                :item-name="folderCurrent?.name || ''" 
-                                item-type="album" 
-                                @update="handleUpdateData" 
-                            />
+                                <!-- <Avatar
+                                    v-for="(user, i) in folderCurrent.permissionUsers.sharedUsers.slice(0, maxDisplayUsers)"
+                                    :key="i" :label="getUserInitials(user.fullName || user.name)" shape="circle"
+                                    size="small" style="background-color: var(--primary-color); color: white;"
+                                    :title="user.fullName" /> -->
+                                <Avatar v-if="(folderCurrent.permissionUsers?.sharedUsers?.length - 3) > 0"
+                                    :label="(folderCurrent.permissionUsers?.sharedUsers?.length - 3)" shape="circle" />
+
+                            </AvatarGroup>
+                            <!-- <Avatar @click="showShareDialog = true" style="cursor:'pointer'"  :label="'+'" shape="circle" /> -->
+
+
+                        </div>
+                        <Button v-if="folderCurrent.owner" icon="pi pi-share-alt" rounded text severity="secondary"
+                            size="small" label="Chia sẻ" @click="folderCurrent.owner ? showShareDialog = true : ''" />
+
+                        <!-- share component -->
+                        <Button_share v-if="folderCurrent.owner" v-model:visible="showShareDialog"
+                            :selectedAlbum="folderCurrent" :item-id="folderCurrent?.id"
+                            :item-name="folderCurrent?.name || ''" item-type="album" @update="handleUpdateData" />
                     </div>
 
                 </div>
@@ -158,38 +145,35 @@
                             </div>
                         </template>
 
-                        <div class="user-permissions-list">
-                            <div v-for="(user, i) in folderCurrent.permissionUsers.sharedUsers" :key="i"
-                                class="permission-row">
-                                <div class="user-details">
-                                    <div class="user-avatar-small">
-                                        <i class="pi pi-user"></i>
-                                    </div>
-                                    <div>
-                                        <div class="user-name-bold">{{ user.fullName }}</div>
-                                        <div class="user-email">{{ user.email }}</div>
-                                    </div>
-                                </div>
-                                <Dropdown v-model="user.permission" :options="permissionOptions" option-label="label"
-                                    option-value="value" class="permission-dropdown" />
-                            </div>
-                        </div>
+<div class="user-permissions-list">
+    <div v-for="(user, i) in folderCurrent.permissionUsers.sharedUsers" :key="i" class="permission-row">
+        <div class="user-details">
+            <div class="user-avatar-small">
+                <i class="pi pi-user"></i>
+            </div>
+            <div>
+                <div class="user-name-bold">{{ user.fullName }}</div>
+                <div class="user-email">{{ user.email }}</div>
+            </div>
+        </div>
+        <Dropdown v-model="user.permission" :options="permissionOptions" option-label="label" option-value="value"
+            class="permission-dropdown" />
+    </div>
+</div>
 
-                        <template #footer>
+<template #footer>
                             <Button label="Xóa chia sẻ" severity="danger" @click="handleDeleteCurrentFolderShare" />
                             <div style="flex: 1;"></div>
                             <Button label="Hủy" severity="secondary" @click="showUserShareButton = false" />
                             <Button label="Lưu" @click="handleUpdatePermission" />
                         </template>
-                    </Dialog>
-                </div> -->
+</Dialog>
+</div> -->
             </div>
 
             <div class="actions">
                 <div>
-                    <button 
-                        v-if="canCreateFolder"
-                        class="p-button-outlined create-album-btn" 
+                    <button v-if="canCreateFolder" class="p-button-outlined create-album-btn"
                         @click="showDialogCreateAlbum = true">
                         + Tạo album
                     </button>
@@ -198,11 +182,7 @@
                         @updateData="handleUpdateData" 
                         :album="folderCurrent" 
                     /> -->
-                    <Button_uploadFile_loader 
-                        v-if="canUpload"
-                        @updateData="handleUpdateData" 
-                        :album="folderCurrent" 
-                    />
+                    <Button_uploadFile_loader v-if="canUpload" @updateData="handleUpdateData" :album="folderCurrent" />
 
                     <Dialog v-model:visible="showDialogCreateAlbum" modal header="Tạo folder"
                         :style="{ width: '25rem' }">
@@ -261,7 +241,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue';
+import { ref, computed, onMounted, watch, inject } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import Dropdown from 'primevue/dropdown';
 import Avatar from 'primevue/avatar';
@@ -274,6 +254,10 @@ import AlbumCard from './template/cart/AlbumCart.vue';
 import FileCart from './template/cart/FileCart.vue';
 import Button_uploadFile from './template/button/Button_uploadFile.vue';
 import Button_uploadFile_loader from './template/button/Button_uploadFile_loader.vue';
+
+
+
+// const searchTermUpdate = inject('updateSearchTerm', (value: string) => void {});
 
 import { taocock } from './api/CookieFuntion.js';
 import {
@@ -292,6 +276,7 @@ import { toastError, toastSuccess } from '@/common/helpers/custom-toast-service'
 import CountcurrentUserView from './template/CountcurrentUserView.vue';
 import AlbumTree from './template/tree/AlbumTree.vue';
 import Button_share from './template/button/Button_share.vue';
+import { generateAvatarUrl } from '@/common/helpers/file-utils';
 
 // ALL,  NAME,  DATE_CREATED,  DATE_MODIFIED,
 const sortType = ref("ALL")
@@ -360,17 +345,17 @@ const currentUserPermission = computed(() => {
     if (folderCurrent.value.owner || folderCurrent.value.permissionStatus === 'OWNER') {
         return 'OWNER';
     }
-    
+
     // // Check từ permissionUsers
     // if (folderCurrent.value.permissionUsers?.permissionStatus) {
     //     return folderCurrent.value.permissionUsers.permissionStatus;
     // }
-    
+
     // Check từ permissionStatus
     if (folderCurrent.value.permissionStatus) {
         return folderCurrent.value.permissionStatus;
     }
-    
+
     // Default: nếu không có permission info, có thể là owner
     return 'OWNER';
 });
@@ -484,6 +469,7 @@ async function fetchFolder(id) {
 }
 
 async function fetchChildren(id) {
+    console.log('ssssssss', id)
     try {
         const res = await getFoldersByFolder(sortType.value, id);
         folders.value = res.data || [];
@@ -560,6 +546,8 @@ async function handleUpdateData() {
         // parentIdParam là computed property, nó sẽ tự động cập nhật theo route
         await fetchFolder(parentIdParam.value);
     }
+    oldFolders = folders.value
+    oldPhotos = photos.value
 }
 
 function openFolder(id) {
@@ -635,11 +623,47 @@ watch(() => route.name, (newName, oldName) => {
     }
 });
 
+// const serchData=()=>{
+// folders
+//  photos
+// }
+var oldFolders = []
+var oldPhotos = []
+function searchByName(keyword) {
 
+    if (!keyword) return folders.value;
+
+    const lowerKeyword = keyword.toLowerCase();
+
+    folders.value = oldFolders.filter(folder =>
+        folder.name && folder.name.toLowerCase().includes(lowerKeyword)
+    );
+
+
+    photos.value = oldPhotos.filter(photo =>
+        photo.name && photo.name.toLowerCase().includes(lowerKeyword)
+    );
+
+
+}
+
+
+const searchTerm = inject('searchTerm', ref(''));
+watch(searchTerm, (newValue) => {
+
+    if (newValue.trim() == '') {
+        handleUpdateData()
+    }
+    console.log('runrearch : ', newValue)
+    // handleUpdateData().then(() => { searchByName(newValue) })
+    searchByName(newValue)
+    // alert(newValue)
+});
 // ---------- lifecycle ----------
 onMounted(() => {
     handleUpdateData();
 });
+
 </script>
 
 <style scoped>
