@@ -306,7 +306,7 @@ const routes: RouteRecordRaw[] = [
             component: () => import('@/apps/ecm/views/album/AlbumShare.vue'),
             meta: {
               requiredAuth: true,
-              icon: 'menu_book',
+              icon: 'share',
               showInMenu: true,
               menuCode: MY_DOCUMENT_CODE,
               functionMapping: '/ECM/ECM_PERSONAL-DOCUMENTS/ECM_PERSONAL_DOCUMENTS_MY-DOCUMENTS'

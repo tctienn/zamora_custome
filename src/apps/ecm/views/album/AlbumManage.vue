@@ -278,6 +278,15 @@ import AlbumTree from './template/tree/AlbumTree.vue';
 import Button_share from './template/button/Button_share.vue';
 import { generateAvatarUrl } from '@/common/helpers/file-utils';
 
+// store
+// import { useStorageStore, useAlbumStore } from '@/apps/ecm/store/ecm_album.ts';
+
+// const storageAlbumStore = useStorageStore();
+// const {
+//     rootFolderId,
+//     myFolderPageList,
+
+// } = storeToRefs(storageAlbumStore);
 // ALL,  NAME,  DATE_CREATED,  DATE_MODIFIED,
 const sortType = ref("ALL")
 
@@ -319,23 +328,23 @@ const breadcrumbSegments = computed(() => {
     return pathTree.value.split('/').filter(p => p.length > 0);
 });
 
-const canGoBack = computed(() => {
-    // Có thể quay lại nếu:
-    // 1. Có folder trong pageList, HOẶC
-    // 2. Đang ở trong một folder con (không phải root)
-    const canBack = pageList.value.length > 0 || (route.params.idFolder && route.params.idFolder !== undefined);
+// const canGoBack = computed(() => {
+//     // Có thể quay lại nếu:
+//     // 1. Có folder trong pageList, HOẶC
+//     // 2. Đang ở trong một folder con (không phải root)
+//     const canBack = pageList.value.length > 0 || (route.params.idFolder && route.params.idFolder !== undefined);
 
-    // Debug log để theo dõi
-    console.log('canGoBack debug:', {
-        pageListLength: pageList.value.length,
-        currentFolderId: route.params.idFolder,
-        folderCurrentId: folderCurrent.value.id,
-        canBack: canBack,
-        pageList: [...pageList.value]
-    });
+//     // Debug log để theo dõi
+//     console.log('canGoBack debug:', {
+//         pageListLength: pageList.value.length,
+//         currentFolderId: route.params.idFolder,
+//         folderCurrentId: folderCurrent.value.id,
+//         canBack: canBack,
+//         pageList: [...pageList.value]
+//     });
 
-    return canBack;
-});
+//     return canBack;
+// });
 
 /**
  * Get current user permission for the folder
@@ -371,10 +380,10 @@ const canEdit = computed(() => {
 /**
  * Check if user can view (all permissions allow viewing)
  */
-const canView = computed(() => {
-    const permission = currentUserPermission.value;
-    return permission === 'OWNER' || permission === 'EDIT' || permission === 'VIEW';
-});
+// const canView = computed(() => {
+//     const permission = currentUserPermission.value;
+//     return permission === 'OWNER' || permission === 'EDIT' || permission === 'VIEW';
+// });
 
 /**
  * Check if user can create folder (OWNER or EDIT)
@@ -393,15 +402,15 @@ const canUpload = computed(() => {
 /**
  * Check if user can delete (only OWNER)
  */
-const canDelete = computed(() => {
-    return currentUserPermission.value === 'OWNER';
-});
+// const canDelete = computed(() => {
+//     return currentUserPermission.value === 'OWNER';
+// });
 
-const permissionOptions = [
-    { label: 'Xem (VIEW)', value: 'VIEW' },
-    { label: 'Chỉnh sửa (EDIT)', value: 'EDIT' },
-    { label: 'Không (NONE)', value: 'NONE' }
-];
+// const permissionOptions = [
+//     { label: 'Xem (VIEW)', value: 'VIEW' },
+//     { label: 'Chỉnh sửa (EDIT)', value: 'EDIT' },
+//     { label: 'Không (NONE)', value: 'NONE' }
+// ];
 
 const sortOptions = ref([
     { label: 'Tất cả', value: 'ALL' },
@@ -414,14 +423,14 @@ const sortOptions = ref([
 /**
  * Get user initials from full name
  */
-function getUserInitials(name) {
-    if (!name) return '?';
-    const parts = name.trim().split(' ');
-    if (parts.length === 1) {
-        return parts[0].charAt(0).toUpperCase();
-    }
-    return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
-}
+// function getUserInitials(name) {
+//     if (!name) return '?';
+//     const parts = name.trim().split(' ');
+//     if (parts.length === 1) {
+//         return parts[0].charAt(0).toUpperCase();
+//     }
+//     return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
+// }
 
 function confirmCreateCookie() {
     if (!tempUserId.value.trim()) {
@@ -458,10 +467,10 @@ async function fetchFolder(id) {
     try {
         const res = await getFolderDetail(id);
         folderCurrent.value = res.data || {};
-        console.log('curran folder :', res.data)
+        console.log('curran folder albummanager.vu :', res.data)
         await fetchChildren(id);
-        const photosRes = await getPhotosByFolder(sortType.value, id);
-        photos.value = photosRes.data || [];
+        // const photosRes = await getPhotosByFolder(sortType.value, id);
+        // photos.value = photosRes.data || [];
         pathTree.value = normalizePathForTree(folderCurrent.value.path || '');
     } catch (err) {
         console.error('fetchFolder error', err);
@@ -469,7 +478,6 @@ async function fetchFolder(id) {
 }
 
 async function fetchChildren(id) {
-    console.log('ssssssss', id)
     try {
         const res = await getFoldersByFolder(sortType.value, id);
         folders.value = res.data || [];
@@ -507,37 +515,37 @@ async function getFoldersShareWithUser() {
     }
 }
 
-async function handleUpdatePermission() {
-    try {
-        const sharedUsers = (folderCurrent.value.permissionUsers?.sharedUsers || []).filter(e => e.permission !== 'NONE');
-        const fileFolderId = folderCurrent.value.permissionUsers?.fileFolderId;
-        const visibility = folderCurrent.value.permissionUsers?.visibility;
-        const defaultPermission = folderCurrent.value.permissionUsers?.permission;
-        if (!fileFolderId) return;
-        await postCreateAndUpadateShare(fileFolderId, visibility, defaultPermission, sharedUsers);
-        await handleUpdateData();
-        showUserShareButton.value = false;
-    } catch (err) {
-        console.error('handleUpdatePermission error', err);
-    }
-}
+// async function handleUpdatePermission() {
+//     try {
+//         const sharedUsers = (folderCurrent.value.permissionUsers?.sharedUsers || []).filter(e => e.permission !== 'NONE');
+//         const fileFolderId = folderCurrent.value.permissionUsers?.fileFolderId;
+//         const visibility = folderCurrent.value.permissionUsers?.visibility;
+//         const defaultPermission = folderCurrent.value.permissionUsers?.permission;
+//         if (!fileFolderId) return;
+//         await postCreateAndUpadateShare(fileFolderId, visibility, defaultPermission, sharedUsers);
+//         await handleUpdateData();
+//         showUserShareButton.value = false;
+//     } catch (err) {
+//         console.error('handleUpdatePermission error', err);
+//     }
+// }
 
-async function handleDeleteCurrentFolderShare() {
-    try {
-        const permissionId = folderCurrent.value.permissionUsers?.id;
-        if (!permissionId) {
-            toastError({ message: 'Không tìm thấy permission ID' });
-            return;
-        }
-        await DeletePermission(permissionId);
-        toastSuccess({ message: 'Xóa chia sẻ thành công' });
-        showUserShareButton.value = false;
-        await handleUpdateData();
-    } catch (err) {
-        console.error('handleDeleteCurrentFolderShare error', err);
-        toastError({ message: 'Xóa chia sẻ thất bại' });
-    }
-}
+// async function handleDeleteCurrentFolderShare() {
+//     try {
+//         const permissionId = folderCurrent.value.permissionUsers?.id;
+//         if (!permissionId) {
+//             toastError({ message: 'Không tìm thấy permission ID' });
+//             return;
+//         }
+//         await DeletePermission(permissionId);
+//         toastSuccess({ message: 'Xóa chia sẻ thành công' });
+//         showUserShareButton.value = false;
+//         await handleUpdateData();
+//     } catch (err) {
+//         console.error('handleDeleteCurrentFolderShare error', err);
+//         toastError({ message: 'Xóa chia sẻ thất bại' });
+//     }
+// }
 
 async function handleUpdateData() {
     if (route.params.idFolder == undefined) {

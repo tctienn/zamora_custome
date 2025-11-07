@@ -133,7 +133,7 @@ async function fetchCurrentViewers() {
 
     try {
         const response = await pingCurrenView(props.idfolder)
-        const curreanFolderresponse = await fetchFolderDetail()
+        // const curreanFolderresponse = await fetchFolderDetail()
         console.log("ping fetchCurrentViewers ")
         // Giả sử API trả về { data: { count: number } } hoặc { data: number }
         // Cần điều chỉnh theo response thực tế
@@ -152,51 +152,51 @@ async function fetchCurrentViewers() {
 
 // Hàm lấy thông tin folder detail
 async function fetchFolderDetail() {
-    if (!props.idfolder) {
-        return
-    }
+    // if (!props.idfolder) {
+    //     return
+    // }
 
-    try {
-        const curranFResPonse = await getFolderDetail(props.idfolder)
-        currentFoled.value = curranFResPonse.data
-    } catch (error) {
-        console.error('Error fetching folder detail:', error)
-    }
+    // try {
+    //     const curranFResPonse = await getFolderDetail(props.idfolder)
+    //     currentFoled.value = curranFResPonse.data
+    // } catch (error) {
+    //     console.error('Error fetching folder detail:', error)
+    // }
 }
 
 // Khởi động interval ping
 function startPingInterval() {
     // Clear interval cũ nếu có
-    if (pingInterval) {
-        clearInterval(pingInterval)
-    }
+    // if (pingInterval) {
+    //     clearInterval(pingInterval)
+    // }
 
-    // Gọi ngay lần đầu
-    fetchCurrentViewers()
+    // // Gọi ngay lần đầu
+    // fetchCurrentViewers()
 
-    // Sau đó gọi mỗi 50 giây
-    pingInterval = setInterval(() => {
-        fetchCurrentViewers()
-    }, 50000) // 50 giây = 50000 milliseconds
+    // // Sau đó gọi mỗi 50 giây
+    // pingInterval = setInterval(() => {
+    //     fetchCurrentViewers()
+    // }, 50000) // 50 giây = 50000 milliseconds
 }
 
 // Dừng interval
-function stopPingInterval() {
-    if (pingInterval) {
-        clearInterval(pingInterval)
-        pingInterval = null
-    }
-}
+// function stopPingInterval() {
+//     if (pingInterval) {
+//         clearInterval(pingInterval)
+//         pingInterval = null
+//     }
+// }
 
 // Theo dõi thay đổi idfolder
 watch(() => props.idfolder, (newId) => {
     if (newId) {
         fetchAuditLogViewers()
         loading.value = true
-        fetchFolderDetail()
-        startPingInterval()
+        // fetchFolderDetail()
+        // startPingInterval()
     } else {
-        stopPingInterval()
+        // stopPingInterval()
         currentViewers.value = null
     }
 })
@@ -212,7 +212,7 @@ onMounted(async () => {
 
 // Cleanup khi component unmount
 onUnmounted(() => {
-    stopPingInterval()
+    // stopPingInterval()
 })
 </script>
 

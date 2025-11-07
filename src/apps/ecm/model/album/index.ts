@@ -1,0 +1,17 @@
+// export interface id {
+//     id: string,
+//     name: string,
+//     treePath: string,
+//     isHidden: boolean,
+//     personal: boolean,
+//     tags: string[],
+//     isImportant: boolean,
+//     isShare: boolean,
+//     isDeleted: boolean,
+//     createdAt: Date,
+//     createdBy: string,
+//     lastModifiedAt: Date,
+//     lastModifiedBy: string,
+//     statusComment: boolean,
+//     isComment: boolean,
+// }

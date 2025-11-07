@@ -36,8 +36,9 @@
                                 :label="(folderCurrent.permissionUsers?.sharedUsers?.length - 3)" shape="circle" />
                         </AvatarGroup>
                     </div>
-                    <Button v-if="folderCurrent.owner" icon="pi pi-share-alt" rounded text severity="secondary"
-                        size="small" label="Chia sẻ" @click="folderCurrent.owner ? showShareDialog = true : ''" />
+                    <Button v-if="folderCurrent.owner || folderCurrent.permissionStatus == 'EDIT'"
+                        icon="pi pi-share-alt" rounded text severity="secondary" size="small" label="Chia sẻ"
+                        @click="folderCurrent.owner ? showShareDialog = true : ''" />
                     <!-- share component -->
                     <Button_share v-if="folderCurrent.owner" v-model:visible="showShareDialog"
                         :selectedAlbum="folderCurrent" :item-id="folderCurrent?.id"
@@ -221,6 +222,7 @@ function normalizePathForTree(path = '') {
 
 async function fetchFolder(id) {
     try {
+        console.log('fetchFolder albumshare.vue ')
         const res = await getFolderDetail(id);
         folderCurrent.value = res.data || {};
         await fetchChildren(id);
@@ -268,6 +270,7 @@ async function createAlbum() {
 }
 
 async function handleUpdateData() {
+    console.log('handleUpdateData albumshare.vu')
     if (route.params.idFolder == undefined) {
         await getFoldersShareWithUser()
 
@@ -284,7 +287,8 @@ function openFolder(id) {
     // }
     pageList.value.push(parentIdParam.value);
     console.log("pagelist open", pageList.value)
-    router.replace({ name: 'EcmAlbumSharedDetail', params: { idFolder: id } }).then(() => fetchFolder(id));
+    // router.replace({ name: 'EcmAlbumSharedDetail', params: { idFolder: id } }).then(() => fetchFolder(id));
+    router.replace({ name: 'EcmAlbumSharedDetail', params: { idFolder: id } }).then();
 }
 
 function rollbackPage() {
@@ -315,6 +319,7 @@ function rollbackPage() {
 
 // ---------- watch route params changes ----------
 watch(() => route.params.idFolder, (newId, oldId) => {
+    console.log('watch(() => route.params.idFolder albumshare.vu')
     // Chỉ fetch lại data khi idFolder thay đổi
     if (newId !== oldId) {
         handleUpdateData();
@@ -323,6 +328,7 @@ watch(() => route.params.idFolder, (newId, oldId) => {
 
 // Watch route name để reset pageList khi về root
 watch(() => route.name, (newName, oldName) => {
+    console.log('watch(() => route.name sharealbum.vu')
     // Chỉ reset pageList khi thực sự navigate về root từ một route khác
     if (newName === 'AlbumShared' && oldName && oldName !== 'AlbumShared') {
         pageList.value = [];
@@ -332,6 +338,7 @@ watch(() => route.name, (newName, oldName) => {
 
 // ---------- lifecycle ----------
 onMounted(() => {
+    console.log('onMounted albumshare.vu')
     handleUpdateData();
 });
 </script>
